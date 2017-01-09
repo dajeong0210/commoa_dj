@@ -40,11 +40,11 @@ class ApplyController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-
+            'user_email' => 'unique:applies',
         ]);
 
         if($validator->fails()){
-            return redirect('community/create')
+            return redirect('apply/create')
                         ->withErrors($validator)
                         ->withInput();
         }

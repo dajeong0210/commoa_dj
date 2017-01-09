@@ -9,7 +9,7 @@
                 <h2>계정 정보 입력</h2>
                 <div class="form-group">
                     <label for="user_email">이메일(아이디)</label>
-                    <input type="email" name="user_email" class="input user_email" value="{{ Auth::user()->email }}"/>
+                    <input type="email" name="user_email" class="input user_email" value="{{ Auth::user()->email }}" readonly/>
                 </div>
             </div>
             <div class="shop-group group">
