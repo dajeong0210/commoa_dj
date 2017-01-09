@@ -7,6 +7,10 @@
 
 require('./bootstrap');
 
+require('./additional-methods');
+require('./jquery.validate');
+require('./messages_ko.min');
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the body of the page. From here, you may begin adding components to
@@ -18,3 +22,4 @@ Vue.component('example', require('./components/Example.vue'));
 const app = new Vue({
     el: '#app'
 });
+ 
