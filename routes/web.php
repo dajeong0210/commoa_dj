@@ -18,26 +18,16 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
-Route::resource('/product', 'ProductController', ['only' => [
-    'index', 'show'
-]]);
-Route::resource('/shop', 'ShopController', ['only' => [
-    'index', 'show'
-]]);
+Route::resource('/shop', 'ShopController');
+Route::resource('/product', 'ProductController');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('/apply', 'ApplyController');
     Route::resource('/bookmark', 'BookmarkController');
     Route::resource('/favorite', 'FavoriteController');
     Route::resource('/info', 'InfoController');
-    Route::resource('/shop', 'ShopController', ['except' => [
-        'index', 'show'
-    ]]);
-    Route::resource('/product', 'ProductController', ['except' => [
-        'index', 'show'
-    ]]);
+    Route::get('/shop/create', 'ShopController@create');
+    Route::get('/shop/{s_id}/edit', 'ShopController@edit');
+    Route::get('/product/create', 'ProductController@create');
+    Route::get('/product/{p_id}/edit', 'ProductController@edit');
 });
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index');
