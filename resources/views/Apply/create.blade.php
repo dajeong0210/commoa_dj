@@ -4,11 +4,12 @@
     <div class="page shop-apply">
         <h1>입점 신청 페이지</h1>
         <form class="ShopApply" method="POST" action="{{ url('/apply') }}">
+        {{ csrf_field() }}
             <div class="user-group group">
                 <h2>계정 정보 입력</h2>
                 <div class="form-group">
                     <label for="user_email">이메일(아이디)</label>
-                    <input type="email" name="user_email" class="input user_email" value="{{ Auth::user()->email }}" disabled/>
+                    <input type="email" name="user_email" class="input user_email" value="{{ Auth::user()->email }}"/>
                 </div>
             </div>
             <div class="shop-group group">
