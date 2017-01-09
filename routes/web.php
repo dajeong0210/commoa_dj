@@ -37,3 +37,7 @@ Route::group(['middleware' => 'auth'], function () {
         'index', 'show'
     ]]);
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
