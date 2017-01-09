@@ -41,8 +41,8 @@
         h1, h2{
             font-size:16px;
         }
-        label:not(.agree){
-            width:100%;
+        label.agree{
+            width:90%;
         }
         input:not(.agree){
             width:100%;
@@ -66,6 +66,9 @@
                     float:left;
                     width:45%;
                     margin-right:5%;
+                    @include respond-to('small') {
+                        width:90%;
+                    }
                 }
                 
                 &.agree{
