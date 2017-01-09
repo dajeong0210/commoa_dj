@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,6 +14,7 @@
     <link href="/css/app.css" rel="stylesheet">
 
     <!-- Scripts -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
@@ -83,5 +84,6 @@
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
+    <script type="text/javascript" src="/js/script.js"></script>
 </body>
 </html>

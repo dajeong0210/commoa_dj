@@ -1,0 +1,17 @@
+
+/// CSS
+    div.warning{
+        font-size:11.5px;
+        font-weight:bold;
+        margin:10px;
+        width:125px;
+        height:30px;
+        padding:5px;
+        color:indianred;
+        border:1px solid indianred;
+        display:none;
+        &.agree{
+            width:150px;
+            
+        }
+    }
