@@ -3,7 +3,7 @@
 @section('content')
     <div class="page shop-apply">
         <h1>입점 신청 페이지</h1>
-        <form class="ShopApply" method="POST">
+        <form class="ShopApply" method="POST" action="{{ url('/apply') }}">
         {{ csrf_field() }}
             <div class="user-group group">
                 <h2>계정 정보 입력</h2>
