@@ -7,9 +7,6 @@
 
 require('./bootstrap');
 
-require('./additional-methods');
-require('./jquery.validate');
-require('./messages_ko.min');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

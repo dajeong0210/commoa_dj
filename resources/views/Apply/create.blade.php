@@ -7,7 +7,7 @@
         {{ csrf_field() }}
             <div class="user-group group">
                 <h2>계정 정보 입력</h2>
-                <div class="form-group{{ $errors->has('user_email') ? 'has-error' : '' }}">
+                <div class="form-group {{ $errors->has('user_email') ? 'warning' : '' }}">
                     <label for="user_email">이메일(아이디)</label>
                     <input type="email" name="user_email" class="input user_email" value="{{ Auth::user()->email }}" readonly/>
                 @if( $errors->has('user_email') )
@@ -77,26 +77,40 @@
                 </div>
             </div>
             <div class="notice-group group">
-                <h2>서비스 이용약관</h2>
-                <div class="notice notice_01">
-                </div>
-                <div class="form-group agree">
-                    <label for="agree_01" class="agree">서비스 이용약관에 동의합니다</label>
-                    <input type="checkbox" name="agree_01" class="agree" required/>
-                </div>
-                <h2>개인정보취급방침</h2>
-                <div class="notice notice_02">
-                </div>
-                <div class="form-group agree">
-                    <label for="agree_02" class="agree">개인정보 취급방침에 동의합니다</label>
-                    <input type="checkbox" name="agree_02" class="agree"  required/> 
-                </div>
-                <h2>컴모아 입점 정책</h2>
-                <div class="notice notice_01">
-                </div>
-                <h2>컴모아 입점 심사 기준</h2>
-                <div class="notice notice_01">
-                </div>
+                <ul>
+                    <li>
+                        <h2>서비스 이용약관<a href="#" onclick="return false;">∨</a></h2>     
+                    </li>
+                        <div class="slide">
+                            <div class="notice notice_01"></div>
+                            <div class="form-group agree">
+                                <label for="agree_01" class="agree">서비스 이용약관에 동의합니다</label>
+                                <input type="checkbox" name="agree_01" class="agree" required/>
+                            </div>
+                        </div>
+                    <li>
+                        <h2>개인정보취급방침<a href="#" onclick="return false;">∨</a></h2> 
+                    </li>
+                        <div class="slide">     
+                            <div class="notice notice_02"></div>
+                            <div class="form-group agree">
+                                <label for="agree_02" class="agree">개인정보 취급방침에 동의합니다</label>
+                                <input type="checkbox" name="agree_02" class="agree" required/> 
+                            </div>
+                        </div>
+                    <li>
+                        <h2>컴모아 입점 정책<a href="#" onclick="return false;">∨</a></h2>
+                    </li>
+                        <div class="slide">
+                            <div class="notice policy"></div>
+                        </div>
+                    <li>
+                        <h2>컴모아 입점 심사 기준<a href="#" onclick="return false;">∨</a></h2>
+                    </li>
+                        <div class="slide">
+                            <div class="notice policy"></div>
+                        </div>
+                </ul>
             </div>
             <div class="form-group">
                 <input type="submit" value="신청하기" class="submit"/>
