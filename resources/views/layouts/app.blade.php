@@ -11,6 +11,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
+    <link href="/css/normalize.css" rel="stylesheet">
     <link href="/css/app.css" rel="stylesheet">
 
     <!-- Scripts -->

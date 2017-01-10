@@ -89,29 +89,81 @@ div.page.shop-apply div.group {
   clear: both;
 }
 
-div.page.shop-apply div.group div.form-group {
+div.page.shop-apply div.group div.form-group:not(.agree) {
   margin: 10px 0;
 }
 
-div.page.shop-apply div.group div.form-group.half-layout {
+div.page.shop-apply div.group div.form-group:not(.agree):not(.half-layout) {
+  width: 95%;
+}
+
+div.page.shop-apply div.group div.form-group:not(.agree).half-layout {
   float: left;
   width: 45%;
   margin-right: 5%;
 }
 
 @media (max-width: 800px) {
-  div.page.shop-apply div.group div.form-group.half-layout {
-    width: 90%;
+  div.page.shop-apply div.group div.form-group:not(.agree).half-layout {
+    width: 95%;
   }
 }
 
-div.page.shop-apply div.group div.form-group.agree {
+div.page.shop-apply div.group.notice-group {
+  clear: both;
+  margin: 20px 0;
+}
+
+div.page.shop-apply div.group.notice-group li {
+  border: 1px solid #ddd;
+  height: 50px;
+  margin-top: -1px;
+  border-collapse: collapse;
+}
+
+div.page.shop-apply div.group.notice-group li h2 {
+  width: 100%;
+  height: 100%;
+  line-height: 50px;
+  text-indent: 20px;
+  margin: 0;
+}
+
+div.page.shop-apply div.group.notice-group div.slide {
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+div.page.shop-apply div.group.notice-group div.slide.fadein {
+  height: 130px;
+}
+
+div.page.shop-apply div.group.notice-group div.slide div.form-group {
+  width: 200px;
+  float: right;
+}
+
+div.page.shop-apply div.group.notice-group div.slide div.form-group.agree {
   text-align: right;
 }
 
-div.page.shop-apply div.group div.form-group.agree input {
+div.page.shop-apply div.group.notice-group div.slide div.form-group.agree input {
   position: relative;
   top: 2px;
+}
+
+div.page.shop-apply div.group.notice-group div.slide div.notice {
+  margin: -1px 0;
+  width: 100%;
+  border: 1px solid #ddd;
+  height: 100px;
+  overflow-y: scroll;
+}
+
+div.page.shop-apply div.group.notice-group div.slide div.notice.policy {
+  height: 131px;
 }
 
 form.ShopApply label.error, label.error {
@@ -128,6 +180,8 @@ form.ShopApply label.error, label.error {
 
 form.ShopApply label.error.agree, label.error.agree {
   width: 150px;
+  position: relative;
+  top: -50px;
 }
 
 /*!
