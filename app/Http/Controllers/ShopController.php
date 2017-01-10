@@ -14,7 +14,8 @@ class ShopController extends Controller
      */
     public function index()
     {
-        $shops = Shop::orderBy('id', 'desc')->paginate(20);
+        $shops = Shop::orderBy('id', 'asc')->paginate(20);
+        //Auth::user()->shops()->get();
         
         return view('shop.index')->with('shops', $shops);
     }
