@@ -44,17 +44,22 @@
         label.agree{
             width:90%;
         }
-        input:not(.agree){
-            width:100%;
-            height:40px;
-            border-radius:5px;
-            border:1px solid #ddd;
-            padding:8px 10px;
-        }
-        input[type="submit"]{
-            background:#fff;
-            &:hover{
-                background:lightgreen;
+        input{
+            &.user_email{
+                background:#eee;
+            }
+            &:not(.agree){
+                width:100%;
+                height:40px;
+                border-radius:5px;
+                border:1px solid #ddd;
+                padding:8px 10px;
+            }
+            &[type="submit"]{
+                background:#fff;
+                    &:hover{
+                        background:lightgreen;
+                    }
             }
         }
         div.group{
