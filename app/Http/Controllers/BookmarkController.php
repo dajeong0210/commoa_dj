@@ -35,17 +35,19 @@ class BookmarkController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($shop_id, Request $request)
     {
         $bookmark = $request->bookmark;
-        $shop_id = $request->shop_id;
+        //$shop_id = $request->shop_id;
         $shop = Shop::find($shop_id);
 
-        if($bookmark == 'active') {
+        if($bookmark == TRUE ) {
             $shop->users()->detach( Auth::user()->id );
         } else {
             $shop->users()->attach( Auth::user()->id );
         }
+
+        echo $shop_id;
     }
 
     /**
