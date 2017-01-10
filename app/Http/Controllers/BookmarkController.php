@@ -41,7 +41,7 @@ class BookmarkController extends Controller
         $shop_id = $request->shop_id;
         $shop = Shop::find($shop_id);
 
-        if($bookmark == 'active') {
+        if($bookmark == 'true') {
             $shop->users()->detach( Auth::user()->id );
         } else {
             $shop->users()->attach( Auth::user()->id );
