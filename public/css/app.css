@@ -64,6 +64,10 @@ div.page.shop-apply label.agree {
   width: 90%;
 }
 
+div.page.shop-apply input.user_email {
+  background: #eee;
+}
+
 div.page.shop-apply input:not(.agree) {
   width: 100%;
   height: 40px;

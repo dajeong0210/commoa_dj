@@ -3,13 +3,16 @@
 @section('content')
     <div class="page shop-apply">
         <h1>입점 신청 페이지</h1>
-        <form class="ShopApply" method="POST">
+        <form class="ShopApply" method="POST" action="{{ url('/apply') }}">
         {{ csrf_field() }}
             <div class="user-group group">
                 <h2>계정 정보 입력</h2>
-                <div class="form-group">
+                <div class="form-group{{ $errors->has('user_email') ? 'has-error' : '' }}">
                     <label for="user_email">이메일(아이디)</label>
-                    <input type="email" name="user_email" class="input user_email {{ $errors->has('user_email') ? 'has-error' : '' }}" value="{{ Auth::user()->email }}" readonly/>
+                    <input type="email" name="user_email" class="input user_email" value="{{ Auth::user()->email }}" readonly/>
+                @if( $errors->has('user_email') )
+                    <label class="error">이미 등록된 이메일입니다!</label>
+                @endif
                 </div>
             </div>
             <div class="shop-group group">
@@ -47,11 +50,11 @@
                 </div>
                 <div class="form-group half-layout">
                     <label for="business_docu">사업자등록증</label>
-                    <input type="file" name="business_docu" class="input business_docu required" value="{{ old('business_docu') }}"/>
+                    <input type="file" name="business_docu" class="input business_docu required"/>
                 </div>
                 <div class="form-group half-layout">
                     <label for="sale_docu">통신판매업증</label>
-                    <input type="file" name="sale_docu" class="input sale_docu required" value="{{ old('sale_docu') }}"/>
+                    <input type="file" name="sale_docu" class="input sale_docu required"/>
                 </div>
             </div>
             <div class="contact-group group">
