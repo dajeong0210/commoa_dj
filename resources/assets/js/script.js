@@ -7,15 +7,14 @@ $('div.notice-group a').on('click',function(){
     $(this).parent().parent().next().toggleClass('fadein');
 });
 
+//fav Ajax
 $("a.fav").on('click',function() {
-    $(this).toggleClass('active');
     bookmark( $(this) );
 });
 
 function bookmark(target) {
-    var bookmark = target.hasClass('active');
     var shop_id = target.parent().parent().find('td:first-child').html();
-    var formData = { bookmark : bookmark, shop_id : shop_id};
+    var formData = { shop_id : shop_id};
     
     $.ajaxSetup({
         headers: {
@@ -29,6 +28,12 @@ function bookmark(target) {
         data: formData,
         success: function(data){
             console.log(data);
+            target.toggleClass('active');
+            if(data == 0){
+                target.html('Like');
+            }else{
+                target.html('unLike');
+            }
         },
         error: function(responseData, textStatus){
             console.log(textStatus);

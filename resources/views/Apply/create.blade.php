@@ -26,6 +26,7 @@
                     <input type="text" name="shop_url" class="input shop_url required" value="{{ old('shop_url') }}"/>
                 </div>
             </div>
+        
             <div class="business-group group">
                 <h2>사업자 정보 입력</h2>
                 <div class="form-group half-layout">
@@ -38,7 +39,7 @@
                 </div>
                 <div class="form-group">
                     <label for="business_address">사업장주소</label>
-                    <input type="address" name="business_address" class="input business_address required" value="{{ old('business_address') }}"/>
+                    <input type="text" name="business_address" class="input business_address required" value="{{ old('business_address') }}"/>
                 </div>
                 <div class="form-group half-layout">
                     <label for="business_no">사업자등록번호</label>

@@ -18,6 +18,7 @@ class CreateCpusTable extends Migration
             $table->string('name');
             $table->string('brand');
             $table->tinyInteger('cores')->unsigned();
+            $table->tinyInteger('level');
             $table->timestamps();
         });
     }

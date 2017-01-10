@@ -40,17 +40,10 @@ class BookmarkController extends Controller
      */
     public function store($shop_id, Request $request)
     {
-        $bookmark = $request->bookmark;
-        //$shop_id = $request->shop_id;`
         $shop = Shop::find($shop_id);
+        $shop->users()->toggle( Auth::user()->id );
 
-        if( $bookmark == TRUE ) {
-            $shop->users()->detach( Auth::user()->id );
-        } else {
-            $shop->users()->attach( Auth::user()->id );
-        }
-
-        echo $bookmark;
+        echo $shop->users()->get()->where('id', Auth::user()->id)->count();
     }
 
     /**

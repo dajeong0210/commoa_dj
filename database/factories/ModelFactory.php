@@ -42,6 +42,7 @@ $factory->define(App\Cpu::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'brand' => $faker->company,
+        'level' => $faker->randomElement($array = array (1, 2, 3)),
         'cores' => $faker->randomElement($array = array (1, 2, 3, 4, 6, 8, 10, 12, 14, 16, 18)),
     ];
 });
@@ -50,6 +51,7 @@ $factory->define(App\Vga::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'brand' => $faker->company,
+        'level' => $faker->randomElement($array = array (1, 2, 3)),
     ];
 });
 
