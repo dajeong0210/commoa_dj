@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Shop;
+use App\User;
 
 class BookmarkController extends Controller
 {
@@ -35,17 +38,19 @@ class BookmarkController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($shop_id, Request $request)
     {
         $bookmark = $request->bookmark;
-        $shop_id = $request->shop_id;
+        //$shop_id = $request->shop_id;`
         $shop = Shop::find($shop_id);
 
-        if($bookmark == 'true') {
+        if( $bookmark == TRUE ) {
             $shop->users()->detach( Auth::user()->id );
         } else {
             $shop->users()->attach( Auth::user()->id );
         }
+
+        echo $bookmark;
     }
 
     /**
