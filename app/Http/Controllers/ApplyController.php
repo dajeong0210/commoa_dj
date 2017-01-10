@@ -66,7 +66,7 @@ class ApplyController extends Controller
         $apply->contact_phone = $request->input('contact_phone');
         $apply->save();
 
-        return redirect('main');
+        return redirect('/home');
     }
 
     /**

@@ -13,7 +13,10 @@ class BookmarkController extends Controller
      */
     public function index()
     {
-        //
+        $user = User::find( Auth::user()->id );
+        $bookmarks = $user->shops()->get();
+
+        return view('bookmark.index')->with('bookmarks', $bookmarks);
     }
 
     /**
@@ -32,11 +35,17 @@ class BookmarkController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $shop_id)
+    public function store(Request $request)
     {
-        // $bookmark = $request->bookmark;
-        // $shop = Shop::find($shop_id);
+        $bookmark = $request->bookmark;
+        $shop_id = $request->shop_id;
+        $shop = Shop::find($shop_id);
 
+        if($bookmark == 'active') {
+            $shop->users()->detach( Auth::user()->id );
+        } else {
+            $shop->users()->attach( Auth::user()->id );
+        }
     }
 
     /**
