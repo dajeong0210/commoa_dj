@@ -28,7 +28,7 @@ class CreateAppliesTable extends Migration
             $table->string('contact_name');
             $table->string('contact_email');
             $table->string('contact_mobile');
-            $table->string('contact_phone');
+            $table->string('contact_phone')->nullable();
             $table->timestamps();
         });
     }
