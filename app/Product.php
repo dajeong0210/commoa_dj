@@ -29,6 +29,6 @@ class Product extends Model
     //like
     public function users()
     {
-        return $this->belonsToMany('App\User', 'pivot_product_user')->withTimestamps();
+        return $this->belongsToMany('App\User', 'pivot_product_user')->withTimestamps();
     }
 }

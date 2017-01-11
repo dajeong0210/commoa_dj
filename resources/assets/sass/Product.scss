@@ -36,25 +36,54 @@ div.page.product{
         }
     }
     div.detail-box{
+        width:100%;
         a.prod-title{
             color:#222;
             font-size:15px;
             font-weight:bold;
             letter-spacing:-0.5px;
         }
+        a.category{
+            font-size:10px;
+            font-weight:bold;
+            padding:3px 7px;
+            margin:0.5px;
+            color:#fff;
+            border-radius:5px;
+            &_1{
+               background:indianred; 
+            }
+            &_2{
+                background:yellowgreen;
+            }
+            &_3{
+                background:cornflowerblue;
+            }
+            &_4{
+                background:lightpink;
+            }
+            &_5{
+                background:rebeccapurple;
+            }
+        }
         p{
             display:block;
-            width:100%;
+            width:2300/24%;
             margin:0;
-            padding:0;
-            height:40px;
-            line-height:40px;
-            text-indent:10px;
-            border-top:1px solid #eee;
-            //일정글자수이상 ...처리
-            text-overflow:ellipsis;
-            overflow:hidden;
-            white-space:nowrap;
+            padding:0 10px;
+            &:not(.prod_category){
+                height:40px;
+                line-height:40px;
+                border-top:1px solid #eee;
+                //일정글자수이상 ...처리
+                text-overflow:ellipsis;
+                overflow:hidden;
+                white-space:nowrap;
+            }
+            &.prod_category{
+                height:80px;
+                line-height:1.5;
+            }
             &.prod-shop{
                 color:#666;
                 font-size:11px;
@@ -63,6 +92,21 @@ div.page.product{
                 color:dodgerblue;
                 font-size:14px;
                 font-weight:bold;
+                display:block;
+                span{
+                    float:right;
+                    height:100%;
+                    padding-left:10px;
+                    border-left:1px solid #eee;
+                    i{
+                        &.fa-heart{
+                            color:hotpink;
+                        }
+                        &.fa-heart-o{
+                            color:#ccc;
+                        }
+                    }
+                }
             }  
         } 
     }
