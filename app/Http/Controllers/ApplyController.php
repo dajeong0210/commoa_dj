@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Apply;
@@ -41,6 +42,7 @@ class ApplyController extends Controller
     {
         $apply = new Apply;
         $validator = Validator::make($request->all(), [
+            //'user_mail'에 unique 추가하기 
             'user_email' => 'email',
             'shop_name' => 'required',
             'shop_url' => 'required',
@@ -87,7 +89,7 @@ class ApplyController extends Controller
             $apply->contact_phone = NULL;
         } else {
             $apply->contact_phone = $request->input('contact_phone');
-        }
+        }        
         
         $apply->save();
 
