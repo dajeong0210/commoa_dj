@@ -21,9 +21,9 @@ class Product extends Model
         return $this->belongsTo('App\Vga');
     }
 
-    public function category()
+    public function categories()
     {
-        return $this->belongsTo('App\Category');
+        return $this->belongsToMany('App\Category', 'pivot_category_product')->withTimestamps();
     }
 
     //like

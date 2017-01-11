@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Apply;
@@ -92,6 +93,12 @@ class ApplyController extends Controller
         }        
         
         $apply->save();
+
+        // $path = $request->input('sale_docu')->store('images', 'local');
+        // $image = $request->file('business_docu');
+        // $filename = time() . '.' . $image->getClientOriginalExtension();
+        // $path = storage_path('app/', $filename);
+        // Image::make($image->getReatPath())->resize(200,200)->save('local');
 
         return redirect('/home');
     }

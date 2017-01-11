@@ -34,8 +34,6 @@ class CreateProductsTable extends Migration
             $table->foreign('cpu_id')->references('id')->on('cpus');
             $table->integer('vga_id')->unsigned();
             $table->foreign('vga_id')->references('id')->on('vgas');
-            $table->integer('category_id')->unsigned();
-            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 
