@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.layout')
 
 @section('content')
 <div class="container">
@@ -24,9 +24,9 @@
                                     <td>{{ $shop->url }}</td>
                                     <td>
                                         @if( $shop->users()->get()->where('id', Auth::user()->id)->count() == 0 )
-                                            <a href="#" class="fav" onclick="return false;">Like</a>
+                                            <a href="#" class="bookmark" onclick="return false;">Like</a>
                                         @else
-                                            <a href="#" class="fav active" onclick="return false;">unLike</a>
+                                            <a href="#" class="bookmark active" onclick="return false;">unLike</a>
                                         @endif
                                     </ul>
                                     </td>

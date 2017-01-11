@@ -29,13 +29,17 @@
     });
 
     //fav Ajax
-    $("a.fav").on('click',function() {
-        bookmark( $(this) );
+    $("a.bookmark").on('click',function() {
+        bookmark( $(this), 'bookmark' , 'shop_id' );
     });
 
-    function bookmark(target) {
-        var shop_id = target.parent().parent().find('td:first-child').html();
-        var formData = { shop_id : shop_id};
+    $("a.fav").on('click',function() {
+        bookmark( $(this), 'favorite' , 'product_id' );
+    });
+
+    function bookmark(aTarget, route , urlTarget) {
+        var val = aTarget.parent().next().html();
+        var formData = { urlTarget : val};
         
         $.ajaxSetup({
             headers: {
@@ -44,22 +48,20 @@
         });
 
         $.ajax({
-            url: "bookmark/"+shop_id,
+            url: route+"/"+val,
             type: "POST",
             data: formData,
             success: function(data){
                 console.log(data);
-                target.toggleClass('active');
-                if(data == 0){
-                    target.html('Like');
-                }else{
-                    target.html('unLike');
-                }
+                aTarget.find('i').toggleClass('hidden');
+                // if(data == 0){
+                //     target.find('i').toggleClass('hidden');
+                // }else{
+                //     target.html('unLike');
+                // }
             },
             error: function(responseData, textStatus){
                 console.log(textStatus);
             }
         });
     }
-
-//dafaff
