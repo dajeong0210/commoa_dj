@@ -32,6 +32,8 @@
             }
             &[type="submit"]{
                 background:#fff;
+                height:50px;
+                border-radius:0px;
                 &:hover{
                     background:lightgreen;
                 }

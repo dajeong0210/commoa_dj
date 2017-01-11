@@ -1,4 +1,4 @@
-@extends('layouts.nav')
+@extends('layouts.layout')
 
 @section('content')
     <div class="page shop-apply">

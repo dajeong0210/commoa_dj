@@ -6,7 +6,7 @@
 nav.nav-bar {
   width: 100%;
   height: 60px;
-  background: #222;
+  background: #282828;
 }
 
 nav.nav-bar h1.logo {
@@ -58,9 +58,9 @@ nav.nav-bar a.menu_btn:hover, nav.nav-bar a.menu_btn:active {
 }
 
 nav.nav-bar ul.nav-group {
-  width: 180px;
+  width: 350px;
   position: absolute;
-  right: 10%;
+  right: 8%;
 }
 
 @media (max-width: 800px) {
@@ -69,13 +69,14 @@ nav.nav-bar ul.nav-group {
     width: 100%;
     top: 60px;
     right: 0;
-    border: 1px solid #222;
+    border: 1px solid #282828;
     background: rgba(0, 0, 0, 0.8);
   }
 }
 
 nav.nav-bar ul.nav-group > li {
   padding: 15px 10px;
+  margin: 0 15px;
   line-height: 30px;
   font-size: 12px;
   float: left;
@@ -84,7 +85,7 @@ nav.nav-bar ul.nav-group > li {
 
 @media (max-width: 800px) {
   nav.nav-bar ul.nav-group > li {
-    padding: 20px 30px;
+    padding: 20px 0;
     clear: both;
     width: 100%;
   }
@@ -99,7 +100,7 @@ nav.nav-bar ul.nav-group > li a i {
 }
 
 nav.nav-bar ul.nav-group > li a.current {
-  color: mediumspringgreen;
+  color: #2bde73;
   font-weight: bold;
 }
 
@@ -130,6 +131,7 @@ nav.nav-bar ul.nav-group > li div.sub_menu li {
   height: 25px;
   line-height: 25px;
   padding: 0;
+  margin: 0;
   clear: both;
 }
 
@@ -155,44 +157,164 @@ nav.nav-bar ul.nav-group > li div.sub_menu li a {
   }
 }
 
-div.page {
-  width: 80%;
+div.footer {
+  clear: both;
+  width: 100%;
+  border-top: 1px solid #ddd;
+}
+
+div.footer div.wrap-footer {
+  width: 60%;
+  min-width: 800px;
+  margin: 0 auto;
+}
+
+div.footer div.wrap-footer div {
+  float: left;
+  width: 21%;
+  padding: 2%;
+}
+
+div.footer div.wrap-footer div img {
+  width: 90px;
+}
+
+div.footer div.wrap-footer div h2 {
+  font-size: 16px;
+  letter-spacing: 3px;
+  margin: 40px 0;
+}
+
+div.footer div.wrap-footer div p {
+  font-size: 12px;
+  line-height: 1.0;
+  letter-spacing: -0.7px;
+  color: #aaa;
+}
+
+div.footer div.wrap-footer div a {
+  color: #aaa;
+}
+
+div.footer div.wrap-footer div a.contact_mail {
+  color: #2bde73;
+}
+
+div.footer div.wrap-footer div:first-child p {
+  color: #2bde73;
+  font-weight: bold;
+}
+
+@media (max-width: 800px) {
+  div.footer div.wrap-footer div {
+    width: 42%;
+  }
+  div.footer div.wrap-footer div.site-link {
+    display: none;
+  }
+}
+
+@media (max-width: 800px) {
+  div.footer div.wrap-footer {
+    width: 100%;
+    min-width: initial;
+  }
+}
+
+div.footer div.wrap-footer em {
+  display: inline-block;
+  width: 100%;
+  margin: 30px 0;
+  height: 50px;
+  line-height: 50px;
+  clear: both;
+  font-size: 11px;
+  font-style: normal;
+  color: #666;
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+  div.footer div.wrap-footer em {
+    margin: 0;
+  }
+}
+
+div.page.product {
+  width: 60%;
+  min-width: 800px;
   margin: 20px auto;
 }
 
-div.page ul.product-list {
+@media (max-width: 800px) {
+  div.page.product {
+    width: 90%;
+    min-width: initial;
+  }
+}
+
+div.page.product ul.product-list {
+  width: 100%;
   height: 300px;
 }
 
-div.page ul.product-list li {
+div.page.product ul.product-list li {
+  width: 23%;
   list-style: none;
   float: left;
-  margin: 2%;
+  margin: 20px 1%;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 3px #ddd;
+  box-sizing: border-box;
 }
 
-div.page div.img-box {
-  width: 240px;
-  height: 240px;
+@media (max-width: 800px) {
+  div.page.product ul.product-list li {
+    width: 48%;
+  }
+}
+
+div.page.product div.img-box {
+  width: 100%;
   background: #fff;
-  border: 1px solid #eee;
   overflow: hidden;
 }
 
-div.page div.img-box img {
+div.page.product div.img-box img {
   width: 100%;
   height: auto;
 }
 
-div.page div.detail-box table td {
-  width: 100px;
-  font-size: 12px;
+div.page.product div.detail-box a.prod-title {
+  color: #222;
+  font-size: 15px;
   font-weight: bold;
+  letter-spacing: -0.5px;
 }
 
-div.page p.prod-price {
-  font-size: 20px;
+div.page.product div.detail-box p {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 40px;
+  line-height: 40px;
+  text-indent: 10px;
+  border-top: 1px solid #eee;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+div.page.product div.detail-box p.prod-shop {
+  color: #666;
+  font-size: 11px;
+}
+
+div.page.product div.detail-box p.prod-price {
+  color: dodgerblue;
+  font-size: 14px;
   font-weight: bold;
-  text-align: left;
 }
 
 div.page.shop-apply {
@@ -235,6 +357,8 @@ div.page.shop-apply input:not(.agree) {
 
 div.page.shop-apply input[type="submit"] {
   background: #fff;
+  height: 50px;
+  border-radius: 0px;
 }
 
 div.page.shop-apply input[type="submit"]:hover {

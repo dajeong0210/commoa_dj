@@ -28,7 +28,7 @@
         <nav class="nav-bar">
             <h1 class="logo">
                 <a href="{{ url('/') }}">
-                    <img src="../image/commoa_logo.png" alt="logo"/>
+                    <img src="../image/commoa_logo.png" alt="컴모아"/>
                 </a>
             </h1>
             <a href="#" class="menu_btn">
@@ -39,14 +39,18 @@
                     <a href="#">카테1</a>
                 </li>
                 <li>
-                    <a href="#" class="current">카테2</a>
+                    <a href="#">카테2</a>
                 </li>
+                @if( Auth::guest() )
+                    <li><a href="{{ url('/login') }}">로그인</a></li>
+                    <li><a href="{{ url('/register') }}">회원가입</a></li>
+                @else
                 <li>
                     <a href="#" class="mypage"> {{ Auth::user()->name }} ▼ </a>
                     <div class="sub_menu hidden">
                         <ul>
                             <li><a href="#">마이페이지</a></li>
-                            @if( Auth::user()->permission == 0 )
+                            @if( Auth::user()->permission == 2 )
                             <li><a href="#">관리자페이지</a></li>
                             @endif
                             <li>
@@ -62,12 +66,45 @@
                         </ul>
                     </div>
                 </li>
+                @endif
             </ul>
             
         </nav>
         @yield('content')
+    
+        <div class="footer">
+            <div class="wrap-footer">
+                <div>
+                    <h2 class="logo">
+                        <img src="../image/commoa_logo_inverted.png" alt="컴모아">
+                    </h2>
+                    <p>국내 조립 컴퓨터들 다모여</p>
+                </div>
+                <div>
+                    <h2>CONTACT</h2>
+                    <p>Email : <a href="#" class="contact_mail">ivly@platformstory.com</a></p>
+                    <p>문의사항은 메일 부탁드립니다.</p>
+                </div>
+                <div class="site-link">
+                    <h2>SITE LINK</h2>
+                    <p><a href="#">www</a></p>
+                    <p><a href="#">www</a></p>
+                    <p><a href="#">www</a></p>
+                    <p><a href="#">www</a></p>
+                    <p><a href="#">www</a></p>
+                </div>
+                <div class="site-link">
+                    <h2>SITE LINK</h2>
+                    <p><a href="#">www</a></p>
+                    <p><a href="#">www</a></p>
+                    <p><a href="#">www</a></p>
+                    <p><a href="#">www</a></p>
+                    <p><a href="#">www</a></p>
+                </div>
+                <em class="footer-copy">ⓒCommoa 2017 All rights reserved</em>
+            </div>
+        </div>
     </div>
-
     <!-- Scripts -->
     <script src="/js/app.js"></script>
     <script type="text/javascript" src="/js/jquery.validate.js"></script>
