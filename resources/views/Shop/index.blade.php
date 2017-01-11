@@ -1,43 +1,42 @@
 @extends('layouts.layout')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">SHOP LIST</div>
-                <div class="panel-body">        
-                    <ul class="list-group">
-                        <table class="table table-hover" style="table-layout:fixed">
-                            <tr>
-                                <th width="40">#</td>
-                                <th>SHOP</td>
-                                <th>URL</td>
-                                <th width="100">BookMark</td>
-                            </tr>
-                            @foreach($shops as $shop)
-                                <tr>
-                                    <td style="color:red">{{ $shop->id}}</td>
-                                    <td>
-                                        {{ $shop->name }}                                
-                                    </td>
-                                    <td>{{ $shop->url }}</td>
-                                    <td>
-                                        @if( $shop->users()->get()->where('id', Auth::user()->id)->count() == 0 )
-                                            <a href="#" class="bookmark" onclick="return false;">Like</a>
-                                        @else
-                                            <a href="#" class="bookmark active" onclick="return false;">unLike</a>
-                                        @endif
-                                    </ul>
-                                    </td>
-                                </tr>                   
-                            @endforeach 
-                        </table>
-                    </ul>
-                    {{ $shops->links() }}
+    <div class="page list">
+        <ul class="list-group">
+            @foreach( $shops as $shop )
+            <li class="shop">
+                <a href="{{ $shop->url }}">
+                <div class="img-box shop">
+                    <img src="{{ $shop->image }}" alt="">
                 </div>
-            </div>
+                </a>
+                <div class="bookmark">
+                    @if( Auth::guest() )
+                    @else
+                    <span>
+                        <a href="#" class="bookmark" onclick="return false;">
+                            @if( $shop->users()->get()->where('id', Auth::user()->id)->count() == 0 )
+                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                <i class="fa fa-star hidden" aria-hidden="true"></i>
+                            @else
+                                <i class="fa fa-star-o hidden" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                            @endif
+                        </a>
+                    </span>
+                    @endif
+                    <span class="hidden">{{ $shop->id }}</span>
+                </div>
+                <div class="detail-box" id="shop">
+                    <p>
+                        <a class="prod-title" href="{{ $shop->url }}"> {{ $shop->name }} </a>
+                    </p>
+                </div>
+            </li>
+            @endforeach
+        </ul>
+        <div class="pagination">
+            {{ $shops->links() }}
         </div>
     </div>
-</div>
 @endsection

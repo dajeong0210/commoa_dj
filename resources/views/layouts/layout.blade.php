@@ -36,10 +36,10 @@
             </a>
             <ul class="nav-group hidden">
                 <li>
-                    <a href="#">카테1</a>
+                    <a href="{{ url('product/') }}">상품</a>
                 </li>
                 <li>
-                    <a href="#">카테2</a>
+                    <a href="{{ url('shop/') }}">쇼핑몰</a>
                 </li>
                 @if( Auth::guest() )
                     <li><a href="{{ url('/login') }}">로그인</a></li>
