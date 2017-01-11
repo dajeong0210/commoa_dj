@@ -39,8 +39,28 @@ class ApplyController extends Controller
      */
     public function store(Request $request)
     {
+        $apply = new Apply;
         $validator = Validator::make($request->all(), [
-            'user_email' => 'unique:applies',
+            'user_email' => 'email',
+            'shop_name' => 'required',
+            'shop_url' => 'required',
+            'business_name' => 'required',
+            'business_ceo' => 'required',
+            'business_address' => 'required',
+            'business_no' => 'required|numeric',
+            'business_sale_no' => 'required',
+            'business_docu' => 'required',
+            'sale_docu' => 'required',
+            'contact_name' => 'required',
+            'contact_email' => 'required|email',
+            'contact_mobile' => 'required|numeric',
+            'contact_phone' => 'required',
+            'agree_01' => 'accepted',
+            'agree_02' => 'accepted',
+        ]);
+
+        $validator_phone = Validator::make($request->all(), [
+            'contact_phone' => 'numeric',
         ]);
 
         if($validator->fails()){
@@ -49,7 +69,6 @@ class ApplyController extends Controller
                         ->withInput();
         }
 
-        $apply = new Apply;
         $apply->user_email = $request->input('user_email');
         $apply->shop_name = $request->input('shop_name');
         $apply->shop_url = $request->input('shop_url');
@@ -63,7 +82,13 @@ class ApplyController extends Controller
         $apply->contact_name = $request->input('contact_name');
         $apply->contact_email = $request->input('contact_email');
         $apply->contact_mobile = $request->input('contact_mobile');
-        $apply->contact_phone = $request->input('contact_phone');
+        
+        if($validator_phone->fails()){
+            $apply->contact_phone = NULL;
+        } else {
+            $apply->contact_phone = $request->input('contact_phone');
+        }
+        
         $apply->save();
 
         return redirect('/home');

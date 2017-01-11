@@ -17,6 +17,7 @@ class CreateVgasTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('brand');
+            $table->tinyInteger('level');
             $table->timestamps();
         });
     }

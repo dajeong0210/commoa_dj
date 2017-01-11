@@ -26,6 +26,7 @@
                     <input type="text" name="shop_url" class="input shop_url required" value="{{ old('shop_url') }}"/>
                 </div>
             </div>
+        
             <div class="business-group group">
                 <h2>사업자 정보 입력</h2>
                 <div class="form-group half-layout">

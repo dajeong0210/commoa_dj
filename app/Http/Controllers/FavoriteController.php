@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Product;
+use App\User;
 
 class FavoriteController extends Controller
 {
@@ -13,7 +16,10 @@ class FavoriteController extends Controller
      */
     public function index()
     {
-        //
+        $user = User::find( Auth::user()-> id );
+        $favorites = $user->products()->get();
+
+        return view('favorite.index')->with('favorites', $favorites);
     }
 
     /**
@@ -32,9 +38,12 @@ class FavoriteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($product_id, Request $request)
     {
-        //
+        $product = Product::find($product_id);
+        $product->users()->toggle( Auth::user()->id );
+
+        echo $product->users()->get()->where('id', Auth::user()->id)->count();
     }
 
     /**
