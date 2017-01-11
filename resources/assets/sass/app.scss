@@ -3,6 +3,7 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
 
 // Variables
+@import "nav";
 @import "variables";
 
 @import "Product";
@@ -10,4 +11,4 @@
 @import "Validation";
 
 // Bootstrap
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";

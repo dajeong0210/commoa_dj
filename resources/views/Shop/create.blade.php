@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.nav')
 
 @section('content')
     <div class="page shop-apply">
@@ -82,6 +82,7 @@
                 </div>
                 <h2>개인정보취급방침</h2>
                 <div class="notice notice_02">
+                    <p></p>
                 </div>
                 <div class="form-group agree">
                     <label for="agree_02" class="agree">개인정보 취급방침에 동의합니다</label>
