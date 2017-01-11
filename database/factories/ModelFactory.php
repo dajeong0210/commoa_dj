@@ -65,7 +65,6 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
     $cpu_id = App\Cpu::pluck('id')->toArray();
     $vga_id = App\Vga::pluck('id')->toArray();
     $shop_id = App\Shop::pluck('id')->toArray();
-    $category_id = App\Category::pluck('id')->toArray();
 
     return [
         'name' => $faker->name,
@@ -82,11 +81,9 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
         'cpu_id' => $faker->randomElement($cpu_id),
         'vga_id' => $faker->randomElement($vga_id),
         'shop_id' => $faker->randomElement($shop_id),
-        'category_id' => $faker->randomElement($category_id),
     ];
 });
 
-/////
 $factory->define(App\Apply::class, function (Faker\Generator $faker) {
     $user_email = App\User::pluck('email')->toArray();
 
