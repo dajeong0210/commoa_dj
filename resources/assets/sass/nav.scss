@@ -1,0 +1,149 @@
+
+/// 반응형 매니저
+/// @access public
+/// @param {String} $breakpoint - 브레이크포인트
+    $breakpoints: (
+    'small': (max-width: 800px),
+    );
+/// @requires $breakpoints
+    @mixin respond-to($breakpoint) {
+    $raw-query: map-get($breakpoints, $breakpoint);
+
+    @if $raw-query {
+        $query: if(
+        type-of($raw-query) == 'string',
+        unquote($raw-query),
+        inspect($raw-query)
+        );
+
+        @media #{$query} {
+        @content;
+        }
+    } @else {
+        @error 'No value found for `#{$breakpoint}`. '
+            + 'Please make sure it is defined in `$breakpoints` map.';
+    }
+    }
+
+/// CSS
+    .hidden{
+        display:none;
+    }
+    nav.nav-bar{
+        width:100%;
+        height:60px;
+        background:#222;
+        h1.logo{
+            position:absolute;
+            height:60px;
+            margin:0;
+            top:0;
+            left:10%;
+            @include respond-to('small') {
+                left:50%;
+                margin-left:-50px;
+            }
+            a{
+                display:block;
+                width:90px;
+                line-height:60px;
+                img{
+                    margin:0;
+                    font-size:10px;
+                    width:100%;
+                }
+            }
+        }
+        a.menu_btn{
+            position:absolute;
+            right:20px;
+            color:#fff;
+            font-size:20px;
+            padding:15px;
+            line-height:30px;
+            text-decoration:none;
+            display:none;
+            &:hover, &:active{
+                text-decoration:none;
+            }
+            @include respond-to('small') {
+                display:inline-block;
+            }
+        }
+        ul.nav-group{
+            width:180px;
+            position:absolute;
+            right:10%;
+            @include respond-to('small') {
+                clear:both;
+                width:100%;
+                top:60px;
+                right:0;
+                border:1px solid #222;
+                background:rgba(0,0,0,0.8);
+            }
+            & > li{
+                padding:15px 10px;
+                line-height:30px;
+                font-size:12px;
+                float:left;
+                position:relative;
+                @include respond-to('small') {
+                    padding:20px 30px;
+                    clear:both;
+                    width:100%;
+                }
+                a{
+                    color:#fff;
+                    i{
+                        color:#fff;
+                    }
+                    &.current{
+                        color:mediumspringgreen;
+                        font-weight:bold;
+                    }
+                }
+                div.sub_menu{
+                    width:100px;
+                    background:#fff;
+                    border:1px solid #ddd;
+                    border-radius:10px;
+                    position:absolute;
+                    top:50px;
+                    left:50%;
+                    margin-left:-50px;
+                    padding:7px 0;
+                    @include respond-to('small') {
+                        position:initial;
+                        margin-left:0;
+                        background:none;
+                        border:none;
+                        width:100%;
+                    }
+                    li{
+                        text-align:center;
+                        height:25px;
+                        line-height:25px;
+                        padding:0;
+                        clear:both;
+                        @include respond-to('small'){
+                            width:33%;
+                            clear:none;
+                            float:left;
+                            height:30px;
+                            line-height:30px;
+                        }
+                        a{
+                            font-size:12px;
+                            width:100%;
+                            color:#333;
+                            @include respond-to('small'){ 
+                                color:#fff;
+                            }
+                        }
+                    }    
+                }
+            }
+        }
+
+    }

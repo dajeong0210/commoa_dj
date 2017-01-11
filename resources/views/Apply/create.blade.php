@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.nav')
 
 @section('content')
     <div class="page shop-apply">
@@ -38,7 +38,7 @@
                 </div>
                 <div class="form-group">
                     <label for="business_address">사업장주소</label>
-                    <input type="address" name="business_address" class="input business_address required" value="{{ old('business_address') }}"/>
+                    <input type="text" name="business_address" class="input business_address required" value="{{ old('business_address') }}"/>
                 </div>
                 <div class="form-group half-layout">
                     <label for="business_no">사업자등록번호</label>
@@ -78,24 +78,26 @@
             </div>
             <div class="notice-group group">
                 <ul>
-                    <li>
-                        <h2>서비스 이용약관<a href="#" onclick="return false;">∨</a></h2>     
+                    <li class="{{ $errors->has('user_email') ? 'warning' : '' }}">
+                        <h2>서비스 이용약관<a href="#" onclick="return false;">∨</a></h2>
+                        <label class="error">약관에 동의하셔야 합니다.</label>
                     </li>
                         <div class="slide">
                             <div class="notice notice_01"></div>
                             <div class="form-group agree">
                                 <label for="agree_01" class="agree">서비스 이용약관에 동의합니다</label>
-                                <input type="checkbox" name="agree_01" class="agree" required/>
+                                <input type="checkbox" name="agree_01" class="agree"/>
                             </div>
                         </div>
-                    <li>
-                        <h2>개인정보취급방침<a href="#" onclick="return false;">∨</a></h2> 
+                    <li class="{{ $errors->has('user_email') ? 'warning' : '' }}">
+                        <h2>개인정보취급방침<a href="#" onclick="return false;">∨</a></h2>
+                        <label class="error">약관에 동의하셔야 합니다.</label> 
                     </li>
                         <div class="slide">     
                             <div class="notice notice_02"></div>
                             <div class="form-group agree">
                                 <label for="agree_02" class="agree">개인정보 취급방침에 동의합니다</label>
-                                <input type="checkbox" name="agree_02" class="agree" required/> 
+                                <input type="checkbox" name="agree_02" class="agree"/> 
                             </div>
                         </div>
                     <li>

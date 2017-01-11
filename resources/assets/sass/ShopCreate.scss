@@ -1,32 +1,5 @@
 
 
-/// 반응형 매니저
-/// @access public
-/// @param {String} $breakpoint - 브레이크포인트
-    $breakpoints: (
-    'small': (max-width: 800px),
-    );
-/// @requires $breakpoints
-    @mixin respond-to($breakpoint) {
-    $raw-query: map-get($breakpoints, $breakpoint);
-
-    @if $raw-query {
-        $query: if(
-        type-of($raw-query) == 'string',
-        unquote($raw-query),
-        inspect($raw-query)
-        );
-
-        @media #{$query} {
-        @content;
-        }
-    } @else {
-        @error 'No value found for `#{$breakpoint}`. '
-            + 'Please make sure it is defined in `$breakpoints` map.';
-    }
-    }
-
-/// CSS
     div.page.shop-apply{
         margin:30px auto 100px auto;
         padding:20px;
@@ -50,9 +23,11 @@
             }
             &:not(.agree){
                 width:100%;
-                height:40px;
+                height:30px;
                 border-radius:5px;
                 border:1px solid #ddd;
+                border-radius:10px;
+                margin:5px 0;
                 padding:8px 10px;
             }
             &[type="submit"]{
@@ -87,12 +62,29 @@
                     height:50px;
                     margin-top:-1px;
                     border-collapse:collapse;
+                    position:relative;
+                    &.warning{
+                        border:1px solid indianred;
+                    }
                     h2{
                         width:100%;
                         height:100%;
                         line-height:50px;
                         text-indent:20px;
                         margin:0;
+                        a{
+                            position:absolute;
+                            right:30px;
+                            font-size:20px;
+                            &:hover{
+                                text-decoration:none;
+                            }
+                        }
+                    }
+                    label.error{
+                        position:absolute;
+                        top:2px;
+                        left:170px;
                     }
                 }
                 div.slide{
@@ -100,7 +92,7 @@
                     overflow:hidden;
                     transition:all 0.5s;
                     &.fadein{
-                        height:130px;
+                        height:230px;
                     }
                     div.form-group{
                         width:200px;
@@ -117,10 +109,10 @@
                         margin:-1px 0;
                         width:100%;
                         border:1px solid #ddd;
-                        height:100px;
+                        height:200px;
                         overflow-y:scroll;
                         &.policy{
-                            height:131px;
+                            height:231px;
                         }
                     }
                 }
