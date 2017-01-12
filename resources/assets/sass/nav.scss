@@ -26,13 +26,15 @@
     }
 
 /// Color;
-    @mixin point-color(){
-        color:rgba(43,222,115,1.0);
-    }
+    $point-color:rgba(43,222,115,1.0);
+
 
 /// Nav Css
     .hidden{
         display:none;
+    }
+    .active{
+        color:$point-color;
     }
     nav.nav-bar{
         width:100%;
@@ -105,7 +107,7 @@
                         color:#fff;
                     }
                     &.current{
-                        @include point-color();
+                        color:$point-color;
                         font-weight:bold;
                     }
                 }
@@ -184,12 +186,12 @@
                 a{
                     color:#aaa;
                     &.contact_mail{
-                        @include point-color();
+                        color:$point-color;
                     }
                 }
                 &:first-child{
                     p{
-                        @include point-color();
+                        color:$point-color;
                         font-weight:bold;
                     }
                 }

@@ -1,5 +1,5 @@
 
-div.page.product{
+div.page.list{
     width:60%;
     min-width:800px;
     margin:20px auto;
@@ -7,7 +7,7 @@ div.page.product{
         width:90%;
         min-width:initial;
     }
-    ul.product-list{
+    ul.list-group{
         width:100%;
         height:300px;
 
@@ -22,6 +22,9 @@ div.page.product{
             @include respond-to('small'){
                 width:48%;
             }
+            &.shop{
+                text-align:center;
+            }
         }
     }
     
@@ -29,14 +32,23 @@ div.page.product{
         width:100%;
         background:#fff;
         overflow:hidden;
-        
         img{
             width:100%;
             height:auto;
         }
+        &.shop{
+            height:130px;
+        }
     }
     div.detail-box{
         width:100%;
+        &#shop{
+            position:relative;
+            top:-40px;
+            p{
+                border-top:none;
+            }
+        }
         a.prod-title{
             color:#222;
             font-size:15px;
@@ -71,6 +83,7 @@ div.page.product{
             width:2300/24%;
             margin:0;
             padding:0 10px;
+            clear:both;
             &:not(.prod_category){
                 height:40px;
                 line-height:40px;
@@ -109,5 +122,54 @@ div.page.product{
                 }
             }  
         } 
+    }
+    div.bookmark{
+        float:left;
+        position:relative;
+        top:-30px;
+        left:50%;
+        margin-left:-25px;
+        width:50px;
+        height:50px;
+        text-align:center;
+        border-radius:50px;
+        background:#fff;
+        i{
+            font-size:30px;
+            line-height:50px;
+            &.fa-star{
+                color:rgb(255, 204, 0);
+            }
+            &.fa-star-o{
+                color:#ccc;
+            }
+        }
+    }
+}
+
+div.pagination{
+    float:right;
+    position:relative;
+    left:-50%;
+    margin-bottom:80px;
+    ul.pagination{
+        position:relative;
+        left:50%;
+        padding:0;
+        margin:50px auto;
+        clear:both;
+        display:block;
+        li{
+            float:left;
+            padding:5px 10px;
+            margin:5px;
+            border:1px solid #ddd;
+            border-radius:20px;
+            font-size:11px;
+            font-weight:bold;
+            a{
+                color:#666;
+            }
+        }
     }
 }

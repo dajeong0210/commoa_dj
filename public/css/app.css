@@ -3,6 +3,10 @@
   display: none;
 }
 
+.active {
+  color: #2bde73;
+}
+
 nav.nav-bar {
   width: 100%;
   height: 60px;
@@ -240,25 +244,25 @@ div.footer div.wrap-footer em {
   }
 }
 
-div.page.product {
+div.page.list {
   width: 60%;
   min-width: 800px;
   margin: 20px auto;
 }
 
 @media (max-width: 800px) {
-  div.page.product {
+  div.page.list {
     width: 90%;
     min-width: initial;
   }
 }
 
-div.page.product ul.product-list {
+div.page.list ul.list-group {
   width: 100%;
   height: 300px;
 }
 
-div.page.product ul.product-list li {
+div.page.list ul.list-group li {
   width: 23%;
   list-style: none;
   float: left;
@@ -269,34 +273,51 @@ div.page.product ul.product-list li {
 }
 
 @media (max-width: 800px) {
-  div.page.product ul.product-list li {
+  div.page.list ul.list-group li {
     width: 48%;
   }
 }
 
-div.page.product div.img-box {
+div.page.list ul.list-group li.shop {
+  text-align: center;
+}
+
+div.page.list div.img-box {
   width: 100%;
   background: #fff;
   overflow: hidden;
 }
 
-div.page.product div.img-box img {
+div.page.list div.img-box img {
   width: 100%;
   height: auto;
 }
 
-div.page.product div.detail-box {
+div.page.list div.img-box.shop {
+  height: 130px;
+}
+
+div.page.list div.detail-box {
   width: 100%;
 }
 
-div.page.product div.detail-box a.prod-title {
+div.page.list div.detail-box#shop {
+  position: relative;
+  top: -40px;
+}
+
+div.page.list div.detail-box#shop p {
+  border-top: none;
+}
+
+div.page.list div.detail-box a.prod-title {
   color: #222;
   font-size: 15px;
   font-weight: bold;
   letter-spacing: -0.5px;
 }
 
-div.page.product div.detail-box a.category {
+div.page.list div.detail-box a.category {
   font-size: 10px;
   font-weight: bold;
   padding: 3px 7px;
@@ -305,34 +326,35 @@ div.page.product div.detail-box a.category {
   border-radius: 5px;
 }
 
-div.page.product div.detail-box a.category_1 {
+div.page.list div.detail-box a.category_1 {
   background: indianred;
 }
 
-div.page.product div.detail-box a.category_2 {
+div.page.list div.detail-box a.category_2 {
   background: yellowgreen;
 }
 
-div.page.product div.detail-box a.category_3 {
+div.page.list div.detail-box a.category_3 {
   background: cornflowerblue;
 }
 
-div.page.product div.detail-box a.category_4 {
+div.page.list div.detail-box a.category_4 {
   background: lightpink;
 }
 
-div.page.product div.detail-box a.category_5 {
+div.page.list div.detail-box a.category_5 {
   background: rebeccapurple;
 }
 
-div.page.product div.detail-box p {
+div.page.list div.detail-box p {
   display: block;
   width: 2300/24%;
   margin: 0;
   padding: 0 10px;
+  clear: both;
 }
 
-div.page.product div.detail-box p:not(.prod_category) {
+div.page.list div.detail-box p:not(.prod_category) {
   height: 40px;
   line-height: 40px;
   border-top: 1px solid #eee;
@@ -341,36 +363,92 @@ div.page.product div.detail-box p:not(.prod_category) {
   white-space: nowrap;
 }
 
-div.page.product div.detail-box p.prod_category {
+div.page.list div.detail-box p.prod_category {
   height: 80px;
   line-height: 1.5;
 }
 
-div.page.product div.detail-box p.prod-shop {
+div.page.list div.detail-box p.prod-shop {
   color: #666;
   font-size: 11px;
 }
 
-div.page.product div.detail-box p.prod-price {
+div.page.list div.detail-box p.prod-price {
   color: dodgerblue;
   font-size: 14px;
   font-weight: bold;
   display: block;
 }
 
-div.page.product div.detail-box p.prod-price span {
+div.page.list div.detail-box p.prod-price span {
   float: right;
   height: 100%;
   padding-left: 10px;
   border-left: 1px solid #eee;
 }
 
-div.page.product div.detail-box p.prod-price span i.fa-heart {
+div.page.list div.detail-box p.prod-price span i.fa-heart {
   color: hotpink;
 }
 
-div.page.product div.detail-box p.prod-price span i.fa-heart-o {
+div.page.list div.detail-box p.prod-price span i.fa-heart-o {
   color: #ccc;
+}
+
+div.page.list div.bookmark {
+  float: left;
+  position: relative;
+  top: -30px;
+  left: 50%;
+  margin-left: -25px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 50px;
+  background: #fff;
+}
+
+div.page.list div.bookmark i {
+  font-size: 30px;
+  line-height: 50px;
+}
+
+div.page.list div.bookmark i.fa-star {
+  color: #ffcc00;
+}
+
+div.page.list div.bookmark i.fa-star-o {
+  color: #ccc;
+}
+
+div.pagination {
+  float: right;
+  position: relative;
+  left: -50%;
+  margin-bottom: 80px;
+}
+
+div.pagination ul.pagination {
+  position: relative;
+  left: 50%;
+  padding: 0;
+  margin: 50px auto;
+  clear: both;
+  display: block;
+}
+
+div.pagination ul.pagination li {
+  float: left;
+  padding: 5px 10px;
+  margin: 5px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+div.pagination ul.pagination li a {
+  color: #666;
 }
 
 div.page.shop-apply {

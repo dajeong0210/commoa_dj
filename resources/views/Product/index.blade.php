@@ -1,13 +1,13 @@
 @extends('layouts.layout')
 
 @section('content')
-    <div class="page product">
-        <ul class="product-list">
+    <div class="page list">
+        <ul class="list-group">
             @foreach( $products as $product )
             <li>
                 <a href="{{ $product->url }}">
-                <div class="img-box">
-                    <img src="" alt="">
+                <div class="img-box prod">
+                    <img src="{{ $product->image }}" alt="">
                 </div>
                 </a>
                 <div class="detail-box">
@@ -20,11 +20,11 @@
                     @endforeach
                     </p>
                     <p class="prod-shop">{{ $product->shop->name }}</p>
-                    <p class="prod-price">{{ $product->price }}원
+                    <p class="prod-price">{{ number_format($product->price) }}원
                         @if( Auth::guest() )
                         @else
                         <span>
-                            <a href="#" class="fav">
+                            <a href="#" class="fav" onclick="return false;">
                                 @if( $product->users()->get()->where('id', Auth::user()->id)->count() == 0 )
                                     <i class="fa fa-heart-o" aria-hidden="true"></i>
                                     <i class="fa fa-heart hidden" aria-hidden="true"></i>
@@ -41,5 +41,8 @@
             </li>
             @endforeach
         </ul>
+        <div class="pagination">
+            {{ $products->links() }}
+        </div>
     </div>
 @endsection
