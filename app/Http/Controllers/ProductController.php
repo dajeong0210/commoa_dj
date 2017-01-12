@@ -13,9 +13,16 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($request)
     {
-        $products = Product::orderBy('id', 'desc')->paginate(12);
+        if ( $product_sort == 'popular' ) {
+            $products = Product::orderBy('views', 'desc')->paginate(12);
+        } else if ( $product_sort == 'price' ) {
+            $products = Product::orderBy('price', 'desc')->paginate(12);
+        } else {
+            $products = Product::orderBy('id', 'desc')->paginate(12);
+        }
+        
         return view('Product.index')->with('products', $products);
     }
 

@@ -26,6 +26,7 @@ class CreateProductsTable extends Migration
             $table->tinyInteger('overclock')->unsigned();
             $table->integer('power')->unsigned();
             $table->integer('monitor')->unsigned()->nullable();
+            $table->integer('views')->unsinged()->default(0);
             $table->timestamps();
 
             $table->integer('shop_id')->unsigned();

@@ -78,6 +78,7 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
         'overclock' => $faker->numberBetween(0, 1),
         'power' => $faker->randomElement($array = array (600, 700, 800, 900, 1000)),
         'monitor' => $faker->numberBetween(18, 32),
+        'views' => $faker->numberBetween(0, 1000),
         'cpu_id' => $faker->randomElement($cpu_id),
         'vga_id' => $faker->randomElement($vga_id),
         'shop_id' => $faker->randomElement($shop_id),

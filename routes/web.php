@@ -19,6 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 Route::resource('/shop', 'ShopController');
+// Route::get('/product/{product_sort}', 'ProductController@index');
 Route::resource('/product', 'ProductController');
 Route::get('/category/{category_name}', 'CategoryController@show');
 
