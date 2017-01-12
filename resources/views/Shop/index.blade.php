@@ -29,7 +29,7 @@
                 @endif
                 </div>
                 <div class="detail-box" id="shop">
-                    <a class="prod-title shop" href="{{ $shop->url }}"> {{ $shop->name }} </a>
+                    <a class="prod-title" href="{{ $shop->url }}"> {{ $shop->name }} </a>
                 </div>
             </li>
             @endforeach
