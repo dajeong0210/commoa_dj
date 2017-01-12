@@ -13,25 +13,24 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function search($request)
+    public function index(Request $request)
     {
-        if ( $request->input('product-sort') == 'all' ) {
-            $products = Product::orderBy('id', 'desc')->paginate(12);
-        } else if ( $request->input('product-sort') == 'priceBy' ) {
-            $products = Product::orderBy('price', 'desc')->paginate(12);
-        } else if ( $request->input('product-sort') == 'rankBy' ){
+        if( !$request ){
             $products = Product::orderBy('views', 'desc')->paginate(12);
-        } 
+        }else{
+            if ( $request->input('product-sort') == 'rankBy' ) {
+                $products = Product::orderBy('views', 'desc')->paginate(12);
+            } else if ( $request->input('product-sort') == 'priceBy' ) {
+                $products = Product::orderBy('price', 'desc')->paginate(12);
+            } else{
+                $products = Product::orderBy('id', 'desc')->paginate(12);
+            } 
+        };
         
         return view('Product.index')->with('products', $products);
     }
 
-    public function index()
-    {
-       
-        $products = Product::orderBy('id', 'desc')->paginate(12);
-        return view('Product.index')->with('products', $products);
-    }
+
 
     /**
      * Show the form for creating a new resource.
