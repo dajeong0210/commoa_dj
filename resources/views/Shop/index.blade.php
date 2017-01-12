@@ -10,9 +10,10 @@
                     <img src="{{ $shop->image }}" alt="">
                 </div>
                 </a>
+                @if( Auth::guest() )
+                <div class="bookmark guest">
+                @else
                 <div class="bookmark">
-                    @if( Auth::guest() )
-                    @else
                     <span>
                         <a href="#" class="bookmark" onclick="return false;">
                             @if( $shop->users()->get()->where('id', Auth::user()->id)->count() == 0 )
@@ -23,14 +24,12 @@
                                 <i class="fa fa-star" aria-hidden="true"></i>
                             @endif
                         </a>
-                    </span>
-                    @endif
+                    </span>    
                     <span class="hidden">{{ $shop->id }}</span>
+                @endif
                 </div>
                 <div class="detail-box" id="shop">
-                    <p>
-                        <a class="prod-title" href="{{ $shop->url }}"> {{ $shop->name }} </a>
-                    </p>
+                    <a class="prod-title shop" href="{{ $shop->url }}"> {{ $shop->name }} </a>
                 </div>
             </li>
             @endforeach

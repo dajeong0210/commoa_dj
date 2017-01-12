@@ -22,6 +22,9 @@ div.page.list{
             @include respond-to('small'){
                 width:48%;
             }
+            @include respond-to('too-small'){
+                width:98%;
+            }
             &.shop{
                 text-align:center;
             }
@@ -35,6 +38,7 @@ div.page.list{
         img{
             width:100%;
             height:auto;
+            border-bottom:1px solid #eee;
         }
         &.shop{
             height:130px;
@@ -42,6 +46,10 @@ div.page.list{
     }
     div.detail-box{
         width:100%;
+        //일정글자수이상 ...처리
+        text-overflow:ellipsis;
+        overflow:hidden;
+        white-space:nowrap;
         &#shop{
             position:relative;
             top:-40px;
@@ -54,14 +62,21 @@ div.page.list{
             font-size:15px;
             font-weight:bold;
             letter-spacing:-0.5px;
+            padding:10px;
+            line-height:30px;
+            &.shop{
+                float:left;
+            }
         }
         a.category{
-            font-size:10px;
+            font-size:8px;
             font-weight:bold;
-            padding:3px 7px;
-            margin:0.5px;
+            padding:2px 5px;
+            margin-right:1px;
             color:#fff;
             border-radius:5px;
+            text-overflow:initial;
+            white-space:normal;
             &_1{
                background:indianred; 
             }
@@ -87,25 +102,23 @@ div.page.list{
             &:not(.prod_category){
                 height:40px;
                 line-height:40px;
-                border-top:1px solid #eee;
-                //일정글자수이상 ...처리
-                text-overflow:ellipsis;
-                overflow:hidden;
-                white-space:nowrap;
             }
             &.prod_category{
                 height:80px;
-                line-height:1.5;
+                line-height:1.2;
             }
             &.prod-shop{
                 color:#666;
                 font-size:11px;
+                clear:both;
+                border-top:1px solid #eee;
             }
             &.prod-price{
                 color:dodgerblue;
                 font-size:14px;
                 font-weight:bold;
                 display:block;
+                border-top:1px solid #eee;
                 span{
                     float:right;
                     height:100%;
@@ -143,6 +156,10 @@ div.page.list{
             &.fa-star-o{
                 color:#ccc;
             }
+        }
+        &.guest{
+            background:none;
+            z-index:-1;
         }
     }
 }

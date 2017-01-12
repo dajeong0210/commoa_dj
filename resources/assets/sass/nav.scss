@@ -3,6 +3,7 @@
 /// @access public
 /// @param {String} $breakpoint - 브레이크포인트
     $breakpoints: (
+    'too-small': (max-width: 480px),
     'small': (max-width: 800px),
     );
 /// @requires $breakpoints
