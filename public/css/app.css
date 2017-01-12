@@ -278,6 +278,12 @@ div.page.list ul.list-group li {
   }
 }
 
+@media (max-width: 480px) {
+  div.page.list ul.list-group li {
+    width: 98%;
+  }
+}
+
 div.page.list ul.list-group li.shop {
   text-align: center;
 }
@@ -291,6 +297,7 @@ div.page.list div.img-box {
 div.page.list div.img-box img {
   width: 100%;
   height: auto;
+  border-bottom: 1px solid #eee;
 }
 
 div.page.list div.img-box.shop {
@@ -299,6 +306,9 @@ div.page.list div.img-box.shop {
 
 div.page.list div.detail-box {
   width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 div.page.list div.detail-box#shop {
@@ -315,15 +325,23 @@ div.page.list div.detail-box a.prod-title {
   font-size: 15px;
   font-weight: bold;
   letter-spacing: -0.5px;
+  padding: 10px;
+  line-height: 30px;
+}
+
+div.page.list div.detail-box a.prod-title.shop {
+  float: left;
 }
 
 div.page.list div.detail-box a.category {
-  font-size: 10px;
+  font-size: 8px;
   font-weight: bold;
-  padding: 3px 7px;
-  margin: 0.5px;
+  padding: 2px 5px;
+  margin-right: 1px;
   color: #fff;
   border-radius: 5px;
+  text-overflow: initial;
+  white-space: normal;
 }
 
 div.page.list div.detail-box a.category_1 {
@@ -357,20 +375,18 @@ div.page.list div.detail-box p {
 div.page.list div.detail-box p:not(.prod_category) {
   height: 40px;
   line-height: 40px;
-  border-top: 1px solid #eee;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
 }
 
 div.page.list div.detail-box p.prod_category {
   height: 80px;
-  line-height: 1.5;
+  line-height: 1.2;
 }
 
 div.page.list div.detail-box p.prod-shop {
   color: #666;
   font-size: 11px;
+  clear: both;
+  border-top: 1px solid #eee;
 }
 
 div.page.list div.detail-box p.prod-price {
@@ -378,6 +394,7 @@ div.page.list div.detail-box p.prod-price {
   font-size: 14px;
   font-weight: bold;
   display: block;
+  border-top: 1px solid #eee;
 }
 
 div.page.list div.detail-box p.prod-price span {
@@ -419,6 +436,11 @@ div.page.list div.bookmark i.fa-star {
 
 div.page.list div.bookmark i.fa-star-o {
   color: #ccc;
+}
+
+div.page.list div.bookmark.guest {
+  background: none;
+  z-index: -1;
 }
 
 div.pagination {

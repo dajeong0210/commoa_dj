@@ -11,12 +11,10 @@
                 </div>
                 </a>
                 <div class="detail-box">
-                    <p>
-                        <a class="prod-title" href="{{ $product->url }}"> {{ $product->name }} </a>
-                    </p>
+                    <a class="prod-title" href="{{ $product->url }}"> {{ $product->name }} </a>
                     <p class="prod_category">
                     @foreach( $product->categories as $category )
-                        <a class="category category_{{ $category->id }}" href="{{ url('category') . '/' . $category->name }}">{{ $category->name }}</a>
+                        <a class="category category_{{ $category->id }}" href="{{ url('category') . '/' . str_replace(' ','_',$category->name) }}">{{ $category->name }}</a>
                     @endforeach
                     </p>
                     <p class="prod-shop">{{ $product->shop->name }}</p>
