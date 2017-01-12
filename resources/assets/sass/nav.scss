@@ -41,6 +41,7 @@
         width:100%;
         height:60px;
         background:#282828;
+        z-index:50;
         h1.logo{
             position:absolute;
             height:60px;
@@ -82,6 +83,7 @@
             width:350px;
             position:absolute;
             right:8%;
+            z-index:40;
             @include respond-to('small') {
                 clear:both;
                 width:100%;
@@ -162,10 +164,14 @@
         clear:both;
         width:100%;
         border-top:1px solid #ddd;
+        z-index:30;
         div.wrap-footer{
             width:60%;
             min-width:800px;
             margin:0 auto;
+            @include respond-to('small'){
+                text-align:center;
+            }
             div{
                 float:left;
                 width:21%;
@@ -198,9 +204,9 @@
                 }
                 @include respond-to('small'){
                     width:42%;
-                    &.site-link{
-                        display:none;
-                    }
+                }
+                @include respond-to('too-small'){
+                    width:96%;
                 }
             }
             @include respond-to('small'){

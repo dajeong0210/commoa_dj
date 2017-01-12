@@ -11,6 +11,7 @@ nav.nav-bar {
   width: 100%;
   height: 60px;
   background: #282828;
+  z-index: 50;
 }
 
 nav.nav-bar h1.logo {
@@ -65,6 +66,7 @@ nav.nav-bar ul.nav-group {
   width: 350px;
   position: absolute;
   right: 8%;
+  z-index: 40;
 }
 
 @media (max-width: 800px) {
@@ -165,12 +167,19 @@ div.footer {
   clear: both;
   width: 100%;
   border-top: 1px solid #ddd;
+  z-index: 30;
 }
 
 div.footer div.wrap-footer {
   width: 60%;
   min-width: 800px;
   margin: 0 auto;
+}
+
+@media (max-width: 800px) {
+  div.footer div.wrap-footer {
+    text-align: center;
+  }
 }
 
 div.footer div.wrap-footer div {
@@ -213,8 +222,11 @@ div.footer div.wrap-footer div:first-child p {
   div.footer div.wrap-footer div {
     width: 42%;
   }
-  div.footer div.wrap-footer div.site-link {
-    display: none;
+}
+
+@media (max-width: 480px) {
+  div.footer div.wrap-footer div {
+    width: 96%;
   }
 }
 
@@ -245,7 +257,8 @@ div.footer div.wrap-footer em {
 }
 
 div.page.list {
-  width: 60%;
+  width: 80%;
+  max-width: 1200px;
   min-width: 800px;
   margin: 20px auto;
 }
@@ -257,9 +270,38 @@ div.page.list {
   }
 }
 
+div.page.list div.sort-group {
+  position: relative;
+  float: right;
+  left: -50%;
+}
+
+div.page.list div.sort-group ul.sort-list {
+  margin: 50px auto;
+  float: left;
+  position: relative;
+  left: 50%;
+}
+
+div.page.list div.sort-group ul.sort-list li {
+  float: left;
+  font-size: 12px;
+  border: 1px solid #ddd;
+  padding: 7px 30px;
+  margin-left: -1px;
+}
+
+div.page.list div.sort-group ul.sort-list li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: #666;
+}
+
 div.page.list ul.list-group {
   width: 100%;
   height: 300px;
+  clear: both;
 }
 
 div.page.list ul.list-group li {
@@ -286,6 +328,7 @@ div.page.list ul.list-group li {
 
 div.page.list ul.list-group li.shop {
   text-align: center;
+  position: relative;
 }
 
 div.page.list div.img-box {
@@ -318,6 +361,11 @@ div.page.list div.detail-box a.prod-title {
   letter-spacing: -0.5px;
   padding: 10px;
   line-height: 30px;
+}
+
+div.page.list div.detail-box a.prod-title.shop {
+  line-height: 50px;
+  padding: 0;
 }
 
 div.page.list div.detail-box a.category {
@@ -401,8 +449,8 @@ div.page.list div.detail-box p.prod-price span i.fa-heart-o {
 
 div.page.list div.bookmark {
   float: left;
-  position: relative;
-  top: -30px;
+  position: absolute;
+  bottom: 30px;
   left: 50%;
   margin-left: -25px;
   width: 50px;

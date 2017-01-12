@@ -65,3 +65,9 @@
             }
         });
     }
+//Product sort
+    $('ul.sort-list a').on('click', function(){
+        $('input.sort-val').val( $(this).attr('name') );
+        console.log( $('input.sort-val').val() );
+        $('form.sort-form').submit();
+    });
