@@ -20,6 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 Route::resource('/shop', 'ShopController');
 Route::resource('/product', 'ProductController');
+Route::get('/category/{category_name}', 'CategoryController@show');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('/apply', 'ApplyController');
