@@ -13,16 +13,23 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($request)
+    public function search($request)
     {
-        if ( $product_sort == 'popular' ) {
-            $products = Product::orderBy('views', 'desc')->paginate(12);
-        } else if ( $product_sort == 'price' ) {
-            $products = Product::orderBy('price', 'desc')->paginate(12);
-        } else {
+        if ( $request->input('product-sort') == 'all' ) {
             $products = Product::orderBy('id', 'desc')->paginate(12);
-        }
+        } else if ( $request->input('product-sort') == 'priceBy' ) {
+            $products = Product::orderBy('price', 'desc')->paginate(12);
+        } else if ( $request->input('product-sort') == 'rankBy' ){
+            $products = Product::orderBy('views', 'desc')->paginate(12);
+        } 
         
+        return view('Product.index')->with('products', $products);
+    }
+
+    public function index()
+    {
+       
+        $products = Product::orderBy('id', 'desc')->paginate(12);
         return view('Product.index')->with('products', $products);
     }
 
