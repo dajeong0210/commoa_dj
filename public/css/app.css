@@ -311,15 +311,6 @@ div.page.list div.detail-box {
   white-space: nowrap;
 }
 
-div.page.list div.detail-box#shop {
-  position: relative;
-  top: -40px;
-}
-
-div.page.list div.detail-box#shop p {
-  border-top: none;
-}
-
 div.page.list div.detail-box a.prod-title {
   color: #222;
   font-size: 15px;
@@ -327,10 +318,6 @@ div.page.list div.detail-box a.prod-title {
   letter-spacing: -0.5px;
   padding: 10px;
   line-height: 30px;
-}
-
-div.page.list div.detail-box a.prod-title.shop {
-  float: left;
 }
 
 div.page.list div.detail-box a.category {
@@ -444,6 +431,7 @@ div.page.list div.bookmark.guest {
 }
 
 div.pagination {
+  clear: both;
   float: right;
   position: relative;
   left: -50%;
@@ -455,7 +443,6 @@ div.pagination ul.pagination {
   left: 50%;
   padding: 0;
   margin: 50px auto;
-  clear: both;
   display: block;
 }
 
