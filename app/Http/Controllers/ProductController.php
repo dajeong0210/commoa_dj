@@ -41,7 +41,7 @@ class ProductController extends Controller
         $product->name = $request->input('name');
         $product->image = $request->input('image');
         $product->url = $request->input('url');
-        $product->price = $request->input('price');
+        $product->price = number_format($request->input('price'));
         $product->os = $request->input('os');
         $product->ram = $request->input('ram');
         $product->ssd = $request->input('ssd');
@@ -97,7 +97,7 @@ class ProductController extends Controller
         $product->name = $request->input('name');
         $product->image = $request->input('image');
         $product->url = $request->input('url');
-        $product->price = $request->input('price');
+        $product->price = number_format($request->input('price'));
         $product->os = $request->input('os');
         $product->ram = $request->input('ram');
         $product->ssd = $request->input('ssd');

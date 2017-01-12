@@ -38,9 +38,11 @@ class ShopController extends Controller
      */
     public function store(Request $request)
     {
+        $path_i = $request->file('image')->store('images');
+
         $shop = new Shop;
         $shop->name = $request->input('shop_name');
-        $shop->image = $request->input('image');
+        $shop->image = $path_i;
         $shop->url = $request->input('shop_url');
         $shop->contact_address = $request->input('business_address');
         $shop->contact_name = $request->input('contact_name');
@@ -87,9 +89,11 @@ class ShopController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $path_i = $request->file('image')->store('images');
+
         $shop = Shop::find($id);
         $shop->name = $request->input('shop_name');
-        $shop->image = $request->input('image');
+        $shop->image = $path_i;
         $shop->url = $request->input('shop_url');
         $shop->contact_address = $request->input('business_address');
         $shop->contact_name = $request->input('contact_name');
