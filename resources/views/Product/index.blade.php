@@ -1,7 +1,19 @@
 @extends('layouts.layout')
 
 @section('content')
+    <div class="sort-group">
+    </div>
     <div class="page list">
+        <div class="sort-group">
+            <form method="GET" class="sort-form">
+            <ul class="sort-list">
+                <li><a href="#" name="all" onclick="return false;">등록순</a></li>
+                <li><a href="#" name="priceBy" onclick="return false">가격순</a></li>
+                <li><a href="#" name="rankBy" onclick="return false">인기순</a></li>
+            </ul>
+            <input type="hidden" class="sort-val" name="product-sort" value=""/>
+            </form>
+        </div>
         <ul class="list-group">
             @foreach( $products as $product )
             <li>
