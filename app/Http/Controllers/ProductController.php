@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Product;
 use Illuminate\Support\Facades\DB;
+use App\Cpu;
 
 class ProductController extends Controller
 {
