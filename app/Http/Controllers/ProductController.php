@@ -18,9 +18,9 @@ class ProductController extends Controller
         if( !$request ){
             $products = Product::orderBy('views', 'desc')->paginate(12);
         }else{
-            if ( $request->input('product-sort') == 'rankBy' ) {
+            if ( $request->input('sort') == 'rankBy' ) {
                 $products = Product::orderBy('views', 'desc')->paginate(12);
-            } else if ( $request->input('product-sort') == 'priceBy' ) {
+            } else if ( $request->input('sort') == 'priceBy' ) {
                 $products = Product::orderBy('price', 'desc')->paginate(12);
             } else{
                 $products = Product::orderBy('id', 'desc')->paginate(12);

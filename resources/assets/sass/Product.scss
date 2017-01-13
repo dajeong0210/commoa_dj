@@ -23,11 +23,15 @@ div.page.list{
                 border:1px solid #ddd;
                 padding:7px 30px;
                 margin-left:-1px;
-                a{
-                    display:block;
-                    width:100%;
-                    height:100%;
-                    color:#666;
+                color:#666;
+                cursor:pointer;
+                &.active{
+                    color:#fff;
+                    font-weight:bold;
+                    &:focus{
+                        color:#fff;
+                        font-weight:bold;
+                    } 
                 }
             }
             
@@ -45,6 +49,7 @@ div.page.list{
             border:1px solid #ddd;
             box-shadow:0 2px 3px #ddd;
             box-sizing:border-box;
+            position:relative;
             @include respond-to('small'){
                 width:48%;
             }
@@ -53,7 +58,17 @@ div.page.list{
             }
             &.shop{
                 text-align:center;
-                position:relative;
+            }
+            span.badge{
+                position:absolute;
+                left:20px;
+                display:block;
+                width:50px;
+                letter-spacing:1px;
+                background:$point-color;
+                font-size:20px;
+                line-height:30px;
+                font-weight:bold;
             }
         }
     }
