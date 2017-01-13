@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class InfoController extends Controller
 {
@@ -68,7 +69,12 @@ class InfoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        $user->name = $request->input('name');
+        $user->password = $request->input('password');
+        $user->save();
+
+        return redirect('info');
     }
 
     /**

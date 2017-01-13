@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Product;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -15,22 +16,23 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        if( !$request ){
-            $products = Product::orderBy('views', 'desc')->paginate(12);
-        }else{
-            if ( $request->input('sort') == 'rankBy' ) {
-                $products = Product::orderBy('views', 'desc')->paginate(12);
-            } else if ( $request->input('sort') == 'priceBy' ) {
-                $products = Product::orderBy('price', 'desc')->paginate(12);
-            } else{
-                $products = Product::orderBy('id', 'desc')->paginate(12);
+
+        DB::statement(DB::raw('set @row:=0'));
+
+        if( !$request ) {
+            $products = Product::orderBy('views', 'desc')->selectRaw('*, @row:=@row+1 as row')->paginate(12);
+        } else {
+            if ( $request->input('product-sort') == 'rankBy' ) {
+                $products = Product::orderBy('views', 'desc')->selectRaw('*, @row:=@row+1 as row')->paginate(12);
+            } else if ( $request->input('product-sort') == 'priceBy' ) {
+                $products = Product::orderBy('price', 'desc')->selectRaw('*, @row:=@row+1 as row')->paginate(12);
+            } else {
+                $products = Product::orderBy('id', 'desc')->selectRaw('*, @row:=@row+1 as row')->paginate(12);
             } 
-        };
+        }
         
         return view('Product.index')->with('products', $products);
     }
-
-
 
     /**
      * Show the form for creating a new resource.

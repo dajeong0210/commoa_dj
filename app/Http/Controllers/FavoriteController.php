@@ -17,7 +17,7 @@ class FavoriteController extends Controller
     public function index()
     {
         $user = User::find( Auth::user()-> id );
-        $favorites = $user->products()->get();
+        $favorites = $user->products()->orderBy('pivot_product_user.created_at', 'desc')->get();
 
         return view('favorite.index')->with('favorites', $favorites);
     }
