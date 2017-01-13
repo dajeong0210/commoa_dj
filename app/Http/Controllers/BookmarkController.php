@@ -17,7 +17,7 @@ class BookmarkController extends Controller
     public function index()
     {
         $user = User::find( Auth::user()->id );
-        $bookmarks = $user->shops()->get();
+        $bookmarks = $user->shops()->orderBy('pivot_shop_user.created_at', 'desc')->get();
 
         return view('bookmark.index')->with('bookmarks', $bookmarks);
     }
