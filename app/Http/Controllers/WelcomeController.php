@@ -15,8 +15,10 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-        $products = Product::orderBy('views','desc')->limit(8)->get();
-        $shops = Shop::orderBy('id', 'asc')->limit(8)->get();
+        DB::statement(DB::raw('set @row:=0'));
+        
+        $products = Product::orderBy('views','desc')->selectRaw('*, @row:=@row+1 as row')->limit(8)->get();
+        $shops = Shop::orderBy('id', 'asc')->selectRaw('*, @row:=@row+1 as row')->limit(8)->get();
 
         return view('welcome')->with('products', $products)->with('shops', $shops);
     }
