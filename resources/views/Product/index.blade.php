@@ -17,8 +17,12 @@
         <ul class="list-group">
             @foreach( $products as $product )
             <li>
-                @if( Request::is('product?sort=rankBy') )
-                <span class="badge">{{ $product->id }}</span>
+                @if( Request::get('sort') == 'rankBy' )
+                    @if( $product->row == 1 )
+                    <span class="badge medal">1</span>
+                    @else
+                    <span class="badge">{{ $product->row }}</span>
+                    @endif
                 @endif
                 <a href="{{ $product->url }}">
                 <div class="img-box prod">

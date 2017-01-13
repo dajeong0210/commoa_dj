@@ -1,91 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.layout')
 
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    <a href="{{ url('/login') }}">Login</a>
-                    <a href="{{ url('/register') }}">Register</a>
+@section('content')
+    <div class="image-slider">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+    </div>
+    <!---ff
+    <ul class="list-group">
+            @foreach( $products as $product )
+            <li>
+                @if( Request::get('sort') == 'rankBy' )
+                    @if( $product->row == 1 )
+                    <span class="badge medal">1</span>
+                    @else
+                    <span class="badge">{{ $product->row }}</span>
+                    @endif
+                @endif
+                <a href="{{ $product->url }}">
+                <div class="img-box prod">
+                    <img src="{{ $product->image }}" alt="">
                 </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+                </a>
+                <div class="detail-box">
+                    <a class="prod-title" href="{{ $product->url }}"> {{ $product->name }} </a>
+                    <p class="prod_category">
+                    @foreach( $product->categories as $category )
+                        <a class="category category_{{ $category->id }}" href="{{ url('category') . '/' . str_replace(' ','_',$category->name) }}">{{ $category->name }}</a>
+                    @endforeach
+                    </p>
+                    <p class="prod-shop">{{ $product->shop->name }}</p>
+                    <p class="prod-price">{{ number_format($product->price) }}원
+                        @if( Auth::guest() )
+                        @else
+                        <span>
+                            <a href="#" class="fav" onclick="return false;">
+                                @if( $product->users()->get()->where('id', Auth::user()->id)->count() == 0 )
+                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                    <i class="fa fa-heart hidden" aria-hidden="true"></i>
+                                @else
+                                    <i class="fa fa-heart-o hidden" aria-hidden="true"></i>
+                                    <i class="fa fa-heart" aria-hidden="true"></i>
+                                @endif
+                            </a>
+                        </span>
+                        @endif
+                        <span class="hidden">{{ $product->id }}</span>
+                    </p>
                 </div>
+            </li>
+            @endforeach
+        </ul>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
-        </div>
-    </body>
-</html>
+    -->
+@endsection

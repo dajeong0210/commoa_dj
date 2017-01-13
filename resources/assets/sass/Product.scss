@@ -61,18 +61,31 @@ div.page.list{
             }
             span.badge{
                 position:absolute;
-                left:20px;
+                top:5px;
+                left:5px;
                 display:block;
                 width:50px;
-                letter-spacing:1px;
-                background:$point-color;
-                font-size:20px;
-                line-height:30px;
+                height:50px;
+                text-align:center;
+                letter-spacing:-1px;
+                background:url('../image/bookmark.png') top no-repeat;
+                background-size:100%;
+                font-size:18px;
+                line-height:40px;
                 font-weight:bold;
+                &.medal{
+                    top:-10px;
+                    left:-20px;
+                    width:80px;
+                    height:80px;
+                    background:url('../image/certificate.png') top no-repeat;
+                    background-size:100%;
+                    font-size:30px;
+                    line-height:60px;
+                }
             }
         }
-    }
-    
+    }   
     div.img-box{
         width:100%;
         background:#fff;
