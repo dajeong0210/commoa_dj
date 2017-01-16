@@ -11,7 +11,7 @@
                 <li name="priceBy" class="priceBy">가격순</li>
                 <li name="rankBy" class="rankBy">인기순</li>
             </ul>
-            <input type="hidden" class="sort-val" name="sort" value=""/>
+            <input type="hidden" class="sort-val" name="product-sort" value=""/>
             </form>
         </div>
         <ul class="list-group">
