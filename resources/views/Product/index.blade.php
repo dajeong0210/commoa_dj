@@ -7,16 +7,23 @@
         <div class="sort-group">
             <form method="GET" class="sort-form">
             <ul class="sort-list">
-                <li><a href="#" name="all" onclick="return false;">등록순</a></li>
-                <li><a href="#" name="priceBy" onclick="return false">가격순</a></li>
-                <li><a href="#" name="rankBy" onclick="return false">인기순</a></li>
+                <li name="all" class="all">등록순</li>
+                <li name="priceBy" class="priceBy">가격순</li>
+                <li name="rankBy" class="rankBy">인기순</li>
             </ul>
-            <input type="hidden" class="sort-val" name="product-sort" value=""/>
+            <input type="hidden" class="sort-val" name="sort" value=""/>
             </form>
         </div>
         <ul class="list-group">
             @foreach( $products as $product )
             <li>
+                @if( Request::get('sort') == 'rankBy' )
+                    @if( $product->row == 1 )
+                    <span class="badge medal">1</span>
+                    @else
+                    <span class="badge">{{ $product->row }}</span>
+                    @endif
+                @endif
                 <a href="{{ $product->url }}">
                 <div class="img-box prod">
                     <img src="{{ $product->image }}" alt="">
@@ -52,7 +59,7 @@
             @endforeach
         </ul>
         <div class="pagination">
-            {{ $products->links() }}
+            {{ $products->appends(request()->except('page'))->links() }}
         </div>
     </div>
 @endsection

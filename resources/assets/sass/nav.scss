@@ -34,8 +34,12 @@
     .hidden{
         display:none;
     }
-    .active{
-        color:$point-color;
+    .active, .active:focus{
+        background:$point-color;
+        color:#fff;
+        a{
+            color:$point-color;
+        }
     }
     nav.nav-bar{
         width:100%;

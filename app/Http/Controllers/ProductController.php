@@ -18,6 +18,7 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
+
         DB::statement(DB::raw('set @row:=0'));
         $product_sort = $request->input('product-sort');
         if( $product_sort == '' ) {

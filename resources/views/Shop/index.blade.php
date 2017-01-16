@@ -41,7 +41,7 @@
             @endforeach
         </ul>
         <div class="pagination">
-            {{ $shops->links() }}
+            {{ $shops->appends(request()->except('page'))->links() }}
         </div>
     </div>
 @endsection

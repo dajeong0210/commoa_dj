@@ -3,7 +3,12 @@
   display: none;
 }
 
-.active {
+.active, .active:focus {
+  background: #2bde73;
+  color: #fff;
+}
+
+.active a, .active:focus a {
   color: #2bde73;
 }
 
@@ -256,11 +261,183 @@ div.footer div.wrap-footer em {
   }
 }
 
+div.slider {
+  width: 100%;
+  height: 400px;
+  margin-bottom: 50px;
+  overflow: hidden;
+  position: relative;
+}
+
+div.slider.page.list {
+  height: 600px;
+}
+
+div.slider nav {
+  position: absolute;
+  top: 170px;
+  width: 100%;
+  height: 30px;
+  z-index: 3;
+}
+
+div.slider nav.recommend {
+  top: 50%;
+}
+
+div.slider nav.recommend a {
+  color: #000;
+}
+
+div.slider nav a {
+  font-size: 30px;
+  line-height: 30px;
+  color: #fff;
+  opacity: 0.7;
+  margin: 0 40px;
+}
+
+div.slider nav a.left {
+  float: left;
+}
+
+div.slider nav a.right {
+  float: right;
+}
+
+div.slider nav a:hover {
+  color: #2bde73;
+}
+
+div.slider ul.slider {
+  width: 600%;
+  position: relative;
+}
+
+div.slider ul.slider.list-group.recommend {
+  width: 200%;
+}
+
+@media (max-width: 800px) {
+  div.slider ul.slider.list-group.recommend {
+    width: 400%;
+  }
+}
+
+@media (max-width: 480px) {
+  div.slider ul.slider.list-group.recommend {
+    width: 800%;
+  }
+}
+
+div.slider ul.slider.list-group.recommend li {
+  margin: 20px 0.5%;
+  width: 11.5%;
+  position: relative;
+}
+
+div.slider ul.slider li {
+  width: 16.666666666666666666666666667%;
+  float: left;
+}
+
+div.slider ul.slider li.game_01 {
+  height: 400px;
+  background: url(../image/overwatch.jpg) no-repeat;
+  background-position: 0 -40px;
+  background-size: cover;
+}
+
+@media (max-width: 800px) {
+  div.slider ul.slider li.game_01 {
+    background-position: center 0;
+  }
+}
+
+div.slider ul.slider li.game_02 {
+  height: 400px;
+  background: orange;
+}
+
+div.slider ul.slider li.game_03 {
+  height: 400px;
+  background: yellow;
+}
+
+div.slider ul.slider li.game_04 {
+  height: 400px;
+  background: green;
+}
+
+div.slider ul.slider li.game_05 {
+  height: 400px;
+  background: blue;
+}
+
+div.slider ul.slider li.game_06 {
+  height: 400px;
+  background: pink;
+}
+
+div.slider ul.slider li div.slider-cover {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 50px 15%;
+  box-sizing: border-box;
+}
+
+div.slider ul.slider li div.slider-cover span {
+  color: #2bde73;
+  border: 1px solid #2bde73;
+  border-radius: 5px;
+  padding: 2px 10px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+div.slider ul.slider li div.slider-cover h2 {
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: -1px;
+  font-size: 25px;
+}
+
+div.slider ul.slider li div.slider-cover p {
+  color: #fff;
+  letter-spacing: -1px;
+  font-size: 13px;
+  line-height: 20px;
+  padding-bottom: 20px;
+}
+
+div.slider ul.slider li div.slider-cover a.btn {
+  color: #fff;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 8px 15px;
+  border: 1px solid #2bde73;
+  border-radius: 5px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+div.slider ul.slider li div.slider-cover a.btn:hover {
+  background: #2bde73;
+}
+
 div.page.list {
   width: 80%;
   max-width: 1200px;
   min-width: 800px;
   margin: 20px auto;
+}
+
+div.page.list h3 {
+  text-align: center;
+  font-size: 25px;
+  font-family: 'Exo 2', sans-serif;
+  letter-spacing: 5px;
 }
 
 @media (max-width: 800px) {
@@ -289,17 +466,21 @@ div.page.list div.sort-group ul.sort-list li {
   border: 1px solid #ddd;
   padding: 7px 30px;
   margin-left: -1px;
+  color: #666;
+  cursor: pointer;
 }
 
-div.page.list div.sort-group ul.sort-list li a {
-  display: block;
-  width: 100%;
-  height: 100%;
-  color: #666;
+div.page.list div.sort-group ul.sort-list li.active {
+  color: #fff;
+  font-weight: bold;
+}
+
+div.page.list div.sort-group ul.sort-list li.active:focus {
+  color: #fff;
+  font-weight: bold;
 }
 
 div.page.list ul.list-group {
-  width: 100%;
   height: 300px;
   clear: both;
 }
@@ -312,6 +493,8 @@ div.page.list ul.list-group li {
   border: 1px solid #ddd;
   box-shadow: 0 2px 3px #ddd;
   box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
 }
 
 @media (max-width: 800px) {
@@ -328,7 +511,42 @@ div.page.list ul.list-group li {
 
 div.page.list ul.list-group li.shop {
   text-align: center;
-  position: relative;
+}
+
+div.page.list ul.list-group li span.badge {
+  font-family: 'Exo 2', sans-serif;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  display: block;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  letter-spacing: -1px;
+  background: url("../image/bookmark.png") top no-repeat;
+  background-size: 100%;
+  font-size: 18px;
+  line-height: 40px;
+  font-weight: bold;
+}
+
+div.page.list ul.list-group li span.badge.medal {
+  width: 70px;
+  height: 70px;
+  font-size: 30px;
+  line-height: 55px;
+}
+
+div.page.list ul.list-group li span.badge.recommend {
+  top: 10px;
+  left: -45px;
+  width: 150px;
+  height: 40px;
+  background: #2bde73;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  box-shadow: 5px 5px 20px #222;
 }
 
 div.page.list div.img-box {

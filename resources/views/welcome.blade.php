@@ -1,91 +1,137 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.layout')
 
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    <a href="{{ url('/login') }}">Login</a>
-                    <a href="{{ url('/register') }}">Register</a>
+@section('content')
+    <div class="slider">
+        <nav class="nav-slider">
+            <a href="#" class="left" onclick="return false;">
+                <i class="fa fa-arrow-left" aria-hidden="true"></i>
+            </a>
+            <a href="#" class="right" onclick="return false;">
+                <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            </a>
+        </nav>
+        <ul class="slider auto">
+            <li class="game_01">
+                <div class="slider-cover">
+                    <span>인기상품</span>
+                    <h2>신년에도 인기는 계속 된다!<br/>
+                    오버워치 게임용 PC</h2>
+                    <p>
+                    개나리 노란꽃 그늘 아래<br/>
+                    가지런히 놓여있는 꼬까신 하나
+                    </p>
+                    <a href="" class="btn">바로가기</a>
                 </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+            </li>
+            <li class="game_02">
+                <div class="slider-cover">
+                    <span>인기상품</span>
+                    <h2>신년에도 인기는 계속 된다!<br/>
+                    오버워치 게임용 PC</h2>
+                    <p>
+                    개나리 노란꽃 그늘 아래<br/>
+                    가지런히 놓여있는 꼬까신 하나
+                    </p>
+                    <a href="" class="btn">바로가기</a>
                 </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+            </li>
+            <li class="game_03">
+                <div class="slider-cover">
+                    <span>인기상품</span>
+                    <h2>신년에도 인기는 계속 된다!<br/>
+                    오버워치 게임용 PC</h2>
+                    <p>
+                    개나리 노란꽃 그늘 아래<br/>
+                    가지런히 놓여있는 꼬까신 하나
+                    </p>
+                    <a href="" class="btn">바로가기</a>
                 </div>
-            </div>
-        </div>
-    </body>
-</html>
+            </li>
+            <li class="game_04">
+                <div class="slider-cover">
+                    <span>인기상품</span>
+                    <h2>신년에도 인기는 계속 된다!<br/>
+                    오버워치 게임용 PC</h2>
+                    <p>
+                    개나리 노란꽃 그늘 아래<br/>
+                    가지런히 놓여있는 꼬까신 하나
+                    </p>
+                    <a href="" class="btn">바로가기</a>
+                </div>
+            </li>
+            <li class="game_05">
+                <div class="slider-cover">
+                    <span>인기상품</span>
+                    <h2>신년에도 인기는 계속 된다!<br/>
+                    오버워치 게임용 PC</h2>
+                    <p>
+                    개나리 노란꽃 그늘 아래<br/>
+                    가지런히 놓여있는 꼬까신 하나
+                    </p>
+                    <a href="" class="btn">바로가기</a>
+                </div>
+            </li>
+            <li class="game_06">
+                <div class="slider-cover">
+                    <span>인기상품</span>
+                    <h2>신년에도 인기는 계속 된다!<br/>
+                    오버워치 게임용 PC</h2>
+                    <p>
+                    개나리 노란꽃 그늘 아래<br/>
+                    가지런히 놓여있는 꼬까신 하나
+                    </p>
+                    <a href="" class="btn">바로가기</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="page list slider">
+        <h3>Recommend</h3>
+        <nav class="nav-slider recommend">
+            <a href="#" class="left" onclick="return false;">
+                <i class="fa fa-arrow-left" aria-hidden="true"></i>
+            </a>
+            <a href="#" class="right" onclick="return false;">
+                <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            </a>
+        </nav>
+        <ul class="list-group slider recommend">
+            @foreach( $products as $product )
+            <li>
+                <span class="badge recommend">추천!!</span>
+                <a href="{{ $product->url }}">
+                <div class="img-box prod">
+                    <img src="{{ $product->image }}" alt="">
+                </div>
+                </a>
+                <div class="detail-box">
+                    <a class="prod-title" href="{{ $product->url }}"> {{ $product->name }} </a>
+                    <p class="prod_category">
+                    @foreach( $product->categories as $category )
+                        <a class="category category_{{ $category->id }}" href="{{ url('category') . '/' . str_replace(' ','_',$category->name) }}">{{ $category->name }}</a>
+                    @endforeach
+                    </p>
+                    <p class="prod-shop">{{ $product->shop->name }}</p>
+                    <p class="prod-price">{{ number_format($product->price) }}원
+                        @if( Auth::guest() )
+                        @else
+                        <span>
+                            <a href="#" class="fav" onclick="return false;">
+                                @if( $product->users()->get()->where('id', Auth::user()->id)->count() == 0 )
+                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                    <i class="fa fa-heart hidden" aria-hidden="true"></i>
+                                @else
+                                    <i class="fa fa-heart-o hidden" aria-hidden="true"></i>
+                                    <i class="fa fa-heart" aria-hidden="true"></i>
+                                @endif
+                            </a>
+                        </span>
+                        @endif
+                        <span class="hidden">{{ $product->id }}</span>
+                    </p>
+                </div>
+            </li>
+            @endforeach
+        </ul>
+    </div>
+@endsection
