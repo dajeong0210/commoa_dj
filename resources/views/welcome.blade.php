@@ -86,15 +86,7 @@
         </ul>
     </div>
     <div class="page list slider">
-        <h3>사무용<br/>Recommend</h3>
-        <nav class="nav-slider recommend">
-            <a href="#" class="left" onclick="return false;">
-                <i class="fa fa-arrow-left" aria-hidden="true"></i>
-            </a>
-            <a href="#" class="right" onclick="return false;">
-                <i class="fa fa-arrow-right" aria-hidden="true"></i>
-            </a>
-        </nav>
+        <h3>사무용<br/><span>Recommend</span></h3>
         <ul class="list-group slider recommend">
             @foreach( $products1 as $product )
             <li>
@@ -135,15 +127,7 @@
         </ul>
     </div>
     <div class="page list slider">
-        <h3>게임용<br/>Recommend</h3>
-        <nav class="nav-slider recommend">
-            <a href="#" class="left" onclick="return false;">
-                <i class="fa fa-arrow-left" aria-hidden="true"></i>
-            </a>
-            <a href="#" class="right" onclick="return false;">
-                <i class="fa fa-arrow-right" aria-hidden="true"></i>
-            </a>
-        </nav>
+        <h3>게임용<br/><span>Recommend</span></h3>
         <ul class="list-group slider recommend">
             @foreach( $products2 as $product )
             <li>
@@ -184,15 +168,7 @@
         </ul>
     </div>
     <div class="page list slider">
-        <h3>디자이너용<br/>Recommend</h3>
-        <nav class="nav-slider recommend">
-            <a href="#" class="left" onclick="return false;">
-                <i class="fa fa-arrow-left" aria-hidden="true"></i>
-            </a>
-            <a href="#" class="right" onclick="return false;">
-                <i class="fa fa-arrow-right" aria-hidden="true"></i>
-            </a>
-        </nav>
+        <h3>디자이너용<br/><span>Recommend</span></h3>
         <ul class="list-group slider recommend">
             @foreach( $products3 as $product )
             <li>

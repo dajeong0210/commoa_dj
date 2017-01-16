@@ -6,9 +6,14 @@ div.slider{
     overflow:hidden;
     position:relative;
     &.page.list{
-        height:570px;
+        height:600px;
         h3{
-            margin:40px auto;
+            position:relative;
+            top:-20px;
+            line-height:1.0;
+            span{
+                font-size:0.8em;
+            }
         }
     }
     nav{
