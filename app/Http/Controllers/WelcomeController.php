@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Shop;
+use Illuminate\Support\Facades\DB;
 
 class WelcomeController extends Controller
 {

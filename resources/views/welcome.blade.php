@@ -1,27 +1,104 @@
 @extends('layouts.layout')
 
 @section('content')
-    <div class="image-slider">
-        <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
-            <li>6</li>
+    <div class="slider">
+        <nav class="nav-slider">
+            <a href="#" class="left" onclick="return false;">
+                <i class="fa fa-arrow-left" aria-hidden="true"></i>
+            </a>
+            <a href="#" class="right" onclick="return false;">
+                <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            </a>
+        </nav>
+        <ul class="slider auto">
+            <li class="game_01">
+                <div class="slider-cover">
+                    <span>인기상품</span>
+                    <h2>신년에도 인기는 계속 된다!<br/>
+                    오버워치 게임용 PC</h2>
+                    <p>
+                    개나리 노란꽃 그늘 아래<br/>
+                    가지런히 놓여있는 꼬까신 하나
+                    </p>
+                    <a href="" class="btn">바로가기</a>
+                </div>
+            </li>
+            <li class="game_02">
+                <div class="slider-cover">
+                    <span>인기상품</span>
+                    <h2>신년에도 인기는 계속 된다!<br/>
+                    오버워치 게임용 PC</h2>
+                    <p>
+                    개나리 노란꽃 그늘 아래<br/>
+                    가지런히 놓여있는 꼬까신 하나
+                    </p>
+                    <a href="" class="btn">바로가기</a>
+                </div>
+            </li>
+            <li class="game_03">
+                <div class="slider-cover">
+                    <span>인기상품</span>
+                    <h2>신년에도 인기는 계속 된다!<br/>
+                    오버워치 게임용 PC</h2>
+                    <p>
+                    개나리 노란꽃 그늘 아래<br/>
+                    가지런히 놓여있는 꼬까신 하나
+                    </p>
+                    <a href="" class="btn">바로가기</a>
+                </div>
+            </li>
+            <li class="game_04">
+                <div class="slider-cover">
+                    <span>인기상품</span>
+                    <h2>신년에도 인기는 계속 된다!<br/>
+                    오버워치 게임용 PC</h2>
+                    <p>
+                    개나리 노란꽃 그늘 아래<br/>
+                    가지런히 놓여있는 꼬까신 하나
+                    </p>
+                    <a href="" class="btn">바로가기</a>
+                </div>
+            </li>
+            <li class="game_05">
+                <div class="slider-cover">
+                    <span>인기상품</span>
+                    <h2>신년에도 인기는 계속 된다!<br/>
+                    오버워치 게임용 PC</h2>
+                    <p>
+                    개나리 노란꽃 그늘 아래<br/>
+                    가지런히 놓여있는 꼬까신 하나
+                    </p>
+                    <a href="" class="btn">바로가기</a>
+                </div>
+            </li>
+            <li class="game_06">
+                <div class="slider-cover">
+                    <span>인기상품</span>
+                    <h2>신년에도 인기는 계속 된다!<br/>
+                    오버워치 게임용 PC</h2>
+                    <p>
+                    개나리 노란꽃 그늘 아래<br/>
+                    가지런히 놓여있는 꼬까신 하나
+                    </p>
+                    <a href="" class="btn">바로가기</a>
+                </div>
+            </li>
         </ul>
     </div>
-    <!---ff
-    <ul class="list-group">
+    <div class="page list slider">
+        <h3>Recommend</h3>
+        <nav class="nav-slider recommend">
+            <a href="#" class="left" onclick="return false;">
+                <i class="fa fa-arrow-left" aria-hidden="true"></i>
+            </a>
+            <a href="#" class="right" onclick="return false;">
+                <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            </a>
+        </nav>
+        <ul class="list-group slider recommend">
             @foreach( $products as $product )
             <li>
-                @if( Request::get('sort') == 'rankBy' )
-                    @if( $product->row == 1 )
-                    <span class="badge medal">1</span>
-                    @else
-                    <span class="badge">{{ $product->row }}</span>
-                    @endif
-                @endif
+                <span class="badge recommend">추천!!</span>
                 <a href="{{ $product->url }}">
                 <div class="img-box prod">
                     <img src="{{ $product->image }}" alt="">
@@ -56,6 +133,5 @@
             </li>
             @endforeach
         </ul>
-
-    -->
+    </div>
 @endsection
