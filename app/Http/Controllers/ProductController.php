@@ -39,7 +39,7 @@ class ProductController extends Controller
         //용도별 & 사양별 
         if( $category != '' ) {
 
-            $products = Category::where('id', $category)->first()->products()->orderBy('products.created_at', 'desc');
+            $products = Category::where('name', $category)->first()->products();
 
         } else if( $cpu_level != '' || $vga_level != '' || $os != '' || $monitor != '' || $ssd != '' ) {
 
@@ -62,46 +62,44 @@ class ProductController extends Controller
             }
 
             if( $os != '' ) {
-                if( $os == '무' ) { 
+                if( $os == 0 ) { 
                     $products = $products->where('os', 0);
                 } else {
                     $products = $products->where('os', 1);
                 }
             }
 
+            if( $ssd != '' ) {
+                if( $ssd == 0 ) {
+                    $products = $products->where('ssd', null);
+                } else {
+                    $products = $products->where('ssd', '<>', null);
+                }
+            }
+            
             if( $monitor != '' ) {
-                if( $monitor == '무' ) {
+                if( $monitor == 0 ) {
                     $products = $products->where('monitor', null);
                 } else {
                     $products = $products->where('monitor', '<>', null);
                 }
             }
 
-            if( $ssd != '' ) {
-                if( $ssd == '무' ) {
-                    $products = $products->where('ssd', null);
-                } else {
-                    $products = $products->where('ssd', '<>', null);
-                }
-            }
-
         }
 
         if( $product_sort == '' ) {
-            $products = $products->orderBy('views', 'desc');
+            $products = $products->selectRaw('*, @row:=@row+1 as row')->orderBy('views', 'desc')->paginate(12);
         } else {
             if ( $product_sort == 'rankBy' ) {
-                $products = $products->orderBy('views', 'desc');
-            } else if ( $product_sort == 'priceBy' ) {
-                $products = $products->orderBy('price', 'desc');
-            } else if ( $product_sort == 'priceBy' ) {
-                $products = $products->orderBy('price', 'asc');
-            }else {
-                $products = $products->orderBy('id', 'desc');
+                $products = $products->selectRaw('*, @row:=@row+1 as row')->orderBy('views', 'desc')->paginate(12);
+            } else if ( $product_sort == 'priceBydesc' ) {
+                $products = $products->selectRaw('*, @row:=@row+1 as row')->orderBy('price', 'desc')->paginate(12);
+            } else if ( $product_sort == 'priceByasc' ) {
+                $products = $products->selectRaw('*, @row:=@row+1 as row')->orderBy('price', 'asc')->paginate(12);
+            } else {
+                $products = $products->selectRaw('*, @row:=@row+1 as row')->orderBy('products.updated_at', 'desc')->paginate(12);
             } 
         } 
-        
-        $products = $products->selectRaw('*, @row:=@row+1 as row')->paginate(12);
 
         return view('Product.index')->with('products', $products);
     }

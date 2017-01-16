@@ -73,8 +73,8 @@
         <div class="sort-wrap">
             <ul class="sort-list">
                 <li name="all" class="all">최신순</li>
-                <li name="priceBy" class="priceBydesc">높은가격순</li>
-                <li name="priceBy" class="priceByasc">낮은가격순</li>
+                <li name="priceBydesc" class="priceBydesc">높은가격순</li>
+                <li name="priceByasc" class="priceByasc">낮은가격순</li>
                 <li name="rankBy" class="rankBy">인기순</li>
             </ul>
         </div>
