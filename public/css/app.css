@@ -454,6 +454,7 @@ div.page.list {
   max-width: 1200px;
   min-width: 800px;
   margin: 20px auto;
+  position: relative;
 }
 
 div.page.list h3 {
@@ -470,25 +471,94 @@ div.page.list h3 {
   }
 }
 
+div.page.list div.tap_wrap {
+  width: 800px;
+  height: 120px;
+  margin: 0 auto;
+  position: relative;
+}
+
+@media (max-width: 800px) {
+  div.page.list div.tap_wrap {
+    width: 100%;
+    height: 240px;
+  }
+}
+
+div.page.list div.tap_wrap nav.tap-nav {
+  width: 182px;
+  position: absolute;
+  left: 1px;
+  top: 50px;
+}
+
+div.page.list div.tap_wrap nav.tap-nav li {
+  border: 1px solid #ddd;
+  background: #fff;
+  margin-left: -1px;
+  text-align: center;
+  float: left;
+}
+
+div.page.list div.tap_wrap nav.tap-nav li.active {
+  font-weight: bold;
+  color: #2bde73;
+  background: #fff;
+  border-top: 1px solid #2bde73;
+  border-left: 1px solid #2bde73;
+  border-right: 1px solid #2bde73;
+  border-bottom: 1px solid #fff;
+  z-index: 50;
+}
+
+div.page.list div.tap_wrap nav.tap-nav li a {
+  display: inline-block;
+  width: 90px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 13px;
+  color: #666;
+  letter-spacing: 3px;
+}
+
 div.page.list div.filter-wrap {
   width: 800px;
-  height: 170px;
-  margin: 30px auto;
+  height: 120px;
+  margin: 80px auto;
   border: 1px solid #ddd;
   box-shadow: 0 5px 5px #eee;
+  position: absolute;
 }
 
 @media (max-width: 800px) {
   div.page.list div.filter-wrap {
+    position: absolute;
     width: 100%;
-    height: 340px;
+    height: 240px;
   }
+}
+
+@media (max-width: 800px) {
+  div.page.list div.filter-wrap.purpose {
+    height: 120px;
+  }
+}
+
+div.page.list div.filter-wrap h2 {
+  position: absolute;
+  display: inline-block;
+  width: 100px;
+  font-size: 17px;
+  top: -40px;
+  left: 50%;
+  margin-left: -50px;
+  letter-spacing: 5px;
 }
 
 div.page.list div.filter-wrap div.filter-group {
   float: left;
-  height: 170px;
-  width: 15%;
+  height: 120px;
+  width: 18%;
   padding: 5px;
   border: 1px solid #eee;
   text-align: center;
@@ -499,12 +569,9 @@ div.page.list div.filter-wrap div.filter-group {
   div.page.list div.filter-wrap div.filter-group {
     width: 33.3333333333333333%;
   }
-  div.page.list div.filter-wrap div.filter-group:nth-child(4), div.page.list div.filter-wrap div.filter-group:nth-child(5), div.page.list div.filter-wrap div.filter-group:nth-child(6) {
-    width: 25%;
-  }
 }
 
-div.page.list div.filter-wrap div.filter-group h2 {
+div.page.list div.filter-wrap div.filter-group h3 {
   text-align: center;
   font-size: 15px;
   letter-spacing: 5px;
@@ -527,7 +594,7 @@ div.page.list div.filter-wrap div.filter-group label.active {
 
 div.page.list div.filter-wrap div.filter-group:last-child {
   width: 10%;
-  height: 170px;
+  height: 120px;
   font-size: 12px;
   font-weight: bold;
   padding: 0;
@@ -535,7 +602,38 @@ div.page.list div.filter-wrap div.filter-group:last-child {
 
 @media (max-width: 800px) {
   div.page.list div.filter-wrap div.filter-group:last-child {
-    width: 25%;
+    width: 33.3333333333333333%;
+  }
+}
+
+div.page.list div.filter-wrap div.filter-group:last-child.purpose {
+  width: 10%;
+}
+
+@media (max-width: 800px) {
+  div.page.list div.filter-wrap div.filter-group:last-child.purpose {
+    width: 20%;
+  }
+}
+
+div.page.list div.filter-wrap div.filter-group.purpose {
+  width: 90%;
+}
+
+div.page.list div.filter-wrap div.filter-group.purpose label {
+  margin: 10px;
+}
+
+@media (max-width: 800px) {
+  div.page.list div.filter-wrap div.filter-group.purpose label {
+    margin: 2px;
+  }
+}
+
+@media (max-width: 800px) {
+  div.page.list div.filter-wrap div.filter-group.purpose {
+    width: 80%;
+    height: 120px;
   }
 }
 
@@ -551,7 +649,7 @@ div.page.list div.sort-wrap {
   float: right;
   position: relative;
   left: -50%;
-  margin: 50px auto 20px auto;
+  margin: 120px auto 20px auto;
 }
 
 div.page.list div.sort-wrap ul.sort-list {
@@ -565,7 +663,7 @@ div.page.list div.sort-wrap ul.sort-list li {
   float: left;
   font-size: 12px;
   border: 1px solid #ddd;
-  padding: 7px 25px;
+  padding: 7px 23px;
   margin-left: -1px;
   color: #666;
   cursor: pointer;
@@ -573,7 +671,7 @@ div.page.list div.sort-wrap ul.sort-list li {
 
 @media (max-width: 480px) {
   div.page.list div.sort-wrap ul.sort-list li {
-    padding: 7px 20px;
+    padding: 7px 6px;
   }
 }
 

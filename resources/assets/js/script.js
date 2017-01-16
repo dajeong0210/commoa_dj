@@ -109,6 +109,14 @@
         });
     }
 //Product sort
+    $('nav.tap-nav a').on('click', function(e){
+        e.preventDefault();
+        $('nav.tap-nav a').parent().removeClass('active');
+        $('div.filter-wrap').not('.'+$(this).attr('class')).addClass('hidden');
+        $( 'div.filter-wrap.'+$(this).attr('class') ).removeClass('hidden');
+        $(this).parent().addClass('active');
+    });
+
     $('ul.sort-list li').on('click', function(e){
         e.preventDefault();
         $('input#sortBy_rank').val( $(this).attr('name') );
@@ -134,7 +142,7 @@
     $('input.filter-group.submit').on('click', function(e){
         e.preventDefault();
         localStorage.setItem('remainFilter', $('input').val());
-        $('form.filter-form').submit();
+        $(this).parent().parent().submit();
     });
 
 //asfasfa
