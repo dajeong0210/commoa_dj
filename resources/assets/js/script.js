@@ -57,10 +57,14 @@
             $('ul.slider.auto').css('left', '0').find('li:first-child').remove();
         } );
     }
-    setInterval( AutoSlide , 6000 );
-    $('ul.slider.auto a').on('mouseover focus', function(){
-        console.log('hi');
-        clearInterval(AutoSlide);
+    var timer = setInterval( AutoSlide , 6000 );
+    $('ul.slider.auto').on( {
+        mouseenter : function(){
+        clearInterval( timer );
+        }, 
+        mouseleave : function(){
+        timer = setInterval( AutoSlide, 6000 );
+        }
     });
 
 //ShopApply
