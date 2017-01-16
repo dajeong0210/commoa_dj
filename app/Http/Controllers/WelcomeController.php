@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Shop;
+use Illuminate\Support\Facades\DB;
 
 class WelcomeController extends Controller
 {
@@ -16,7 +17,7 @@ class WelcomeController extends Controller
     public function index()
     {
         DB::statement(DB::raw('set @row:=0'));
-        
+
         $products = Product::orderBy('views','desc')->selectRaw('*, @row:=@row+1 as row')->limit(8)->get();
         $shops = Shop::orderBy('id', 'asc')->selectRaw('*, @row:=@row+1 as row')->limit(8)->get();
 

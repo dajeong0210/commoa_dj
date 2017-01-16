@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Product;
 use Illuminate\Support\Facades\DB;
 use App\Cpu;
+use App\Vga;
 
 class ProductController extends Controller
 {
@@ -18,20 +19,74 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         DB::statement(DB::raw('set @row:=0'));
-
-        if( !$request ) {
-            $products = Product::orderBy('views', 'desc')->selectRaw('*, @row:=@row+1 as row')->paginate(12);
+        $product_sort = $request->input('product-sort');
+        if( $product_sort == '' ) {
+            $products = Product::orderBy('views', 'desc');
         } else {
-            if ( $request->input('product-sort') == 'rankBy' ) {
-                $products = Product::orderBy('views', 'desc')->selectRaw('*, @row:=@row+1 as row')->paginate(12);
-            } else if ( $request->input('product-sort') == 'priceBy' ) {
-                $products = Product::orderBy('price', 'desc')->selectRaw('*, @row:=@row+1 as row')->paginate(12);
+            if ( $product_sort == 'rankBy' ) {
+                $products = Product::orderBy('views', 'desc');
+            } else if ( $product_sort == 'priceBy' ) {
+                $products = Product::orderBy('price', 'desc');
             } else {
-                $products = Product::orderBy('id', 'desc')->selectRaw('*, @row:=@row+1 as row')->paginate(12);
+                $products = Product::orderBy('id', 'desc');
             } 
         }
-        
+        $products = $products->selectRaw('*, @row:=@row+1 as row')->paginate(12);
+
         return view('Product.index')->with('products', $products);
+        
+        //test searchFilter 
+
+        /* index.php 테스트 추가 
+        <input type="hidden" class="search-val" name="cpu" value="1"/> 
+        <input type="hidden" class="search-val" name="vga" value="3"/>  
+        <input type="hidden" class="search-val" name="os" value="0"/> 
+        */
+        
+        /* 시작 
+        DB::statement(DB::raw('set @row:=0'));
+        $product_sort = $request->input('product-sort');
+        $cpu_level = $request->input('cpu');
+        $vga_level = $request->input('vga');
+        $os = $request->input('os');
+        // $products = Product::get();
+
+        if( $product_sort == '' ) {
+            $products = Product::orderBy('views', 'desc');
+        } else {
+            if ( $product_sort == 'rankBy' ) {
+                $products = Product::orderBy('views', 'desc');
+            } else if ( $product_sort == 'priceBy' ) {
+                $products = Product::orderBy('price', 'desc');
+            } else {
+                $products = Product::orderBy('id', 'desc');
+            } 
+        }
+
+        if($cpu_level != ''){
+            $cpus = Cpu::where('level', $cpu_level)->get();
+            $cpu_id = array();
+            foreach ( $cpus as $cpu ) {
+                array_push($cpu_id, $cpu->id);
+            }
+            $products = $products->whereIn('cpu_id', $cpu_id);
+        }   
+        if($vga_level != ''){
+            $vgas = Vga::where('level', $vga_level)->get();
+            $vga_id = array();
+            foreach ( $vgas as $vga ) {
+                array_push($vga_id, $vga->id);
+            }
+            $products = $products->whereIn('vga_id', $vga_id);
+        }
+        if($os != ''){
+            $products = $products->where('os', $os);
+        }
+
+        $products = $products->selectRaw('*, @row:=@row+1 as row')->paginate(12);
+
+        return view('Product.index')->with('products', $products);
+        끝 */
     }
 
     /**
@@ -71,6 +126,14 @@ class ProductController extends Controller
         $product->save();
 
         return redirect('product');
+    }
+
+    //view count up! 
+    public function viewCount($product_id)
+    {
+        $product = Product::find($product_id);
+        $product->views = $product->id + 1;
+        $product->save();
     }
 
     /**
