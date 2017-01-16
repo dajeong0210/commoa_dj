@@ -111,15 +111,30 @@
 //Product sort
     $('ul.sort-list li').on('click', function(e){
         e.preventDefault();
+        $('input#sortBy_rank').val( $(this).attr('name') );
         localStorage.setItem('activeRemain', $(this).attr('name'));
-        $('input.sort-val').val( $(this).attr('name') );
-        $('form.sort-form').submit();
+        $('form.filter-form').submit();
     });
 
     var activeRemain = localStorage.getItem('activeRemain');
     if( activeRemain ){
         $('li.'+activeRemain).addClass('active');
+        $('input[name='+activeRemain+']').prev().addClass('active');
     }
     localStorage.removeItem('activeRemain');
+
+    $('div.filter-group label').on('click', function(){
+        if( $(this).next().hasClass('purpose') ){
+            $(this).toggleClass('active');
+        }else{
+
+        };
+    });
+
+    $('input.filter-group.submit').on('click', function(e){
+        e.preventDefault();
+        localStorage.setItem('remainFilter', $('input').val());
+        $('form.filter-form').submit();
+    });
 
 //asfasfa

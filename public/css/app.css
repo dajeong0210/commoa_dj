@@ -270,11 +270,17 @@ div.slider {
 }
 
 div.slider.page.list {
-  height: 570px;
+  height: 600px;
 }
 
 div.slider.page.list h3 {
-  margin: 40px auto;
+  position: relative;
+  top: -20px;
+  line-height: 1.0;
+}
+
+div.slider.page.list h3 span {
+  font-size: 0.8em;
 }
 
 div.slider nav {
@@ -464,35 +470,127 @@ div.page.list h3 {
   }
 }
 
-div.page.list div.sort-group {
-  position: relative;
-  float: right;
-  left: -50%;
+div.page.list div.filter-wrap {
+  width: 800px;
+  height: 170px;
+  margin: 30px auto;
+  border: 1px solid #ddd;
+  box-shadow: 0 5px 5px #eee;
 }
 
-div.page.list div.sort-group ul.sort-list {
-  margin: 50px auto;
+@media (max-width: 800px) {
+  div.page.list div.filter-wrap {
+    width: 100%;
+    height: 340px;
+  }
+}
+
+div.page.list div.filter-wrap div.filter-group {
+  float: left;
+  height: 170px;
+  width: 15%;
+  padding: 5px;
+  border: 1px solid #eee;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+@media (max-width: 800px) {
+  div.page.list div.filter-wrap div.filter-group {
+    width: 33.3333333333333333%;
+  }
+  div.page.list div.filter-wrap div.filter-group:nth-child(4), div.page.list div.filter-wrap div.filter-group:nth-child(5), div.page.list div.filter-wrap div.filter-group:nth-child(6) {
+    width: 25%;
+  }
+}
+
+div.page.list div.filter-wrap div.filter-group h2 {
+  text-align: center;
+  font-size: 15px;
+  letter-spacing: 5px;
+}
+
+div.page.list div.filter-wrap div.filter-group label {
+  margin: 2px -4px;
+  border: 1px solid #ddd;
+  display: inline-block;
+  background: #fff;
+  padding: 5px 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+div.page.list div.filter-wrap div.filter-group label.active {
+  border: 1px solid #2bde73;
+  color: #2bde73;
+}
+
+div.page.list div.filter-wrap div.filter-group:last-child {
+  width: 10%;
+  height: 170px;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 0;
+}
+
+@media (max-width: 800px) {
+  div.page.list div.filter-wrap div.filter-group:last-child {
+    width: 25%;
+  }
+}
+
+div.page.list div.filter-wrap div.filter-group input.submit.filter-group {
+  width: 100%;
+  height: 100%;
+  background: #2bde73;
+  color: #fff;
+  border: none;
+}
+
+div.page.list div.sort-wrap {
+  float: right;
+  position: relative;
+  left: -50%;
+  margin: 50px auto 20px auto;
+}
+
+div.page.list div.sort-wrap ul.sort-list {
   float: left;
   position: relative;
   left: 50%;
+  margin: 0px 18px;
 }
 
-div.page.list div.sort-group ul.sort-list li {
+div.page.list div.sort-wrap ul.sort-list li {
   float: left;
   font-size: 12px;
   border: 1px solid #ddd;
-  padding: 7px 30px;
+  padding: 7px 25px;
   margin-left: -1px;
   color: #666;
   cursor: pointer;
 }
 
-div.page.list div.sort-group ul.sort-list li.active {
+@media (max-width: 480px) {
+  div.page.list div.sort-wrap ul.sort-list li {
+    padding: 7px 20px;
+  }
+}
+
+div.page.list div.sort-wrap ul.sort-list li:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+div.page.list div.sort-wrap ul.sort-list li:last-child {
+  border-radius: 0 10px 10px 0;
+}
+
+div.page.list div.sort-wrap ul.sort-list li.active {
   color: #fff;
   font-weight: bold;
 }
 
-div.page.list div.sort-group ul.sort-list li.active:focus {
+div.page.list div.sort-wrap ul.sort-list li.active:focus {
   color: #fff;
   font-weight: bold;
 }
