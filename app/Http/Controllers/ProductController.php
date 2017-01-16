@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Product;
 use Illuminate\Support\Facades\DB;
+use App\Product;
 use App\Cpu;
 use App\Vga;
+use App\Category;
 
 class ProductController extends Controller
 {
@@ -17,77 +18,92 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    {
-
-        DB::statement(DB::raw('set @row:=0'));
-        $product_sort = $request->input('product-sort');
-        if( $product_sort == '' ) {
-            $products = Product::orderBy('views', 'desc');
-        } else {
-            if ( $product_sort == 'rankBy' ) {
-                $products = Product::orderBy('views', 'desc');
-            } else if ( $product_sort == 'priceBy' ) {
-                $products = Product::orderBy('price', 'desc');
-            } else {
-                $products = Product::orderBy('id', 'desc');
-            } 
-        }
-        $products = $products->selectRaw('*, @row:=@row+1 as row')->paginate(12);
-
-        return view('Product.index')->with('products', $products);
-        
-        //test searchFilter 
-
+    {        
         /* index.php 테스트 추가 
         <input type="hidden" class="search-val" name="cpu" value="1"/> 
         <input type="hidden" class="search-val" name="vga" value="3"/>  
         <input type="hidden" class="search-val" name="os" value="0"/> 
         */
         
-        /* 시작 
         DB::statement(DB::raw('set @row:=0'));
+
         $product_sort = $request->input('product-sort');
-        $cpu_level = $request->input('cpu');
-        $vga_level = $request->input('vga');
+        $category = $request->input('purpose');
+        $cpu_level = $request->input('cpu_level');
+        $vga_level = $request->input('vga_level');
         $os = $request->input('os');
-        // $products = Product::get();
+        $monitor = $request->input('monitor');
+        $ssd = $request->input('ssd');
+        $products = new Product;
+
+        //용도별 & 사양별 
+        if( $category != '' ) {
+
+            $products = Category::where('id', $category)->first()->products()->orderBy('products.created_at', 'desc');
+
+        } else if( $cpu_level != '' || $vga_level != '' || $os != '' || $monitor != '' || $ssd != '' ) {
+
+            if( $cpu_level != '' ) {
+                $cpus = Cpu::where('level', $cpu_level)->get();
+                $cpu_id = array();
+                foreach ( $cpus as $cpu ) {
+                    array_push($cpu_id, $cpu->id);
+                }
+                $products = $products->whereIn('cpu_id', $cpu_id);
+            } 
+
+            if( $vga_level != '' ) {
+                $vgas = Vga::where('level', $vga_level)->get();
+                $vga_id = array();
+                foreach ( $vgas as $vga ) {
+                    array_push($vga_id, $vga->id);
+                }
+                $products = $products->whereIn('vga_id', $vga_id);
+            }
+
+            if( $os != '' ) {
+                if( $os == '무' ) { 
+                    $products = $products->where('os', 0);
+                } else {
+                    $products = $products->where('os', 1);
+                }
+            }
+
+            if( $monitor != '' ) {
+                if( $monitor == '무' ) {
+                    $products = $products->where('monitor', null);
+                } else {
+                    $products = $products->where('monitor', '<>', null);
+                }
+            }
+
+            if( $ssd != '' ) {
+                if( $ssd == '무' ) {
+                    $products = $products->where('ssd', null);
+                } else {
+                    $products = $products->where('ssd', '<>', null);
+                }
+            }
+
+        }
 
         if( $product_sort == '' ) {
-            $products = Product::orderBy('views', 'desc');
+            $products = $products->orderBy('views', 'desc');
         } else {
             if ( $product_sort == 'rankBy' ) {
-                $products = Product::orderBy('views', 'desc');
+                $products = $products->orderBy('views', 'desc');
             } else if ( $product_sort == 'priceBy' ) {
-                $products = Product::orderBy('price', 'desc');
-            } else {
-                $products = Product::orderBy('id', 'desc');
+                $products = $products->orderBy('price', 'desc');
+            } else if ( $product_sort == 'priceBy' ) {
+                $products = $products->orderBy('price', 'asc');
+            }else {
+                $products = $products->orderBy('id', 'desc');
             } 
-        }
-
-        if($cpu_level != ''){
-            $cpus = Cpu::where('level', $cpu_level)->get();
-            $cpu_id = array();
-            foreach ( $cpus as $cpu ) {
-                array_push($cpu_id, $cpu->id);
-            }
-            $products = $products->whereIn('cpu_id', $cpu_id);
-        }   
-        if($vga_level != ''){
-            $vgas = Vga::where('level', $vga_level)->get();
-            $vga_id = array();
-            foreach ( $vgas as $vga ) {
-                array_push($vga_id, $vga->id);
-            }
-            $products = $products->whereIn('vga_id', $vga_id);
-        }
-        if($os != ''){
-            $products = $products->where('os', $os);
-        }
-
+        } 
+        
         $products = $products->selectRaw('*, @row:=@row+1 as row')->paginate(12);
 
         return view('Product.index')->with('products', $products);
-        끝 */
     }
 
     /**
