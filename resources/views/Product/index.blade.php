@@ -14,11 +14,11 @@
                     <div class="filter-group purpose">
                         <h3>용도별</h3>
                         <label for="purpose_office" class="{{ isset($_GET['purpose'])? in_array('사무용', $_GET['purpose'])? 'active' : '' : '' }}">사무용</label>
-                        <input type="checkbox" id="purpose_office" name="purpose[office]" class="input purpose hidden" value="사무용" @if( isset($_GET['purpose'])) @if( in_array('사무용', $_GET['purpose']) ) checked="checked" @endif @endif />
+                        <input type="checkbox" id="purpose_office" name="purpose[]" class="input purpose hidden" value="사무용" @if( isset($_GET['purpose'])) @if( in_array('사무용', $_GET['purpose']) ) checked="checked" @endif @endif />
                         <label for="purpose_game" class="{{ isset($_GET['purpose'])? in_array('게임용', $_GET['purpose'])? 'active' : '' : '' }}">게임용</label>
-                        <input type="checkbox" id="purpose_game" name="purpose[game]" class="input purpose hidden" value="게임용" @if( isset($_GET['purpose'])) @if( in_array('게임용', $_GET['purpose']) ) checked="checked" @endif @endif/>
+                        <input type="checkbox" id="purpose_game" name="purpose[]" class="input purpose hidden" value="게임용" @if( isset($_GET['purpose'])) @if( in_array('게임용', $_GET['purpose']) ) checked="checked" @endif @endif/>
                         <label for="purpose_design" class="{{ isset($_GET['purpose'])? in_array('디자인용', $_GET['purpose'])? 'active' : '' : '' }}">디자인용</label>
-                        <input type="checkbox" id="purpose_design" name="purpose[design]" class="input purpose hidden" value="디자인용" @if( isset($_GET['purpose'])) @if( in_array('디자인용', $_GET['purpose']) ) checked="checked" @endif @endif/>
+                        <input type="checkbox" id="purpose_design" name="purpose[]" class="input purpose hidden" value="디자인용" @if( isset($_GET['purpose'])) @if( in_array('디자인용', $_GET['purpose']) ) checked="checked" @endif @endif/>
                     </div>
                     <div class="filter-group sortBy hidden">
                         @if( isset($_GET['cpu_level']) || isset($_GET['vga_level']) || isset($_GET['os']) || isset($_GET['ssd']) || isset($_GET['monitor']) )

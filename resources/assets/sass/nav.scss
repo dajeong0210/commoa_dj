@@ -92,13 +92,14 @@
             & > li{
                 padding:15px 10px;
                 text-align:center;
-                margin:0;
+                margin:0 10px;
                 line-height:30px;
                 font-size:12px;
                 float:left;
                 position:relative;
                 @include respond-to('small') {
                     padding:0;
+                    margin:0;
                     clear:both;
                     width:100%;
                 }
@@ -112,6 +113,10 @@
                         line-height:70px;
                         background:#333;
                         &:hover{
+                            font-weight:bold;
+                            background:#282828;
+                        }
+                        &:active{
                             font-weight:bold;
                             background:#282828;
                             color:$point-color;

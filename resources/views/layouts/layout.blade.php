@@ -38,10 +38,18 @@
             </a>
             <ul class="nav-group hidden">
                 <li>
-                    <a href="{{ url('product/') }}">상품</a>
+                @if( Request::segment(1) == 'product' )
+                    <a href="{{ url('product/')}}" class="active">상품</a>
+                @else
+                    <a href="{{ url('product/')}}">상품</a>
+                @endif
                 </li>
                 <li>
+                @if( Request::segment(1) == 'shop' )
+                    <a href="{{ url('shop/') }}" class="active">쇼핑몰</a>
+                @else
                     <a href="{{ url('shop/') }}">쇼핑몰</a>
+                @endif
                 </li>
                 @if( Auth::guest() )
                     <li><a href="{{ url('/login') }}">로그인</a></li>

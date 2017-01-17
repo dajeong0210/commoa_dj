@@ -3,10 +3,17 @@
 @section('content')
     <div class="page list">
         <div class="sort-group">
+            <div class="sort-wrap shop">
             <ul class="sort-list">
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
+                <li name="all" class="all {{ isset($_GET['shop-sort'])? $_GET['shop-sort'] == 'all' ? 'active' : '' : '' }}">최신순</li>
+                <li name="nameBy" class="nameBy {{ isset($_GET['shop-sort'])? $_GET['shop-sort'] == 'nameBy'? 'active' : '' : '' }}">이름순</li>
             </ul>
+            <form method="GET" class="hidden">
+                <div class="sortBy">
+                    <input type="text" id="sortBy_rank" name="shop-sort" class="input" value="all"/>
+                </div>
+            </form>
+        </div>
         </div>
         <ul class="list-group">
             @foreach( $shops as $shop )
