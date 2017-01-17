@@ -3,15 +3,6 @@
   display: none;
 }
 
-.active, .active:focus {
-  background: #2bde73;
-  color: #fff;
-}
-
-.active a, .active:focus a {
-  color: #2bde73;
-}
-
 nav.nav-bar {
   width: 100%;
   height: 60px;
@@ -81,13 +72,14 @@ nav.nav-bar ul.nav-group {
     top: 60px;
     right: 0;
     border: 1px solid #282828;
-    background: rgba(0, 0, 0, 0.8);
+    background: #333;
   }
 }
 
 nav.nav-bar ul.nav-group > li {
   padding: 15px 10px;
-  margin: 0 15px;
+  text-align: center;
+  margin: 0;
   line-height: 30px;
   font-size: 12px;
   float: left;
@@ -96,7 +88,7 @@ nav.nav-bar ul.nav-group > li {
 
 @media (max-width: 800px) {
   nav.nav-bar ul.nav-group > li {
-    padding: 20px 0;
+    padding: 0;
     clear: both;
     width: 100%;
   }
@@ -106,11 +98,27 @@ nav.nav-bar ul.nav-group > li a {
   color: #fff;
 }
 
+@media (max-width: 800px) {
+  nav.nav-bar ul.nav-group > li a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    height: 70px;
+    line-height: 70px;
+    background: #333;
+  }
+  nav.nav-bar ul.nav-group > li a:hover {
+    font-weight: bold;
+    background: #282828;
+    color: #2bde73;
+  }
+}
+
 nav.nav-bar ul.nav-group > li a i {
   color: #fff;
 }
 
-nav.nav-bar ul.nav-group > li a.current {
+nav.nav-bar ul.nav-group > li a.active {
   color: #2bde73;
   font-weight: bold;
 }
@@ -130,6 +138,7 @@ nav.nav-bar ul.nav-group > li div.sub_menu {
 @media (max-width: 800px) {
   nav.nav-bar ul.nav-group > li div.sub_menu {
     position: initial;
+    padding: 0;
     margin-left: 0;
     background: none;
     border: none;
@@ -148,11 +157,12 @@ nav.nav-bar ul.nav-group > li div.sub_menu li {
 
 @media (max-width: 800px) {
   nav.nav-bar ul.nav-group > li div.sub_menu li {
-    width: 33%;
+    width: 33.3333333333333333333333333333333%;
     clear: none;
     float: left;
-    height: 30px;
-    line-height: 30px;
+    height: 100%;
+    line-height: 25px;
+    background: #333;
   }
 }
 
@@ -498,6 +508,7 @@ div.page.list div.tap_wrap nav.tap-nav li {
   margin-left: -1px;
   text-align: center;
   float: left;
+  z-index: 1;
 }
 
 div.page.list div.tap_wrap nav.tap-nav li.active {
@@ -508,7 +519,7 @@ div.page.list div.tap_wrap nav.tap-nav li.active {
   border-left: 1px solid #2bde73;
   border-right: 1px solid #2bde73;
   border-bottom: 1px solid #fff;
-  z-index: 50;
+  z-index: 2;
 }
 
 div.page.list div.tap_wrap nav.tap-nav li a {
@@ -684,6 +695,7 @@ div.page.list div.sort-wrap ul.sort-list li:last-child {
 }
 
 div.page.list div.sort-wrap ul.sort-list li.active {
+  background: #2bde73;
   color: #fff;
   font-weight: bold;
 }
@@ -933,6 +945,11 @@ div.pagination ul.pagination li {
   border-radius: 20px;
   font-size: 11px;
   font-weight: bold;
+}
+
+div.pagination ul.pagination li.active {
+  background: #2bde73;
+  color: #fff;
 }
 
 div.pagination ul.pagination li a {

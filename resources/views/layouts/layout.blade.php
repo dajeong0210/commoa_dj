@@ -54,6 +54,10 @@
                             <li><a href="#">마이페이지</a></li>
                             @if( Auth::user()->permission == 2 )
                             <li><a href="#">관리자페이지</a></li>
+                            @elseif( Auth::user()->permission == 1 )
+                            <li><a href="#">관리자페이지</a></li>
+                            @else
+                            <li><a href="#">관심글</a></li>
                             @endif
                             <li>
                                 <a href="{{ url('/logout') }}"

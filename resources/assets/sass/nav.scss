@@ -34,13 +34,6 @@
     .hidden{
         display:none;
     }
-    .active, .active:focus{
-        background:$point-color;
-        color:#fff;
-        a{
-            color:$point-color;
-        }
-    }
     nav.nav-bar{
         width:100%;
         height:60px;
@@ -94,26 +87,40 @@
                 top:60px;
                 right:0;
                 border:1px solid #282828;
-                background:rgba(0,0,0,0.8);
+                background:#333;
             }
             & > li{
                 padding:15px 10px;
-                margin:0 15px;
+                text-align:center;
+                margin:0;
                 line-height:30px;
                 font-size:12px;
                 float:left;
                 position:relative;
                 @include respond-to('small') {
-                    padding:20px 0;
+                    padding:0;
                     clear:both;
                     width:100%;
                 }
                 a{
                     color:#fff;
+                    @include respond-to('small') {
+                        display:block;
+                        height:100%;
+                        width:100%;
+                        height:70px;
+                        line-height:70px;
+                        background:#333;
+                        &:hover{
+                            font-weight:bold;
+                            background:#282828;
+                            color:$point-color;
+                        }
+                    }
                     i{
                         color:#fff;
                     }
-                    &.current{
+                    &.active{
                         color:$point-color;
                         font-weight:bold;
                     }
@@ -130,6 +137,7 @@
                     padding:7px 0;
                     @include respond-to('small') {
                         position:initial;
+                        padding:0;
                         margin-left:0;
                         background:none;
                         border:none;
@@ -143,11 +151,12 @@
                         margin:0;
                         clear:both;
                         @include respond-to('small'){
-                            width:33%;
+                            width:33.3333333333333333333333333333333%;
                             clear:none;
                             float:left;
-                            height:30px;
-                            line-height:30px;
+                            height:100%;
+                            line-height:25px;
+                            background:#333;
                         }
                         a{
                             font-size:12px;
