@@ -28,7 +28,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/favorite/{product_id}', 'FavoriteController@store');
     Route::resource('/info', 'InfoController');
     Route::get('/shop/create', 'ShopController@create');
-    Route::get('/shop/{s_id}/edit', 'ShopController@edit');
+    Route::get('/shop/{id}/edit', 'ShopController@edit');
     Route::get('/product/create', 'ProductController@create');
     Route::get('/product/{p_id}/edit', 'ProductController@edit');
     Route::resource('/user', 'UserController');

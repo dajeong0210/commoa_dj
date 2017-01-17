@@ -48,8 +48,8 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        $favorites = $user->products()->orderBy('pivot_product_user.created_at', 'desc')->get();
-        $bookmarks = $user->shops()->orderBy('pivot_shop_user.created_at', 'desc')->get();
+        $favorites = $user->products()->orderBy('pivot_product_user.created_at', 'desc')->limit(4)->get();
+        $bookmarks = $user->shops()->orderBy('pivot_shop_user.created_at', 'desc')->limit(8)->get();
 
         return view('mypage.index')->with('user', $user)->with('favorites', $favorites)->with('bookmarks', $bookmarks);;
     }

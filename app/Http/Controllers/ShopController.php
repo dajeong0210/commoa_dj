@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Http\Request;
 use App\Shop;
+use App\User;
 
 class ShopController extends Controller
 {
@@ -81,7 +84,7 @@ class ShopController extends Controller
     public function edit($id)
     {
         $shop = Shop::find($id);
-        return view('shop.edit')->with($shop);
+        return view('shop.edit')->with('shop', $shop);
     }
 
     /**
@@ -93,8 +96,8 @@ class ShopController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $path_i = $request->file('image')->store('images');
         $shop = Shop::find($id);
+        $path_i = $request->file('image')->store('images');
         $shop->name = $request->input('shop_name');
         $shop->image = $path_i;
         $shop->url = $request->input('shop_url');
@@ -102,7 +105,7 @@ class ShopController extends Controller
         $shop->contact_name = $request->input('contact_name');
         $shop->phone = $request->input('contact_phone');
         $shop->email = $request->input('contact_email');
-        $shop->user_id = input('user_email');
+        $shop->user_id = User::where('email', 'user_email')->id;
         $shop->save();
         return redirect('main');
     }
