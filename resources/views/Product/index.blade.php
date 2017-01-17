@@ -36,7 +36,7 @@
                     <div class="filter-group">
                         <h3>CPU</h3>
                         <label for="cpu_level_high" @if( isset($_GET['cpu_level'])) @if( $_GET['cpu_level'] == '3' ) class="active" @endif @endif>상</label>
-                        <input type="radio" id="cpu_level_high" name="cpu_level" class="input specification" value="3" @if( isset($_GET['cpu_level'])) @if( $_GET['cpu_level'] == '3' ) checked="checked" @endif @endif/>
+                        <input type="radio" id="cpu_level_high" name="cpu_level" class="input specification hidden" value="3" @if( isset($_GET['cpu_level'])) @if( $_GET['cpu_level'] == '3' ) checked="checked" @endif @endif/>
                         <label for="cpu_level_mid" @if( isset($_GET['cpu_level'])) @if( $_GET['cpu_level'] == '2' ) class="active" @endif @endif>중</label>
                         <input type="radio" id="cpu_level_mid" name="cpu_level" class="input specification hidden" value="2" @if( isset($_GET['cpu_level'])) @if( $_GET['cpu_level'] == '2' ) checked="checked" @endif @endif/>
                         <label for="cpu_level_low" @if( isset($_GET['cpu_level'])) @if( $_GET['cpu_level'] == '1' ) class="active" @endif @endif>하</label>
