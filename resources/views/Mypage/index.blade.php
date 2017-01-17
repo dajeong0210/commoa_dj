@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-    <div class="page list">
+    <div class="page mypage">
         <nav class="tap-nav">
             <ul>
                 <li><a href="#">개인정보수정</a></li>

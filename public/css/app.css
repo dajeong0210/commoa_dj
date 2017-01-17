@@ -466,7 +466,7 @@ div.slider ul.slider li div.slider-cover a.btn:hover {
   background: #2bde73;
 }
 
-div.page.list {
+div.page {
   width: 80%;
   max-width: 1200px;
   min-width: 800px;
@@ -1141,38 +1141,38 @@ form.ShopApply label.error, label.error {
   transition: all 2s;
 }
 
-div.page.list nav {
+div.page.mypage nav {
   float: right;
   left: -50%;
   position: relative;
   margin: 20px auto 50px auto;
 }
 
-div.page.list nav ul {
+div.page.mypage nav ul {
   position: relative;
   left: 50%;
 }
 
-div.page.list nav ul li {
+div.page.mypage nav ul li {
   float: left;
   padding: 10px 20px;
 }
 
-div.page.list nav ul li a {
+div.page.mypage nav ul li a {
   font-size: 13px;
   font-weight: bold;
   color: #333;
 }
 
-div.page.list nav ul li a.active {
+div.page.mypage nav ul li a.active {
   border: 2px solid #2bde73;
 }
 
-div.page.list div.my-wrap {
+div.page.mypage div.my-wrap {
   clear: both;
 }
 
-div.page.list div.my-wrap > div {
+div.page.mypage div.my-wrap > div {
   float: left;
   border: 1px solid #ddd;
   box-shadow: 0 0 10px #ddd;
@@ -1181,21 +1181,21 @@ div.page.list div.my-wrap > div {
   box-sizing: border-box;
 }
 
-div.page.list div.my-wrap > div.user_profile {
+div.page.mypage div.my-wrap > div.user_profile {
   width: 28%;
   margin: 0 1%;
   height: 350px;
 }
 
 @media (max-width: 800px) {
-  div.page.list div.my-wrap > div.user_profile {
+  div.page.mypage div.my-wrap > div.user_profile {
     clear: both;
     width: 98%;
     margin: 1%;
   }
 }
 
-div.page.list div.my-wrap > div.user_profile div.thumbnail {
+div.page.mypage div.my-wrap > div.user_profile div.thumbnail {
   margin: 20px auto;
   width: 120px;
   height: 120px;
@@ -1204,38 +1204,38 @@ div.page.list div.my-wrap > div.user_profile div.thumbnail {
   background: #eee;
 }
 
-div.page.list div.my-wrap > div.user_profile p {
+div.page.mypage div.my-wrap > div.user_profile p {
   font-size: 13px;
   line-height: 0.9;
   text-align: center;
 }
 
-div.page.list div.my-wrap > div.user_profile p.name {
+div.page.mypage div.my-wrap > div.user_profile p.name {
   font-size: 24px;
   font-weight: bold;
 }
 
-div.page.list div.my-wrap > div.fav-list {
+div.page.mypage div.my-wrap > div.fav-list {
   width: 68%;
   margin: 0 1%;
   height: 350px;
 }
 
 @media (max-width: 800px) {
-  div.page.list div.my-wrap > div.fav-list {
+  div.page.mypage div.my-wrap > div.fav-list {
     clear: both;
     width: 98%;
     margin: 1%;
   }
 }
 
-div.page.list div.my-wrap > div.book-list {
+div.page.mypage div.my-wrap > div.book-list {
   clear: both;
   width: 98%;
   margin: 1% 1% 50px 1%;
 }
 
-div.page.list div.my-wrap > div h2 {
+div.page.mypage div.my-wrap > div h2 {
   display: inline-block;
   margin: 0;
   padding: 0 5%;
@@ -1248,7 +1248,7 @@ div.page.list div.my-wrap > div h2 {
   position: relative;
 }
 
-div.page.list div.my-wrap > div h2 a {
+div.page.mypage div.my-wrap > div h2 a {
   color: #333;
   position: absolute;
   font-size: 20px;
