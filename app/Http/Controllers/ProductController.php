@@ -37,9 +37,17 @@ class ProductController extends Controller
         $products = new Product;
 
         //용도별 & 사양별 
-        if( $category != '' ) {
+        if( $category != null ) {
 
-            $products = Category::where('name', $category)->first()->products();
+            $categories = Category::whereIn('id', $category)->get();
+
+            for ( $i=0; $i<count($categories); $i++ ) {
+                if( $i == 0 ) {
+                    $products = $categories[0]->products();
+                } else { 
+                    $products = $products->unionAll( $categories[$i]->products() );
+                }
+            }
 
         } else if( $cpu_level != '' || $vga_level != '' || $os != '' || $monitor != '' || $ssd != '' ) {
 
@@ -71,33 +79,35 @@ class ProductController extends Controller
 
             if( $ssd != '' ) {
                 if( $ssd == 0 ) {
-                    $products = $products->where('ssd', null);
+                    $products = $products->whereNull('ssd');
                 } else {
-                    $products = $products->where('ssd', '<>', null);
+                    $products = $products->whereNotNull('ssd');
                 }
             }
             
             if( $monitor != '' ) {
                 if( $monitor == 0 ) {
-                    $products = $products->where('monitor', null);
+                    $products = $products->whereNull('monitor');
                 } else {
-                    $products = $products->where('monitor', '<>', null);
+                    $products = $products->whereNotNull('monitor');
                 }
             }
 
         }
 
+        $products = $products->selectRaw('*, @row:=@row+1 as row');
+
         if( $product_sort == '' ) {
-            $products = $products->selectRaw('*, @row:=@row+1 as row')->orderBy('views', 'desc')->paginate(12);
+            $products = $products->orderBy('views', 'desc')->paginate(12);
         } else {
             if ( $product_sort == 'rankBy' ) {
-                $products = $products->selectRaw('*, @row:=@row+1 as row')->orderBy('views', 'desc')->paginate(12);
+                $products = $products->orderBy('views', 'desc')->paginate(12);
             } else if ( $product_sort == 'priceBydesc' ) {
-                $products = $products->selectRaw('*, @row:=@row+1 as row')->orderBy('price', 'desc')->paginate(12);
+                $products = $products->orderBy('price', 'desc')->paginate(12);
             } else if ( $product_sort == 'priceByasc' ) {
-                $products = $products->selectRaw('*, @row:=@row+1 as row')->orderBy('price', 'asc')->paginate(12);
+                $products = $products->orderBy('price', 'asc')->paginate(12);
             } else {
-                $products = $products->selectRaw('*, @row:=@row+1 as row')->orderBy('products.updated_at', 'desc')->paginate(12);
+                $products = $products->orderBy('products.updated_at', 'desc')->paginate(12);
             } 
         } 
 
