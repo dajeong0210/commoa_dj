@@ -88,6 +88,8 @@ nav.nav-bar ul.nav-group > li {
 
 @media (max-width: 800px) {
   nav.nav-bar ul.nav-group > li {
+    box-sizing: border-box;
+    border-bottom: #282828;
     padding: 0;
     margin: 0;
     clear: both;
@@ -486,7 +488,7 @@ div.page.list h3 {
   }
 }
 
-div.page.list div.tap_wrap {
+div.page.list div.tab_wrap {
   width: 800px;
   height: 120px;
   margin: 0 auto;
@@ -494,63 +496,62 @@ div.page.list div.tap_wrap {
 }
 
 @media (max-width: 800px) {
-  div.page.list div.tap_wrap {
+  div.page.list div.tab_wrap {
     width: 100%;
     height: 240px;
   }
 }
 
-div.page.list div.tap_wrap nav.tap-nav {
-  width: 182px;
+div.page.list div.tab_wrap nav.tab-nav {
   position: absolute;
   left: 1px;
-  top: 50px;
+  top: 39px;
 }
 
-div.page.list div.tap_wrap nav.tap-nav li {
-  border: 1px solid #ddd;
-  background: #fff;
+div.page.list div.tab_wrap nav.tab-nav li {
+  background: #333;
   margin-left: -1px;
   text-align: center;
   float: left;
-  z-index: 1;
-}
-
-div.page.list div.tap_wrap nav.tap-nav li:first-child {
-  border-radius: 10px 0 0 0;
-}
-
-div.page.list div.tap_wrap nav.tap-nav li:last-child {
-  border-radius: 0 10px 0 0;
-}
-
-div.page.list div.tap_wrap nav.tap-nav li.active {
+  width: 120px;
+  height: 40px;
+  line-height: 38px;
   font-weight: bold;
-  color: #fff;
-  background: #2bde73;
-  border-bottom: 1px solid #fff;
+  border: 1px solid #ddd;
+  letter-spacing: 2px;
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
 }
 
-div.page.list div.tap_wrap nav.tap-nav li.active a {
-  color: #fff;
+div.page.list div.tab_wrap nav.tab-nav li.active {
+  background: #fff;
+  border-top: 3px solid #2bde73;
+  border-bottom: 3px solid #fff;
+  height: 55px;
+  margin-top: -16px;
+  line-height: 50px;
+  z-index: 50;
 }
 
-div.page.list div.tap_wrap nav.tap-nav li a {
+div.page.list div.tab_wrap nav.tab-nav li.active a {
+  color: #444;
+}
+
+div.page.list div.tab_wrap nav.tab-nav li a {
   display: inline-block;
-  width: 90px;
-  height: 30px;
-  line-height: 30px;
+  width: 100%;
+  height: 100%;
+  line-height: 35px;
   font-size: 13px;
-  color: #666;
-  letter-spacing: 3px;
+  color: #fff;
 }
 
 div.page.list div.filter-wrap {
   width: 800px;
   height: 120px;
   margin: 80px auto;
-  border: 1px solid #ddd;
-  box-shadow: 0 5px 5px #eee;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #333;
   position: absolute;
 }
 
@@ -584,9 +585,12 @@ div.page.list div.filter-wrap div.filter-group {
   height: 120px;
   width: 18%;
   padding: 5px;
-  border: 1px solid #eee;
   text-align: center;
   box-sizing: border-box;
+}
+
+div.page.list div.filter-wrap div.filter-group.purpose {
+  text-align: left;
 }
 
 @media (max-width: 800px) {
@@ -664,9 +668,10 @@ div.page.list div.filter-wrap div.filter-group.purpose label {
 div.page.list div.filter-wrap div.filter-group input.submit.filter-group {
   width: 100%;
   height: 100%;
-  background: #2bde73;
-  color: #fff;
+  background: #333;
+  color: #2bde73;
   border: none;
+  padding: 0;
 }
 
 div.page.list div.sort-wrap {
@@ -1134,6 +1139,120 @@ form.ShopApply label.error, label.error {
   color: indianred;
   -webkit-transition: all 2s;
   transition: all 2s;
+}
+
+div.page.list nav {
+  float: right;
+  left: -50%;
+  position: relative;
+  margin: 20px auto 50px auto;
+}
+
+div.page.list nav ul {
+  position: relative;
+  left: 50%;
+}
+
+div.page.list nav ul li {
+  float: left;
+  padding: 10px 20px;
+}
+
+div.page.list nav ul li a {
+  font-size: 13px;
+  font-weight: bold;
+  color: #333;
+}
+
+div.page.list nav ul li a.active {
+  border: 2px solid #2bde73;
+}
+
+div.page.list div.my-wrap {
+  clear: both;
+}
+
+div.page.list div.my-wrap > div {
+  float: left;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px #ddd;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+div.page.list div.my-wrap > div.user_profile {
+  width: 28%;
+  margin: 0 1%;
+  height: 350px;
+}
+
+@media (max-width: 800px) {
+  div.page.list div.my-wrap > div.user_profile {
+    clear: both;
+    width: 98%;
+    margin: 1%;
+  }
+}
+
+div.page.list div.my-wrap > div.user_profile div.thumbnail {
+  margin: 20px auto;
+  width: 120px;
+  height: 120px;
+  border: 1px solid #ddd;
+  border-radius: 60px;
+  background: #eee;
+}
+
+div.page.list div.my-wrap > div.user_profile p {
+  font-size: 13px;
+  line-height: 0.9;
+  text-align: center;
+}
+
+div.page.list div.my-wrap > div.user_profile p.name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+div.page.list div.my-wrap > div.fav-list {
+  width: 68%;
+  margin: 0 1%;
+  height: 350px;
+}
+
+@media (max-width: 800px) {
+  div.page.list div.my-wrap > div.fav-list {
+    clear: both;
+    width: 98%;
+    margin: 1%;
+  }
+}
+
+div.page.list div.my-wrap > div.book-list {
+  clear: both;
+  width: 98%;
+  margin: 1% 1% 50px 1%;
+}
+
+div.page.list div.my-wrap > div h2 {
+  display: inline-block;
+  margin: 0;
+  padding: 0 5%;
+  width: 90%;
+  height: 60px;
+  border-bottom: 1px solid #ddd;
+  font-size: 15px;
+  line-height: 60px;
+  color: #2bde73;
+  position: relative;
+}
+
+div.page.list div.my-wrap > div h2 a {
+  color: #333;
+  position: absolute;
+  font-size: 20px;
+  right: 20px;
 }
 
 /*# sourceMappingURL=app.css.map */

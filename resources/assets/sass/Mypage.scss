@@ -1,0 +1,97 @@
+
+div.page.list{
+    nav{
+        float:right;
+        left:-50%;
+        position:relative;
+        margin:20px auto 50px auto; 
+        ul{
+            position:relative;
+            left:50%;
+            li{
+                float:left;
+                padding:10px 20px;
+                a{
+                    font-size:13px;
+                    font-weight:bold;
+                    color:#333;
+                    &.active{
+                        border:2px solid $point-color;
+                    }
+                }
+            }
+        }
+    }
+    div.my-wrap{
+        clear:both;
+        > div{
+            float:left;
+            border:1px solid #ddd;
+            box-shadow:0 0 10px #ddd;
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            &.user_profile{
+                width:28%;
+                margin:0 1%;
+                height:350px;
+                @include respond-to('small'){
+                    clear:both;
+                    width:98%;
+                    margin:1%;
+                }
+                div.thumbnail{
+                    margin:20px auto;
+                    width:120px;
+                    height:120px;
+                    border:1px solid #ddd;
+                    border-radius:60px;
+                    background:#eee;
+                }
+                p{
+                    font-size:13px;
+                    line-height:0.9;
+                    text-align:center;
+                    &.name{
+                        font-size:24px;
+                        font-weight:bold;
+                    }
+                }
+            }
+            &.fav-list{
+                width:68%;
+                margin:0 1%;
+                height:350px;
+                @include respond-to('small'){
+                    clear:both;
+                    width:98%;
+                    margin:1%;
+                }
+            }
+            &.book-list{
+                clear:both;
+                width:98%;
+                margin:1% 1% 50px 1%;
+
+            }
+            h2{
+                display:inline-block;
+                margin:0;
+                padding:0 5%;
+                width:90%;
+                height:60px;
+                border-bottom:1px solid #ddd;
+                font-size:15px;
+                line-height:60px;
+                color:$point-color;
+                position:relative;
+                a{
+                    color:#333;
+                    position:absolute;
+                    font-size:20px;
+                    right:20px;
+                }
+            }
+        }
+    }
+}

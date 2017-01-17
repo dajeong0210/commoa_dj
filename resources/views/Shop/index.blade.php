@@ -5,7 +5,7 @@
         <div class="sort-group">
             <div class="sort-wrap shop">
             <ul class="sort-list">
-                <li name="all" class="all {{ isset($_GET['shop-sort'])? $_GET['shop-sort'] == 'all' ? 'active' : '' : '' }}">최신순</li>
+                <li name="all" class="all {{ isset($_GET['shop-sort'])? $_GET['shop-sort'] == 'all' ? 'active' : '' : 'active' }}">최신순</li>
                 <li name="nameBy" class="nameBy {{ isset($_GET['shop-sort'])? $_GET['shop-sort'] == 'nameBy'? 'active' : '' : '' }}">이름순</li>
             </ul>
             <form method="GET" class="hidden">

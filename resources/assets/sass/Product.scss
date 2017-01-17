@@ -15,7 +15,7 @@ div.page.list{
         width:90%;
         min-width:initial;
     }
-    div.tap_wrap{
+    div.tab_wrap{
         width:800px;
         height:120px;
         margin:0 auto;
@@ -24,41 +24,41 @@ div.page.list{
             width:100%;
             height:240px;
         }
-        nav.tap-nav{
-            width:182px;
+        nav.tab-nav{
             position:absolute;
             left:1px;
-            top:50px;
+            top:39px;
             li{
-                border:1px solid #ddd;
-                background:#fff;
+                background:#333;
                 margin-left:-1px;
                 text-align:center;
                 float:left;
-                z-index:1;
-                &:first-child{
-                    border-radius:10px 0 0 0;
-                }
-                &:last-child{
-                    border-radius:0 10px 0 0;
-                }
+                width:120px;
+                height:40px;
+                line-height:38px;
+                font-weight:bold;
+                border:1px solid #ddd;
+                letter-spacing:2px;
+                transition:all 0.1s;
                 &.active{
-                    font-weight:bold;
-                    color:#fff;
-                    background:$point-color;
-                    border-bottom:1px solid #fff;
+                    background:#fff;
+                    border-top:3px solid $point-color;
+                    border-bottom:3px solid #fff;
+                    height:55px;
+                    margin-top:-16px;
+                    line-height:50px;
+                    z-index:50;
                     a{
-                        color:#fff;
+                        color:#444;
                     }
                 }
                 a{
                     display:inline-block;
-                    width:90px;
-                    height:30px;
-                    line-height:30px;
+                    width:100%;
+                    height:100%;
+                    line-height:35px;
                     font-size:13px;
-                    color:#666;
-                    letter-spacing:3px;
+                    color:#fff;
                 }
             }
         }
@@ -67,8 +67,8 @@ div.page.list{
         width:800px;
         height:120px;
         margin:80px auto;
-        border:1px solid #ddd;
-        box-shadow:0 5px 5px #eee;
+        border-top:1px solid #ddd;
+        border-bottom:1px solid #333;
         position:absolute;
         @include respond-to('small'){
             position:absolute;
@@ -95,9 +95,11 @@ div.page.list{
             height:120px;
             width:18%;
             padding:5px;
-            border:1px solid #eee;
             text-align:center;
             box-sizing:border-box;
+            &.purpose{
+                text-align:left;
+            }
             @include respond-to('small'){
                 width:33.3333333333333333%;
             }
@@ -151,9 +153,10 @@ div.page.list{
             input.submit.filter-group{
                 width:100%;
                 height:100%;
-                background:$point-color;
-                color:#fff;
+                background:#333;
+                color:$point-color;
                 border:none;
+                padding:0;
             }
         }  
     }

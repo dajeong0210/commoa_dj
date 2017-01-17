@@ -2,8 +2,8 @@
 
 @section('content')
     <div class="page list">
-        <div class="tap_wrap">
-            <nav class="tap-nav">
+        <div class="tab_wrap">
+            <nav class="tab-nav">
                 <ul>
                     <li class="{{ isset($_GET['cpu_level']) || isset($_GET['vga_level']) || isset($_GET['os']) || isset($_GET['ssd']) || isset($_GET['monitor']) ? '' : 'active' }}"><a href="#" class="purpose">용도별</a></li>
                     <li class="{{ isset($_GET['cpu_level']) || isset($_GET['vga_level']) || isset($_GET['os']) || isset($_GET['ssd']) || isset($_GET['monitor']) ? 'active' : '' }}"><a href="#" class="specification">사양별</a></li>
@@ -12,7 +12,7 @@
             <div class="filter-wrap purpose {{ isset($_GET['cpu_level']) || isset($_GET['vga_level']) || isset($_GET['os']) || isset($_GET['ssd']) || isset($_GET['monitor']) ? 'hidden' : '' }}">
                 <form method="GET" class="filter-form">
                     <div class="filter-group purpose">
-                        <h3>용도별</h3>
+                        <h3 class="hidden">용도별</h3>
                         <label for="purpose_office" class="{{ isset($_GET['purpose'])? in_array('사무용', $_GET['purpose'])? 'active' : '' : '' }}">사무용</label>
                         <input type="checkbox" id="purpose_office" name="purpose[]" class="input purpose hidden" value="사무용" @if( isset($_GET['purpose'])) @if( in_array('사무용', $_GET['purpose']) ) checked="checked" @endif @endif />
                         <label for="purpose_game" class="{{ isset($_GET['purpose'])? in_array('게임용', $_GET['purpose'])? 'active' : '' : '' }}">게임용</label>
@@ -27,7 +27,7 @@
                         @endif
                     </div>
                     <div class="filter-group purpose">
-                        <input type="submit" class="submit filter-group" value="보기">
+                        <input type="submit" class="submit filter-group" value="Go">
                     </div>
                 </form>
             </div>
@@ -78,14 +78,14 @@
                         @endif
                     </div>
                     <div class="filter-group">
-                        <input type="submit" class="submit filter-group" value="보기">
+                        <input type="submit" class="submit filter-group" value="Go">
                     </div>
                 </form>
             </div>
         </div>
         <div class="sort-wrap">
             <ul class="sort-list">
-                <li name="all" class="all {{ isset($_GET['product-sort'])? $_GET['product-sort'] == 'all' ? 'active' : '' : '' }}">최신순</li>
+                <li name="all" class="all {{ isset($_GET['product-sort'])? $_GET['product-sort'] == 'all' ? 'active' : '' : 'active' }}">최신순</li>
                 <li name="priceBydesc" class="priceBydesc {{ isset($_GET['product-sort'])? $_GET['product-sort'] == 'priceBydesc'? 'active' : '' : '' }}">높은가격순</li>
                 <li name="priceByasc" class="priceByasc {{ isset($_GET['product-sort'])? $_GET['product-sort'] == 'priceByasc'? 'active' : '' : '' }}">낮은가격순</li>
                 <li name="rankBy" class="rankBy {{ isset($_GET['product-sort'])? $_GET['product-sort'] == 'rankBy'? 'active' : '' : '' }}">인기순</li>
