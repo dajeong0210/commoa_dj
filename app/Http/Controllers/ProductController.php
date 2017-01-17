@@ -19,16 +19,10 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {        
-        /* index.php 테스트 추가 
-        <input type="hidden" class="search-val" name="cpu" value="1"/> 
-        <input type="hidden" class="search-val" name="vga" value="3"/>  
-        <input type="hidden" class="search-val" name="os" value="0"/> 
-        */
-        
         DB::statement(DB::raw('set @row:=0'));
 
         $product_sort = $request->input('product-sort');
-        $category = $request->input('purpose');
+        $categories = $request->input('purpose');
         $cpu_level = $request->input('cpu_level');
         $vga_level = $request->input('vga_level');
         $os = $request->input('os');
@@ -36,18 +30,20 @@ class ProductController extends Controller
         $ssd = $request->input('ssd');
         $products = new Product;
 
+
         //용도별 & 사양별 
-        if( $category != null ) {
+        if( $categories != null ) {
+            $products = Product::whereHas('categories', function($query) use ($categories) {
+                $query->whereIn('categories.id', $categories);
+            });
 
-            $categories = Category::whereIn('id', $category)->get();
-
-            for ( $i=0; $i<count($categories); $i++ ) {
-                if( $i == 0 ) {
-                    $products = $categories[0]->products();
-                } else { 
-                    $products = $products->unionAll( $categories[$i]->products() );
-                }
-            }
+            // for ( $i=0; $i<count($categories); $i++ ) {
+            //     if( $i == 0 ) {
+            //         $products = $categories[0]->products();
+            //     } else { 
+            //         $products = $products->unionAll( $categories[$i]->products() );
+            //     }
+            // }
 
         } else if( $cpu_level != '' || $vga_level != '' || $os != '' || $monitor != '' || $ssd != '' ) {
 

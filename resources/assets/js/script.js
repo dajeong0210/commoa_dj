@@ -109,32 +109,35 @@
         });
     }
 //Product sort
-    $('ul.sort-list li').on('click', function(e){
+    $('nav.tap-nav a').on('click', function(e){
         e.preventDefault();
-        $('input#sortBy_rank').val( $(this).attr('name') );
-        localStorage.setItem('activeRemain', $(this).attr('name'));
-        $('form.filter-form').submit();
+        $('nav.tap-nav a').parent().removeClass('active');
+        $('div.filter-wrap').not('.'+$(this).attr('class')).addClass('hidden').find('div.sortBy input').remove();
+        $( 'div.filter-wrap.'+$(this).attr('class') ).removeClass('hidden').find('div.sortBy').append('<input type="text" id="sortBy_rank" name="product-sort" class="input" value="all"/>');
+        $(this).parent().addClass('active');
     });
 
-    var activeRemain = localStorage.getItem('activeRemain');
-    if( activeRemain ){
-        $('li.'+activeRemain).addClass('active');
-        $('input[name='+activeRemain+']').prev().addClass('active');
-    }
-    localStorage.removeItem('activeRemain');
+    $('ul.sort-list li').on('click', function(e){
+        $(this).parent().find('li').removeClass('active');
+        $(this).addClass('active');
+        $('input#sortBy_rank').val( $(this).attr('name') );
+        $('input#sortBy_rank').parent().parent().submit();
+    });
 
     $('div.filter-group label').on('click', function(){
         if( $(this).next().hasClass('purpose') ){
             $(this).toggleClass('active');
         }else{
-
+            if( $(this).attr('class')=='active' ){
+                document.getElementById($(this).attr('for')).checked = false;
+                $(this).removeClass('active');
+            }
+            else{
+                $(this).parent().find('label').removeClass('active');
+                $(this).addClass('active');
+            }
         };
     });
 
-    $('input.filter-group.submit').on('click', function(e){
-        e.preventDefault();
-        localStorage.setItem('remainFilter', $('input').val());
-        $('form.filter-form').submit();
-    });
 
 //asfasfa

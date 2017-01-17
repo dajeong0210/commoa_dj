@@ -1,81 +1,94 @@
 @extends('layouts.layout')
 
 @section('content')
-    <div class="sort-group">
-    </div>
     <div class="page list">
-        <div class="filter-wrap">
-            <form method="GET" class="filter-form">
-                <div class="filter-group">
-                    <h2>용도별</h2>
-                    <ul>
-                        <li>
-                            <label for="purpose_office">사무용</label>
-                            <input type="checkbox" id="purpose_office" name="purpose[]" class="input purpose hidden" value="1" @if( isset($_GET['purpose'])) @if( in_array('사무용', $_GET['purpose']) ) checked="checked" @endif @endif />
-                        </li>
-                        <li>
-                            <label for="purpose_game">게임용</label>
-                            <input type="checkbox" id="purpose_game" name="purpose[]" class="input purpose hidden" value="2" @if( isset($_GET['purpose'])) @if( in_array('게임용', $_GET['purpose']) ) checked="checked" @endif @endif/>
-                        </li>
-                        <li>                    
-                            <label for="purpose_design">디자인용</label>
-                            <input type="checkbox" id="purpose_design" name="purpose[]" class="input purpose hidden" value="3" @if( isset($_GET['purpose'])) @if( in_array('디자인용', $_GET['purpose']) ) checked="checked" @endif @endif/>
-                        </li>
-                    </ul>
-                </div>
-                <div class="filter-group">
-                    <h2>CPU</h2>
-                    <label for="cpu_level_high">상</label>
-                    <input type="radio" id="cpu_level_high" name="cpu_level" class="input specification hidden" value="3"/>
-                    <label for="cpu_level_mid">중</label>
-                    <input type="radio" id="cpu_level_mid" name="cpu_level" class="input specification hidden" value="2"/>
-                    <label for="cpu_level_low">하</label>
-                    <input type="radio" id="cpu_level_low" name="cpu_level" class="input specification hidden" value="1"/>
-                </div>
-                <div class="filter-group">
-                    <h2>VGA</h2>
-                    <label for="vga_level_high">상</label>
-                    <input type="radio" id="vga_level_high" name="vga_level" class="input specification hidden" value="3"/>
-                    <label for="vga_level_mid">중</label>
-                    <input type="radio" id="vga_level_mid" name="vga_level" class="input specification hidden" value="2"/>
-                    <label for="vga_level_low">하</label>
-                    <input type="radio" id="vga_level_low" name="vga_level" class="input specification hidden" value="1"/>
-                </div>
-                <div class="filter-group">
-                    <h2>OS포함</h2>
-                    <label for="os_yes">있음</label>
-                    <input type="radio" id="os_yes" name="os" class="input hidden" value="1"/>
-                    <label for="os_no">없음</label>
-                    <input type="radio" id="os_no" name="os" class="input hidden" value="0"/>
-                </div>
-                <div class="filter-group">
-                    <h2>SSD여부</h2>
-                    <label for="ssd_yes">있음</label>
-                    <input type="radio" id="ssd_yes" name="ssd" class="input hidden" value="1"/>
-                    <label for="ssd_no">없음</label>
-                    <input type="radio" id="ssd_no" name="ssd" class="input hidden" value="0"/>
-                </div>
-                <div class="filter-group">
-                    <h2>모니터포함</h2>
-                    <label for="monitor_yes">있음</label>
-                    <input type="radio" id="monitor_yes" name="monitor" class="input hidden" value="1"/>
-                    <label for="monitor_no">없음</label>
-                    <input type="radio" id="monitor_no" name="monitor" class="input hidden" value="0"/>
-                </div>
-                <div class="filter-group hidden">
-                    <input type="text" id="sortBy_rank" name="product-sort" class="input" value="all"/>
-                </div>
-                <div class="filter-group">
-                    <input type="submit" class="submit filter-group" value="보기">
-                </div>
-            </form>
+        <div class="tap_wrap">
+            <nav class="tap-nav">
+                <ul>
+                    <li class="{{ isset($_GET['cpu_level']) || isset($_GET['vga_level']) || isset($_GET['os']) || isset($_GET['ssd']) || isset($_GET['monitor']) ? '' : 'active' }}"><a href="#" class="purpose">용도별</a></li>
+                    <li class="{{ isset($_GET['cpu_level']) || isset($_GET['vga_level']) || isset($_GET['os']) || isset($_GET['ssd']) || isset($_GET['monitor']) ? 'active' : '' }}"><a href="#" class="specification">사양별</a></li>
+                </ul>
+            </nav>
+            <div class="filter-wrap purpose {{ isset($_GET['cpu_level']) || isset($_GET['vga_level']) || isset($_GET['os']) || isset($_GET['ssd']) || isset($_GET['monitor']) ? 'hidden' : '' }}">
+                <form method="GET" class="filter-form">
+                    <div class="filter-group purpose">
+                        <h3>용도별</h3>
+                        <label for="purpose_office" class="{{ isset($_GET['purpose'])? in_array('사무용', $_GET['purpose'])? 'active' : '' : '' }}">사무용</label>
+                        <input type="checkbox" id="purpose_office" name="purpose[]" class="input purpose hidden" value="사무용" @if( isset($_GET['purpose'])) @if( in_array('사무용', $_GET['purpose']) ) checked="checked" @endif @endif />
+                        <label for="purpose_game" class="{{ isset($_GET['purpose'])? in_array('게임용', $_GET['purpose'])? 'active' : '' : '' }}">게임용</label>
+                        <input type="checkbox" id="purpose_game" name="purpose[]" class="input purpose hidden" value="게임용" @if( isset($_GET['purpose'])) @if( in_array('게임용', $_GET['purpose']) ) checked="checked" @endif @endif/>
+                        <label for="purpose_design" class="{{ isset($_GET['purpose'])? in_array('디자인용', $_GET['purpose'])? 'active' : '' : '' }}">디자인용</label>
+                        <input type="checkbox" id="purpose_design" name="purpose[]" class="input purpose hidden" value="디자인용" @if( isset($_GET['purpose'])) @if( in_array('디자인용', $_GET['purpose']) ) checked="checked" @endif @endif/>
+                    </div>
+                    <div class="filter-group sortBy hidden">
+                        @if( isset($_GET['cpu_level']) || isset($_GET['vga_level']) || isset($_GET['os']) || isset($_GET['ssd']) || isset($_GET['monitor']) )
+                        @else
+                            <input type="text" id="sortBy_rank" name="product-sort" class="input" value="all"/>
+                        @endif
+                    </div>
+                    <div class="filter-group purpose">
+                        <input type="submit" class="submit filter-group" value="보기">
+                    </div>
+                </form>
+            </div>
+            <div class="filter-wrap specification {{ isset($_GET['cpu_level']) || isset($_GET['vga_level']) || isset($_GET['os']) || isset($_GET['ssd']) || isset($_GET['monitor']) ? '' : 'hidden' }}">
+                <form method="GET" class="filter-form">
+                    <div class="filter-group">
+                        <h3>CPU</h3>
+                        <label for="cpu_level_high" @if( isset($_GET['cpu_level'])) @if( $_GET['cpu_level'] == '3' ) class="active" @endif @endif>상</label>
+                        <input type="radio" id="cpu_level_high" name="cpu_level" class="input specification hidden" value="3" @if( isset($_GET['cpu_level'])) @if( $_GET['cpu_level'] == '3' ) checked="checked" @endif @endif/>
+                        <label for="cpu_level_mid" @if( isset($_GET['cpu_level'])) @if( $_GET['cpu_level'] == '2' ) class="active" @endif @endif>중</label>
+                        <input type="radio" id="cpu_level_mid" name="cpu_level" class="input specification hidden" value="2" @if( isset($_GET['cpu_level'])) @if( $_GET['cpu_level'] == '2' ) checked="checked" @endif @endif/>
+                        <label for="cpu_level_low" @if( isset($_GET['cpu_level'])) @if( $_GET['cpu_level'] == '1' ) class="active" @endif @endif>하</label>
+                        <input type="radio" id="cpu_level_low" name="cpu_level" class="input specification hidden" value="1" @if( isset($_GET['cpu_level'])) @if( $_GET['cpu_level']== '1' ) checked="checked" @endif @endif/>
+                    </div>
+                    <div class="filter-group">
+                        <h3>VGA</h3>
+                        <label for="vga_level_high" @if( isset($_GET['vga_level'])) @if( $_GET['vga_level'] == '3' ) class="active" @endif @endif>상</label>
+                        <input type="radio" id="vga_level_high" name="vga_level" class="input specification hidden" value="3" @if( isset($_GET['vga_level'])) @if( $_GET['vga_level'] == '3' ) checked="checked" @endif @endif/>
+                        <label for="vga_level_mid" @if( isset($_GET['vga_level'])) @if( $_GET['vga_level'] == '2' ) class="active" @endif @endif>중</label>
+                        <input type="radio" id="vga_level_mid" name="vga_level" class="input specification hidden" value="2" @if( isset($_GET['vga_level'])) @if( $_GET['vga_level'] == '2' ) checked="checked" @endif @endif/>
+                        <label for="vga_level_low" @if( isset($_GET['vga_level'])) @if( $_GET['vga_level'] == '1' ) class="active" @endif @endif>하</label>
+                        <input type="radio" id="vga_level_low" name="vga_level" class="input specification hidden" value="1" @if( isset($_GET['vga_level'])) @if( $_GET['vga_level'] == '1' ) checked="checked" @endif @endif/>
+                    </div>
+                    <div class="filter-group">
+                        <h3>OS포함</h3>
+                        <label for="os_yes" @if( isset($_GET['os'])) @if( $_GET['os'] == '1' ) class="active" @endif @endif>있음</label>
+                        <input type="radio" id="os_yes" name="os" class="input hidden" value="1" @if( isset($_GET['os'])) @if( $_GET['os'] == '1' ) checked="checked" @endif @endif/>
+                        <label for="os_no" @if( isset($_GET['os'])) @if( $_GET['os'] == '0' ) class="active" @endif @endif>없음</label>
+                        <input type="radio" id="os_no" name="os" class="input hidden" value="0" @if( isset($_GET['os'])) @if( $_GET['os'] == '0' ) checked="checked" @endif @endif/>
+                    </div>
+                    <div class="filter-group">
+                        <h3>SSD여부</h3>
+                        <label for="ssd_yes" @if( isset($_GET['ssd'])) @if( $_GET['ssd'] == '1' ) class="active" @endif @endif>있음</label>
+                        <input type="radio" id="ssd_yes" name="ssd" class="input hidden" value="1" @if( isset($_GET['ssd'])) @if( $_GET['ssd'] == '1' ) checked="checked" @endif @endif/>
+                        <label for="ssd_no" @if( isset($_GET['ssd'])) @if( $_GET['ssd'] == '0' ) class="active" @endif @endif>없음</label>
+                        <input type="radio" id="ssd_no" name="ssd" class="input hidden" value="0" @if( isset($_GET['ssd'])) @if( $_GET['ssd'] == '0' ) checked="checked" @endif @endif/>
+                    </div>
+                    <div class="filter-group">
+                        <h3>모니터포함</h3>
+                        <label for="monitor_yes" @if( isset($_GET['monitor'])) @if( $_GET['monitor'] == '1' ) class="active" @endif @endif>있음</label>
+                        <input type="radio" id="monitor_yes" name="monitor" class="input hidden" value="1" @if( isset($_GET['monitor'])) @if( $_GET['monitor'] == '1' ) checked="checked" @endif @endif/>
+                        <label for="monitor_no" @if( isset($_GET['monitor'])) @if( $_GET['monitor'] == '0' ) class="active" @endif @endif>없음</label>
+                        <input type="radio" id="monitor_no" name="monitor" class="input hidden" value="0" @if( isset($_GET['monitor'])) @if( $_GET['monitor'] == '0' ) checked="checked" @endif @endif/>
+                    </div>
+                    <div class="filter-group sortBy hidden">
+                        @if( isset($_GET['cpu_level']) || isset($_GET['vga_level']) || isset($_GET['os']) || isset($_GET['ssd']) || isset($_GET['monitor']) )
+                            <input type="text" id="sortBy_rank" name="product-sort" class="input" value="all"/>
+                        @endif
+                    </div>
+                    <div class="filter-group">
+                        <input type="submit" class="submit filter-group" value="보기">
+                    </div>
+                </form>
+            </div>
         </div>
         <div class="sort-wrap">
             <ul class="sort-list">
-                <li name="all" class="all">최신순</li>
-                <li name="priceBydesc" class="priceBydesc">높은가격순</li>
-                <li name="priceByasc" class="priceByasc">낮은가격순</li>
-                <li name="rankBy" class="rankBy">인기순</li>
+                <li name="all" class="all {{ isset($_GET['product-sort'])? $_GET['product-sort'] == 'all' ? 'active' : '' : '' }}">최신순</li>
+                <li name="priceBydesc" class="priceBydesc {{ isset($_GET['product-sort'])? $_GET['product-sort'] == 'priceBydesc'? 'active' : '' : '' }}">높은가격순</li>
+                <li name="priceByasc" class="priceByasc {{ isset($_GET['product-sort'])? $_GET['product-sort'] == 'priceByasc'? 'active' : '' : '' }}">낮은가격순</li>
+                <li name="rankBy" class="rankBy {{ isset($_GET['product-sort'])? $_GET['product-sort'] == 'rankBy'? 'active' : '' : '' }}">인기순</li>
             </ul>
         </div>
         <ul class="list-group">

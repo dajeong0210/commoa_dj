@@ -12,9 +12,19 @@ class ShopController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $shops = Shop::orderBy('id', 'asc')->paginate(20);
+        $shop_sort = $request->input('shop_sort');
+
+        if( $shop_sort == '' ) {
+            $shops = Shop::orderBy('updated_at', 'desc')->paginate(20);
+        } else {
+            if( $shop_sort == 'all' ) {
+                $shops = Shop::orderBy('updated_at', 'desc')->paginate(20);
+            } elseif ( $shop_sort == 'nameBy' ) {
+                $shops = Shop::orderBy('name', 'asc')->paginate(20);
+            }
+        }
         
         return view('shop.index')->with('shops', $shops);
     }
