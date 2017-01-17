@@ -98,6 +98,8 @@
                 float:left;
                 position:relative;
                 @include respond-to('small') {
+                    box-sizing:border-box;
+                    border-bottom:#282828;
                     padding:0;
                     margin:0;
                     clear:both;
