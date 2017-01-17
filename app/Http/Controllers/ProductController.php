@@ -33,17 +33,10 @@ class ProductController extends Controller
 
         //용도별 & 사양별 
         if( $categories != null ) {
-            $products = Product::whereHas('categories', function($query) use ($categories) {
-                $query->whereIn('categories.id', $categories);
-            });
 
-            // for ( $i=0; $i<count($categories); $i++ ) {
-            //     if( $i == 0 ) {
-            //         $products = $categories[0]->products();
-            //     } else { 
-            //         $products = $products->unionAll( $categories[$i]->products() );
-            //     }
-            // }
+            $products = $products->whereHas('categories', function($products) use ($categories) {
+                $products->whereIn('categories.name', $categories);
+            });
 
         } else if( $cpu_level != '' || $vga_level != '' || $os != '' || $monitor != '' || $ssd != '' ) {
 

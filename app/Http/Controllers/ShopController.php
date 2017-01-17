@@ -14,7 +14,7 @@ class ShopController extends Controller
      */
     public function index(Request $request)
     {
-        $shop_sort = $request->input('shop_sort');
+        $shop_sort = $request->input('shop-sort');
 
         if( $shop_sort == '' ) {
             $shops = Shop::orderBy('updated_at', 'desc')->paginate(20);
