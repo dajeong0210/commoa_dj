@@ -24,8 +24,7 @@ class ShopController extends Controller
             } elseif ( $shop_sort == 'nameBy' ) {
                 $shops = Shop::orderBy('name', 'asc')->paginate(20);
             }
-        }
-        
+        }      
         return view('shop.index')->with('shops', $shops);
     }
 
@@ -48,7 +47,6 @@ class ShopController extends Controller
     public function store(Request $request)
     {
         $path_i = $request->file('image')->store('images');
-
         $shop = new Shop;
         $shop->name = $request->input('shop_name');
         $shop->image = $path_i;
@@ -59,7 +57,6 @@ class ShopController extends Controller
         $shop->email = $request->input('contact_email');
         $shop->user_id = input('user_email');
         $shop->save();
-
         return redirect('main');
     }
 
@@ -72,7 +69,6 @@ class ShopController extends Controller
     public function show($id)
     {
         $shop = Shop::find($id);
-
         return view('shop.show')->with('shop', $shop);
     }
 
@@ -85,7 +81,6 @@ class ShopController extends Controller
     public function edit($id)
     {
         $shop = Shop::find($id);
-
         return view('shop.edit')->with($shop);
     }
 
@@ -99,7 +94,6 @@ class ShopController extends Controller
     public function update(Request $request, $id)
     {
         $path_i = $request->file('image')->store('images');
-
         $shop = Shop::find($id);
         $shop->name = $request->input('shop_name');
         $shop->image = $path_i;
@@ -110,7 +104,6 @@ class ShopController extends Controller
         $shop->email = $request->input('contact_email');
         $shop->user_id = input('user_email');
         $shop->save();
-
         return redirect('main');
     }
 
@@ -124,7 +117,6 @@ class ShopController extends Controller
     {
         $shop = Shop::find($id);
         $shop->delete();
-
         return redirect('main');
     }
 }
