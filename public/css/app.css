@@ -474,18 +474,18 @@ div.page {
   position: relative;
 }
 
+@media (max-width: 800px) {
+  div.page {
+    width: 90%;
+    min-width: initial;
+  }
+}
+
 div.page.list h3 {
   text-align: center;
   font-size: 25px;
   font-family: 'Exo 2', sans-serif;
   letter-spacing: 5px;
-}
-
-@media (max-width: 800px) {
-  div.page.list {
-    width: 90%;
-    min-width: initial;
-  }
 }
 
 div.page.list div.tab_wrap {
@@ -1164,8 +1164,12 @@ div.page.mypage nav ul li a {
   color: #333;
 }
 
-div.page.mypage nav ul li a.active {
-  border: 2px solid #2bde73;
+div.page.mypage nav ul li.active {
+  border-bottom: 3px solid #2bde73;
+}
+
+div.page.mypage nav ul li.active a {
+  color: #2bde73;
 }
 
 div.page.mypage div.my-wrap {
@@ -1219,6 +1223,7 @@ div.page.mypage div.my-wrap > div.fav-list {
   width: 68%;
   margin: 0 1%;
   height: 350px;
+  overflow: hidden;
 }
 
 @media (max-width: 800px) {
@@ -1229,30 +1234,105 @@ div.page.mypage div.my-wrap > div.fav-list {
   }
 }
 
+div.page.mypage div.my-wrap > div.fav-list ul {
+  width: 100%;
+  height: 100%;
+}
+
+div.page.mypage div.my-wrap > div.fav-list ul li {
+  position: relative;
+  width: 25%;
+  height: 300px;
+  float: left;
+  border-right: 1px solid #eee;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+div.page.mypage div.my-wrap > div.fav-list ul li img {
+  left: 50%;
+  height: 100%;
+  width: auto;
+  clear: both;
+}
+
+div.page.mypage div.my-wrap > div.fav-list ul li div.detail-box {
+  width: 100%;
+  height: 80px;
+  background: #fff;
+  position: absolute;
+  bottom: 0;
+  font-size: 13px;
+  line-height: 1.0;
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+div.page.mypage div.my-wrap > div.fav-list ul li div.detail-box p:first-child {
+  font-weight: bold;
+}
+
 div.page.mypage div.my-wrap > div.book-list {
   clear: both;
   width: 98%;
-  margin: 1% 1% 50px 1%;
+  margin: 1% 1% 80px 1%;
+}
+
+div.page.mypage div.my-wrap > div.book-list li {
+  width: 100px;
+  float: left;
+  padding: 10px;
+}
+
+div.page.mypage div.my-wrap > div.book-list li div.thumbnail {
+  margin: 0 auto;
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  border-radius: 50px;
+}
+
+div.page.mypage div.my-wrap > div.book-list li div.thumbnail img {
+  width: auto;
+  height: 100px;
+}
+
+div.page.mypage div.my-wrap > div.book-list li a {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  color: #333;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 div.page.mypage div.my-wrap > div h2 {
   display: inline-block;
   margin: 0;
-  padding: 0 5%;
-  width: 90%;
+  padding: 0 20px;
+  width: 100%;
   height: 60px;
   border-bottom: 1px solid #ddd;
   font-size: 15px;
   line-height: 60px;
   color: #2bde73;
+  box-sizing: border-box;
   position: relative;
 }
 
 div.page.mypage div.my-wrap > div h2 a {
   color: #333;
   position: absolute;
-  font-size: 20px;
+  font-size: 12px;
   right: 20px;
+}
+
+div.page.mypage div.my-wrap > div h2 a i {
+  font-size: 20px;
 }
 
 /*# sourceMappingURL=app.css.map */
