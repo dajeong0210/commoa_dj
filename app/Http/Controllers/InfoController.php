@@ -14,7 +14,8 @@ class InfoController extends Controller
      */
     public function index()
     {
-        //
+        $user = User::find( Auth::user()->id );
+        return view('mypage.edit')->with('user', $user);
     }
 
     /**

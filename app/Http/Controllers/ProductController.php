@@ -31,10 +31,13 @@ class ProductController extends Controller
         $products = new Product;
 
         if( $categories != null ) {
-
+            
+            // OR type filter
             // $products = $products->whereHas('categories', function($products) use ($categories) {
             //     $products->whereIn('categories.name', $categories);
             // });
+
+            // AND type filter
             foreach( $categories as $category ) {
                 $products = $products->whereHas('categories', function($products) use ($category) {  
                         $products->where('categories.name', $category);            
