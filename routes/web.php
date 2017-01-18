@@ -22,9 +22,9 @@ Route::get('/category/{category_name}', 'CategoryController@show');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('/apply', 'ApplyController');
-    Route::resource('/bookmark', 'BookmarkController');
+    Route::get('/bookmark', 'BookmarkController@index');
     Route::post('/bookmark/{shop_id}', 'BookmarkController@store');
-    Route::resource('/favorite', 'FavoriteController');
+    Route::get('/favorite', 'FavoriteController@index');
     Route::post('/favorite/{product_id}', 'FavoriteController@store');
     Route::resource('/info', 'InfoController');
     Route::get('/shop/create', 'ShopController@create');
