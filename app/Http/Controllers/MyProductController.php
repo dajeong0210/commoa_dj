@@ -59,12 +59,7 @@ class MyProductController extends Controller
         $product->cpu_id = $request->input('cpu');
         $product->vga_id = $request->input('vga');
         $product->save();
-
-        //category id는 배열로 받아와야함!  
         $categories = $request->input('category');
-        // foreach( $categories as $category ) {
-        //     Category::find($category)->products()->toggle($product->id);
-        // }
         $product->categories()->sync($categories);
         return redirect('myproduct');
     }
@@ -89,7 +84,12 @@ class MyProductController extends Controller
     public function edit($id)
     {
         $product = Product::find($id);
-        return view('myproduct.edit')->with('product', $product);
+        $categories = $product->categories()->get();
+        $categories_id = '';
+        foreach ($categories as $category) {
+            $categories_id = $categories_id + ',' + $category->id;
+        }
+        return view('myproduct.edit')->with('product', $product)->with('categories_id', $categories_id);
     }
 
     /**
@@ -119,10 +119,6 @@ class MyProductController extends Controller
         $product->vga_id = $request->input('vga');
         $product->save();
         $categories = $request->input('category');
-
-        // foreach( $categories as $category ) {
-        //     Category::find($category)->products()->toggle($product->id);
-        // }
         $product->categories()->sync($categories);
         return redirect('myproduct');
     }
@@ -136,6 +132,10 @@ class MyProductController extends Controller
     public function destroy($id)
     {
         $product = Product::find($id);
+        $categories = $product->categories()->get();
+        foreach ($categories as $category) {
+            $category->products()->toggle( $product->id );
+        }
         if( Auth::user()->id == $product->shop->user_id ) {
             $product->delete();
         }

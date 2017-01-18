@@ -62,7 +62,9 @@
                 </div>
                 <div class="form-group half-layout">
                     <label for="category">카테고리</label>
-                    <input type="text" name="category" class="input product_url required" value="{{ old('category') }}"/>
+                    <input type="checkbox" name="category[]" value="1"> 사무용
+                    <input type="checkbox" name="category[]" value="2"> 게임용
+                    <input type="checkbox" name="category[]" value="3"> 디자인용
                 </div>
             </div>
             <div class="form-group">
