@@ -59,7 +59,7 @@
                     <a href="#" class="mypage"> {{ Auth::user()->name }} ▼ </a>
                     <div class="sub_menu hidden">
                         <ul>
-                            <li><a href="{{ url('/user') . '/' . Auth::user()->id }}">마이페이지</a></li>
+                            <li><a href="{{ url('/mypage') }}">마이페이지</a></li>
                             @if( Auth::user()->permission == 2 )
                             <li><a href="#">관리자페이지</a></li>
                             @elseif( Auth::user()->permission == 1 )
