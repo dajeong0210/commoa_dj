@@ -27,10 +27,16 @@
                     <ul>
                         @foreach( $favorites as $fav )
                         <li>
-                            <img src="{{ $fav->image }}" alt="">
+                            <a href="{{ $fav->url }}">
+                                <img src="{{ $fav->image }}" alt="">
+                            </a>
                             <div class="detail-box">
-                                <p>{{ $fav->name }}</p>
-                                <p>{{ $fav->shop->name }}</p>
+                                <p>
+                                    <a href="{{ $fav->url }}">{{ $fav->name }}</a>
+                                </p>
+                                <p>
+                                    <a href="{{ $fav->shop->url }}">{{ $fav->shop->name }}</a>
+                                </p>
                             </div>
                         </li>
                         @endforeach

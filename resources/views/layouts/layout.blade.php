@@ -115,7 +115,7 @@
                     <p><a href="#">www</a></p>
                     <p><a href="#">www</a></p>
                 </div>
-                <em class="footer-copy">ⓒCommoa 2017 All rights reserved</em>
+                <em class="footer-copy"><a href="{{url('')}}">ⓒCommoa</a> 2017 All rights reserved</em>
             </div>
         </div>
     </div>

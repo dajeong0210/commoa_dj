@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="page mypage">
-        <div class="form">
+        <div class="form apply">
             <h2>입점신청</h2>
             <form class="ShopApply" method="POST" action="{{ url('/apply') }}" enctype="multipart/form-data">
             {{ csrf_field() }}

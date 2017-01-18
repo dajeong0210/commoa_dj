@@ -101,11 +101,11 @@
                     <span class="badge">{{ $product->row }}</span>
                     @endif
                 @endif
-                <a href="{{ $product->url }}">
                 <div class="img-box prod">
-                    <img src="{{ $product->image }}" alt="">
+                    <a href="{{ $product->url }}">
+                        <img src="{{ $product->image }}" alt="">
+                    </a>
                 </div>
-                </a>
                 <div class="detail-box">
                     <a class="prod-title" href="{{ $product->url }}"> {{ $product->name }} </a>
                     <p class="prod_category">

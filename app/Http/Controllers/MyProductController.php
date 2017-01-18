@@ -20,7 +20,7 @@ class MyProductController extends Controller
      */
     public function index()
     {
-        $products = User::find(Auth::user()->id)->shop->products()->orderBy('updated_at', 'desc')->get();
+        $products = User::find(Auth::user()->id)->shop->products()->orderBy('updated_at', 'desc')->paginate(20);
         return view('myproduct.index')->with('products', $products);
     }
 

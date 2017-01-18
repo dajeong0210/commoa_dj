@@ -272,6 +272,11 @@ div.footer div.wrap-footer em {
   text-align: center;
 }
 
+div.footer div.wrap-footer em a:hover {
+  color: #2bde73;
+  text-decoration: underline;
+}
+
 @media (max-width: 800px) {
   div.footer div.wrap-footer em {
     margin: 0;
@@ -991,6 +996,156 @@ div.pagination ul.pagination li a {
   color: #666;
 }
 
+div.page.list div.search-wrap div.search-form {
+  clear: both;
+  width: 60%;
+  margin: 50px auto 0 auto;
+  height: 25px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  line-height: 10px;
+}
+
+@media (max-width: 800px) {
+  div.page.list div.search-wrap div.search-form {
+    width: 90%;
+  }
+}
+
+div.page.list div.search-wrap div.search-form label {
+  margin: 0 5px;
+}
+
+div.page.list div.search-wrap div.search-form input {
+  width: 85%;
+  border: none;
+}
+
+div.page.list div.search-wrap div.search-form input:focus {
+  border: none;
+}
+
+div.page.list div.wrap {
+  clear: both;
+}
+
+div.page.list div.wrap div.sort-wrap {
+  margin: 50px auto;
+}
+
+div.page.list ul.myProduct {
+  clear: both;
+  width: 800px;
+  margin: 0 auto;
+}
+
+@media (max-width: 800px) {
+  div.page.list ul.myProduct {
+    width: 100%;
+  }
+}
+
+div.page.list ul.myProduct > li {
+  width: 100%;
+  height: 150px;
+  padding: 20px 0;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  margin-top: -1px;
+  clear: both;
+}
+
+@media (max-width: 800px) {
+  div.page.list ul.myProduct > li {
+    height: 450px;
+  }
+}
+
+div.page.list ul.myProduct > li div.image-box {
+  margin-right: 20px;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  float: left;
+}
+
+@media (max-width: 800px) {
+  div.page.list ul.myProduct > li div.image-box {
+    float: initial;
+    clear: both;
+    margin: 20px auto;
+  }
+}
+
+div.page.list ul.myProduct > li div.image-box img {
+  height: 100%;
+  width: auto;
+}
+
+div.page.list ul.myProduct > li div.mydetail-box {
+  float: left;
+  width: 610px;
+}
+
+@media (max-width: 800px) {
+  div.page.list ul.myProduct > li div.mydetail-box {
+    width: 100%;
+  }
+}
+
+div.page.list ul.myProduct > li div.mydetail-box a.myprod-title {
+  margin: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+div.page.list ul.myProduct > li div.mydetail-box a.myprod-title:hover {
+  text-decoration: underline;
+}
+
+div.page.list ul.myProduct > li div.mydetail-box p.myprod-price {
+  float: right;
+  margin: 15px;
+  font-weight: bold;
+  font-size: 20px;
+  color: dodgerblue;
+}
+
+div.page.list ul.myProduct > li div.mydetail-box ul {
+  clear: both;
+  width: 100%;
+}
+
+div.page.list ul.myProduct > li div.mydetail-box ul li {
+  box-sizing: border-box;
+  margin: -1px 0 0 -1px;
+  float: left;
+  width: 33.333333333333333333333333333333%;
+  border: 1px solid #ddd;
+  font-size: 12px;
+}
+
+@media (max-width: 800px) {
+  div.page.list ul.myProduct > li div.mydetail-box ul li {
+    width: 50%;
+  }
+  div.page.list ul.myProduct > li div.mydetail-box ul li:first-child, div.page.list ul.myProduct > li div.mydetail-box ul li:nth-child(2) {
+    width: 100%;
+  }
+}
+
+div.page.list ul.myProduct > li div.mydetail-box ul li span:first-child {
+  display: inline-block;
+  padding: 0 10px;
+  width: 50px;
+  height: 30px;
+  line-height: 30px;
+  background: #eee;
+  font-weight: bold;
+}
+
 div.mypage form {
   margin: 0 auto;
 }
@@ -1004,8 +1159,17 @@ div.mypage div.form {
   box-shadow: 0 5px 10px #eee;
   background: #fff;
   border-radius: 20px;
-  width: 800px;
   font-size: 12px;
+}
+
+div.mypage div.form.apply {
+  width: 800px;
+}
+
+@media (max-width: 800px) {
+  div.mypage div.form.apply {
+    width: 95%;
+  }
 }
 
 @media (max-width: 800px) {
@@ -1036,8 +1200,10 @@ div.mypage div.form h3 {
   margin-top: 30px;
 }
 
-div.mypage div.form label:not(.agree) {
+div.mypage div.form label:not(.agree):not(.error) {
   clear: both;
+  font-size: 15px;
+  margin: 10px;
 }
 
 div.mypage div.form label.agree {
@@ -1350,7 +1516,7 @@ div.page.mypage div.my-wrap > div.fav-list ul li img {
 div.page.mypage div.my-wrap > div.fav-list ul li div.detail-box {
   width: 100%;
   height: 80px;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.8);
   position: absolute;
   bottom: 0;
   font-size: 13px;
@@ -1367,6 +1533,10 @@ div.page.mypage div.my-wrap > div.fav-list ul li div.detail-box p {
 
 div.page.mypage div.my-wrap > div.fav-list ul li div.detail-box p:first-child {
   font-weight: bold;
+}
+
+div.page.mypage div.my-wrap > div.fav-list ul li div.detail-box p a {
+  color: #333;
 }
 
 div.page.mypage div.my-wrap > div.book-list {

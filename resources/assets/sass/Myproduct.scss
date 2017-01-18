@@ -1,0 +1,119 @@
+div.page.list{
+    div.search-wrap{
+        div.search-form{
+            clear:both;
+            width:60%;
+            margin:50px auto 0 auto;
+            height:25px;
+            padding:10px;
+            border:1px solid #ccc;
+            border-radius:25px;
+            line-height:10px;
+            @include respond-to('small'){
+                width:90%;
+            }
+            label{
+                margin:0 5px;
+            }
+            input{
+                width:85%;
+                border:none;
+                &:focus{
+                    border:none;
+                }
+            }
+        }
+    }
+    div.wrap{
+        clear:both;
+        div.sort-wrap{
+            margin:50px auto;
+        }
+    }
+    ul.myProduct{
+        clear:both;
+        width:800px;
+        margin:0 auto;
+        @include respond-to('small'){
+            width:100%;
+        }
+        > li{
+            width:100%;
+            height:150px;
+            padding:20px 0;
+            border-top:1px solid #ddd;
+            border-bottom:1px solid #ddd;
+            margin-top:-1px;
+            clear:both;
+            @include respond-to('small'){
+                height:450px;
+            }
+            div.image-box{
+                margin-right:20px;
+                width:150px;
+                height:150px;
+                overflow:hidden;
+                float:left;
+                @include respond-to('small'){
+                    float:initial;
+                    clear:both;
+                    margin:20px auto;
+                }
+                img{
+                    height:100%;
+                    width:auto;
+                }
+            }
+            div.mydetail-box{
+                float:left;
+                width:610px;
+                @include respond-to('small'){
+                    width:100%;
+                }
+                a.myprod-title{
+                    margin:10px;
+                    font-size:20px;
+                    font-weight:bold;
+                    color:#333;
+                    &:hover{
+                        text-decoration:underline;
+                    }
+                }
+                p.myprod-price{
+                    float:right;
+                    margin:15px;
+                    font-weight:bold;
+                    font-size:20px;
+                    color:dodgerblue;
+                }
+                ul{
+                    clear:both;
+                    width:100%;
+                    li{
+                        box-sizing:border-box;
+                        margin:-1px 0 0 -1px;
+                        float:left;
+                        width:33.333333333333333333333333333333%;
+                        border:1px solid #ddd;
+                        font-size:12px;
+                        @include respond-to('small'){
+                            &:first-child, &:nth-child(2){
+                                width:100%;
+                            }
+                            width:50%;
+                        }
+                        span:first-child{
+                            display:inline-block;
+                            padding:0 10px;
+                            width:50px;
+                            height:30px;
+                            line-height:30px;
+                            background:#eee;
+                            font-weight:bold;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
