@@ -1230,7 +1230,14 @@ div.page.mypage div.my-wrap > div.fav-list {
   div.page.mypage div.my-wrap > div.fav-list {
     clear: both;
     width: 98%;
+    height: 650px;
     margin: 1%;
+  }
+}
+
+@media (max-width: 480px) {
+  div.page.mypage div.my-wrap > div.fav-list {
+    height: 1250px;
   }
 }
 
@@ -1249,6 +1256,18 @@ div.page.mypage div.my-wrap > div.fav-list ul li {
   overflow: hidden;
 }
 
+@media (max-width: 800px) {
+  div.page.mypage div.my-wrap > div.fav-list ul li {
+    width: 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  div.page.mypage div.my-wrap > div.fav-list ul li {
+    width: 100%;
+  }
+}
+
 div.page.mypage div.my-wrap > div.fav-list ul li img {
   left: 50%;
   height: 100%;
@@ -1265,6 +1284,10 @@ div.page.mypage div.my-wrap > div.fav-list ul li div.detail-box {
   font-size: 13px;
   line-height: 1.0;
   text-align: center;
+}
+
+div.page.mypage div.my-wrap > div.fav-list ul li div.detail-box p {
+  padding: 0 10px;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
