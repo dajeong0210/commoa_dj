@@ -116,7 +116,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('product.create');
+        //
     }
 
     /**
@@ -127,25 +127,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $product = new Product;
-        $product->name = $request->input('name');
-        $product->image = $request->input('image');
-        $product->url = $request->input('url');
-        $product->price = number_format($request->input('price'));
-        $product->os = $request->input('os');
-        $product->ram = $request->input('ram');
-        $product->ssd = $request->input('ssd');
-        $product->hdd = $request->input('hdd');
-        $product->overclock = $request->input('overclock');
-        $product->power = $request->input('power');
-        $product->monitor = $request->input('monitor');
-        $product->shop_id = $product->shop->id;
-        $product->cpu_id = $request->input('cpu_id');
-        $product->vga_id = $request->input('vga_id');
-        $product->category_id = $request->input('category_id');
-        $product->save();
-
-        return redirect('product');
+        //
     }
 
     //view count up! 
@@ -177,9 +159,7 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $product = Product::find($id);
-
-        return view('product.edit')->with('product', $product);
+        //
     }
 
     /**
@@ -191,25 +171,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $product = Product::find($id);
-        $product->name = $request->input('name');
-        $product->image = $request->input('image');
-        $product->url = $request->input('url');
-        $product->price = number_format($request->input('price'));
-        $product->os = $request->input('os');
-        $product->ram = $request->input('ram');
-        $product->ssd = $request->input('ssd');
-        $product->hdd = $request->input('hdd');
-        $product->overclock = $request->input('overclock');
-        $product->power = $request->input('power');
-        $product->monitor = $request->input('monitor');
-        $product->shop_id = $product->shop()->id;
-        $product->cpu_id = $request->input('cpu_id');
-        $product->vga_id = $request->input('vga_id');
-        $product->category_id = $request->input('category_id');
-        $product->save();
-
-        return redirect('product');
+        //
     }
 
     /**
@@ -220,11 +182,6 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        $product = Product::find($id);
-        
-        if(Auth::email() == $product->shop()->user_id)
-            $product->delete();
-
-        return redirect('product');
+        //
     }
 }

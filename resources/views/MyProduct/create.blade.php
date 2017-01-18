@@ -3,7 +3,7 @@
 @section('content')
     <div class="page shop-apply">
         <h1>상품 등록 페이지</h1>
-        <form class="ShopApply" method="POST" action="{{ url('/apply') }}" enctype="multipart/form-data">
+        <form class="ShopApply" method="POST" action="{{ url('/myproduct') }}" enctype="multipart/form-data">
         {{ csrf_field() }}
             <div class="shop-group group">
                 <h2>상품 정보 입력</h2>
@@ -13,7 +13,7 @@
                 </div>
                 <div class="form-group half-layout">
                     <label for="image">상품 이미지</label>
-                    <input type="text" name="image" class="input product_url required" value="{{ old('image') }}"/>
+                    <input type="file" name="image" class="input product_url required" value="{{ old('image') }}"/>
                 </div>
                 <div class="form-group half-layout">
                     <label for="url">상품 URL</label>
@@ -41,12 +41,13 @@
                 </div>
                 <div class="form-group half-layout">
                     <label for="ssd">SSD</label>
-                    <input type="text" name="ssd" class="input product_url required" value="{{ old('ssd) }}"/>
+                    <input type="text" name="ssd" class="input product_url required" value="{{ old('ssd') }}"/>
                 </div>
                 <div class="form-group half-layout">
                     <label for="hdd">HDD</label>
                     <input type="text" name="hdd" class="input product_url required" value="{{ old('hdd') }}"/>
                 </div>
+            
                 <div class="form-group half-layout">
                     <label for="overclock">Overclock</label>
                     <input type="text" name="overclock" class="input product_url required" value="{{ old('overclock') }}"/>
@@ -58,6 +59,10 @@
                 <div class="form-group half-layout">
                     <label for="monitor">모니터</label>
                     <input type="text" name="monitor" class="input product_url required" value="{{ old('monitor') }}"/>
+                </div>
+                <div class="form-group half-layout">
+                    <label for="category">카테고리</label>
+                    <input type="text" name="category" class="input product_url required" value="{{ old('category') }}"/>
                 </div>
             </div>
             <div class="form-group">

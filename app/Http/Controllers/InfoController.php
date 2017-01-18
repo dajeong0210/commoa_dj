@@ -76,7 +76,7 @@ class InfoController extends Controller
         $user->password = $request->input('password');
         $user->save();
 
-        return redirect('info');
+        return redirect('mypage');
     }
 
     /**
