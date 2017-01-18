@@ -1048,7 +1048,7 @@ div.page.list ul.myProduct {
 
 div.page.list ul.myProduct > li {
   width: 100%;
-  height: 150px;
+  height: 180px;
   padding: 20px 0;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
@@ -1058,7 +1058,7 @@ div.page.list ul.myProduct > li {
 
 @media (max-width: 800px) {
   div.page.list ul.myProduct > li {
-    height: 450px;
+    height: 480px;
   }
 }
 
@@ -1125,6 +1125,9 @@ div.page.list ul.myProduct > li div.mydetail-box ul li {
   width: 33.333333333333333333333333333333%;
   border: 1px solid #ddd;
   font-size: 12px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 @media (max-width: 800px) {
@@ -1144,6 +1147,29 @@ div.page.list ul.myProduct > li div.mydetail-box ul li span:first-child {
   line-height: 30px;
   background: #eee;
   font-weight: bold;
+}
+
+div.page.list ul.myProduct > li div.mybutton {
+  clear: both;
+  float: right;
+  left: -50%;
+  position: relative;
+}
+
+div.page.list ul.myProduct > li div.mybutton div.button-group {
+  position: relative;
+  top: 6px;
+  left: 50%;
+}
+
+div.page.list ul.myProduct > li div.mybutton input.delete, div.page.list ul.myProduct > li div.mybutton a.modify {
+  border: 1px solid #ddd;
+  background: #fff;
+  font-size: 12px;
+  padding: 5px 10px;
+  color: #333;
+  float: left;
+  margin: 5px;
 }
 
 div.mypage form {

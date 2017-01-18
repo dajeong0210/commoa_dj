@@ -70,6 +70,16 @@
                         </tr>
                     </ul>
                 </div>
+                <div class="mybutton">
+                    <form class="myprod-del" method="POST" action="{{ url('/myproduct') . '/' . $product->id }}" enctype="multipart/form-data">
+                    {{ method_field('delete') }}
+                    {{ csrf_field() }}
+                        <div class="button-group">
+                            <a href="{{ url('mypage').'/'. $product->id .'/edit' }}" class="modify">수정</a>
+                            <input type="submit" value="삭제" class="delete"/>
+                        </div>
+                    </form>
+                </div>
             </li>
             @endforeach
         </ul>
