@@ -21,6 +21,7 @@ class MyProductController extends Controller
     public function index(Request $request)
     {
         $products = User::find(Auth::user()->id)->shop->products();
+        $search = $request->input('search');
         $product_sort = $request->input('product-sort');
         if( $product_sort == '' ) {
             $products = $products->orderBy('views', 'desc')->paginate(12);
