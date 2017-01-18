@@ -481,6 +481,10 @@ div.page {
   }
 }
 
+div.page div.form {
+  width: 100%;
+}
+
 div.page.list {
   clear: both;
 }
@@ -987,10 +991,17 @@ div.pagination ul.pagination li a {
   color: #666;
 }
 
-div.page.shop-apply {
+div.mypage form {
+  margin: 0 auto;
+}
+
+div.mypage div.form {
+  width: 50%;
+  clear: both;
   margin: 30px auto 100px auto;
-  padding: 20px;
+  padding: 30px 2.5% 100px 2.5%;
   border: 1px solid #ddd;
+  box-shadow: 0 5px 10px #eee;
   background: #fff;
   border-radius: 20px;
   width: 800px;
@@ -998,74 +1009,104 @@ div.page.shop-apply {
 }
 
 @media (max-width: 800px) {
-  div.page.shop-apply {
+  div.mypage div.form {
     width: 95%;
   }
 }
 
-div.page.shop-apply h2, div.page.shop-apply h3 {
-  font-size: 16px;
+div.mypage div.form h2 {
+  display: block;
+  width: 180px;
+  text-align: center;
+  margin: 30px auto 60px auto;
+  font-size: 30px;
+  letter-spacing: -3px;
+  border-bottom: 4px solid #2bde73;
 }
 
-div.page.shop-apply label.agree {
+div.mypage div.form h3 {
+  clear: both;
+  height: 30px;
+  line-height: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  text-indent: 20px;
+  border-left: 3px solid #2bde73;
+  letter-spacing: -2px;
+  margin-top: 30px;
+}
+
+div.mypage div.form label:not(.agree) {
+  clear: both;
+}
+
+div.mypage div.form label.agree {
   width: 90%;
 }
 
-div.page.shop-apply input.user_email {
+div.mypage div.form label.error {
+  margin: 10px 0;
+}
+
+div.mypage div.form input.user_email {
   background: #eee;
 }
 
-div.page.shop-apply input:not(.agree) {
+div.mypage div.form input:not(.agree) {
   width: 100%;
   height: 30px;
-  border-radius: 5px;
   border: 1px solid #ddd;
   border-radius: 10px;
   margin: 5px 0;
   padding: 8px 10px;
 }
 
-div.page.shop-apply input[type="submit"] {
+div.mypage div.form input[type="submit"] {
+  margin-top: 50px;
   background: #fff;
   height: 50px;
   border-radius: 0px;
+  font-weight: bold;
+  font-size: 15px;
 }
 
-div.page.shop-apply input[type="submit"]:hover {
-  background: lightgreen;
+div.mypage div.form input[type="submit"]:hover {
+  color: #2bde73;
+  background: #333;
 }
 
-div.page.shop-apply div.group {
+div.mypage div.form div.group {
   width: 100%;
   clear: both;
 }
 
-div.page.shop-apply div.group div.form-group:not(.agree) {
-  margin: 10px 0;
+div.mypage div.form div.group div.form-group:not(.agree) {
+  margin: 2.5%;
 }
 
-div.page.shop-apply div.group div.form-group:not(.agree):not(.half-layout) {
-  width: 95%;
+div.mypage div.form div.group div.form-group:not(.agree):not(.half-layout) {
+  width: 90%;
+  clear: both;
 }
 
-div.page.shop-apply div.group div.form-group:not(.agree).half-layout {
+div.mypage div.form div.group div.form-group:not(.agree).half-layout {
   float: left;
-  width: 45%;
-  margin-right: 5%;
+  width: 42.5%;
+  margin: 10px 2.5%;
 }
 
 @media (max-width: 800px) {
-  div.page.shop-apply div.group div.form-group:not(.agree).half-layout {
-    width: 95%;
+  div.mypage div.form div.group div.form-group:not(.agree).half-layout {
+    width: 90%;
   }
 }
 
-div.page.shop-apply div.group.notice-group {
+div.mypage div.form div.group.notice-group {
   clear: both;
   margin: 20px 0;
 }
 
-div.page.shop-apply div.group.notice-group li {
+div.mypage div.form div.group.notice-group li {
   border: 1px solid #ddd;
   height: 50px;
   margin-top: -1px;
@@ -1073,11 +1114,11 @@ div.page.shop-apply div.group.notice-group li {
   position: relative;
 }
 
-div.page.shop-apply div.group.notice-group li.warning {
+div.mypage div.form div.group.notice-group li.warning {
   border: 1px solid indianred;
 }
 
-div.page.shop-apply div.group.notice-group li h3 {
+div.mypage div.form div.group.notice-group li h3 {
   width: 100%;
   height: 100%;
   line-height: 50px;
@@ -1085,48 +1126,48 @@ div.page.shop-apply div.group.notice-group li h3 {
   margin: 0;
 }
 
-div.page.shop-apply div.group.notice-group li h3 a {
+div.mypage div.form div.group.notice-group li h3 a {
   position: absolute;
   right: 30px;
   font-size: 20px;
 }
 
-div.page.shop-apply div.group.notice-group li h3 a:hover {
+div.mypage div.form div.group.notice-group li h3 a:hover {
   text-decoration: none;
 }
 
-div.page.shop-apply div.group.notice-group li label.error {
+div.mypage div.form div.group.notice-group li label.error {
   position: absolute;
   top: 2px;
-  left: 170px;
+  left: 200px;
 }
 
-div.page.shop-apply div.group.notice-group div.slide {
+div.mypage div.form div.group.notice-group div.slide {
   height: 0;
   overflow: hidden;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
 
-div.page.shop-apply div.group.notice-group div.slide.fadein {
+div.mypage div.form div.group.notice-group div.slide.fadein {
   height: 230px;
 }
 
-div.page.shop-apply div.group.notice-group div.slide div.form-group {
+div.mypage div.form div.group.notice-group div.slide div.form-group {
   width: 200px;
   float: right;
 }
 
-div.page.shop-apply div.group.notice-group div.slide div.form-group.agree {
+div.mypage div.form div.group.notice-group div.slide div.form-group.agree {
   text-align: right;
 }
 
-div.page.shop-apply div.group.notice-group div.slide div.form-group.agree input {
+div.mypage div.form div.group.notice-group div.slide div.form-group.agree input {
   position: relative;
   top: 2px;
 }
 
-div.page.shop-apply div.group.notice-group div.slide div.notice {
+div.mypage div.form div.group.notice-group div.slide div.notice {
   margin: -1px 0;
   width: 100%;
   border: 1px solid #ddd;
@@ -1134,7 +1175,7 @@ div.page.shop-apply div.group.notice-group div.slide div.notice {
   overflow-y: scroll;
 }
 
-div.page.shop-apply div.group.notice-group div.slide div.notice.policy {
+div.mypage div.form div.group.notice-group div.slide div.notice.policy {
   height: 231px;
 }
 
@@ -1164,15 +1205,32 @@ div.page.mypage nav {
 div.page.mypage nav ul {
   position: relative;
   left: 50%;
+  width: 100%;
 }
 
 div.page.mypage nav ul li {
   float: left;
-  padding: 10px 10px;
-  margin: 0 20px;
+  padding: 0 20px;
+  margin: 0 10px;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 800px) {
+  div.page.mypage nav ul li {
+    width: 25%;
+    margin: 0;
+    padding: 0;
+  }
+  div.page.mypage nav ul li:nth-child(5), div.page.mypage nav ul li:last-child {
+    width: 50%;
+  }
 }
 
 div.page.mypage nav ul li a {
+  display: inline-block;
   font-size: 13px;
   font-weight: bold;
   color: #333;
