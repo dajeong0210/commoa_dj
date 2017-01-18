@@ -6,9 +6,12 @@ div.page{
     margin:20px auto;
     position:relative;
     @include respond-to('small'){
-            width:90%;
-            min-width:initial;
-        }
+        width:90%;
+        min-width:initial;
+    }
+    div.form{
+        width:100%;
+    }
     &.list{
         clear:both;
         h3{

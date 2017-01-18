@@ -1,9 +1,15 @@
 
-
-    div.page.shop-apply{
+div.mypage{
+    form{
+        margin:0 auto;
+    }
+    div.form{
+        width:50%;
+        clear:both;
         margin:30px auto 100px auto;
-        padding:20px;
+        padding:30px 2.5% 100px 2.5%;
         border:1px solid #ddd;
+        box-shadow:0 5px 10px #eee;
         background:#fff;
         border-radius:20px;
         width:800px;
@@ -11,11 +17,35 @@
         @include respond-to('small') {
             width:95%;
         }
-        h2, h3{
-            font-size:16px;
+        h2{
+            display:block;
+            width:180px;
+            text-align:center;
+            margin:30px auto 60px auto;
+            font-size:30px;
+            letter-spacing:-3px;
+            border-bottom:4px solid $point-color;
+        } 
+        
+        h3{
+            clear:both;
+            height:30px;
+            line-height:30px;
+            font-size:20px;
+            font-weight:bold;
+            text-indent:20px;
+            border-left:3px solid $point-color;
+            letter-spacing:-2px;
+            margin-top:30px;
+        }
+        label:not(.agree){
+            clear:both;
         }
         label.agree{
             width:90%;
+        }
+        label.error{
+            margin:10px 0;
         }
         input{
             &.user_email{
@@ -24,18 +54,22 @@
             &:not(.agree){
                 width:100%;
                 height:30px;
-                border-radius:5px;
                 border:1px solid #ddd;
                 border-radius:10px;
                 margin:5px 0;
                 padding:8px 10px;
             }
             &[type="submit"]{
+                margin-top:50px;
                 background:#fff;
                 height:50px;
                 border-radius:0px;
+                font-weight:bold;
+                font-size:15px;
+                
                 &:hover{
-                    background:lightgreen;
+                    color:$point-color;
+                    background:#333;
                 }
             }
         }
@@ -43,16 +77,17 @@
             width:100%;
             clear:both;
             div.form-group:not(.agree){
-                margin:10px 0;
+                margin:2.5%;
                 &:not(.half-layout){
-                    width:95%;
+                    width:90%;
+                    clear:both;
                 }
                 &.half-layout{
                     float:left;
-                    width:45%;
-                    margin-right:5%;
+                    width:42.5%;
+                    margin:10px 2.5%;
                     @include respond-to('small') {
-                        width:95%;
+                        width:90%;
                     }
                 }
             }
@@ -86,7 +121,7 @@
                     label.error{
                         position:absolute;
                         top:2px;
-                        left:170px;
+                        left:200px;
                     }
                 }
                 div.slide{
@@ -121,3 +156,4 @@
             }
         }
     }
+}
