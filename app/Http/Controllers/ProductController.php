@@ -35,12 +35,11 @@ class ProductController extends Controller
             // $products = $products->whereHas('categories', function($products) use ($categories) {
             //     $products->whereIn('categories.name', $categories);
             // });
-
-            $products = $products->whereHas('categories', function($products) use ($categories) {
-                // foreach( $categories as $category ) {
-                    $products->where('categories.name', $categories);
-                // }   
-            });
+            foreach( $categories as $category ) {
+                $products = $products->whereHas('categories', function($products) use ($category) {  
+                        $products->where('categories.name', $category);            
+                });
+            }   
 
         } else if( $cpu_level != '' || $vga_level != '' || $os != '' || $monitor != '' || $ssd != '' ) {
 
