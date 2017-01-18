@@ -103,11 +103,10 @@ class ShopController extends Controller
         $shop->url = $request->input('shop_url');
         $shop->contact_address = $request->input('business_address');
         $shop->contact_name = $request->input('contact_name');
-        $shop->phone = $request->input('contact_phone');
-        $shop->email = $request->input('contact_email');
-        $shop->user_id = User::where('email', 'user_email')->id;
+        $shop->contact_phone = $request->input('contact_phone');
+        $shop->contact_email = $request->input('contact_email');
         $shop->save();
-        return redirect('main');
+        return redirect('/');
     }
 
     /**
@@ -120,6 +119,6 @@ class ShopController extends Controller
     {
         $shop = Shop::find($id);
         $shop->delete();
-        return redirect('main');
+        return redirect('/');
     }
 }
