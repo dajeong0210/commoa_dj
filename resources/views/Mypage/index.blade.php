@@ -21,7 +21,7 @@
                 <h2>
                     <i class="fa fa-heart" aria-hidden="true"></i>
                     <span>FAVORITE</span>
-                    <a href="{{ url('fav/user') . '/' . Auth::user()->id }}">전체보기</a>
+                    <a href="{{ url('favorite') }}">전체보기</a>
                 </h2>
                 <div class="my-list">
                     <ul>
@@ -41,7 +41,7 @@
                 <h2>
                     <i class="fa fa-star" aria-hidden="true"></i>
                     <span>BOOKMARK</span>
-                    <a href="{{ url('fav/user') . '/' . Auth::user()->id }}">전체보기</a>
+                    <a href="{{ url('bookmark') }}">전체보기</a>
                 </h2>
                 <div class="my-list">
                     <ul>

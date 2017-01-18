@@ -2,11 +2,11 @@
 
 @section('content')
     <div class="page shop-apply">
-        <h1>입점 신청 페이지</h1>
+        <h2>입점 신청 페이지</h2>
         <form class="ShopApply" method="POST" action="{{ url('/apply') }}" enctype="multipart/form-data">
         {{ csrf_field() }}
             <div class="user-group group">
-                <h2>계정 정보 입력</h2>
+                <h3>계정 정보 입력</h3>
                 <div class="form-group {{ $errors->has('user_email') ? 'warning' : '' }}">
                     <label for="user_email">이메일(아이디)</label>
                     <input type="email" name="user_email" class="input user_email" value="{{ Auth::user()->email }}" readonly/>
@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div class="shop-group group">
-                <h2>Shop 정보 입력</h2>
+                <h3>Shop 정보 입력</h3>
                 <div class="form-group half-layout">
                     <label for="shop_name">Shop 이름</label>
                     <input type="text" name="shop_name" class="input shop_name required" value="{{ old('shop_name') }}"/>
@@ -28,7 +28,7 @@
             </div>
         
             <div class="business-group group">
-                <h2>사업자 정보 입력</h2>
+                <h3>사업자 정보 입력</h3>
                 <div class="form-group half-layout">
                     <label for="business_name">상호(법인명)</label>
                     <input type="text" name="business_name" class="input business_name required" value="{{ old('business_name') }}"/>
@@ -59,7 +59,7 @@
                 </div>
             </div>
             <div class="contact-group group">
-                <h2>쇼핑몰 담당자 정보 입력</h2>
+                <h3>쇼핑몰 담당자 정보 입력</h3>
                 <div class="form-group half-layout">
                     <label for="contact_name">이름</label>
                     <input type="text" name="contact_name" class="input contact_name required" value="{{ old('contact_name') }}"/>
@@ -80,7 +80,7 @@
             <div class="notice-group group">
                 <ul>
                     <li class="{{ $errors->has('user_email') ? 'warning' : '' }}">
-                        <h2>서비스 이용약관<a href="#" onclick="return false;">∨</a></h2>
+                        <h3>서비스 이용약관<a href="#" onclick="return false;">∨</a></h3>
                         <label class="error">약관에 동의하셔야 합니다.</label>
                     </li>
                         <div class="slide">
@@ -91,7 +91,7 @@
                             </div>
                         </div>
                     <li class="{{ $errors->has('user_email') ? 'warning' : '' }}">
-                        <h2>개인정보취급방침<a href="#" onclick="return false;">∨</a></h2>
+                        <h3>개인정보취급방침<a href="#" onclick="return false;">∨</a></h3>
                         <label class="error">약관에 동의하셔야 합니다.</label> 
                     </li>
                         <div class="slide">     
@@ -102,13 +102,13 @@
                             </div>
                         </div>
                     <li>
-                        <h2>컴모아 입점 정책<a href="#" onclick="return false;">∨</a></h2>
+                        <h3>컴모아 입점 정책<a href="#" onclick="return false;">∨</a></h3>
                     </li>
                         <div class="slide">
                             <div class="notice policy"></div>
                         </div>
                     <li>
-                        <h2>컴모아 입점 심사 기준<a href="#" onclick="return false;">∨</a></h2>
+                        <h3>컴모아 입점 심사 기준<a href="#" onclick="return false;">∨</a></h3>
                     </li>
                         <div class="slide">
                             <div class="notice policy"></div>

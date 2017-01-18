@@ -11,7 +11,7 @@
         @include respond-to('small') {
             width:95%;
         }
-        h1, h2{
+        h2, h3{
             font-size:16px;
         }
         label.agree{
@@ -68,7 +68,7 @@
                     &.warning{
                         border:1px solid indianred;
                     }
-                    h2{
+                    h3{
                         width:100%;
                         height:100%;
                         line-height:50px;
