@@ -17,7 +17,17 @@ class BookmarkController extends Controller
     public function index()
     {
         $user = User::find( Auth::user()->id );
-        $shops = $user->shops()->orderBy('pivot_shop_user.created_at', 'desc')->get();
+        $shops = $user->shops();
+
+        if( $shop_sort == '' ) {
+            $shops = $shops->orderBy('updated_at', 'desc')->paginate(20);
+        } else {
+            if( $shop_sort == 'all' ) {
+                $shops = $shops->orderBy('updated_at', 'desc')->paginate(20);
+            } elseif ( $shop_sort == 'nameBy' ) {
+                $shops = $shops->orderBy('name', 'asc')->paginate(20);
+            }
+        }  
 
         return view('bookmark.index')->with('shops', $shops);
     }

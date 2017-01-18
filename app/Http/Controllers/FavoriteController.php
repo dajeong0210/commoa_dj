@@ -17,7 +17,21 @@ class FavoriteController extends Controller
     public function index()
     {
         $user = User::find( Auth::user()->id );
-        $products = $user->products()->orderBy('pivot_product_user.created_at', 'desc')->get();
+        $products = $user->products();
+
+        if( $product_sort == '' ) {
+            $products = $products->orderBy('views', 'desc')->paginate(12);
+        } else {
+            if ( $product_sort == 'rankBy' ) {
+                $products = $products->orderBy('views', 'desc')->paginate(12);
+            } else if ( $product_sort == 'priceBydesc' ) {
+                $products = $products->orderBy('price', 'desc')->paginate(12);
+            } else if ( $product_sort == 'priceByasc' ) {
+                $products = $products->orderBy('price', 'asc')->paginate(12);
+            } else {
+                $products = $products->orderBy('products.updated_at', 'desc')->paginate(12);
+            } 
+        }  
 
         return view('favorite.index')->with('products', $favorites);
     }
