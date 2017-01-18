@@ -90,7 +90,7 @@
             <div class="wrap-footer">
                 <div>
                     <h2 class="logo">
-                        <img src="../image/commoa_logo_inverted.png" alt="컴모아">
+                        <img src="{{ url('/') . '/image/commoa_logo_inverted.png'}}" alt="컴모아">
                     </h2>
                     <p>국내 조립 컴퓨터들 다모여</p>
                 </div>
