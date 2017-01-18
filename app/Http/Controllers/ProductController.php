@@ -30,12 +30,16 @@ class ProductController extends Controller
         $ssd = $request->input('ssd');
         $products = new Product;
 
-
-        //용도별 & 사양별 
         if( $categories != null ) {
 
+            // $products = $products->whereHas('categories', function($products) use ($categories) {
+            //     $products->whereIn('categories.name', $categories);
+            // });
+
             $products = $products->whereHas('categories', function($products) use ($categories) {
-                $products->whereIn('categories.name', $categories);
+                // foreach( $categories as $category ) {
+                    $products->where('categories.name', $categories);
+                // }   
             });
 
         } else if( $cpu_level != '' || $vga_level != '' || $os != '' || $monitor != '' || $ssd != '' ) {
