@@ -29,6 +29,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/info', 'InfoController');
     Route::get('/shop/create', 'ShopController@create');
     Route::get('/shop/{id}/edit', 'ShopController@edit');
+    Route::put('/shop/{id}', 'ShopController@update');
     Route::get('/product/create', 'ProductController@create');
     Route::get('/product/{p_id}/edit', 'ProductController@edit');
     Route::resource('/user', 'UserController');

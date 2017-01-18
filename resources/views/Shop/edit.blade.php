@@ -2,8 +2,8 @@
 
 @section('content')
     <div class="page shop-apply">
-        <h1>입점 신청 페이지</h1>
-        <form class="ShopApply" method="POST" action="{{ url('/shop').'/'.$shop->id }}">
+        <h1>Shop 수정페이지</h1>
+        <form class="ShopApply" method="POST" action="{{ url('/shop') . '/' . $shop->id }}" enctype="multipart/form-data">
         {{ method_field('put') }}
         {{ csrf_field() }}
             <div class="user-group group">
