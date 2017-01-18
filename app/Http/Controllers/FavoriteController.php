@@ -14,10 +14,11 @@ class FavoriteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $user = User::find( Auth::user()->id );
         $products = $user->products();
+        $product_sort = $request->input('product-sort');
 
         if( $product_sort == '' ) {
             $products = $products->orderBy('views', 'desc')->paginate(12);
@@ -33,7 +34,7 @@ class FavoriteController extends Controller
             } 
         }  
 
-        return view('favorite.index')->with('products', $favorites);
+        return view('favorite.index')->with('products', $products);
     }
 
     /**

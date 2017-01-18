@@ -481,6 +481,10 @@ div.page {
   }
 }
 
+div.page.list {
+  clear: both;
+}
+
 div.page.list h3 {
   text-align: center;
   font-size: 25px;
@@ -674,7 +678,12 @@ div.page.list div.filter-wrap div.filter-group input.submit.filter-group {
   padding: 0;
 }
 
+div.page.list.mypage div.sort-wrap, div.page.list.mypage div.sort-wrap.shop {
+  margin: 0 auto 20px auto;
+}
+
 div.page.list div.sort-wrap {
+  clear: both;
   float: right;
   position: relative;
   left: -50%;
@@ -1139,6 +1148,10 @@ form.ShopApply label.error, label.error {
   color: indianred;
   -webkit-transition: all 2s;
   transition: all 2s;
+}
+
+div.page.mypage {
+  clear: both;
 }
 
 div.page.mypage nav {

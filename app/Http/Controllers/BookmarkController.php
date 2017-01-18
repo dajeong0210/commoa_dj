@@ -14,10 +14,11 @@ class BookmarkController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $user = User::find( Auth::user()->id );
         $shops = $user->shops();
+        $shop_sort = $request->input('shop-sort');
 
         if( $shop_sort == '' ) {
             $shops = $shops->orderBy('updated_at', 'desc')->paginate(20);

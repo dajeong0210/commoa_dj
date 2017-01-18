@@ -2,18 +2,7 @@
 
 @section('content')
     <div class="page mypage">
-        <nav class="tap-nav">
-            <ul>
-                <li class="active"><a href="{{ url('/user') . '/' . Auth::user()->id }}">메인</a></li>
-                <li><a href="#">개인정보수정</a></li>
-                <li><a href="#">북마크</a></li>
-                <li><a href="#">찜한상품</a></li>
-                @if( Auth::user()->permission == '1' )
-                <li><a href="#">Shop정보수정</a></li>
-                <li><a href="#">상품관리</a></li>
-                @endif
-            </ul>
-        </nav>
+        @include('layouts.myLayout')   
         <div class="my-wrap">
             <div class="user_profile">
                 <h2>
