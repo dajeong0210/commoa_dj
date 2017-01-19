@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\DB;
 use App\User;
 use App\Product;
 use App\Category;
+use App\Cpu;
+use App\Vga;
 
 class MyProductController extends Controller
 {
@@ -47,7 +49,11 @@ class MyProductController extends Controller
      */
     public function create()
     {
-        return view('myproduct.create');
+        $categories = Category::get(); 
+        $cpus = Cpu::get();
+        $vgas = Vga::get();
+
+        return view('myproduct.create')->with('categories', $categories)->with('cpus', $cpus)->with('vgas', $vgas);
     }
 
     /**
