@@ -27,15 +27,15 @@
                     <ul>
                         @foreach( $favorites as $fav )
                         <li>
-                            <a href="{{ $fav->url }}">
+                            <a href="{{ url('product') . '/' . $fav->id }}">
                                 <img src="{{ $fav->image }}" alt="">
                             </a>
                             <div class="detail-box">
                                 <p>
-                                    <a href="{{ $fav->url }}">{{ $fav->name }}</a>
+                                    <a href="{{ url('product') . '/' . $fav->id }}">{{ $fav->name }}</a>
                                 </p>
                                 <p>
-                                    <a href="{{ $fav->shop->url }}">{{ $fav->shop->name }}</a>
+                                    <a href="{{ $fav->shop->url }}" target="_blank">{{ $fav->shop->name }}</a>
                                 </p>
                             </div>
                         </li>
@@ -54,7 +54,7 @@
                         @foreach( $bookmarks as $bookmark )
                         <li>
                             <div class="thumbnail">
-                                <a href="{{ $bookmark->url }}">
+                                <a href="{{ $bookmark->url }}" target="_blank">
                                     <img src="{{ $bookmark->image }}" alt="">
                                 </a>
                             </div>

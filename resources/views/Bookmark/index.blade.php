@@ -18,7 +18,7 @@
         <ul class="list-group">
             @foreach( $shops as $shop )
             <li class="shop">
-                <a href="{{ $shop->url }}">
+                <a href="{{ $shop->url }}" target="_blank">
                 <div class="img-box shop">
                     <img src="{{ $shop->image }}" alt="">
                 </div>
@@ -42,7 +42,7 @@
                 @endif
                 </div>
                 <div class="detail-box" id="shop">
-                    <a class="prod-title shop" href="{{ $shop->url }}"> {{ $shop->name }} </a>
+                    <a class="prod-title shop" href="{{ $shop->url }}" target="_blank"> {{ $shop->name }} </a>
                 </div>
             </li>
             @endforeach

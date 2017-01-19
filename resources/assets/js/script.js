@@ -174,7 +174,6 @@
             type: "POST",
             data: formData, 
             success: function(data){
-                alert(data);
             },
             error: function(responseData, textStatus){
                 alert(textStatus);
