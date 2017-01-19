@@ -134,7 +134,8 @@ class ProductController extends Controller
     public function viewCount($product_id)
     {
         $product = Product::find($product_id);
-        $product->views = $product->views + 1;
+        $count = $product->views;
+        $product->views = $count + 1;
         $product->save();
         echo 'success';
     }
