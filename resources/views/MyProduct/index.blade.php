@@ -75,7 +75,7 @@
                     {{ method_field('delete') }}
                     {{ csrf_field() }}
                         <div class="button-group">
-                            <a href="{{ url('mypage').'/'. $product->id .'/edit' }}" class="modify">수정</a>
+                            <a href="{{ url('myproduct').'/'. $product->id .'/edit' }}" class="modify">수정</a>
                             <input type="submit" value="삭제" class="delete"/>
                         </div>
                     </form>

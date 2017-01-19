@@ -8,7 +8,7 @@
                 <h2>
                     <i class="fa fa-user" aria-hidden="true"></i>
                     <span>기본정보</span>
-                    <a href="{{ url('user'). '/'.Auth::user()->id . '/edit' }}"><i class="fa fa-cog" aria-hidden="true"></i></a>
+                    <a href="{{ url('myinfo') }}"><i class="fa fa-cog" aria-hidden="true"></i></a>
                 </h2>
                 <div class="detail">
                     <div class="thumbnail"></div>
