@@ -10,12 +10,18 @@ div.mypage{
                 width:95%;
             }
         }
+        &.login{
+            width:450px;
+            @include respond-to('small') {
+                width:95%;
+            }
+        }
         width:50%;
         clear:both;
         margin:30px auto 100px auto;
-        padding:30px 2.5% 100px 2.5%;
+        padding:30px 2.5% 80px 2.5%;
         border:1px solid #ddd;
-        box-shadow:0 5px 10px #eee;
+        box-shadow:0 0 15px #ddd;
         background:#fff;
         border-radius:20px;
         font-size:12px;
@@ -45,14 +51,18 @@ div.mypage{
         }
         label:not(.agree):not(.error){
             clear:both;
-            font-size:15px;
+            font-size:13px;
             margin:10px;
         }
         label.agree{
             width:90%;
         }
-        label.error{
-            margin:10px 0;
+        label.error, span.help-block strong{
+            font-size:11.5px;
+            font-weight:bold;
+            padding:10px 0 30px 0;
+            color:$point-color2;
+            float:left;
         }
         input{
             &.user_email{
@@ -65,18 +75,25 @@ div.mypage{
                 border-radius:10px;
                 margin:5px 0;
                 padding:8px 10px;
+                @include respond-to('small') {
+                    width:95%;
+                }
             }
             &[type="submit"]{
-                margin-top:50px;
-                background:#fff;
+                margin:20px 0 0 2.5%;
+                background:#333;
                 height:50px;
+                color:#fff;
                 border-radius:0px;
                 font-weight:bold;
                 font-size:15px;
-                
+                transition:all 0.2s;
                 &:hover{
                     color:$point-color;
                     background:#333;
+                }
+                @include respond-to('small'){
+                    width:100%;
                 }
             }
         }
@@ -159,6 +176,40 @@ div.mypage{
                             height:231px;
                         }
                     }
+                }
+            }
+            div.checkbox{
+                width:100%;
+                height:20px;
+                text-align:right;
+                line-height:20px;
+                label{
+                    margin:0;
+                    font-size:12px;
+                    letter-spacing:-1px;
+                    cursor:pointer;
+                    i{
+                        font-size:15px;
+                        &.active{
+                            color:$point-color;
+                        }
+                    }
+                }
+            }
+        }
+        div.link-group{
+            padding-top:10px;
+            text-align:center;
+            a{
+                display:inline;
+                color:#777;
+                margin-right:10px;
+                i{
+                    font-size:15px;
+                    color:$point-color;
+                }
+                &:hover{
+                    text-decoration:underline;
                 }
             }
         }
