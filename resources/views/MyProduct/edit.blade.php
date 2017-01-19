@@ -117,14 +117,13 @@
                                     <li>
                                         <label for="{{ 'category' . $category->id }}">{{ $category->name }}</label>
                                         <input type="checkbox" name="category[]" id="{{ 'category' . $category->id }}" value="{{ $category->id }}" checked="checked">
-                                    </li>
-                                @else
-                                    <li>
-                                        <label for="{{ 'category' . $category->id }}">{{ $category->name }}</label>
-                                        <input type="checkbox" name="category[]" id="{{ 'category' . $category->id }}" value="{{ $category->id }}">
-                                    </li>
+                                    </li>                                    
                                 @endif
                             @endforeach
+                                <li>
+                                    <label for="{{ 'category' . $category->id }}">{{ $category->name }}</label>
+                                    <input type="checkbox" name="category[]" id="{{ 'category' . $category->id }}" value="{{ $category->id }}">
+                                </li>
                             @endforeach
                             <p>※ 중복 선택 가능합니다.</p>
                         </ul>
