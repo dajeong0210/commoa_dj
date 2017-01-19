@@ -1,57 +1,79 @@
 @extends('layouts.layout')
 
 @section('content')
-    <div class="page list mypage">
-        <ul class="myProduct">
-            <li>
-                <div class="image-box">
-                    <a href="{{ $product->url }}">
-                        <img src="{{ $product->image }}" alt="">
-                    </a>
-                </div>
-                <div class="mydetail-box">
-                    <a class="myprod-title" href="{{ $product->url }}"> {{ $product->name }} </a>
-                    <p class="myprod-price">\{{ number_format($product->price) }}원
-                    </p>
-                    <ul>
-                        <li><span>cpu</span> {{ $product->cpu->name }}<span></span></li>
-                        <li><span>vga</span> {{ $product->vga->name }}<span></span></li>
-                        <li><span>ram</span> {{ $product->ram }}<span></span></li>
-                        <li><span>ssd</span> {{ $product->ssd }}<span></span></li>
-                        <li><span>hdd</span> {{ $product->hdd }}<span></span></li>
-                        <li><span>power</span> {{ $product->power }}<span></span></li>
-                        <li>
-                            <span>os</span>
-                            @if( $product->os == 1 )
-                                Windows설치
-                            @else
-                                없음
-                            @endif
-                        </li>
-                        <li>
-                            <span>overclock</span>
-                            @if( $product->overclock == 1 )
-                                가능
-                            @else
-                                불가능
-                            @endif
-                        </li>
-                        <li>
-                            <span>monitor</span>
-                            @if( $product->monitor == '' )
-                                없음
-                            @else
-                                {{ $product->monitor }}인치
-                            @endif
-                        </li>
-                        </tr>
-                    </ul>
-                </div>
-            </li>
-        </ul>
-        <div class="button-group">
-            <a href="{{ $product->url }}" class="go_url" target="_blank">사이트 이동</a>
-            <input type="hidden" class="product-id" value="{{ $product->id }}">
+    <div class="page list detail">
+        <div class="product-name">
+            <a class="myprod-title" href="{{ $product->url }}"> {{ $product->name }} </a>
+        </div>
+        <div class="product-shop">
+            <a class="prod-url" href="{{ $product->shop->url }}">{{ $product->shop->name }}</a>
+        </div>
+        <div class="image-box detail">
+            <a href="{{ $product->url }}">
+                <img src="{{ $product->image }}" alt="">
+            </a>
+        </div>
+        <div class="fav-group">
+            @if( Auth::guest() )
+            @else
+            <span>
+                <a href="#" class="fav-detail" onclick="return false;">
+                    @if( $product->users()->get()->where('id', Auth::user()->id)->count() == 0 )
+                        <i class="fa fa-heart-o" aria-hidden="true"></i>
+                        <em><br/>좋아요</em>
+                        <i class="fa fa-heart hidden" aria-hidden="true"></i>
+                        <em class="hidden"><br/>좋아요취소</em>
+                    @else
+                        <i class="fa fa-heart-o hidden" aria-hidden="true"></i>
+                        <em class="hidden"><br/>좋아요</em>
+                        <i class="fa fa-heart" aria-hidden="true"></i>
+                        <em><br/>좋아요취소</em>
+                    @endif
+                </a>
+            </span>
+            <span class="hidden">{{ $product->id }}</span>
+            @endif
+        </div>
+        <div class="mydetail-box detail">
+            <p class="myprod-price">\{{ number_format($product->price) }}원
+            </p>
+            <ul class="detail">
+                <li><span>cpu</span> {{ $product->cpu->name }}<span></span></li>
+                <li><span>vga</span> {{ $product->vga->name }}<span></span></li>
+                <li><span>ram</span> {{ $product->ram }}<span></span></li>
+                <li><span>ssd</span> {{ $product->ssd }}<span></span></li>
+                <li><span>hdd</span> {{ $product->hdd }}<span></span></li>
+                <li><span>power</span> {{ $product->power }}<span></span></li>
+                <li>
+                    <span>os</span>
+                    @if( $product->os == 1 )
+                        Windows설치
+                    @else
+                        없음
+                    @endif
+                </li>
+                <li>
+                    <span>overclock</span>
+                    @if( $product->overclock == 1 )
+                        가능
+                    @else
+                        불가능
+                    @endif
+                </li>
+                <li>
+                    <span>monitor</span>
+                    @if( $product->monitor == '' )
+                        없음
+                    @else
+                        {{ $product->monitor }}인치
+                    @endif
+                </li>
+                </tr>
+            </ul>
+            <div class="link-group">
+                <a href="{{ $product->url }}" class="go_url" target="_blank">사이트로 이동</a>
+                <input type="hidden" class="product-id" value="{{ $product->id }}">
+            </div>
         </div>
     </div>
 @endsection

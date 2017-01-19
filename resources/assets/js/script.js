@@ -88,6 +88,10 @@
         bookmark( $(this), 'favorite' , 'product_id' );
     });
 
+    $("a.fav-detail").on('click',function() {
+        bookmark( $(this), '../favorite' , 'product_id' );
+    });
+
     function bookmark(aTarget, route , urlTarget) {
         var val = aTarget.parent().next().html();
         var formData = { urlTarget : val};
@@ -103,8 +107,10 @@
             type: "POST",
             data: formData,
             success: function(data){
-                console.log(data);
                 aTarget.find('i').toggleClass('hidden');
+                if( aTarget.find('em') ){
+                    aTarget.find('em').toggleClass('hidden');
+                }
             },
             error: function(responseData, textStatus){
                 console.log(textStatus);
