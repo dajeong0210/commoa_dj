@@ -10,10 +10,7 @@
     });
 
 //Validation
-    $("form.ShopApply").validate();
-    $("form.login-form").validate();
-    $("form.register-form").validate();
-    $("form.forgot-form").validate();
+    $("form.validate").validate();
     $("form.validate input").on('keypress', function(){
         if( $(this).next('span').hasClass('help-block') ){
             $(this).next('span.help-block').remove();

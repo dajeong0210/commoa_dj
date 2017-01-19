@@ -5,7 +5,7 @@
         @include('layouts.myLayout') 
         <div class="form">
             <h2>상품 등록</h2>
-            <form class="ShopApply" method="POST" action="{{ url('/myproduct') }}" enctype="multipart/form-data">
+            <form class="prodCreate validate" method="POST" action="{{ url('/myproduct') }}" enctype="multipart/form-data">
             {{ csrf_field() }}
                 <div class="shop-group group">
                     <h3>상품 정보 입력</h3>
@@ -30,20 +30,20 @@
                     <div class="form-group half-layout">
                         <h4>CPU</h4>
                         <label for="cpu" class="hidden">CPU</label>
-                        <select name="cpu" class="required">
+                        <select name="cpu" required>
                             <option>선택</option>
                             @foreach( $cpus as $cpu )
-                                <option value="{{ $cpu->name }}">{{ $cpu->name }}</option>
+                                <option value="{{ $cpu->id }}">{{ $cpu->name }}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="form-group half-layout">
                         <h4>VGA</h4>
                         <label for="vga" class="hidden">VGA</label>
-                        <select name="vga" class="required">
+                        <select name="vga" required>
                             <option>선택</option>
                             @foreach( $vgas as $vga )
-                                <option value="{{ $vga->name }}">{{ $vga->name }}</option>
+                                <option value="{{ $vga->id }}">{{ $vga->name }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -99,7 +99,7 @@
                     </div>
                     <div class="form-group triple-layout">
                         <h4>모니터</h4>
-                        <input type="text" name="monitor" class="input" value="{{ old('power') }}"/>
+                        <input type="text" name="monitor" class="input" value="{{ old('monitor') }}"/>
                         <span>inch</span>
                     </div>
                     <div class="form-group one-layout">
