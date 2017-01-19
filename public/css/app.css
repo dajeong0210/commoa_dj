@@ -1370,6 +1370,13 @@ div.mypage div.form h3 {
   margin-top: 30px;
 }
 
+div.mypage div.form h4 {
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  font-weight: bold;
+}
+
 div.mypage div.form label:not(.agree):not(.error) {
   clear: both;
   font-size: 13px;
@@ -1437,11 +1444,43 @@ div.mypage div.form div.group {
 
 div.mypage div.form div.group div.form-group:not(.agree) {
   margin: 2.5%;
+  width: 92.5%;
+  position: relative;
 }
 
-div.mypage div.form div.group div.form-group:not(.agree):not(.half-layout) {
-  width: 90%;
+div.mypage div.form div.group div.form-group:not(.agree).one-layout {
   clear: both;
+}
+
+div.mypage div.form div.group div.form-group:not(.agree).one-layout input[type="checkbox"] {
+  width: 15px;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: 10px;
+  left: -10px;
+}
+
+div.mypage div.form div.group div.form-group:not(.agree).one-layout ul {
+  width: 100%;
+  background: #eee;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin: 20px 0 0 0;
+}
+
+div.mypage div.form div.group div.form-group:not(.agree).one-layout ul li {
+  float: left;
+}
+
+div.mypage div.form div.group div.form-group:not(.agree).one-layout ul li label {
+  font-size: 12px;
+}
+
+div.mypage div.form div.group div.form-group:not(.agree).one-layout ul p {
+  clear: both;
+  padding: 20px 0 0 20px;
+  color: red;
 }
 
 div.mypage div.form div.group div.form-group:not(.agree).half-layout {
@@ -1454,6 +1493,74 @@ div.mypage div.form div.group div.form-group:not(.agree).half-layout {
   div.mypage div.form div.group div.form-group:not(.agree).half-layout {
     width: 90%;
   }
+}
+
+div.mypage div.form div.group div.form-group:not(.agree).half-layout select {
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  padding: 0 5px;
+}
+
+div.mypage div.form div.group div.form-group:not(.agree).semi-layout {
+  float: left;
+  width: 22%;
+  margin: 10px 1%;
+}
+
+div.mypage div.form div.group div.form-group:not(.agree).semi-layout input {
+  width: 80%;
+}
+
+div.mypage div.form div.group div.form-group:not(.agree).semi-layout span {
+  right: 20px;
+}
+
+@media (max-width: 480px) {
+  div.mypage div.form div.group div.form-group:not(.agree).semi-layout {
+    width: 42.5%;
+    margin: 10px 2.5%;
+  }
+}
+
+div.mypage div.form div.group div.form-group:not(.agree).triple-layout {
+  float: left;
+  width: 28.83333333333333333333333333333%;
+  margin: 10px 1.5%;
+}
+
+div.mypage div.form div.group div.form-group:not(.agree).triple-layout input:not([type="radio"]) {
+  width: 90%;
+}
+
+div.mypage div.form div.group div.form-group:not(.agree).triple-layout input[type="radio"] {
+  width: 15px;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: 10px;
+}
+
+div.mypage div.form div.group div.form-group:not(.agree).triple-layout span {
+  right: 5px;
+}
+
+div.mypage div.form div.group div.form-group:not(.agree).triple-layout li {
+  float: left;
+}
+
+@media (max-width: 480px) {
+  div.mypage div.form div.group div.form-group:not(.agree).triple-layout li {
+    float: initial;
+  }
+}
+
+div.mypage div.form div.group div.form-group:not(.agree) span {
+  position: absolute;
+  top: 36px;
+  right: 0;
+  color: #aaa;
 }
 
 div.mypage div.form div.group.notice-group {

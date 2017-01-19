@@ -37,7 +37,6 @@ div.mypage{
             letter-spacing:-3px;
             border-bottom:4px solid $point-color;
         } 
-        
         h3{
             clear:both;
             height:30px;
@@ -48,6 +47,12 @@ div.mypage{
             border-left:3px solid $point-color;
             letter-spacing:-2px;
             margin-top:30px;
+        }
+        h4{
+            margin:0;
+            padding:0;
+            font-size:13px;
+            font-weight:bold;
         }
         label:not(.agree):not(.error){
             clear:both;
@@ -102,9 +107,36 @@ div.mypage{
             clear:both;
             div.form-group:not(.agree){
                 margin:2.5%;
-                &:not(.half-layout){
-                    width:90%;
+                width:92.5%;
+                position:relative;
+                &.one-layout{
                     clear:both;
+                    input[type="checkbox"]{
+                        width:15px;
+                        margin:0;
+                        padding:0;
+                        position:relative;
+                        top:10px;
+                        left:-10px;
+                    }
+                    ul{
+                        width:100%;
+                        background:#eee;
+                        border:1px solid #ddd;
+                        border-radius:5px;
+                        margin:20px 0 0 0;
+                        li{
+                            float:left;
+                            label{
+                                font-size:12px;
+                            }
+                        }
+                        p{
+                            clear:both;
+                            padding:20px 0 0 20px;
+                            color:red;
+                        }
+                    }
                 }
                 &.half-layout{
                     float:left;
@@ -113,6 +145,59 @@ div.mypage{
                     @include respond-to('small') {
                         width:90%;
                     }
+                    select{
+                        width:100%;
+                        height:50px;
+                        border-radius:10px;
+                        border:1px solid #ddd;
+                        padding:0 5px;
+
+                    }
+                }
+                &.semi-layout{
+                    float:left;
+                    width:22%;
+                    margin:10px 1%;
+                    input{
+                        width:80%;
+                    }
+                    span{
+                        right:20px;
+                    }
+                    @include respond-to('too-small'){
+                        width:42.5%;
+                        margin:10px 2.5%;
+                    }
+                }
+                &.triple-layout{
+                    float:left;
+                    width:28.83333333333333333333333333333%;
+                    margin:10px 1.5%;
+                    input:not([type="radio"]){
+                        width:90%;
+                    }
+                    input[type="radio"]{
+                        width:15px;
+                        margin:0;
+                        padding:0;
+                        position:relative;
+                        top:10px;
+                    }
+                    span{
+                        right:5px;
+                    }
+                    li{
+                        float:left;
+                        @include respond-to('too-small'){
+                            float:initial;
+                        }
+                    }
+                }
+                span{
+                    position:absolute;
+                    top:36px;
+                    right:0;
+                    color:#aaa;
                 }
             }
             &.notice-group{
