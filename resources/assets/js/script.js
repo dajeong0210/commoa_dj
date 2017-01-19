@@ -1,18 +1,8 @@
-//WindowSize
-    resizing();
-    $(window).on('resize', resizing);
-    function resizing(){
-        var winWidth = $(window).width();
-        if( winWidth < 800 ){
-            $('ul.nav-group').addClass('hidden');
-        }else{
-            $('ul.nav-group').removeClass('hidden');
-        }
-    }
+
 
 //Nav
     $('a.menu_btn').on('click', function(){
-        $('ul.nav-group').toggleClass('hidden');
+        $('ul.nav-group').toggleClass('show');
         $(this).parent().addClass('active');
     });
     $('a.mypage').on('click', function(){
@@ -140,4 +130,9 @@
     });
 
 
-//asfasfa
+//Search
+    $('input[name=search]').on('keypress', function(e){
+        if( e.keyCode == 13 ){
+            $('form[name=searchForm]').submit();
+        }
+    });

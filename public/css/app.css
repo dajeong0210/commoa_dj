@@ -63,6 +63,7 @@ nav.nav-bar ul.nav-group {
   position: absolute;
   right: 8%;
   z-index: 40;
+  display: block;
 }
 
 @media (max-width: 800px) {
@@ -73,6 +74,10 @@ nav.nav-bar ul.nav-group {
     right: 0;
     border: 1px solid #282828;
     background: #333;
+    display: none;
+  }
+  nav.nav-bar ul.nav-group.show {
+    display: block;
   }
 }
 
