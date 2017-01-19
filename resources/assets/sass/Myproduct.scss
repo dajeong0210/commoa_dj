@@ -50,74 +50,9 @@ div.page.list{
             @include respond-to('small'){
                 height:480px;
             }
-            div.image-box{
-                margin-right:20px;
-                width:150px;
-                height:150px;
-                overflow:hidden;
-                float:left;
-                @include respond-to('small'){
-                    float:initial;
-                    clear:both;
-                    margin:20px auto;
-                }
-                img{
-                    height:100%;
-                    width:auto;
-                }
-            }
-            div.mydetail-box{
-                float:left;
-                width:610px;
-                @include respond-to('small'){
-                    width:100%;
-                }
-                a.myprod-title{
-                    margin:10px;
-                    font-size:20px;
-                    font-weight:bold;
-                    color:#333;
-                    &:hover{
-                        text-decoration:underline;
-                    }
-                }
-                p.myprod-price{
-                    float:right;
-                    margin:15px;
-                    font-weight:bold;
-                    font-size:20px;
-                    color:dodgerblue;
-                }
-                ul{
-                    clear:both;
-                    width:100%;
-                    li{
-                        box-sizing:border-box;
-                        margin:-1px 0 0 -1px;
-                        float:left;
-                        width:33.333333333333333333333333333333%;
-                        border:1px solid #ddd;
-                        font-size:12px;
-                        text-overflow:ellipsis;
-                        overflow:hidden;
-                        white-space:nowrap;
-                        @include respond-to('small'){
-                            &:first-child, &:nth-child(2){
-                                width:100%;
-                            }
-                            width:50%;
-                        }
-                        span:first-child{
-                            display:inline-block;
-                            padding:0 10px;
-                            width:50px;
-                            height:30px;
-                            line-height:30px;
-                            background:#eee;
-                            font-weight:bold;
-                        }
-                    }
-                }
+            &.detail{
+                border:none;
+                height:initial;
             }
             div.mybutton{
                 clear:both;
@@ -137,6 +72,106 @@ div.page.list{
                     color:#333;
                     float:left;
                     margin:5px;
+                }
+            }
+        }
+    }
+    div.image-box{
+        margin-right:20px;
+        width:150px;
+        height:150px;
+        overflow:hidden;
+        float:left;
+        @include respond-to('small'){
+            float:initial;
+            clear:both;
+            margin:10px auto;
+        }
+        &.detail{
+            clear:both;
+            float:initial;
+            margin:30px auto 0 auto;
+            width:100%;
+            height:initial;
+            max-width:500px;
+            img{
+                width:100%;
+                height:auto;
+            }
+        }
+        img{
+            height:100%;
+            width:auto;
+        }
+    }
+    div.mydetail-box{
+        float:left;
+        width:610px;
+        @include respond-to('small'){
+            width:100%;
+        }
+        &.detail{
+            width:100%;
+            margin:-20px auto 80px auto;
+            a.myprod-title{
+                font-size:30px;
+                position:absolute;
+                top:0;
+                left:0;
+            }
+            p.myprod-price{
+                font-size:25px;
+            }
+        }
+        a.myprod-title{
+            margin:10px;
+            font-size:20px;
+            font-weight:bold;
+            color:#333;
+            &:hover{
+                text-decoration:underline;
+            }
+        }
+        p.myprod-price{
+            float:right;
+            margin:15px;
+            font-weight:bold;
+            font-size:20px;
+            color:dodgerblue;
+        }
+        ul{
+            clear:both;
+            width:100%;
+            li{
+                box-sizing:border-box;
+                margin:-1px 0 0 -1px;
+                float:left;
+                width:33.333333333333333333333333333333%;
+                border:1px solid #ddd;
+                font-size:12px;
+                text-overflow:ellipsis;
+                overflow:hidden;
+                white-space:nowrap;
+                @include respond-to('small'){
+                    &:first-child, &:nth-child(2){
+                        width:100%;
+                    }
+                    width:50%;
+                }
+                span:first-child{
+                    display:inline-block;
+                    padding:0 10px;
+                    width:50px;
+                    height:30px;
+                    line-height:30px;
+                    background:#eee;
+                    font-weight:bold;
+                }
+            }
+            &.detail{
+                li, li span:first-child{
+                    height:50px;
+                    line-height:50px;
                 }
             }
         }

@@ -1070,91 +1070,9 @@ div.page.list ul.myProduct > li {
   }
 }
 
-div.page.list ul.myProduct > li div.image-box {
-  margin-right: 20px;
-  width: 150px;
-  height: 150px;
-  overflow: hidden;
-  float: left;
-}
-
-@media (max-width: 800px) {
-  div.page.list ul.myProduct > li div.image-box {
-    float: initial;
-    clear: both;
-    margin: 20px auto;
-  }
-}
-
-div.page.list ul.myProduct > li div.image-box img {
-  height: 100%;
-  width: auto;
-}
-
-div.page.list ul.myProduct > li div.mydetail-box {
-  float: left;
-  width: 610px;
-}
-
-@media (max-width: 800px) {
-  div.page.list ul.myProduct > li div.mydetail-box {
-    width: 100%;
-  }
-}
-
-div.page.list ul.myProduct > li div.mydetail-box a.myprod-title {
-  margin: 10px;
-  font-size: 20px;
-  font-weight: bold;
-  color: #333;
-}
-
-div.page.list ul.myProduct > li div.mydetail-box a.myprod-title:hover {
-  text-decoration: underline;
-}
-
-div.page.list ul.myProduct > li div.mydetail-box p.myprod-price {
-  float: right;
-  margin: 15px;
-  font-weight: bold;
-  font-size: 20px;
-  color: dodgerblue;
-}
-
-div.page.list ul.myProduct > li div.mydetail-box ul {
-  clear: both;
-  width: 100%;
-}
-
-div.page.list ul.myProduct > li div.mydetail-box ul li {
-  box-sizing: border-box;
-  margin: -1px 0 0 -1px;
-  float: left;
-  width: 33.333333333333333333333333333333%;
-  border: 1px solid #ddd;
-  font-size: 12px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-@media (max-width: 800px) {
-  div.page.list ul.myProduct > li div.mydetail-box ul li {
-    width: 50%;
-  }
-  div.page.list ul.myProduct > li div.mydetail-box ul li:first-child, div.page.list ul.myProduct > li div.mydetail-box ul li:nth-child(2) {
-    width: 100%;
-  }
-}
-
-div.page.list ul.myProduct > li div.mydetail-box ul li span:first-child {
-  display: inline-block;
-  padding: 0 10px;
-  width: 50px;
-  height: 30px;
-  line-height: 30px;
-  background: #eee;
-  font-weight: bold;
+div.page.list ul.myProduct > li.detail {
+  border: none;
+  height: initial;
 }
 
 div.page.list ul.myProduct > li div.mybutton {
@@ -1178,6 +1096,214 @@ div.page.list ul.myProduct > li div.mybutton input.delete, div.page.list ul.myPr
   color: #333;
   float: left;
   margin: 5px;
+}
+
+div.page.list div.image-box {
+  margin-right: 20px;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  float: left;
+}
+
+@media (max-width: 800px) {
+  div.page.list div.image-box {
+    float: initial;
+    clear: both;
+    margin: 10px auto;
+  }
+}
+
+div.page.list div.image-box.detail {
+  clear: both;
+  float: initial;
+  margin: 30px auto 0 auto;
+  width: 100%;
+  height: initial;
+  max-width: 500px;
+}
+
+div.page.list div.image-box.detail img {
+  width: 100%;
+  height: auto;
+}
+
+div.page.list div.image-box img {
+  height: 100%;
+  width: auto;
+}
+
+div.page.list div.mydetail-box {
+  float: left;
+  width: 610px;
+}
+
+@media (max-width: 800px) {
+  div.page.list div.mydetail-box {
+    width: 100%;
+  }
+}
+
+div.page.list div.mydetail-box.detail {
+  width: 100%;
+  margin: -20px auto 80px auto;
+}
+
+div.page.list div.mydetail-box.detail a.myprod-title {
+  font-size: 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+div.page.list div.mydetail-box.detail p.myprod-price {
+  font-size: 25px;
+}
+
+div.page.list div.mydetail-box a.myprod-title {
+  margin: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+div.page.list div.mydetail-box a.myprod-title:hover {
+  text-decoration: underline;
+}
+
+div.page.list div.mydetail-box p.myprod-price {
+  float: right;
+  margin: 15px;
+  font-weight: bold;
+  font-size: 20px;
+  color: dodgerblue;
+}
+
+div.page.list div.mydetail-box ul {
+  clear: both;
+  width: 100%;
+}
+
+div.page.list div.mydetail-box ul li {
+  box-sizing: border-box;
+  margin: -1px 0 0 -1px;
+  float: left;
+  width: 33.333333333333333333333333333333%;
+  border: 1px solid #ddd;
+  font-size: 12px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@media (max-width: 800px) {
+  div.page.list div.mydetail-box ul li {
+    width: 50%;
+  }
+  div.page.list div.mydetail-box ul li:first-child, div.page.list div.mydetail-box ul li:nth-child(2) {
+    width: 100%;
+  }
+}
+
+div.page.list div.mydetail-box ul li span:first-child {
+  display: inline-block;
+  padding: 0 10px;
+  width: 50px;
+  height: 30px;
+  line-height: 30px;
+  background: #eee;
+  font-weight: bold;
+}
+
+div.page.list div.mydetail-box ul.detail li, div.page.list div.mydetail-box ul.detail li span:first-child {
+  height: 50px;
+  line-height: 50px;
+}
+
+div.page.detail a.myprod-title {
+  font-size: 40px;
+  color: #333;
+  font-weight: bold;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+div.page.detail a.prod-url {
+  font-size: 15px;
+  color: #333;
+  letter-spacing: -0.5px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+div.page.detail div.fav-group {
+  margin: 10px auto;
+  width: 60px;
+  height: 35px;
+  padding: 10px 5px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #ddd;
+  text-align: center;
+}
+
+div.page.detail div.fav-group span {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  font-size: 11px;
+  line-height: 1.0;
+}
+
+div.page.detail div.fav-group span a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  color: #444;
+  font-weight: bold;
+}
+
+div.page.detail div.fav-group span a i {
+  margin: 0;
+  font-size: 20px;
+  color: hotpink;
+}
+
+div.page.detail div.fav-group span a em {
+  font-style: normal;
+}
+
+div.page.detail div.link-group {
+  padding: 30px 0;
+  width: 100%;
+  clear: both;
+}
+
+@media (max-width: 800px) {
+  div.page.detail div.link-group {
+    width: 100%;
+    padding: 20px 0;
+  }
+}
+
+div.page.detail div.link-group a {
+  display: block;
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+  background: #282828;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: -2px;
+}
+
+div.page.detail div.link-group a:hover {
+  color: #2bde73;
 }
 
 div.mypage form {
