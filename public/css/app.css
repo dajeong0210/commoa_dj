@@ -1008,6 +1008,7 @@ div.page.list div.search-wrap div.search-form {
   height: 25px;
   padding: 10px;
   border: 1px solid #ccc;
+  box-shadow: 0 0 15px #ccc;
   border-radius: 25px;
   line-height: 10px;
 }
@@ -1024,11 +1025,12 @@ div.page.list div.search-wrap div.search-form label {
 
 div.page.list div.search-wrap div.search-form input {
   width: 85%;
+  outline: none;
   border: none;
 }
 
 div.page.list div.search-wrap div.search-form input:focus {
-  border: none;
+  outline: none;
 }
 
 div.page.list div.wrap {

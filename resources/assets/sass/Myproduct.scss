@@ -7,6 +7,7 @@ div.page.list{
             height:25px;
             padding:10px;
             border:1px solid #ccc;
+            box-shadow:0 0 15px #ccc;
             border-radius:25px;
             line-height:10px;
             @include respond-to('small'){
@@ -17,9 +18,10 @@ div.page.list{
             }
             input{
                 width:85%;
+                outline:none;
                 border:none;
                 &:focus{
-                    border:none;
+                    outline:none;
                 }
             }
         }

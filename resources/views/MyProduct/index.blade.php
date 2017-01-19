@@ -7,7 +7,7 @@
             <form method="GET" name="searchForm">
                 <div class="search-form">
                     <label for="search" class="search"><i class="fa fa-search" aria-hidden="true"></i><span class="hidden">검색</span></label>
-                    <input type="text" id="search" name="search" placeholder="Search Products"/>
+                    <input type="text" id="search" name="search" placeholder="Search Products" @if( $search )value="{{ $search }}"@endif/>
                 </div>
                 <div class="sortBy hidden">
                     <input type="text" id="sortBy_rank" name="product-sort" class="input" value="all"/>
