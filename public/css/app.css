@@ -1008,7 +1008,8 @@ div.page.list div.search-wrap div.search-form {
   height: 25px;
   padding: 10px;
   border: 1px solid #ccc;
-  box-shadow: 0 0 15px #ccc;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
   border-radius: 25px;
   line-height: 10px;
 }

@@ -137,7 +137,7 @@
         }
     });
     $('input[name=search]').focus(function(){
-    $(this).parent('div').css('border', '1px solid rgba(43,222,115,1.0)').css('box-shadow', '0 0 15px rgba(43,222,115,0.5)');
+    $(this).parent('div').css('border', '1px solid rgba(43,222,115,1.0)').css('box-shadow', '0 0 15px rgba(43,222,115,0.3)');
     }).blur(function(){
-        $(this).parent('div').css('border', '1px solid #ccc').css('box-shadow', '0 0 15px #ccc');
+        $(this).parent('div').css('border', '1px solid #ccc').css('box-shadow', 'none');
     });
