@@ -70,7 +70,11 @@ class MyProductController extends Controller
         $product->image = $path_i;
         $product->url = $request->input('url');
         $product->price = $request->input('price');
-        $product->os = $request->input('os');
+        if($request->input('os') == '') { 
+            $product->os = Null;
+        } else { 
+            $product->os = $request->input('os');
+        }
         $product->ram = $request->input('ram');
         $product->ssd = $request->input('ssd');
         $product->hdd = $request->input('hdd');
@@ -106,12 +110,9 @@ class MyProductController extends Controller
     public function edit($id)
     {
         $product = Product::find($id);
-        $categories = $product->categories()->get();
-        $categories_id = '';
-        foreach ($categories as $category) {
-            $categories_id = $categories_id + ',' + $category->id;
-        }
-        return view('myproduct.edit')->with('product', $product)->with('categories_id', $categories_id);
+        $categories = Category::get();
+        $select_categories = $product->categories()->get();
+        return view('myproduct.edit')->with('product', $product)->with('categories', $categories)->with('select_categories', $select_categories);
     }
 
     /**

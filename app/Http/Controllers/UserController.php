@@ -74,12 +74,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $shop_admin = User::where('email', $request->input('user_email'))->first();
-        $shop_admin->permission = 1;
-        $shop_admin->save();
-
-        //입점신청현황 페이지로 이동 
-        return redirect('');
+        //
     }
 
     /**
