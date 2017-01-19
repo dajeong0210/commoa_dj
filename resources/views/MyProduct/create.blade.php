@@ -33,7 +33,7 @@
                         <select name="cpu" class="required">
                             <option>선택</option>
                             @foreach( $cpus as $cpu )
-                                <option value="{{ $cpu->name }}">{{ $cpu->name }}</option>
+                                <option value="{{ $cpu->id }}">{{ $cpu->name }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -43,7 +43,7 @@
                         <select name="vga" class="required">
                             <option>선택</option>
                             @foreach( $vgas as $vga )
-                                <option value="{{ $vga->name }}">{{ $vga->name }}</option>
+                                <option value="{{ $vga->id }}">{{ $vga->name }}</option>
                             @endforeach
                         </select>
                     </div>
