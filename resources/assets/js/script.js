@@ -154,4 +154,24 @@
     }).blur(function(){
         $(this).parent('div').css('border', '1px solid #ccc').css('box-shadow', 'none');
     });
- 
+//Detail Ajax
+    $('a.go_url').on('click',function() {
+        var productId = $('input.product-id').val();
+        var formData = { 'product_id' : productId };
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url: "../viewcount/"+productId,
+            type: "POST",
+            data: formData, 
+            success: function(data){
+                alert(data);
+            },
+            error: function(responseData, textStatus){
+                alert(textStatus);
+            }
+        });
+    });

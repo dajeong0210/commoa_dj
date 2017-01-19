@@ -131,13 +131,12 @@ class ProductController extends Controller
     }
 
     //view count up! 
-    public function viewCount($product_id)
+    public function viewCount($product_id, Request $request)
     {
         $product = Product::find($product_id);
         $count = $product->views;
         $product->views = $count + 1;
         $product->save();
-        echo 'success';
     }
 
     /**

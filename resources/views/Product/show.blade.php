@@ -50,37 +50,8 @@
             </li>
         </ul>
         <div class="button-group">
-            <a href="{{ $product->url }}" class="url" target="_blank">사이트 이동</a>
+            <a href="{{ $product->url }}" class="go_url" target="_blank">사이트 이동</a>
             <input type="hidden" class="product-id" value="{{ $product->id }}">
         </div>
     </div>
-    <script type="text/javascript">
-        //Product view count
-        $('a.url').on('click',function() {
-            var productId = $('.product-id').val();
-            alert(productId);
-            viewcount( productId );
-        });
-
-        function viewcount( product_id) {
-            
-            var formData = { 'product_id' : product_id };
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            $.ajax({
-                url: "viewcount/" + product_id,
-                type: "POST",
-                data: formData, 
-                success: function(data){
-                    alert(data);
-                },
-                error: function(responseData, textStatus){
-                    alert(textStatus);
-                }
-            });
-        }
-    </script>
 @endsection
