@@ -102,12 +102,12 @@
                     @endif
                 @endif
                 <div class="img-box prod">
-                    <a href="{{ $product->url }}">
+                    <a href="{{ url('/product') . '/' . $product->id }}">
                         <img src="{{ $product->image }}" alt="">
                     </a>
                 </div>
                 <div class="detail-box">
-                    <a class="prod-title" href="{{ $product->url }}"> {{ $product->name }} </a>
+                    <a class="prod-title" href="{{ url('/product') . '/' . $product->id }}"> {{ $product->name }} </a>
                     <p class="prod_category">
                     @foreach( $product->categories as $category )
                         <a class="category category_{{ $category->id }}" href="{{ url('category') . '/' . str_replace(' ','_',$category->name) }}">{{ $category->name }}</a>

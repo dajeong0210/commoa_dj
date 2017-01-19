@@ -141,3 +141,4 @@
     }).blur(function(){
         $(this).parent('div').css('border', '1px solid #ccc').css('box-shadow', 'none');
     });
+ 

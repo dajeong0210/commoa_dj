@@ -19,6 +19,7 @@ Route::get('/home', 'HomeController@index');
 Route::get('/shop', 'ShopController@index');
 Route::resource('/product', 'ProductController');
 Route::get('/category/{category_name}', 'CategoryController@show');
+Route::get('/viewcount/{product_id}', 'ProductController@viewCount');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('/apply', 'ApplyController');
