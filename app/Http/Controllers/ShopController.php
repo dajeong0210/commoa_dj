@@ -49,18 +49,34 @@ class ShopController extends Controller
      */
     public function store(Request $request)
     {
-        $path_i = $request->file('image')->store('images');
-        $shop = new Shop;
-        $shop->name = $request->input('shop_name');
-        $shop->image = $path_i;
-        $shop->url = $request->input('shop_url');
-        $shop->contact_address = $request->input('business_address');
-        $shop->contact_name = $request->input('contact_name');
-        $shop->phone = $request->input('contact_phone');
-        $shop->email = $request->input('contact_email');
-        $shop->user_id = input('user_email');
-        $shop->save();
-        return redirect('main');
+        //apply id를 받아옴  
+        $apply_id = $request->input('apply_id');
+        $apply = Apply::find($apply_id)->get();
+        $apply_email = Apply::find($apply_id)->user_email;
+        if( User::where('email', $apply_email)->count() != 0 ) {
+            $shop_admin = User::where('email', $request->input('user_email'))->first();
+            $shop_admin->permission = 1;
+            $shop_admin->save();
+            // $shop = new Shop;
+            // $shop->name = $request->input('shop_name');
+            // $shop->url = $request->input('shop_url');
+            // $shop->contact_address = $request->input('business_address');
+            // $shop->contact_name = $request->input('contact_name');
+            // $shop->contact_phone = $request->input('contact_phone');
+            // $shop->contact_email = $request->input('contact_email');
+            // $shop->user_id = User::where('email', $apply_email)->first()->id;
+            // $shop->save();
+            $shop = new Shop;
+            $shop->name = $apply->shop_name;
+            $shop->url = $apply->shop_url;
+            $shop->contact_address = $apply->business_address;
+            $shop->contact_name = $apply->contact_name;
+            $shop->contact_phone = $apply->contact_phone;
+            $shop->contact_email = $apply->contact_email;
+            $shop->user_id = User::where('email', $apply_email)->first()->id;
+            $shop->save();
+        }
+        return redirect('myproduct');
     }
 
     /**
