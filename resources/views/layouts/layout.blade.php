@@ -36,7 +36,7 @@
             <a href="#" class="menu_btn">
                 <i class="fa fa-bars" aria-hidden="true"></i>
             </a>
-            <ul class="nav-group hidden">
+            <ul class="nav-group">
                 <li>
                 @if( Request::segment(1) == 'product' )
                     <a href="{{ url('product/')}}" class="active">상품</a>

@@ -80,6 +80,7 @@
             position:absolute;
             right:8%;
             z-index:40;
+            display:block;
             @include respond-to('small') {
                 clear:both;
                 width:100%;
@@ -87,6 +88,10 @@
                 right:0;
                 border:1px solid #282828;
                 background:#333;
+                display:none;
+                &.show{
+                    display:block;
+                }
             }
             & > li{
                 padding:15px 10px;
