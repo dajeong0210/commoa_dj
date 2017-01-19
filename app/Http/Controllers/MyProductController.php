@@ -148,8 +148,12 @@ class MyProductController extends Controller
     {
         $product = Product::find($id);
         $categories = $product->categories()->get();
+        $users = $product->users()->get();
         foreach ($categories as $category) {
             $category->products()->toggle( $product->id );
+        }
+        foreach ($users as $user) {
+            $product->users()->toggle( $user->id );
         }
         if( Auth::user()->id == $product->shop->user_id ) {
             $product->delete();
