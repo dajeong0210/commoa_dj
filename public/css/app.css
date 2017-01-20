@@ -499,6 +499,11 @@ div.page.list {
   clear: both;
 }
 
+div.page.list div.category_name {
+  width: 100%;
+  background: coral;
+}
+
 div.page.list h3 {
   text-align: center;
   font-size: 25px;

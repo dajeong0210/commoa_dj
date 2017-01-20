@@ -14,6 +14,11 @@ div.page{
     }
     &.list{
         clear:both;
+        div.category_name{
+            width:100%;
+            background:coral;
+            
+        }
         h3{
             text-align:center;
             font-size:25px;
