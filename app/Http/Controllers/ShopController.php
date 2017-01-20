@@ -7,6 +7,7 @@ use Illuminate\Http\UploadedFile;
 use Illuminate\Http\Request;
 use App\Shop;
 use App\User;
+use App\Apply;
 
 class ShopController extends Controller
 {

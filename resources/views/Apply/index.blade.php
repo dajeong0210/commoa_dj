@@ -2,32 +2,32 @@
 
 @section('content')
     <div class="page list mypage">
-        @include('layouts.myLayout') 
-        <ul class="myProduct">
-            @foreach( $applies as $apply )
-            <li>
-                <div class="mydetail-box">
-                    <table>
-                        <tr>
-                            <td></td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="mybutton">
-                    <form class="myprod-del" method="POST" action="{{ url('/myproduct') . '/' . $product->id }}" enctype="multipart/form-data">
-                    {{ method_field('delete') }}
-                    {{ csrf_field() }}
-                        <div class="button-group">
-                            <a href="{{ url('myproduct').'/'. $product->id .'/edit' }}" class="modify">수정</a>
-                            <input type="submit" value="삭제" class="delete"/>
-                        </div>
-                    </form>
-                </div>
-            </li>
-            @endforeach
-        </ul>
+        <div class="mydetail-box">
+            <table class="table">
+                <tr>
+                    <td>#</td>
+                    <td>이메일</td>
+                    <td>Shop이름</td>
+                    <td></td>
+                </tr>
+                @foreach( $applies as $apply )
+                <tr>
+                    <td>{{ $apply->id }}</td>
+                    <td>{{ $apply->user_email }}</td>
+                    <td>{{ $apply->shop_name }}</td>
+                    <td>
+                        <div class="mybutton">
+                            <div class="button-group">
+                                <a href="{{ url('apply').'/'. $apply->id }}" class="modify">보기</a>
+                            </div>
+                        </div>  
+                    </td>
+                </tr>
+                @endforeach
+            </table>
+        </div>
         <div class="pagination">
-            {{ $products->appends(request()->except('page'))->links() }}
+            {{ $applies->links() }}
         </div>
     </div>
 @endsection

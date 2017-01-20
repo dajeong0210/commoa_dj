@@ -18,7 +18,7 @@ class ApplyController extends Controller
      */
     public function index()
     {
-        $applies = Apply::orderBy('id', 'desc')->paginate(20);
+        $applies = Apply::orderBy('id', 'asc')->paginate(20);
         return view('apply.index')->with('applies', $applies);
     }
 
