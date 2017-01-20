@@ -541,6 +541,12 @@ div.page.list div.tab_wrap nav.tab-nav li {
   transition: all 0.1s;
 }
 
+@media (max-width: 480px) {
+  div.page.list div.tab_wrap nav.tab-nav li {
+    width: 100px;
+  }
+}
+
 div.page.list div.tab_wrap nav.tab-nav li.active {
   background: #fff;
   border-top: 3px solid #2bde73;
@@ -621,6 +627,13 @@ div.page.list div.filter-wrap div.filter-group h3 {
   text-align: center;
   font-size: 15px;
   letter-spacing: 5px;
+}
+
+@media (max-width: 480px) {
+  div.page.list div.filter-wrap div.filter-group h3 {
+    margin: 10px auto 10px auto;
+    letter-spacing: 2px;
+  }
 }
 
 div.page.list div.filter-wrap div.filter-group label {
@@ -715,19 +728,29 @@ div.page.list div.sort-wrap ul.sort-list {
   margin: 0px 18px;
 }
 
+@media (max-width: 480px) {
+  div.page.list div.sort-wrap ul.sort-list {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+}
+
 div.page.list div.sort-wrap ul.sort-list li {
   float: left;
   font-size: 12px;
   border: 1px solid #ddd;
   padding: 7px 23px;
   margin-left: -1px;
+  text-align: center;
   color: #666;
   cursor: pointer;
 }
 
 @media (max-width: 480px) {
   div.page.list div.sort-wrap ul.sort-list li {
-    padding: 7px 6px;
+    width: 22%;
+    padding: 10px 2px;
   }
 }
 
