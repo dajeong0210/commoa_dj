@@ -17,7 +17,7 @@ class SystemAdmin
     public function handle($request, Closure $next)
     {
         if(Auth::user()->permission != 2){
-            return redirect('/');
+            return back();
         }
 
         return $next($request);

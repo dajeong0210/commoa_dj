@@ -89,7 +89,7 @@ class InfoController extends Controller
             $user->password = bcrypt($request->input('password'));
             $user->save();
 
-            return view('mypage');
+            return redirect('mypage');
         } else {
             return back();
         }
