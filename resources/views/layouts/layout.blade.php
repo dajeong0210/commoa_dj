@@ -59,13 +59,16 @@
                     <a href="#" class="mypage"> {{ Auth::user()->name }} ▼ </a>
                     <div class="sub_menu hidden">
                         <ul>
-                            <li><a href="{{ url('/mypage') }}">마이페이지</a></li>
                             @if( Auth::user()->permission == 2 )
-                            <li><a href="#">관리자페이지</a></li>
-                            @elseif( Auth::user()->permission == 1 )
-                            <li><a href="{{ url('/myproduct') }}">상품관리</a></li>
+                            <li><a href="{{ url('/mypage') }}">관리자페이지</a></li>
+                            <li><a href="{{ url('/apply') }}">입점승인</a></li>
                             @else
-                            <li><a href="{{ url('/apply/create') }}">입점신청</a></li>
+                                <li><a href="{{ url('/mypage') }}">마이페이지</a></li>
+                                @if( Auth::user()->permission == 1 )
+                                <li><a href="{{ url('/myproduct') }}">상품관리</a></li>
+                                @else
+                                <li><a href="{{ url('/apply/create') }}">입점신청</a></li>
+                                @endif
                             @endif
                             <li>
                                 <a href="{{ url('/logout') }}"

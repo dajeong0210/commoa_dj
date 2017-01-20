@@ -1,30 +1,22 @@
 @extends('layouts.layout')
 
 @section('content')
-    <div class="page list mypage">
-        <div class="mydetail-box">
-            <table class="table">
-                <tr>
-                    <td>#</td>
-                    <td>이메일</td>
-                    <td>Shop이름</td>
-                    <td></td>
-                </tr>
+    <div class="page list admin">
+        <div class="apply-list">
+            <ul class="myProduct">
                 @foreach( $applies as $apply )
-                <tr>
-                    <td>{{ $apply->id }}</td>
-                    <td>{{ $apply->user_email }}</td>
-                    <td>{{ $apply->shop_name }}</td>
-                    <td>
-                        <div class="mybutton">
-                            <div class="button-group">
-                                <a href="{{ url('apply').'/'. $apply->id }}" class="modify">보기</a>
-                            </div>
-                        </div>  
-                    </td>
-                </tr>
+                <li class="{{ $apply->permission == 1 ? 'done' : '' }}">
+                    <p><span>아이디</span>{{ $apply->user_email }}</p>
+                    <p><span>샵이름</span>{{ $apply->shop_name }}</p>
+                    @if( $apply->permission == 0 ) 
+                    <p style="color:red"><span>승인여부</span>미승인</p>
+                    @else 
+                    <p style="color:green"><span>승인여부</span>승인</p>
+                    @endif
+                    <p><a href="{{ url('/apply').'/'.$apply->id }}">보기</a></p>
+                </li>
                 @endforeach
-            </table>
+            </ul>
         </div>
         <div class="pagination">
             {{ $applies->links() }}

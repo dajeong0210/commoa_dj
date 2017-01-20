@@ -1,10 +1,13 @@
 @extends('layouts.layout')
 
 @section('content')
-    <div class="page list">
+    <div class="category_main">
+        <div class="image-cover"></div>
         <div class="category_name">
-            <h2>#{{ $category->name }}</h2>
+            <h2># {{ $category_name }}</h2>
         </div>
+    </div>
+    <div class="page list">
         <ul class="list-group">
             @foreach( $products as $product )
             <li>
