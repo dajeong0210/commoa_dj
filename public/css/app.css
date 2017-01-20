@@ -476,6 +476,41 @@ div.slider ul.slider > li div.slider-cover a.btn:hover {
   background: #2bde73;
 }
 
+div.category_main {
+  width: 100%;
+  height: 180px;
+  background: url("../image/back01.jpg") no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin: 0 0 50px 0;
+  padding: 0;
+  position: relative;
+}
+
+div.category_main div.image-cover {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+div.category_main div.category_name {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+div.category_main h2 {
+  color: #fff;
+  font-size: 30px;
+  letter-spacing: -4px;
+  text-shadow: 0 0 20px #2bde73;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  line-height: 180px;
+}
+
 div.page {
   width: 80%;
   max-width: 1200px;
@@ -497,11 +532,6 @@ div.page div.form {
 
 div.page.list {
   clear: both;
-}
-
-div.page.list div.category_name {
-  width: 100%;
-  background: coral;
 }
 
 div.page.list h3 {
@@ -740,6 +770,13 @@ div.page.list div.sort-wrap ul.sort-list {
   }
 }
 
+@media (max-width: 480px) {
+  div.page.list div.sort-wrap ul.sort-list.product-sort li {
+    width: 22%;
+    padding: 10px 2px;
+  }
+}
+
 div.page.list div.sort-wrap ul.sort-list li {
   float: left;
   font-size: 12px;
@@ -749,13 +786,6 @@ div.page.list div.sort-wrap ul.sort-list li {
   text-align: center;
   color: #666;
   cursor: pointer;
-}
-
-@media (max-width: 480px) {
-  div.page.list div.sort-wrap ul.sort-list li {
-    width: 22%;
-    padding: 10px 2px;
-  }
 }
 
 div.page.list div.sort-wrap ul.sort-list li:first-child {
@@ -1786,6 +1816,18 @@ div.page.mypage nav {
   margin: 20px auto 50px auto;
 }
 
+@media (max-width: 800px) {
+  div.page.mypage nav {
+    width: 70%;
+  }
+}
+
+@media (max-width: 480px) {
+  div.page.mypage nav {
+    width: 100%;
+  }
+}
+
 div.page.mypage nav ul {
   position: relative;
   left: 50%;
@@ -1808,7 +1850,7 @@ div.page.mypage nav ul li {
     margin: 0;
     padding: 0;
   }
-  div.page.mypage nav ul li:nth-child(5), div.page.mypage nav ul li:last-child {
+  div.page.mypage nav ul li:nth-child(5), div.page.mypage nav ul li:nth-child(6) {
     width: 50%;
   }
 }
@@ -1931,9 +1973,22 @@ div.page.mypage div.my-wrap > div.fav-list ul li img {
   clear: both;
 }
 
+div.page.mypage div.my-wrap > div.fav-list ul li:hover div.image-cover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+div.page.mypage div.my-wrap > div.fav-list ul li div.image-cover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  background: transparent;
+}
+
 div.page.mypage div.my-wrap > div.fav-list ul li div.detail-box {
   width: 100%;
-  height: 80px;
+  height: 90px;
   background: rgba(255, 255, 255, 0.8);
   position: absolute;
   bottom: 0;
@@ -1943,13 +1998,15 @@ div.page.mypage div.my-wrap > div.fav-list ul li div.detail-box {
 }
 
 div.page.mypage div.my-wrap > div.fav-list ul li div.detail-box p {
-  padding: 0 10px;
+  height: 20px;
+  line-height: 20px;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
 }
 
 div.page.mypage div.my-wrap > div.fav-list ul li div.detail-box p:first-child {
+  font-size: 1.05em;
   font-weight: bold;
 }
 
@@ -2016,6 +2073,92 @@ div.page.mypage div.my-wrap > div h2 a {
 
 div.page.mypage div.my-wrap > div h2 a i {
   font-size: 20px;
+}
+
+div.page.list.admin {
+  width: 60%;
+}
+
+@media (max-width: 800px) {
+  div.page.list.admin {
+    width: 100%;
+  }
+}
+
+div.page.list.admin div.apply-list {
+  width: 100%;
+  margin: 50px 0;
+}
+
+div.page.list.admin div.apply-list ul.myProduct {
+  width: 100%;
+  padding: 0;
+}
+
+div.page.list.admin div.apply-list ul.myProduct li {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: auto 5px;
+  box-sizing: border-box;
+  float: left;
+  clear: initial;
+  width: 31.3333333333333333333333333333333333%;
+  height: initial;
+  margin: 10px 1%;
+}
+
+@media (max-width: 480px) {
+  div.page.list.admin div.apply-list ul.myProduct li {
+    width: 98%;
+  }
+}
+
+div.page.list.admin div.apply-list ul.myProduct li.done {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+div.page.list.admin div.apply-list ul.myProduct li.done p {
+  opacity: 0.5;
+  filter: Alpha(50);
+}
+
+div.page.list.admin div.apply-list p {
+  width: 100%;
+  font-size: 13px;
+  margin: 0;
+  padding: 2px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+div.page.list.admin div.apply-list p span {
+  display: inline-block;
+  width: 55px;
+  color: #2bde73;
+  font-weight: bold;
+  margin: 0 10px;
+}
+
+div.page.list.admin div.apply-list p:last-child {
+  text-align: center;
+}
+
+div.page.list.admin div.apply-list p:last-child a {
+  display: block;
+  width: 35px;
+  margin: 10px auto 0 auto;
+  color: #fff;
+  padding: 5px;
+  font-weight: bold;
+  background: #282828;
+  border-radius: 5px;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+div.page.list.admin div.apply-list p:last-child a:hover {
+  color: #2bde73;
 }
 
 /*# sourceMappingURL=app.css.map */
