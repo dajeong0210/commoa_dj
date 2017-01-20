@@ -18,7 +18,7 @@ class ApplyController extends Controller
      */
     public function index()
     {
-        $applies = Apply::orderBy('permission', 'desc')->orderBy('created_at', 'desc')->paginate(18);
+        $applies = Apply::orderBy('permission', 'asc')->orderBy('created_at', 'desc')->paginate(18);
         return view('apply.index')->with('applies', $applies);
     }
 
