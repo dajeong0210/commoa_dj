@@ -78,7 +78,7 @@ class ShopController extends Controller
             $shop->user_id = User::where('email', $apply_email)->first()->id;
             $shop->save();
         }
-        return redirect('myproduct');
+        return redirect('apply.index');
     }
 
     /**

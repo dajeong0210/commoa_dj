@@ -138,6 +138,9 @@ div.mypage{
                         }
                     }
                 }
+                &:not(.half-layout):not(.semi-layout):not(.triple-layout){
+                    clear:both;
+                }
                 &.half-layout{
                     float:left;
                     width:42.5%;
@@ -145,13 +148,15 @@ div.mypage{
                     @include respond-to('small') {
                         width:90%;
                     }
+                    input{
+                        width:100%;
+                    }
                     select{
                         width:100%;
                         height:50px;
                         border-radius:10px;
                         border:1px solid #ddd;
                         padding:0 5px;
-
                     }
                 }
                 &.semi-layout{

@@ -32,6 +32,27 @@ div.page.list{
             margin:50px auto;
         }
     }
+    div.write-btn{
+        clear:both;
+        width:800px;
+        margin:0 auto;
+        @include respond-to('small'){
+            width:100%;
+        }
+        a{
+            margin:10px 25px;
+            float:right;
+            font-size:12px;
+            padding:5px 10px;
+            background:#333;
+            font-weight:bold;
+            color:#fff;
+            transition:all 0.2s;
+            &:hover{
+                color:$point-color;
+            }
+        }
+    }
     ul.myProduct{
         clear:both;
         width:800px;

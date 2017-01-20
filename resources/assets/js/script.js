@@ -15,7 +15,7 @@
         if( $(this).next('span').hasClass('help-block') ){
             $(this).next('span.help-block').remove();
         }
-    })
+    });
 //login-form
     $('label.remember').on('click', function(){
         $(this).find('i').toggleClass('active');

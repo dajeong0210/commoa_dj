@@ -98,11 +98,13 @@
                 </a>
                 <div class="detail-box">
                     <a class="prod-title" href="{{ $product->url }}"> {{ $product->name }} </a>
-                    <p class="prod_category">
+                    <ul class="prod_category">
                     @foreach( $product->categories as $category )
+                        <li>
                         <a class="category category_{{ $category->id }}" href="{{ url('category') . '/' . str_replace(' ','_',$category->name) }}">{{ $category->name }}</a>
+                        </li>
                     @endforeach
-                    </p>
+                    </ul>
                     <p class="prod-shop">{{ $product->shop->name }}</p>
                     <p class="prod-price">{{ number_format($product->price) }}원
                         @if( Auth::guest() )
@@ -139,11 +141,13 @@
                 </a>
                 <div class="detail-box">
                     <a class="prod-title" href="{{ $product->url }}"> {{ $product->name }} </a>
-                    <p class="prod_category">
+                    <ul class="prod_category">
                     @foreach( $product->categories as $category )
+                        <li>
                         <a class="category category_{{ $category->id }}" href="{{ url('category') . '/' . str_replace(' ','_',$category->name) }}">{{ $category->name }}</a>
+                        </li>
                     @endforeach
-                    </p>
+                    </ul>
                     <p class="prod-shop">{{ $product->shop->name }}</p>
                     <p class="prod-price">{{ number_format($product->price) }}원
                         @if( Auth::guest() )
@@ -180,11 +184,13 @@
                 </a>
                 <div class="detail-box">
                     <a class="prod-title" href="{{ $product->url }}"> {{ $product->name }} </a>
-                    <p class="prod_category">
+                    <ul class="prod_category">
                     @foreach( $product->categories as $category )
+                        <li>
                         <a class="category category_{{ $category->id }}" href="{{ url('category') . '/' . str_replace(' ','_',$category->name) }}">{{ $category->name }}</a>
+                        </li>
                     @endforeach
-                    </p>
+                    </ul>
                     <p class="prod-shop">{{ $product->shop->name }}</p>
                     <p class="prod-price">{{ number_format($product->price) }}원
                         @if( Auth::guest() )

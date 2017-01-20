@@ -57,13 +57,13 @@ div.slider{
             @include respond-to('too-small'){
                 width:800%; 
             }
-            li{
+            > li{
                 margin:0 0.5%;
                 width:11.5%;
                 position:relative;
             }
         }
-        li{
+        > li{
             width:16.666666666666666666666666667%;
             float:left;
             &.game_01{
