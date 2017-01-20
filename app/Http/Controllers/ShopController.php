@@ -58,6 +58,9 @@ class ShopController extends Controller
             $shop_admin = User::where('email', $request->input('user_email'))->first();
             $shop_admin->permission = 1;
             $shop_admin->save();
+            $apply->permission = 1;
+            $apply->save();
+            
             // $shop = new Shop;
             // $shop->name = $request->input('shop_name');
             // $shop->url = $request->input('shop_url');

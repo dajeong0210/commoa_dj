@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+use App\User;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,19 +25,29 @@ Route::get('/category/{category_name}', 'CategoryController@show');
 Route::post('/viewcount/{product_id}', 'ProductController@viewCount');
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::resource('/apply', 'ApplyController');
+
+    Route::get('/apply/create', 'ApplyController@create');
+    Route::resource('/myinfo', 'InfoController');
+    Route::get('/mypage', 'UserController@index');
     Route::get('/bookmark', 'BookmarkController@index');
     Route::post('/bookmark/{shop_id}', 'BookmarkController@store');
     Route::get('/favorite', 'FavoriteController@index');
     Route::post('/favorite/{product_id}', 'FavoriteController@store');
-    Route::resource('/info', 'InfoController');
-    Route::get('/shop/create', 'ShopController@create');
-    Route::get('/shop/{id}/edit', 'ShopController@edit');
-    Route::put('/shop/{id}', 'ShopController@update');
-    Route::post('/shop', 'ShopController@store');
-    Route::get('/product/create', 'ProductController@create');
-    Route::get('/product/{p_id}/edit', 'ProductController@edit');
-    Route::resource('/myinfo', 'InfoController');
-    Route::get('/mypage', 'UserController@index');
-    Route::resource('/myproduct', 'MyproductController');
+
+    Route::group(['middleware' => 'ShopAdmin'], function () {
+        Route::resource('/myproduct', 'MyproductController');
+        Route::get('/shop/{id}/edit', 'ShopController@edit');
+        Route::put('/shop/{id}', 'ShopController@update');
+        Route::get('/product/create', 'ProductController@create');
+        Route::get('/product/{p_id}/edit', 'ProductController@edit');
+    });
+
+    Route::group(['middleware' => 'SystemAdmin'], function () {
+        Route::get('/apply', 'ApplyController@index');
+        Route::get('/apply/{id}', 'ApplyController@show');
+        Route::get('/shop/create', 'ShopController@create');
+        Route::post('/shop', 'ShopController@store');
+    });
+
+
 });

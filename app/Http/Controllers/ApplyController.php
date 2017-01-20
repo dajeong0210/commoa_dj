@@ -18,7 +18,7 @@ class ApplyController extends Controller
      */
     public function index()
     {
-        $applies = Apply::orderBy('id', 'asc')->paginate(20);
+        $applies = Apply::orderBy('permission', 'desc')->orderBy('created_at', 'desc')->paginate(18);
         return view('apply.index')->with('applies', $applies);
     }
 
@@ -180,7 +180,7 @@ class ApplyController extends Controller
     {
         $apply = Apply::find($id);
 
-        if(Auth::email() == $apply->user_email)
+        if(Auth::user()->email == $apply->user_email)
             $apply->delete();
 
         return redirect('main');

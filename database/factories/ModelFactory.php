@@ -103,5 +103,6 @@ $factory->define(App\Apply::class, function (Faker\Generator $faker) {
         'contact_email' => $faker->email,
         'contact_mobile' => $faker->tollFreePhoneNumber,
         'contact_phone' => $faker->tollFreePhoneNumber,
+        'permission' => $faker->numberBetween(0, 1),
     ];
 });
