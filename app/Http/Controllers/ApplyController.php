@@ -99,7 +99,7 @@ class ApplyController extends Controller
             }        
             $apply->save();
             
-            return redirect('/home');
+            return redirect('/');
         } 
     }
 
