@@ -14,6 +14,11 @@ div.page{
     }
     &.list{
         clear:both;
+        div.category_name{
+            width:100%;
+            background:coral;
+            
+        }
         h3{
             text-align:center;
             font-size:25px;
@@ -21,18 +26,16 @@ div.page{
             letter-spacing:5px;
         }
         div.tab_wrap{
-            width:800px;
+            clear:both;
+            width:700px;
             height:120px;
-            margin:0 auto;
+            margin:80px auto;
             position:relative;
             @include respond-to('small'){
                 width:100%;
-                height:240px;
             }
             nav.tab-nav{
-                position:absolute;
-                left:1px;
-                top:39px;
+                height:55px;
                 li{
                     background:#333;
                     margin-left:-1px;
@@ -73,19 +76,22 @@ div.page{
             }
         }
         div.filter-wrap{
-            width:800px;
-            height:120px;
-            margin:80px auto;
+            clear:both;
+            width:100%;
+            margin:0 auto;
             border-top:1px solid #ddd;
-            border-bottom:1px solid #333;
-            position:absolute;
+            position: relative;
+            top: -14px;
             @include respond-to('small'){
-                position:absolute;
                 width:100%;
-                height:240px;
             }
-            &.purpose{
+            &.specification{
+                height:120px;
+                border-bottom:1px solid #333;
                 @include respond-to('small'){
+                    height:240px;
+                }
+                div.filter-group{
                     height:120px;
                 }
             }
@@ -101,14 +107,10 @@ div.page{
             }
             div.filter-group{
                 float:left;
-                height:120px;
                 width:18%;
                 padding:5px;
                 text-align:center;
                 box-sizing:border-box;
-                &.purpose{
-                    text-align:left;
-                }
                 @include respond-to('small'){
                     width:33.3333333333333333%;
                 }
@@ -151,16 +153,17 @@ div.page{
                     }
                 }
                 &.purpose{
-                    width:90%;
-                    label{
-                        margin:10px;
-                        @include respond-to('small'){
-                            margin:2px;
-                        }
+                    width:100%;
+                    text-align:left;
+                    &:last-child{
+                        width:100%;
+                        height:35px;
                     }
-                    @include respond-to('small'){
-                        width:80%;
-                        height:120px;
+                    label{
+                        margin:8px;
+                        @include respond-to('too-small'){
+                            margin:2px 1px;
+                        }
                     }
                 }
                 input.submit.filter-group{
@@ -183,7 +186,7 @@ div.page{
             float:right;
             position:relative;
             left:-50%;
-            margin:120px auto 20px auto;
+            margin:50px auto 20px auto;
             &.shop{
                 margin:50px auto 20px auto;
             }
@@ -231,7 +234,7 @@ div.page{
         ul.list-group{
             height:300px;
             clear:both;
-            li{
+            > li{
                 width:23%;
                 list-style: none;
                 float:left;
@@ -314,31 +317,58 @@ div.page{
                     padding:0;
                 }
             }
-            a.category{
-                font-size:8px;
-                font-weight:bold;
-                padding:2px 5px;
-                margin-right:1px;
-                color:#fff;
-                border-radius:5px;
-                text-overflow:initial;
-                white-space:normal;
-                &_1{
-                background:indianred; 
+            ul.prod_category{
+                height:80px;
+                line-height:1.2;
+                margin:0;
+                padding:0 10px;
+                li{
+                    float:left;
+                    margin-right:3px;
+                    a.category{
+                        display:inline;
+                        font-size:11px;
+                        font-weight:bold;
+                        padding:2px 7px;
+                        margin:1px;
+                        line-height:2;
+                        color:#fff;
+                        border-radius:5px;
+                        text-overflow:initial;
+                        white-space:normal;
+                        &_1{
+                        background:indianred; 
+                        }
+                        &_2{
+                            background:yellowgreen;
+                        }
+                        &_3{
+                            background:cornflowerblue;
+                        }
+                        &_4{
+                            background:lightpink;
+                        }
+                        &_5{
+                            background:rebeccapurple;
+                        }
+                        &_6{
+                            background:darkcyan;
+                        }
+                        &_7{
+                            background:darkorange;
+                        }
+                        &_8{
+                            background:darkgray;
+                        }
+                        &_9{
+                            background:dodgerblue;
+                        }
+                        &_10{
+                            background:midnightblue;
+                        }
+                    }
                 }
-                &_2{
-                    background:yellowgreen;
-                }
-                &_3{
-                    background:cornflowerblue;
-                }
-                &_4{
-                    background:lightpink;
-                }
-                &_5{
-                    background:rebeccapurple;
-                }
-            }
+            }            
             p{
                 display:block;
                 width:2300/24%;
@@ -348,10 +378,6 @@ div.page{
                 &:not(.prod_category){
                     height:40px;
                     line-height:40px;
-                }
-                &.prod_category{
-                    height:80px;
-                    line-height:1.2;
                 }
                 &.prod-shop{
                     color:#666;

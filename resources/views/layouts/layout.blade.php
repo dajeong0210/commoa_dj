@@ -45,7 +45,7 @@
                 @endif
                 </li>
                 <li>
-                @if( Request::segment(1) == 'shop' )
+                @if( Request::segment(1) == 'shop' && !Request::segment(2) )
                     <a href="{{ url('shop/') }}" class="active">쇼핑몰</a>
                 @else
                     <a href="{{ url('shop/') }}">쇼핑몰</a>

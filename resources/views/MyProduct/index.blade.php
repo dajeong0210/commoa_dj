@@ -24,6 +24,9 @@
                 </ul>
             </div>
         </div>
+        <div class="write-btn">
+            <a href="{{ url('myproduct/create') }}">상품등록</a>
+        </div>
         <ul class="myProduct">
             @foreach( $products as $product )
             <li>

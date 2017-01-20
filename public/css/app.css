@@ -368,18 +368,18 @@ div.slider ul.slider.list-group.recommend {
   }
 }
 
-div.slider ul.slider.list-group.recommend li {
+div.slider ul.slider.list-group.recommend > li {
   margin: 0 0.5%;
   width: 11.5%;
   position: relative;
 }
 
-div.slider ul.slider li {
+div.slider ul.slider > li {
   width: 16.666666666666666666666666667%;
   float: left;
 }
 
-div.slider ul.slider li.game_01 {
+div.slider ul.slider > li.game_01 {
   height: 400px;
   background: url(../image/overwatch.jpg) no-repeat;
   background-position: 0 -40px;
@@ -387,37 +387,37 @@ div.slider ul.slider li.game_01 {
 }
 
 @media (max-width: 800px) {
-  div.slider ul.slider li.game_01 {
+  div.slider ul.slider > li.game_01 {
     background-position: center 0;
   }
 }
 
-div.slider ul.slider li.game_02 {
+div.slider ul.slider > li.game_02 {
   height: 400px;
   background: orange;
 }
 
-div.slider ul.slider li.game_03 {
+div.slider ul.slider > li.game_03 {
   height: 400px;
   background: yellow;
 }
 
-div.slider ul.slider li.game_04 {
+div.slider ul.slider > li.game_04 {
   height: 400px;
   background: green;
 }
 
-div.slider ul.slider li.game_05 {
+div.slider ul.slider > li.game_05 {
   height: 400px;
   background: blue;
 }
 
-div.slider ul.slider li.game_06 {
+div.slider ul.slider > li.game_06 {
   height: 400px;
   background: pink;
 }
 
-div.slider ul.slider li div.slider-cover {
+div.slider ul.slider > li div.slider-cover {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.4);
@@ -425,7 +425,7 @@ div.slider ul.slider li div.slider-cover {
   box-sizing: border-box;
 }
 
-div.slider ul.slider li div.slider-cover span {
+div.slider ul.slider > li div.slider-cover span {
   color: #2bde73;
   border: 1px solid #2bde73;
   border-radius: 5px;
@@ -434,7 +434,7 @@ div.slider ul.slider li div.slider-cover span {
   font-weight: bold;
 }
 
-div.slider ul.slider li div.slider-cover h2 {
+div.slider ul.slider > li div.slider-cover h2 {
   color: #fff;
   font-weight: bold;
   letter-spacing: -1px;
@@ -442,18 +442,18 @@ div.slider ul.slider li div.slider-cover h2 {
 }
 
 @media (max-width: 800px) {
-  div.slider ul.slider li div.slider-cover h2 {
+  div.slider ul.slider > li div.slider-cover h2 {
     font-size: 26px;
   }
 }
 
 @media (max-width: 480px) {
-  div.slider ul.slider li div.slider-cover h2 {
+  div.slider ul.slider > li div.slider-cover h2 {
     font-size: 18px;
   }
 }
 
-div.slider ul.slider li div.slider-cover p {
+div.slider ul.slider > li div.slider-cover p {
   color: #fff;
   letter-spacing: -1px;
   font-size: 13px;
@@ -461,7 +461,7 @@ div.slider ul.slider li div.slider-cover p {
   padding-bottom: 20px;
 }
 
-div.slider ul.slider li div.slider-cover a.btn {
+div.slider ul.slider > li div.slider-cover a.btn {
   color: #fff;
   font-weight: bold;
   font-size: 12px;
@@ -472,7 +472,7 @@ div.slider ul.slider li div.slider-cover a.btn {
   transition: all 0.5s;
 }
 
-div.slider ul.slider li div.slider-cover a.btn:hover {
+div.slider ul.slider > li div.slider-cover a.btn:hover {
   background: #2bde73;
 }
 
@@ -499,6 +499,11 @@ div.page.list {
   clear: both;
 }
 
+div.page.list div.category_name {
+  width: 100%;
+  background: coral;
+}
+
 div.page.list h3 {
   text-align: center;
   font-size: 25px;
@@ -507,23 +512,21 @@ div.page.list h3 {
 }
 
 div.page.list div.tab_wrap {
-  width: 800px;
+  clear: both;
+  width: 700px;
   height: 120px;
-  margin: 0 auto;
+  margin: 80px auto;
   position: relative;
 }
 
 @media (max-width: 800px) {
   div.page.list div.tab_wrap {
     width: 100%;
-    height: 240px;
   }
 }
 
 div.page.list div.tab_wrap nav.tab-nav {
-  position: absolute;
-  left: 1px;
-  top: 39px;
+  height: 55px;
 }
 
 div.page.list div.tab_wrap nav.tab-nav li {
@@ -571,26 +574,33 @@ div.page.list div.tab_wrap nav.tab-nav li a {
 }
 
 div.page.list div.filter-wrap {
-  width: 800px;
-  height: 120px;
-  margin: 80px auto;
+  clear: both;
+  width: 100%;
+  margin: 0 auto;
   border-top: 1px solid #ddd;
-  border-bottom: 1px solid #333;
-  position: absolute;
+  position: relative;
+  top: -14px;
 }
 
 @media (max-width: 800px) {
   div.page.list div.filter-wrap {
-    position: absolute;
     width: 100%;
+  }
+}
+
+div.page.list div.filter-wrap.specification {
+  height: 120px;
+  border-bottom: 1px solid #333;
+}
+
+@media (max-width: 800px) {
+  div.page.list div.filter-wrap.specification {
     height: 240px;
   }
 }
 
-@media (max-width: 800px) {
-  div.page.list div.filter-wrap.purpose {
-    height: 120px;
-  }
+div.page.list div.filter-wrap.specification div.filter-group {
+  height: 120px;
 }
 
 div.page.list div.filter-wrap h2 {
@@ -606,15 +616,10 @@ div.page.list div.filter-wrap h2 {
 
 div.page.list div.filter-wrap div.filter-group {
   float: left;
-  height: 120px;
   width: 18%;
   padding: 5px;
   text-align: center;
   box-sizing: border-box;
-}
-
-div.page.list div.filter-wrap div.filter-group.purpose {
-  text-align: left;
 }
 
 @media (max-width: 800px) {
@@ -676,23 +681,22 @@ div.page.list div.filter-wrap div.filter-group:last-child.purpose {
 }
 
 div.page.list div.filter-wrap div.filter-group.purpose {
-  width: 90%;
+  width: 100%;
+  text-align: left;
+}
+
+div.page.list div.filter-wrap div.filter-group.purpose:last-child {
+  width: 100%;
+  height: 35px;
 }
 
 div.page.list div.filter-wrap div.filter-group.purpose label {
-  margin: 10px;
+  margin: 8px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 480px) {
   div.page.list div.filter-wrap div.filter-group.purpose label {
-    margin: 2px;
-  }
-}
-
-@media (max-width: 800px) {
-  div.page.list div.filter-wrap div.filter-group.purpose {
-    width: 80%;
-    height: 120px;
+    margin: 2px 1px;
   }
 }
 
@@ -714,7 +718,7 @@ div.page.list div.sort-wrap {
   float: right;
   position: relative;
   left: -50%;
-  margin: 120px auto 20px auto;
+  margin: 50px auto 20px auto;
 }
 
 div.page.list div.sort-wrap.shop {
@@ -778,7 +782,7 @@ div.page.list ul.list-group {
   clear: both;
 }
 
-div.page.list ul.list-group li {
+div.page.list ul.list-group > li {
   width: 23%;
   list-style: none;
   float: left;
@@ -791,22 +795,22 @@ div.page.list ul.list-group li {
 }
 
 @media (max-width: 800px) {
-  div.page.list ul.list-group li {
+  div.page.list ul.list-group > li {
     width: 48%;
   }
 }
 
 @media (max-width: 480px) {
-  div.page.list ul.list-group li {
+  div.page.list ul.list-group > li {
     width: 98%;
   }
 }
 
-div.page.list ul.list-group li.shop {
+div.page.list ul.list-group > li.shop {
   text-align: center;
 }
 
-div.page.list ul.list-group li span.badge {
+div.page.list ul.list-group > li span.badge {
   font-family: 'Exo 2', sans-serif;
   position: absolute;
   top: 5px;
@@ -823,14 +827,14 @@ div.page.list ul.list-group li span.badge {
   font-weight: bold;
 }
 
-div.page.list ul.list-group li span.badge.medal {
+div.page.list ul.list-group > li span.badge.medal {
   width: 70px;
   height: 70px;
   font-size: 30px;
   line-height: 55px;
 }
 
-div.page.list ul.list-group li span.badge.recommend {
+div.page.list ul.list-group > li span.badge.recommend {
   top: 10px;
   left: -45px;
   width: 150px;
@@ -879,35 +883,69 @@ div.page.list div.detail-box a.prod-title.shop {
   padding: 0;
 }
 
-div.page.list div.detail-box a.category {
-  font-size: 8px;
+div.page.list div.detail-box ul.prod_category {
+  height: 80px;
+  line-height: 1.2;
+  margin: 0;
+  padding: 0 10px;
+}
+
+div.page.list div.detail-box ul.prod_category li {
+  float: left;
+  margin-right: 3px;
+}
+
+div.page.list div.detail-box ul.prod_category li a.category {
+  display: inline;
+  font-size: 11px;
   font-weight: bold;
-  padding: 2px 5px;
-  margin-right: 1px;
+  padding: 2px 7px;
+  margin: 1px;
+  line-height: 2;
   color: #fff;
   border-radius: 5px;
   text-overflow: initial;
   white-space: normal;
 }
 
-div.page.list div.detail-box a.category_1 {
+div.page.list div.detail-box ul.prod_category li a.category_1 {
   background: indianred;
 }
 
-div.page.list div.detail-box a.category_2 {
+div.page.list div.detail-box ul.prod_category li a.category_2 {
   background: yellowgreen;
 }
 
-div.page.list div.detail-box a.category_3 {
+div.page.list div.detail-box ul.prod_category li a.category_3 {
   background: cornflowerblue;
 }
 
-div.page.list div.detail-box a.category_4 {
+div.page.list div.detail-box ul.prod_category li a.category_4 {
   background: lightpink;
 }
 
-div.page.list div.detail-box a.category_5 {
+div.page.list div.detail-box ul.prod_category li a.category_5 {
   background: rebeccapurple;
+}
+
+div.page.list div.detail-box ul.prod_category li a.category_6 {
+  background: darkcyan;
+}
+
+div.page.list div.detail-box ul.prod_category li a.category_7 {
+  background: darkorange;
+}
+
+div.page.list div.detail-box ul.prod_category li a.category_8 {
+  background: darkgray;
+}
+
+div.page.list div.detail-box ul.prod_category li a.category_9 {
+  background: dodgerblue;
+}
+
+div.page.list div.detail-box ul.prod_category li a.category_10 {
+  background: midnightblue;
 }
 
 div.page.list div.detail-box p {
@@ -921,11 +959,6 @@ div.page.list div.detail-box p {
 div.page.list div.detail-box p:not(.prod_category) {
   height: 40px;
   line-height: 40px;
-}
-
-div.page.list div.detail-box p.prod_category {
-  height: 80px;
-  line-height: 1.2;
 }
 
 div.page.list div.detail-box p.prod-shop {
@@ -1063,6 +1096,34 @@ div.page.list div.wrap {
 
 div.page.list div.wrap div.sort-wrap {
   margin: 50px auto;
+}
+
+div.page.list div.write-btn {
+  clear: both;
+  width: 800px;
+  margin: 0 auto;
+}
+
+@media (max-width: 800px) {
+  div.page.list div.write-btn {
+    width: 100%;
+  }
+}
+
+div.page.list div.write-btn a {
+  margin: 10px 25px;
+  float: right;
+  font-size: 12px;
+  padding: 5px 10px;
+  background: #333;
+  font-weight: bold;
+  color: #fff;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+div.page.list div.write-btn a:hover {
+  color: #2bde73;
 }
 
 div.page.list ul.myProduct {
@@ -1506,6 +1567,10 @@ div.mypage div.form div.group div.form-group:not(.agree).one-layout ul p {
   color: red;
 }
 
+div.mypage div.form div.group div.form-group:not(.agree):not(.half-layout):not(.semi-layout):not(.triple-layout) {
+  clear: both;
+}
+
 div.mypage div.form div.group div.form-group:not(.agree).half-layout {
   float: left;
   width: 42.5%;
@@ -1516,6 +1581,10 @@ div.mypage div.form div.group div.form-group:not(.agree).half-layout {
   div.mypage div.form div.group div.form-group:not(.agree).half-layout {
     width: 90%;
   }
+}
+
+div.mypage div.form div.group div.form-group:not(.agree).half-layout input {
+  width: 100%;
 }
 
 div.mypage div.form div.group div.form-group:not(.agree).half-layout select {

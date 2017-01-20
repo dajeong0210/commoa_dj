@@ -4,7 +4,7 @@
     <div class="page mypage">
         @include('layouts.myLayout') 
         <div class="form">
-            <h2>상품 등록</h2>
+            <h2>상품 정보 수정</h2>
             <form class="prodEdit validate" method="POST" action="{{ url('/myproduct') }}" enctype="multipart/form-data">
             {{ csrf_field() }}
                 <div class="shop-group group">
