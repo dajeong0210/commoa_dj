@@ -13,9 +13,11 @@
                 <img src="{{ $product->image }}" alt="">
             </a>
         </div>
+        @if( Auth::guest() )
         <div class="fav-group">
-            @if( Auth::guest() )
-            @else
+        </div>
+        @else
+        <div class="fav-group">
             <span>
                 <a href="#" class="fav-detail" onclick="return false;">
                     @if( $product->users()->get()->where('id', Auth::user()->id)->count() == 0 )
@@ -32,8 +34,8 @@
                 </a>
             </span>
             <span class="hidden">{{ $product->id }}</span>
-            @endif
         </div>
+        @endif
         <div class="mydetail-box detail">
             <p class="myprod-price">\{{ number_format($product->price) }}원
             </p>

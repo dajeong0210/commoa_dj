@@ -45,6 +45,10 @@ div.page{
                     border:1px solid #ddd;
                     letter-spacing:2px;
                     transition:all 0.1s;
+                    @include respond-to('too-small'){
+                        width:100px;
+
+                    }
                     &.active{
                         background:#fff;
                         border-top:3px solid $point-color;
@@ -112,6 +116,10 @@ div.page{
                     text-align:center;
                     font-size:15px;
                     letter-spacing:5px;
+                    @include respond-to('too-small'){
+                        margin:10px auto 10px auto;
+                        letter-spacing: 2px;
+                    }
                 }
                 label{
                     margin:2px -4px;
@@ -184,16 +192,23 @@ div.page{
                 position:relative;
                 left:50%;
                 margin:0px 18px;
+                @include respond-to('too-small'){
+                    width:100%;
+                    padding:0;
+                    margin:0;
+                }
                 li{
                     float:left;
                     font-size:12px;
                     border:1px solid #ddd;
                     padding:7px 23px;
                     margin-left:-1px;
+                    text-align:center;
                     color:#666;
                     cursor:pointer;
                     @include respond-to('too-small'){
-                        padding:7px 6px;
+                        width:22%;
+                        padding:10px 2px;
                     }
                     &:first-child{
                         border-radius:10px 0 0 10px;

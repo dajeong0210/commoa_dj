@@ -22,6 +22,7 @@ class ProductController extends Controller
         DB::statement(DB::raw('set @row:=0'));
 
         $product_sort = $request->input('product-sort');
+        $total_categories = Category::get();
         $categories = $request->input('purpose');
         $cpu_level = $request->input('cpu_level');
         $vga_level = $request->input('vga_level');
@@ -106,7 +107,7 @@ class ProductController extends Controller
             } 
         } 
 
-        return view('Product.index')->with('products', $products);
+        return view('Product.index')->with('products', $products)->with('categories', $total_categories);
     }
 
     /**

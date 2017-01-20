@@ -13,12 +13,10 @@
                 <form method="GET" class="filter-form">
                     <div class="filter-group purpose">
                         <h3 class="hidden">용도별</h3>
-                        <label for="purpose_office" class="{{ isset($_GET['purpose'])? in_array('사무용', $_GET['purpose'])? 'active' : '' : '' }}">사무용</label>
-                        <input type="checkbox" id="purpose_office" name="purpose[]" class="input purpose hidden" value="사무용" @if( isset($_GET['purpose'])) @if( in_array('사무용', $_GET['purpose']) ) checked="checked" @endif @endif />
-                        <label for="purpose_game" class="{{ isset($_GET['purpose'])? in_array('게임용', $_GET['purpose'])? 'active' : '' : '' }}">게임용</label>
-                        <input type="checkbox" id="purpose_game" name="purpose[]" class="input purpose hidden" value="게임용" @if( isset($_GET['purpose'])) @if( in_array('게임용', $_GET['purpose']) ) checked="checked" @endif @endif/>
-                        <label for="purpose_design" class="{{ isset($_GET['purpose'])? in_array('디자인용', $_GET['purpose'])? 'active' : '' : '' }}">디자인용</label>
-                        <input type="checkbox" id="purpose_design" name="purpose[]" class="input purpose hidden" value="디자인용" @if( isset($_GET['purpose'])) @if( in_array('디자인용', $_GET['purpose']) ) checked="checked" @endif @endif/>
+                        @foreach( $categories as $category )
+                            <label for="{{ 'purpose_' . $category->id }}" class="{{ isset($_GET['purpose'])? in_array( $category->name , $_GET['purpose'])? 'active' : '' : '' }}">{{ $category->name }}</label>
+                            <input type="checkbox" id="{{ 'purpose_' . $category->id }}" name="purpose[]" class="input purpose hidden" value="{{ $category->name }}" @if( isset($_GET['purpose'])) @if( in_array( $category->name , $_GET['purpose']) ) checked="checked" @endif @endif />
+                        @endforeach
                     </div>
                     <div class="filter-group sortBy hidden">
                         @if( isset($_GET['cpu_level']) || isset($_GET['vga_level']) || isset($_GET['os']) || isset($_GET['ssd']) || isset($_GET['monitor']) )
@@ -52,21 +50,21 @@
                         <input type="radio" id="vga_level_low" name="vga_level" class="input specification hidden" value="1" @if( isset($_GET['vga_level'])) @if( $_GET['vga_level'] == '1' ) checked="checked" @endif @endif/>
                     </div>
                     <div class="filter-group">
-                        <h3>OS포함</h3>
+                        <h3>OS</h3>
                         <label for="os_yes" @if( isset($_GET['os'])) @if( $_GET['os'] == '1' ) class="active" @endif @endif>있음</label>
                         <input type="radio" id="os_yes" name="os" class="input hidden" value="1" @if( isset($_GET['os'])) @if( $_GET['os'] == '1' ) checked="checked" @endif @endif/>
                         <label for="os_no" @if( isset($_GET['os'])) @if( $_GET['os'] == '0' ) class="active" @endif @endif>없음</label>
                         <input type="radio" id="os_no" name="os" class="input hidden" value="0" @if( isset($_GET['os'])) @if( $_GET['os'] == '0' ) checked="checked" @endif @endif/>
                     </div>
                     <div class="filter-group">
-                        <h3>SSD여부</h3>
+                        <h3>SSD</h3>
                         <label for="ssd_yes" @if( isset($_GET['ssd'])) @if( $_GET['ssd'] == '1' ) class="active" @endif @endif>있음</label>
                         <input type="radio" id="ssd_yes" name="ssd" class="input hidden" value="1" @if( isset($_GET['ssd'])) @if( $_GET['ssd'] == '1' ) checked="checked" @endif @endif/>
                         <label for="ssd_no" @if( isset($_GET['ssd'])) @if( $_GET['ssd'] == '0' ) class="active" @endif @endif>없음</label>
                         <input type="radio" id="ssd_no" name="ssd" class="input hidden" value="0" @if( isset($_GET['ssd'])) @if( $_GET['ssd'] == '0' ) checked="checked" @endif @endif/>
                     </div>
                     <div class="filter-group">
-                        <h3>모니터포함</h3>
+                        <h3>모니터</h3>
                         <label for="monitor_yes" @if( isset($_GET['monitor'])) @if( $_GET['monitor'] == '1' ) class="active" @endif @endif>있음</label>
                         <input type="radio" id="monitor_yes" name="monitor" class="input hidden" value="1" @if( isset($_GET['monitor'])) @if( $_GET['monitor'] == '1' ) checked="checked" @endif @endif/>
                         <label for="monitor_no" @if( isset($_GET['monitor'])) @if( $_GET['monitor'] == '0' ) class="active" @endif @endif>없음</label>
