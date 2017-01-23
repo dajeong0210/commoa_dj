@@ -121,7 +121,7 @@
                                     <li>
                                         <label for="{{ 'category' . $category->id }}">{{ $category->name }}</label>
                                         <input type="checkbox" name="category[]" id="{{ 'category' . $category->id }}" value="{{ $category->id }}" checked="checked">
-                                    </li>                                    
+                                    </li>                              
                                 @endif
                             @endforeach
                                 <li>
