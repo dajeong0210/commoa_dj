@@ -16,7 +16,7 @@
                     </div>
                     <div class="form-group half-layout">
                         <label for="image">상품 이미지</label>
-                        <input type="file" name="image" class="input" value="{{ $product->image }}"/>
+                        <input type="file" name="image" class="input image" value=""/>
                         <div class="image-logo">
                             <img src="{{ $product->image }}" alt="">
                         </div>
@@ -116,18 +116,17 @@
                         <h4>카테고리</h4>
                         <ul>
                             @foreach( $categories as $category )
-                            @foreach( $select_categories as $selected )
-                                @if( $category->id == $selected->id )
+                                @if( in_array( $category->id, $selected ) )
                                     <li>
                                         <label for="{{ 'category' . $category->id }}">{{ $category->name }}</label>
                                         <input type="checkbox" name="category[]" id="{{ 'category' . $category->id }}" value="{{ $category->id }}" checked="checked">
-                                    </li>                              
+                                    </li>                                    
+                                @else
+                                    <li>
+                                        <label for="{{ 'category' . $category->id }}">{{ $category->name }}</label>
+                                        <input type="checkbox" name="category[]" id="{{ 'category' . $category->id }}" value="{{ $category->id }}">
+                                    </li>
                                 @endif
-                            @endforeach
-                                <li>
-                                    <label for="{{ 'category' . $category->id }}">{{ $category->name }}</label>
-                                    <input type="checkbox" name="category[]" id="{{ 'category' . $category->id }}" value="{{ $category->id }}">
-                                </li>
                             @endforeach
                             <p>※ 중복 선택 가능합니다.</p>
                         </ul>
