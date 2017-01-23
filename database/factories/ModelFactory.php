@@ -33,6 +33,7 @@ $factory->define(App\Shop::class, function (Faker\Generator $faker) {
         'contact_address' => $faker->unique()->address,
         'contact_name' => $faker->name,
         'contact_phone' => $faker->unique()->tollFreePhoneNumber,
+        'contact_mobile' => $faker->unique()->tollFreePhoneNumber,
         'contact_email' => $faker->unique()->email,
         'user_id' => $faker->randomElement($user_id),
     ];
