@@ -14,7 +14,7 @@
             </a>
         </div>
         @if( Auth::guest() )
-        <div class="fav-group">
+        <div class="fav-group not-show">
         </div>
         @else
         <div class="fav-group">
