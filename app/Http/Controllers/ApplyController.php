@@ -29,7 +29,11 @@ class ApplyController extends Controller
      */
     public function create()
     {
-        return view('apply.create');
+        if( Apply::where('user_email', Auth::user()->email)->get()->count() != 0 ) { 
+            return view('apply.edit');
+        } else {         
+            return view('apply.create');
+        }
     }
 
     /**

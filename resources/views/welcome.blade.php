@@ -55,13 +55,13 @@
             @foreach( $products1 as $product )
             <li>
                 <span class="badge recommend">추천!!</span>
-                <a href="{{ $product->url }}">
+                <a href="{{ url('/product') . '/' . $product->id }}">
                 <div class="img-box prod">
                     <img src="{{ $product->image }}" alt="">
                 </div>
                 </a>
                 <div class="detail-box">
-                    <a class="prod-title" href="{{ $product->url }}"> {{ $product->name }} </a>
+                    <a class="prod-title" href="{{ url('/product') . '/' . $product->id }}"> {{ $product->name }} </a>
                     <ul class="prod_category">
                     @foreach( $product->categories as $category )
                         <li>
@@ -98,13 +98,13 @@
             @foreach( $products2 as $product )
             <li>
                 <span class="badge recommend">추천!!</span>
-                <a href="{{ $product->url }}">
+                <a href="{{ url('/product') . '/' . $product->id }}">
                 <div class="img-box prod">
                     <img src="{{ $product->image }}" alt="">
                 </div>
                 </a>
                 <div class="detail-box">
-                    <a class="prod-title" href="{{ $product->url }}"> {{ $product->name }} </a>
+                    <a class="prod-title" href="{{ url('/product') . '/' . $product->id }}"> {{ $product->name }} </a>
                     <ul class="prod_category">
                     @foreach( $product->categories as $category )
                         <li>
@@ -141,13 +141,13 @@
             @foreach( $products3 as $product )
             <li>
                 <span class="badge recommend">추천!!</span>
-                <a href="{{ $product->url }}">
+                <a href="{{ url('/product') . '/' . $product->id }}">
                 <div class="img-box prod">
                     <img src="{{ $product->image }}" alt="">
                 </div>
                 </a>
                 <div class="detail-box">
-                    <a class="prod-title" href="{{ $product->url }}"> {{ $product->name }} </a>
+                    <a class="prod-title" href="{{ url('/product') . '/' . $product->id }}"> {{ $product->name }} </a>
                     <ul class="prod_category">
                     @foreach( $product->categories as $category )
                         <li>
