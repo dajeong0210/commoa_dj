@@ -113,10 +113,13 @@ class MyProductController extends Controller
         $categories = Category::get();
         $cpus = Cpu::get();
         $vgas = Vga::get();
-        $select_categories = $product->categories()->get();
+        $selected = array();
+        foreach( $product->categories()->get() as $select ){
+            array_push( $selected, $select->id);
+        }
 
         return view('myproduct.edit')->with('product', $product)->with('categories', $categories)
-                ->with('select_categories', $select_categories)->with('cpus', $cpus)->with('vgas', $vgas);
+                ->with('selected', $selected)->with('cpus', $cpus)->with('vgas', $vgas);
     }
 
     /**

@@ -16,14 +16,25 @@
             $(this).next('span.help-block').remove();
         }
     });
-    $('input.image').on('blur', function(e){
+
+    var originImg = $('div.image-logo img').attr('src');
+    $('input.image').on('change', function(){
+        console.log(originImg);
         var image = $(this).val();
         var imageonly = image.toLowerCase().split(".");
         if( image != '' ){
             if( imageonly[1] != 'jpg' && imageonly[1] != 'png' && imageonly[1] != 'jpeg' && imageonly[1] != 'gif' && imageonly[1] != 'bmp'){
                 alert('이미지 파일만 업로드 가능합니다!');
                 $(this).val('');
+            }else{
+                    var reader = new FileReader();
+                    reader.onload = function(e){
+                        $('div.image-logo img').attr('src', e.target.result);
+                    }
+                    reader.readAsDataURL(this.files[0]);
             }
+        }else{
+            $('div.image-logo img').attr('src', originImg);
         }
     });
     

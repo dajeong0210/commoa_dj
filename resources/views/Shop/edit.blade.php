@@ -27,9 +27,12 @@
                     </div>
                     <div class="form-group half-layout">
                         <label for="image">Shop 로고</label>
+                        @if( $shop->image == NULL )
+                        @else
                         <div class="image-logo">
                             <img src="{{ $shop->image }}" alt=""/>
                         </div>
+                        @endif
                         <input type="file" name="image" class="input image shop_image"/>
                     </div>
                 </div>
