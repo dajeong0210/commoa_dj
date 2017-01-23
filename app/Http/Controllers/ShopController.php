@@ -129,7 +129,7 @@ class ShopController extends Controller
         $shop->contact_phone = $request->input('contact_phone');
         $shop->contact_email = $request->input('contact_email');
         $shop->save();
-        return view('shop.edit')->with('shop', $shop);
+        return redirect('shop/'.$shop->id.'/edit')->with('shop', $shop);
     }
 
     /**
