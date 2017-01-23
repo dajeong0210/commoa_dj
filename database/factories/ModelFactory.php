@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -87,10 +88,13 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Apply::class, function (Faker\Generator $faker) {
-    $user_email = App\User::pluck('email')->toArray();
+    // $user_email = App\User::pluck('email')->toArray();
+    $user_id = App\User::pluck('id')->toArray();
+    $faker_id = $faker->randomElement($user_id);
 
     return [
-        'user_email' => $faker->randomElement($user_email),
+        'user_id' => $faker_id,
+        'user_email' => User::find($faker_id)->email,
         'shop_name' => $faker->company,
         'shop_url' => $faker->unique()->url,
         'business_name' => $faker->company,

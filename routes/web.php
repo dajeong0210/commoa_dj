@@ -37,6 +37,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['middleware' => 'User'], function () {
         Route::get('/apply/create', 'ApplyController@create');
         Route::post('/apply', 'ApplyController@store');
+        Route::put('/apply/{id}', 'ApplyController@update');
+        Route::get('/apply/{id}/edit', 'ApplyController@edit');
     });
 
     Route::group(['middleware' => 'ShopAdmin'], function () {
@@ -50,7 +52,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['middleware' => 'SystemAdmin'], function () {
         Route::get('/apply', 'ApplyController@index');
         Route::get('/apply/{id}', 'ApplyController@show');
-        Route::get('/shop/create', 'ShopController@create');
+        // Route::get('/shop/create', 'ShopController@create');
         Route::post('/shop', 'ShopController@store');
     });
 
