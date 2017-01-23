@@ -28,6 +28,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/apply/create', 'ApplyController@create');
     Route::post('/apply', 'ApplyController@store');
+    Route::put('/apply/{id}', 'ApplyController@update');
     Route::resource('/myinfo', 'InfoController');
     Route::get('/mypage', 'UserController@index');
     Route::get('/bookmark', 'BookmarkController@index');
