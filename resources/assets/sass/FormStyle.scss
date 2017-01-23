@@ -204,6 +204,15 @@ div.mypage{
                     right:0;
                     color:#aaa;
                 }
+                div.image-logo{
+                    width:90%;
+                    margin:10px 5%;
+                    img{
+                        border:1px solid #ddd;
+                        width:100%;
+                        height:auto;
+                    }
+                }
             }
             &.notice-group{
                 clear:both;

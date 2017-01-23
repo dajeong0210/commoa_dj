@@ -4,7 +4,7 @@
     <div class="page mypage">
         <div class="form apply">
             <h2>입점신청</h2>
-            <form class="ShopApply validate" method="POST" action="{{ url('/shop') }}" enctype="multipart/form-data">
+            <form class="ShopApply validate" method="POST" action="{{ url('/apply'). '/'. $apply->id }}" enctype="multipart/form-data">
             {{ csrf_field() }}
                 <div class="user-group group">
                     <h3>계정 정보 입력</h3>
