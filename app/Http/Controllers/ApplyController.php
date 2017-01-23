@@ -153,8 +153,14 @@ class ApplyController extends Controller
         }
 
         $apply = Apply::find($id);
-        $path_b = $request->file('business_docu')->store('images');
-        $path_s = $request->file('sale_docu')->store('images');
+        if( $request->file('business_docu') != null ) { 
+            $path_b = $request->file('business_docu')->store('images');
+            $apply->business_docu = $path_b;
+        } 
+        if( $request->file('sale_docu') != null ) { 
+            $path_s = $request->file('sale_docu')->store('images');
+            $apply->sale_docu = $path_s;
+        }
         $apply->user_email = $request->input('user_email');
         $apply->shop_name = $request->input('shop_name');
         $apply->shop_url = $request->input('shop_url');
@@ -163,15 +169,13 @@ class ApplyController extends Controller
         $apply->business_address = $request->input('business_address');
         $apply->business_no = $request->input('business_no');
         $apply->business_sale_no = $request->input('business_sale_no');
-        $apply->business_docu = $path_b;
-        $apply->sale_docu = $path_s;
         $apply->contact_name = $request->input('contact_name');
         $apply->contact_email = $request->input('contact_email');
         $apply->contact_mobile = $request->input('contact_mobile');
         $apply->contact_phone = $request->input('contact_phone');
         $apply->save();
 
-        return redirect('main');
+        return view('apply.edit')->with('apply', $apply);
     }
 
     /**
