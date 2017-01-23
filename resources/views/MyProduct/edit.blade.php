@@ -16,7 +16,10 @@
                     </div>
                     <div class="form-group half-layout">
                         <label for="image">상품 이미지</label>
-                        <input type="file" name="image" class="input required" value="{{ $product->image }}"/>
+                        <input type="file" name="image" class="input" value="{{ $product->image }}"/>
+                        <div class="image-logo">
+                            <img src="{{ $product->image }}" alt="">
+                        </div>
                     </div>
                     <div class="form-group half-layout">
                         <label for="url">상품 URL</label>

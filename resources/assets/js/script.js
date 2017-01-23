@@ -16,6 +16,17 @@
             $(this).next('span.help-block').remove();
         }
     });
+    $('input.image').on('blur', function(e){
+        var image = $(this).val();
+        var imageonly = image.toLowerCase().split(".");
+        if( image != '' ){
+            if( imageonly[1] != 'jpg' && imageonly[1] != 'png' && imageonly[1] != 'jpeg' && imageonly[1] != 'gif' && imageonly[1] != 'bmp'){
+                alert('이미지 파일만 업로드 가능합니다!');
+                $(this).val('');
+            }
+        }
+    });
+    
 //login-form
     $('label.remember').on('click', function(){
         $(this).find('i').toggleClass('active');

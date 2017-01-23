@@ -28,9 +28,9 @@
                     <div class="form-group half-layout">
                         <label for="image">Shop 로고</label>
                         <div class="image-logo">
-                            <img src="{{ $shop->image }}"/>
+                            <img src="{{ $shop->image }}" alt=""/>
                         </div>
-                        <input type="file" name="image" class="input shop_image"/>
+                        <input type="file" name="image" class="input image shop_image"/>
                     </div>
                 </div>
                 <div class="contact-group group">

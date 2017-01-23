@@ -1695,6 +1695,7 @@ div.mypage div.form div.group div.form-group:not(.agree) span {
 }
 
 div.mypage div.form div.group div.form-group:not(.agree) div.image-logo {
+  clear: both;
   width: 90%;
   margin: 10px 5%;
 }
