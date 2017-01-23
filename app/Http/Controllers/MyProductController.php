@@ -113,8 +113,8 @@ class MyProductController extends Controller
         $categories = Category::get();
         $cpus = Cpu::get();
         $vgas = Vga::get();
-
         $select_categories = $product->categories()->get();
+
         return view('myproduct.edit')->with('product', $product)->with('categories', $categories)
                 ->with('select_categories', $select_categories)->with('cpus', $cpus)->with('vgas', $vgas);
     }
@@ -129,9 +129,11 @@ class MyProductController extends Controller
     public function update(Request $request, $id)
     {
         $product = Product::find($id);
-        $path_i = $request->file('image')->store('images');
+        if( $request->file('image') != Null ) {
+            $path_i = $request->file('image')->store('images');
+            $product->image = $path_i;
+        }        
         $product->name = $request->input('name');
-        $product->image = $path_i;
         $product->url = $request->input('url');
         $product->price = $request->input('price');
         $product->os = $request->input('os');

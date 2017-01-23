@@ -118,16 +118,18 @@ class ShopController extends Controller
     public function update(Request $request, $id)
     {
         $shop = Shop::find($id);
-        $path_i = $request->file('image')->store('images');
+        if( $request->file('image') != null ) { 
+            $path_i = $request->file('image')->store('images');
+            $shop->image = $path_i;
+        } 
         $shop->name = $request->input('shop_name');
-        $shop->image = $path_i;
         $shop->url = $request->input('shop_url');
         $shop->contact_address = $request->input('business_address');
         $shop->contact_name = $request->input('contact_name');
         $shop->contact_phone = $request->input('contact_phone');
         $shop->contact_email = $request->input('contact_email');
         $shop->save();
-        return redirect('/');
+        return view('shop.edit')->with('shop', $shop);
     }
 
     /**
