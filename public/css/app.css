@@ -347,7 +347,7 @@ div.slider nav a:hover {
 }
 
 div.slider ul.slider {
-  width: 600%;
+  width: 300%;
   position: relative;
 }
 
@@ -375,7 +375,7 @@ div.slider ul.slider.list-group.recommend > li {
 }
 
 div.slider ul.slider > li {
-  width: 16.666666666666666666666666667%;
+  width: 33.3333333333333333333333333333333%;
   float: left;
 }
 
@@ -1334,18 +1334,22 @@ div.page.list div.mydetail-box ul.detail li, div.page.list div.mydetail-box ul.d
   line-height: 50px;
 }
 
-div.page.detail a.myprod-title {
+div.page.detail p.myprod-title {
   font-size: 40px;
   color: #333;
+  margin: 20px 0 0 0;
+  padding: 0;
   font-weight: bold;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
 }
 
-div.page.detail a.prod-url {
+div.page.detail p.prod-url {
   font-size: 15px;
   color: #333;
+  margin: 0;
+  padding: 0;
   letter-spacing: -0.5px;
   text-overflow: ellipsis;
   overflow: hidden;

@@ -46,7 +46,7 @@ div.slider{
         }
     }
     ul.slider{
-        width:600%;
+        width:300%;
         position:relative;
         &.list-group.recommend{
             margin:40px auto;
@@ -64,7 +64,7 @@ div.slider{
             }
         }
         > li{
-            width:16.666666666666666666666666667%;
+            width:33.3333333333333333333333333333333%;
             float:left;
             &.game_01{
                 height:400px;

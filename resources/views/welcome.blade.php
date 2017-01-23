@@ -47,42 +47,6 @@
                     <a href="" class="btn">바로가기</a>
                 </div>
             </li>
-            <li class="game_04">
-                <div class="slider-cover">
-                    <span>인기상품</span>
-                    <h2>신년에도 인기는 계속 된다!<br/>
-                    오버워치 게임용 PC</h2>
-                    <p>
-                    개나리 노란꽃 그늘 아래<br/>
-                    가지런히 놓여있는 꼬까신 하나
-                    </p>
-                    <a href="" class="btn">바로가기</a>
-                </div>
-            </li>
-            <li class="game_05">
-                <div class="slider-cover">
-                    <span>인기상품</span>
-                    <h2>신년에도 인기는 계속 된다!<br/>
-                    오버워치 게임용 PC</h2>
-                    <p>
-                    개나리 노란꽃 그늘 아래<br/>
-                    가지런히 놓여있는 꼬까신 하나
-                    </p>
-                    <a href="" class="btn">바로가기</a>
-                </div>
-            </li>
-            <li class="game_06">
-                <div class="slider-cover">
-                    <span>인기상품</span>
-                    <h2>신년에도 인기는 계속 된다!<br/>
-                    오버워치 게임용 PC</h2>
-                    <p>
-                    개나리 노란꽃 그늘 아래<br/>
-                    가지런히 놓여있는 꼬까신 하나
-                    </p>
-                    <a href="" class="btn">바로가기</a>
-                </div>
-            </li>
         </ul>
     </div>
     <div class="page list slider">

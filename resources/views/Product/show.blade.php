@@ -3,10 +3,10 @@
 @section('content')
     <div class="page list detail">
         <div class="product-name">
-            <a class="myprod-title" href="{{ $product->url }}"> {{ $product->name }} </a>
+            <p class="myprod-title"> {{ $product->name }} </p>
         </div>
         <div class="product-shop">
-            <a class="prod-url" href="{{ $product->shop->url }}">{{ $product->shop->name }}</a>
+            <p class="prod-url">{{ $product->shop->name }}</p>
         </div>
         <div class="image-box detail">
             <a href="{{ $product->url }}">

@@ -68,6 +68,14 @@
         timer = setInterval( AutoSlide, 6000 );
         }
     });
+    $('nav.nav-slider').on( {
+        mouseenter : function(){
+        clearInterval( timer );
+        }, 
+        mouseleave : function(){
+        timer = setInterval( AutoSlide, 6000 );
+        }
+    });
 
 //ShopApply
 
