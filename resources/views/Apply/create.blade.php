@@ -27,7 +27,6 @@
                         <input type="text" name="shop_url" class="input shop_url required" value="{{ old('shop_url') }}"/>
                     </div>
                 </div>
-            
                 <div class="business-group group">
                     <h3>사업자 정보 입력</h3>
                     <div class="form-group half-layout">
@@ -71,7 +70,7 @@
                     </div>
                     <div class="form-group half-layout">
                         <label for="contact_mobile">핸드폰</label>
-                        <input type="phone" name="contact_mobile" class="input contact_mobile required digits" placeholder="'-'를 제외한 숫자만 입력해주세요." value="{{ old('contact_mobile') }}"/>
+                        <input type="phone" name="contact_mobile" class="input contact_mobile required" placeholder="'-'를 제외한 숫자만 입력해주세요." value="{{ old('contact_mobile') }}"/>
                     </div>
                     <div class="form-group half-layout">
                         <label for="contact_phone">전화</label>

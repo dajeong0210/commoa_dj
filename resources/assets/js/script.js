@@ -106,7 +106,7 @@
         $(this).parent().parent().next().toggleClass('fadein');
     });
 
-    //fav Ajax
+//fav Ajax
     $("a.bookmark").on('click',function() {
         bookmark( $(this), 'bookmark' , 'shop_id' );
     });
