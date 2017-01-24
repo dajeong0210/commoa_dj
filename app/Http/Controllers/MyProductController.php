@@ -15,11 +15,7 @@ use App\Vga;
 
 class MyProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index(Request $request)
     {
         $products = User::find(Auth::user()->id)->shop->products();
@@ -42,11 +38,6 @@ class MyProductController extends Controller
         return view('myproduct.index')->with('products', $products)->with('search', $search);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $categories = Category::get(); 
@@ -56,12 +47,6 @@ class MyProductController extends Controller
         return view('myproduct.create')->with('categories', $categories)->with('cpus', $cpus)->with('vgas', $vgas);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $product = new Product;
@@ -90,23 +75,11 @@ class MyProductController extends Controller
         return redirect('myproduct');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $product = Product::find($id);
@@ -122,13 +95,6 @@ class MyProductController extends Controller
                 ->with('cpus', $cpus)->with('vgas', $vgas)->with('selected', $selected);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $product = Product::find($id);
@@ -155,12 +121,6 @@ class MyProductController extends Controller
         return redirect('myproduct');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $product = Product::find($id);

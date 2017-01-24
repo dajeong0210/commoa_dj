@@ -1512,11 +1512,15 @@ div.mypage div.form label.agree {
 }
 
 div.mypage div.form label.error, div.mypage div.form span.help-block strong {
+  clear: both;
   font-size: 11.5px;
   font-weight: bold;
-  padding: 10px 0 30px 0;
   color: #FA5858;
   float: left;
+}
+
+div.mypage div.form input {
+  background: #fff;
 }
 
 div.mypage div.form input.user_email {
@@ -1827,101 +1831,6 @@ div.mypage div.form div.link-group a i {
 
 div.mypage div.form div.link-group a:hover {
   text-decoration: underline;
-}
-
-div#app.admin nav.nav-bar {
-  background: #fff;
-  border-bottom: 1px solid #333;
-}
-
-div#app.admin nav.nav-bar a.menu_btn {
-  color: #282828;
-}
-
-@media (max-width: 800px) {
-  div#app.admin nav.nav-bar ul.nav-group {
-    width: 100%;
-    background: #eee;
-    border: 1px solid #ddd;
-  }
-}
-
-@media (max-width: 800px) {
-  div#app.admin nav.nav-bar ul.nav-group li {
-    border-bottom: 1px solid #ddd;
-  }
-}
-
-div#app.admin nav.nav-bar ul.nav-group li a {
-  color: #282828;
-}
-
-@media (max-width: 800px) {
-  div#app.admin nav.nav-bar ul.nav-group li a {
-    background: #eee;
-  }
-  div#app.admin nav.nav-bar ul.nav-group li a:hover {
-    font-weight: bold;
-    background: rgba(43, 222, 115, 0.2);
-  }
-}
-
-@media (max-width: 800px) {
-  div#app.admin nav.nav-bar ul.nav-group div.sub_menu li {
-    background: #eee;
-  }
-}
-
-@media (max-width: 800px) {
-  div#app.admin nav.nav-bar ul.nav-group div.sub_menu li a {
-    background: #eee;
-  }
-  div#app.admin nav.nav-bar ul.nav-group div.sub_menu li a:hover {
-    font-weight: bold;
-    background: rgba(43, 222, 115, 0.2);
-  }
-}
-
-div#app.admin div.page.mypage div.my-wrap > div div.detail-box {
-  position: initial;
-  width: 100%;
-  height: 20%;
-  margin: 0;
-  padding: 15% 0;
-  box-sizing: border-box;
-}
-
-div#app.admin div.page.mypage div.my-wrap > div div.detail-box h3 {
-  font-size: 15px;
-  padding: 5px 0;
-  margin: 0;
-  color: #333;
-  text-decoration: underline;
-}
-
-div#app.admin div.page.mypage div.my-wrap > div div.detail-box p {
-  padding: 3px 20px;
-  margin: 0;
-}
-
-div#app.admin div.page.mypage div.my-wrap > div a.apply-list {
-  display: block;
-  text-align: center;
-  font-size: 12px;
-  font-weight: bold;
-  width: 50px;
-  height: 25px;
-  line-height: 25px;
-  border-radius: 5px;
-  background: #333;
-  margin: 40px auto;
-  color: #fff;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-}
-
-div#app.admin div.page.mypage div.my-wrap > div a.apply-list:hover {
-  background: #2bde73;
 }
 
 div.page.mypage {

@@ -8,7 +8,7 @@
             {{ csrf_field() }}
                 <div class="user-group group">
                     <h3>계정 정보 입력</h3>
-                    <div class="one-layout form-group{{ $errors->has('user_email') ? 'warning' : '' }}">
+                    <div class="one-layout form-group">
                         <label for="user_email">이메일(아이디)</label>
                         <input type="email" name="user_email" class="input user_email" value="{{ Auth::user()->email }}" readonly/>
                     @if( $errors->has('user_email') )
@@ -79,9 +79,9 @@
                 </div>
                 <div class="notice-group group">
                     <ul>
-                        <li class="{{ $errors->has('user_email') ? 'warning' : '' }}">
+                        <li>
                             <h3>서비스 이용약관<a href="#" onclick="return false;">∨</a></h3>
-                            <label class="error">약관에 동의하셔야 합니다.</label>
+                            <label class="error {{ $errors->has('agree_01') ? '' : 'hidden' }}">약관에 동의하셔야 합니다.</label>
                         </li>
                             <div class="slide">
                                 <div class="notice notice_01"></div>
@@ -90,9 +90,9 @@
                                     <input type="checkbox" name="agree_01" class="agree"/>
                                 </div>
                             </div>
-                        <li class="{{ $errors->has('user_email') ? 'warning' : '' }}">
+                        <li>
                             <h3>개인정보취급방침<a href="#" onclick="return false;">∨</a></h3>
-                            <label class="error">약관에 동의하셔야 합니다.</label> 
+                            <label class="error {{ $errors->has('agree_02') ? '' : 'hidden' }}">약관에 동의하셔야 합니다.</label> 
                         </li>
                             <div class="slide">     
                                 <div class="notice notice_02"></div>

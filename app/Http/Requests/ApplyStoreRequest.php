@@ -32,5 +32,4 @@ class ApplyStoreRequest extends FormRequest
             'agree_02' => 'accepted',
         ];
     }
-
 }
