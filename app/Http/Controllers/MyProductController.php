@@ -84,6 +84,9 @@ class MyProductController extends Controller
 
     public function edit($id)
     {
+        if( Product::find($id)->shop()->first()->user()->first()->id != Auth::user()->id ) {
+            return back();
+        }
         $product = Product::find($id);
         $categories = Category::get();
         $cpus = Cpu::get();

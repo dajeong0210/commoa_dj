@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserUpdateRequest;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -37,17 +38,9 @@ class InfoController extends Controller
         //
     }
 
-    public function update(Request $request, $id)
+    public function update(UserUpdateRequest $request, $id)
     {
-        $validator = Validator::make($request->all(), [
-            'user_name' => 'required|max:255',
-            'password' => 'required|min:6|confirmed',
-        ]);
-        if ($validator->fails()) {
-            return redirect('myinfo/')
-                        ->withErrors($validator)
-                        ->withInput();
-        }
+    
         $user = User::find($id);
         if( Hash::check( $request->input('old_password'), $user->password) ) {
             if( $request->input('password') == $request->input('password_confirmation')) {
@@ -55,13 +48,10 @@ class InfoController extends Controller
                 $user->password = bcrypt($request->input('password'));
                 $user->save();
                 return redirect('/mypage');
-            } else {
-                //validation message!! 
-                return redirect('/myinfo');
-            }
+            } 
         } else {
-            //validation message!! 
-            return redirect('/myinfo');
+            //validation ??
+            return back();
         }
     }
 
