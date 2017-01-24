@@ -27,6 +27,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function apply() 
+    {
+        return $this->hasOne('App\Apply');
+    }
+
     public function shop()
     {
         return $this->hasOne('App\Shop');

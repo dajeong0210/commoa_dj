@@ -77,6 +77,7 @@ class ShopController extends Controller
             $shop->contact_address = $apply->business_address;
             $shop->contact_name = $apply->contact_name;
             $shop->contact_phone = $apply->contact_phone;
+            $shop->contact_mobile = $apply->contact_mobile;
             $shop->contact_email = $apply->contact_email;
             $shop->user_id = User::where('email', $apply_email)->first()->id;
             $shop->save();
@@ -127,6 +128,7 @@ class ShopController extends Controller
         $shop->contact_address = $request->input('business_address');
         $shop->contact_name = $request->input('contact_name');
         $shop->contact_phone = $request->input('contact_phone');
+        $shop->contact_mobile = $request->input('contact_mobile');
         $shop->contact_email = $request->input('contact_email');
         $shop->save();
         return redirect('shop/'.$shop->id.'/edit')->with('shop', $shop);

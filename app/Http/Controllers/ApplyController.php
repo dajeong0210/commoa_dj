@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ApplyStoreRequest;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Apply;
+use App\User;
 use Validator;
 
 class ApplyController extends Controller
@@ -29,9 +31,9 @@ class ApplyController extends Controller
      */
     public function create()
     {
-        if( Apply::where('user_email', Auth::user()->email)->get()->count() != 0 ) { 
-            $apply = Apply::where('user_email', Auth::user()->email)->first();
-            return view('apply.edit')->with('apply',$apply);
+        if( Auth::user()->apply()->count() != 0) {
+            $apply = Auth::user()->apply()->first();
+            return redirect('apply/'.$apply->id.'/edit')->with('apply',$apply);
         } else {         
             return view('apply.create');
         }
@@ -43,44 +45,12 @@ class ApplyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ApplyStoreRequest $request)
     {
-        //이미 입정신청을 한 user일 경우 
-        if( Apply::where('user_email', $request->input('user_email'))->count() != 0 ) {
-            // $request->session()->flash('alert-fail', '이미 등록된 입점신청서가 있습니다.');
+        if( Auth::user()->apply()->count() != 0) {
             return view('apply.create');
         } else { 
             $apply = new Apply;
-            $validator = Validator::make($request->all(), [
-                //'user_mail'에 unique 추가하기 
-                'user_email' => 'email',
-                'shop_name' => 'required',
-                'shop_url' => 'required',
-                'business_name' => 'required',
-                'business_ceo' => 'required',
-                'business_address' => 'required',
-                'business_no' => 'required|numeric',
-                'business_sale_no' => 'required',
-                'business_docu' => 'required',
-                'sale_docu' => 'required',
-                'contact_name' => 'required',
-                'contact_email' => 'required|email',
-                'contact_mobile' => 'required|numeric',
-                'contact_phone' => 'required',
-                'agree_01' => 'accepted',
-                'agree_02' => 'accepted',
-            ]);
-
-            $validator_phone = Validator::make($request->all(), [
-                'contact_phone' => 'numeric',
-            ]);
-
-            if($validator->fails()){
-                return redirect('apply/create')
-                            ->withErrors($validator)
-                            ->withInput();
-            }
-
             $path_b = $request->file('business_docu')->store('images');
             $path_s = $request->file('sale_docu')->store('images');
             $apply->user_email = $request->input('user_email');
@@ -96,12 +66,8 @@ class ApplyController extends Controller
             $apply->contact_name = $request->input('contact_name');
             $apply->contact_email = $request->input('contact_email');
             $apply->contact_mobile = $request->input('contact_mobile');
-            
-            if($validator_phone->fails()){
-                $apply->contact_phone = NULL;
-            } else {
-                $apply->contact_phone = $request->input('contact_phone');
-            }        
+            $apply->contact_phone = $request->input('contact_phone');
+            $apply->user_id = User::where('email', $request->input('user_email'))->first()->id;
             $apply->save();
             
             return redirect('/');
@@ -143,16 +109,6 @@ class ApplyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validator = Validator::make($request->all(), [
-
-        ]);
-
-        if($validator->fails()){
-            return redirect('community/create')
-                        ->withErrors($validator)
-                        ->withInput();
-        }
-
         $apply = Apply::find($id);
         if( $request->file('business_docu') != null ) { 
             $path_b = $request->file('business_docu')->store('images');
@@ -174,6 +130,7 @@ class ApplyController extends Controller
         $apply->contact_email = $request->input('contact_email');
         $apply->contact_mobile = $request->input('contact_mobile');
         $apply->contact_phone = $request->input('contact_phone');
+        $apply->user_id = User::where('email', $request->input('user_email'))->first()->id;
         $apply->save();
 
         return view('apply.edit')->with('apply', $apply);
