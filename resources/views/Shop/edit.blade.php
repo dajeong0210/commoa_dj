@@ -27,12 +27,12 @@
                     </div>
                     <div class="form-group half-layout">
                         <label for="image">Shop 로고</label>
+                        <div class="image-logo">
                         @if( $shop->image == NULL )
                         @else
-                        <div class="image-logo">
                             <img src="{{ $shop->image }}" alt=""/>
-                        </div>
                         @endif
+                        </div>
                         <input type="file" name="image" class="input image shop_image"/>
                     </div>
                 </div>
@@ -45,6 +45,10 @@
                     <div class="form-group half-layout">
                         <label for="contact_email">이메일</label>
                         <input type="email" name="contact_email" class="input contact_email required" value="{{ $shop->contact_email}}" data-rule-required="true" data-rule-email="true" data-msg-email="이메일 형식이 옳지 않습니다!"/>
+                    </div>
+                    <div class="form-group half-layout">
+                        <label for="contact_mobile">핸드폰</label>
+                        <input type="phone" name="contact_mobile" class="input contact_mobile required" placeholder="'-'를 제외한 숫자만 입력해주세요." value="{{ $shop->contact_mobile }}"/>
                     </div>
                     <div class="form-group half-layout">
                         <label for="contact_phone">전화</label>

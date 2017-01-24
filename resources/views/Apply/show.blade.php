@@ -2,8 +2,9 @@
 
 @section('content')
     <div class="page mypage">
+        @include('layouts.myLayout') 
         <div class="form apply">
-            <h2>입점신청</h2>
+            <h2>입점승인</h2>
             <form class="ShopApply validate" method="POST" action="{{ url('/shop') }}" enctype="multipart/form-data">
             {{ csrf_field() }}
                 <div class="user-group group">
@@ -52,11 +53,11 @@
                     </div>
                     <div class="form-group half-layout">
                         <label for="business_docu">사업자등록증</label>
-                        <input type="file" name="business_docu" class="input business_docu" readonly/>
+                        <a href="{{ url('/') .'/'. $apply->business_docu }}" target="_blank">보기</a>
                     </div>
                     <div class="form-group half-layout">
                         <label for="sale_docu">통신판매업증</label>
-                        <input type="file" name="sale_docu" class="input sale_docu" readonly/>
+                        <a href="{{ url('/') .'/'. $apply->sale_docu }}" target="_blank">보기</a>
                     </div>
                 </div>
                 <div class="contact-group group">

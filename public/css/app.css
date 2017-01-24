@@ -1438,7 +1438,7 @@ div.mypage div.form {
   width: 50%;
   clear: both;
   margin: 30px auto 100px auto;
-  padding: 30px 2.5% 80px 2.5%;
+  padding: 30px 2.5% 100px 2.5%;
   border: 1px solid #ddd;
   box-shadow: 0 0 15px #ddd;
   background: #fff;
@@ -1568,10 +1568,11 @@ div.mypage div.form input[type="submit"]:hover {
 div.mypage div.form div.group {
   width: 100%;
   clear: both;
+  position: relative;
 }
 
 div.mypage div.form div.group div.form-group:not(.agree) {
-  width: 92.5%;
+  width: 95%;
   position: relative;
 }
 
@@ -1588,6 +1589,32 @@ div.mypage div.form div.group div.form-group:not(.agree).one-layout input[type="
   position: relative;
   top: 10px;
   left: -10px;
+}
+
+div.mypage div.form div.group div.form-group:not(.agree).one-layout input {
+  width: 100%;
+}
+
+div.mypage div.form div.group div.form-group:not(.agree).one-layout.button {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  margin-left: -80px;
+  width: 60px;
+  height: 25px;
+}
+
+div.mypage div.form div.group div.form-group:not(.agree).one-layout.button.del {
+  margin-left: 5px;
+}
+
+div.mypage div.form div.group div.form-group:not(.agree).one-layout.button.del input:hover {
+  color: #FA5858;
+}
+
+div.mypage div.form div.group div.form-group:not(.agree).one-layout.button input {
+  border-radius: 10px;
+  font-size: 13px;
 }
 
 div.mypage div.form div.group div.form-group:not(.agree).one-layout ul {
@@ -1639,6 +1666,25 @@ div.mypage div.form div.group div.form-group:not(.agree).half-layout select {
   border: 1px solid #ddd;
   padding: 0 5px;
   margin: 0;
+}
+
+div.mypage div.form div.group div.form-group:not(.agree).half-layout a {
+  display: block;
+  margin: 10px;
+  width: 50px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  border: 1px solid #333;
+  color: #333;
+  font-weight: bold;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+div.mypage div.form div.group div.form-group:not(.agree).half-layout a:hover {
+  background: #2bde73;
+  color: #fff;
 }
 
 div.mypage div.form div.group div.form-group:not(.agree).semi-layout {

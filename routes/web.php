@@ -39,6 +39,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/apply/create', 'ApplyController@create');
         Route::post('/apply', 'ApplyController@store');
         Route::put('/apply/{id}', 'ApplyController@update');
+        Route::delete('/apply/{id}', 'ApplyController@destroy');
         Route::get('/apply/{id}/edit', 'ApplyController@edit');
     });
 
