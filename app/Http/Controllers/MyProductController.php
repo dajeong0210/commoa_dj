@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductStoreRequest;
+use App\Http\Requests\ProductUpdateRequest;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Http\Request;
@@ -47,7 +49,7 @@ class MyProductController extends Controller
         return view('myproduct.create')->with('categories', $categories)->with('cpus', $cpus)->with('vgas', $vgas);
     }
 
-    public function store(Request $request)
+    public function store(ProductStoreRequest $request)
     {
         $product = new Product;
         $path_i = $request->file('image')->store('images');
@@ -55,17 +57,17 @@ class MyProductController extends Controller
         $product->image = $path_i;
         $product->url = $request->input('url');
         $product->price = $request->input('price');
-        if($request->input('os') == '') { 
-            $product->os = Null;
+        if($request->input('monitor') == '') { 
+            $product->monitor = Null;
         } else { 
-            $product->os = $request->input('os');
+            $product->monitor = $request->input('monitor');
         }
         $product->ram = $request->input('ram');
         $product->ssd = $request->input('ssd');
         $product->hdd = $request->input('hdd');
         $product->overclock = $request->input('overclock');
         $product->power = $request->input('power');
-        $product->monitor = $request->input('monitor');
+        $product->os = $request->input('os');
         $product->shop_id = User::find( Auth::user()->id )->shop->id;
         $product->cpu_id = $request->input('cpu');
         $product->vga_id = $request->input('vga');
@@ -95,7 +97,7 @@ class MyProductController extends Controller
                 ->with('cpus', $cpus)->with('vgas', $vgas)->with('selected', $selected);
     }
 
-    public function update(Request $request, $id)
+    public function update(ProductUpdateRequest $request, $id)
     {
         $product = Product::find($id);
         if( $request->file('image') != Null ) {
@@ -111,7 +113,11 @@ class MyProductController extends Controller
         $product->hdd = $request->input('hdd');
         $product->overclock = $request->input('overclock');
         $product->power = $request->input('power');
-        $product->monitor = $request->input('monitor');
+        if($request->input('monitor') == '') { 
+            $product->monitor = Null;
+        } else { 
+            $product->monitor = $request->input('monitor');
+        }
         $product->shop_id = User::find( Auth::user()->id )->shop->id;
         $product->cpu_id = $request->input('cpu');
         $product->vga_id = $request->input('vga');

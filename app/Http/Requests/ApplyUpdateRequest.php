@@ -38,4 +38,8 @@ class ApplyUpdateRequest extends FormRequest
             'contact_phone' => 'required',
         ];
     }
+
+    public function response(array $errors){
+        return back()->withErrors($errors)->withInput();
+    }
 }

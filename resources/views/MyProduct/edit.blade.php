@@ -109,7 +109,7 @@
                     </div>
                     <div class="form-group triple-layout">
                         <h4>모니터</h4>
-                        <input type="text" name="monitor" class="input" value="{{ $product->monitor == NULL ? '없음' : $product->monitor }}"/>
+                        <input type="text" name="monitor" class="input" value="{{ $product->monitor == NULL ? '' : $product->monitor }}"/>
                         <span>inch</span>
                     </div>
                     <div class="form-group one-layout">

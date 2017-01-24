@@ -26,7 +26,6 @@ Route::post('/viewcount/{product_id}', 'ProductController@viewCount');
 
 Route::group(['middleware' => 'auth'], function () {
 
-    // Route::put('/apply/{id}', 'ApplyController@update');
     Route::get('/myinfo', 'InfoController@index');
     Route::put('/myinfo/{id}', 'InfoController@update');
     Route::get('/mypage', 'UserController@index');
@@ -53,7 +52,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['middleware' => 'SystemAdmin'], function () {
         Route::get('/apply', 'ApplyController@index');
         Route::get('/apply/{id}', 'ApplyController@show');
-        // Route::get('/shop/create', 'ShopController@create');
         Route::post('/shop', 'ShopController@store');
     });
 
