@@ -53,9 +53,7 @@
                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                     </div>
                 </div>
-                <div class="form-group">
-                    <input type="submit" class="btn btn-primary" value="가입하기"/>                        
-                </div>
+                <input type="submit" class="btn btn-primary" value="가입하기"/>
                 <div class="link-group">
                 <a class="link" href="{{ url('/login') }}">
                     로그인

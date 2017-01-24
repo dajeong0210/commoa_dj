@@ -195,6 +195,7 @@ div.footer {
   width: 100%;
   border-top: 1px solid #ddd;
   z-index: 30;
+  background: #fff;
 }
 
 div.footer div.wrap-footer {
@@ -222,7 +223,7 @@ div.footer div.wrap-footer div img {
 div.footer div.wrap-footer div h2 {
   font-size: 16px;
   letter-spacing: 3px;
-  margin: 40px 0;
+  margin-top: 40px;
 }
 
 div.footer div.wrap-footer div p {
@@ -1538,7 +1539,7 @@ div.mypage div.form input:not(.agree) {
 }
 
 div.mypage div.form input[type="submit"] {
-  margin: 20px 0 0 2.5%;
+  margin: 20px 0 0 0;
   background: #333;
   height: 50px;
   color: #fff;
@@ -1566,12 +1567,13 @@ div.mypage div.form div.group {
 }
 
 div.mypage div.form div.group div.form-group:not(.agree) {
-  margin: 2.5%;
   width: 92.5%;
   position: relative;
 }
 
 div.mypage div.form div.group div.form-group:not(.agree).one-layout {
+  margin: 2.5%;
+  width: 90%;
   clear: both;
 }
 
@@ -1632,12 +1634,13 @@ div.mypage div.form div.group div.form-group:not(.agree).half-layout select {
   border-radius: 10px;
   border: 1px solid #ddd;
   padding: 0 5px;
+  margin: 0;
 }
 
 div.mypage div.form div.group div.form-group:not(.agree).semi-layout {
   float: left;
-  width: 22%;
-  margin: 10px 1%;
+  width: 20%;
+  margin: 10px 2.5%;
 }
 
 div.mypage div.form div.group div.form-group:not(.agree).semi-layout input {
@@ -1657,8 +1660,8 @@ div.mypage div.form div.group div.form-group:not(.agree).semi-layout span {
 
 div.mypage div.form div.group div.form-group:not(.agree).triple-layout {
   float: left;
-  width: 28.83333333333333333333333333333%;
-  margin: 10px 1.5%;
+  width: 28.3333333333333333333333333333%;
+  margin: 10px 2.5%;
 }
 
 div.mypage div.form div.group div.form-group:not(.agree).triple-layout input:not([type="radio"]) {
@@ -1824,6 +1827,101 @@ div.mypage div.form div.link-group a i {
 
 div.mypage div.form div.link-group a:hover {
   text-decoration: underline;
+}
+
+div#app.admin nav.nav-bar {
+  background: #fff;
+  border-bottom: 1px solid #333;
+}
+
+div#app.admin nav.nav-bar a.menu_btn {
+  color: #282828;
+}
+
+@media (max-width: 800px) {
+  div#app.admin nav.nav-bar ul.nav-group {
+    width: 100%;
+    background: #eee;
+    border: 1px solid #ddd;
+  }
+}
+
+@media (max-width: 800px) {
+  div#app.admin nav.nav-bar ul.nav-group li {
+    border-bottom: 1px solid #ddd;
+  }
+}
+
+div#app.admin nav.nav-bar ul.nav-group li a {
+  color: #282828;
+}
+
+@media (max-width: 800px) {
+  div#app.admin nav.nav-bar ul.nav-group li a {
+    background: #eee;
+  }
+  div#app.admin nav.nav-bar ul.nav-group li a:hover {
+    font-weight: bold;
+    background: rgba(43, 222, 115, 0.2);
+  }
+}
+
+@media (max-width: 800px) {
+  div#app.admin nav.nav-bar ul.nav-group div.sub_menu li {
+    background: #eee;
+  }
+}
+
+@media (max-width: 800px) {
+  div#app.admin nav.nav-bar ul.nav-group div.sub_menu li a {
+    background: #eee;
+  }
+  div#app.admin nav.nav-bar ul.nav-group div.sub_menu li a:hover {
+    font-weight: bold;
+    background: rgba(43, 222, 115, 0.2);
+  }
+}
+
+div#app.admin div.page.mypage div.my-wrap > div div.detail-box {
+  position: initial;
+  width: 100%;
+  height: 20%;
+  margin: 0;
+  padding: 15% 0;
+  box-sizing: border-box;
+}
+
+div#app.admin div.page.mypage div.my-wrap > div div.detail-box h3 {
+  font-size: 15px;
+  padding: 5px 0;
+  margin: 0;
+  color: #333;
+  text-decoration: underline;
+}
+
+div#app.admin div.page.mypage div.my-wrap > div div.detail-box p {
+  padding: 3px 20px;
+  margin: 0;
+}
+
+div#app.admin div.page.mypage div.my-wrap > div a.apply-list {
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  width: 50px;
+  height: 25px;
+  line-height: 25px;
+  border-radius: 5px;
+  background: #333;
+  margin: 40px auto;
+  color: #fff;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+div#app.admin div.page.mypage div.my-wrap > div a.apply-list:hover {
+  background: #2bde73;
 }
 
 div.page.mypage {

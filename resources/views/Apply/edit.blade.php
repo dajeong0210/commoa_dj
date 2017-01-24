@@ -40,7 +40,7 @@
                         <label for="business_ceo">대표자명</label>
                         <input type="text" name="business_ceo" class="input business_ceo required" value="{{ $apply->business_ceo }}"/>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group one-layout">
                         <label for="business_address">사업장주소</label>
                         <input type="text" name="business_address" class="input business_address required" value="{{ $apply->business_address }}"/>
                     </div>
@@ -80,8 +80,13 @@
                         <input type="phone" name="contact_phone" class="input contact_phone" placeholder="'-'를 제외한 숫자만 입력해주세요." value="{{ $apply->contact_phone }}"/>
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group half-layout">
                     <input type="submit" value="수정하기" class="submit"/>
+                </div>
+                <div class="form-group half-layout">
+                    {{ method_field('delete') }}
+                    {{ csrf_field() }}
+                    <input type="submit" value="삭제" class="delete"/>
                 </div>
             </form>
         </div>

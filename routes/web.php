@@ -52,6 +52,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/apply/{id}', 'ApplyController@show');
         Route::get('/shop/create', 'ShopController@create');
         Route::post('/shop', 'ShopController@store');
+        Route::get('/admin', 'UserController@admin');
     });
 
 

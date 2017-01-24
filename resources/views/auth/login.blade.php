@@ -34,9 +34,7 @@
                             <input type="checkbox" name="remember" class="hidden remember">
                         </div>
                     </div>
-                    <div class="form-group">
-                        <input type="submit" class="btn btn-primary" value="로그인">
-                    </div>
+                    <input type="submit" class="btn btn-primary" value="로그인">
                 </div>
             </form>
             <div class="link-group">

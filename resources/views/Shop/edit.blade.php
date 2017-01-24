@@ -10,7 +10,7 @@
             {{ csrf_field() }}
                 <div class="user-group group">
                     <h3>계정 정보 입력</h3>
-                    <div class="form-group">
+                    <div class="form-group one-layout">
                         <label for="user_email">이메일(아이디)</label>
                         <input type="email" name="user_email" class="input user_email" value="{{ Auth::user()->email }}" disabled/>
                     </div>
@@ -50,7 +50,7 @@
                         <label for="contact_phone">전화</label>
                         <input type="phone" name="contact_phone" class="input contact_phone" value="{{ $shop->contact_phone }}" placeholder="'-'를 제외한 숫자만 입력해주세요."/>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group one-layout">
                         <label for="business_address">주소</label>
                         <input type="address" name="business_address" class="input business_address required" value="{{ $shop->contact_address }}"/>
                     </div>

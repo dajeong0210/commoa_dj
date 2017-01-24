@@ -165,8 +165,8 @@
             $(this).toggleClass('active');
         }else{
             if( $(this).attr('class')=='active' ){
-                document.getElementById($(this).attr('for')).checked = false;
-                $(this).removeClass('active');
+                // document.getElementById($(this).attr('for')).checked = false;
+                // $(this).removeClass('active');
             }
             else{
                 $(this).parent().find('label').removeClass('active');
