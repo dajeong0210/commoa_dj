@@ -19,7 +19,7 @@ div.mypage{
         width:50%;
         clear:both;
         margin:30px auto 100px auto;
-        padding:30px 2.5% 80px 2.5%;
+        padding:30px 2.5% 100px 2.5%;
         border:1px solid #ddd;
         box-shadow:0 0 15px #ddd;
         background:#fff;
@@ -63,13 +63,14 @@ div.mypage{
             width:90%;
         }
         label.error, span.help-block strong{
+            clear:both;
             font-size:11.5px;
             font-weight:bold;
-            padding:10px 0 30px 0;
             color:$point-color2;
             float:left;
         }
         input{
+            background:#fff;
             &.user_email{
                 background:#eee;
             }
@@ -85,7 +86,7 @@ div.mypage{
                 }
             }
             &[type="submit"]{
-                margin:20px 0 0 2.5%;
+                margin:20px 0 0 0;
                 background:#333;
                 height:50px;
                 color:#fff;
@@ -105,11 +106,13 @@ div.mypage{
         div.group{
             width:100%;
             clear:both;
+            position:relative;
             div.form-group:not(.agree){
-                margin:2.5%;
-                width:92.5%;
+                width:95%;
                 position:relative;
                 &.one-layout{
+                    margin:2.5%;
+                    width:90%;
                     clear:both;
                     input[type="checkbox"]{
                         width:15px;
@@ -118,6 +121,27 @@ div.mypage{
                         position:relative;
                         top:10px;
                         left:-10px;
+                    }
+                    input{
+                        width:100%;
+                    }
+                    &.button{
+                        position:absolute;
+                        top:-20px;
+                        left:50%;
+                        margin-left:-80px;
+                        width:60px;
+                        height:25px;
+                        &.del{
+                            margin-left:5px;
+                            input:hover{
+                                color:$point-color2;
+                            }
+                        }
+                        input{
+                            border-radius:10px;
+                            font-size:13px;
+                        }
                     }
                     ul{
                         width:100%;
@@ -157,12 +181,29 @@ div.mypage{
                         border-radius:10px;
                         border:1px solid #ddd;
                         padding:0 5px;
+                        margin:0;
+                    }
+                    a{
+                        display:block;
+                        margin:10px;
+                        width:50px;
+                        height:30px;
+                        text-align:center;
+                        line-height:30px;
+                        border:1px solid #333;
+                        color:#333;
+                        font-weight:bold;
+                        transition:all 0.2s;
+                        &:hover{
+                            background:$point-color;
+                            color:#fff;
+                        }
                     }
                 }
                 &.semi-layout{
                     float:left;
-                    width:22%;
-                    margin:10px 1%;
+                    width:20%;
+                    margin:10px 2.5%;
                     input{
                         width:80%;
                     }
@@ -176,8 +217,8 @@ div.mypage{
                 }
                 &.triple-layout{
                     float:left;
-                    width:28.83333333333333333333333333333%;
-                    margin:10px 1.5%;
+                    width:28.3333333333333333333333333333%;
+                    margin:10px 2.5%;
                     input:not([type="radio"]){
                         width:90%;
                     }

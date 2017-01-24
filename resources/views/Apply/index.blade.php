@@ -1,7 +1,8 @@
 @extends('layouts.layout')
 
 @section('content')
-    <div class="page list admin">
+    <div class="page mypage list admin">
+        @include('layouts.myLayout') 
         <div class="apply-list">
             <ul class="myProduct">
                 @foreach( $applies as $apply )

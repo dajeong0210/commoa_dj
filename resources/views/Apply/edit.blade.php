@@ -10,7 +10,7 @@
             {{ csrf_field() }}
                 <div class="user-group group">
                     <h3>계정 정보 입력</h3>
-                    <div class="form-group {{ $errors->has('user_email') ? 'warning' : '' }}">
+                    <div class="form-group one-layout">
                         <label for="user_email">이메일(아이디)</label>
                         <input type="email" name="user_email" class="input user_email" value="{{ Auth::user()->email }}" readonly/>
                     @if( $errors->has('user_email') )
@@ -40,7 +40,7 @@
                         <label for="business_ceo">대표자명</label>
                         <input type="text" name="business_ceo" class="input business_ceo required" value="{{ $apply->business_ceo }}"/>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group one-layout">
                         <label for="business_address">사업장주소</label>
                         <input type="text" name="business_address" class="input business_address required" value="{{ $apply->business_address }}"/>
                     </div>
@@ -73,15 +73,26 @@
                     </div>
                     <div class="form-group half-layout">
                         <label for="contact_mobile">핸드폰</label>
-                        <input type="phone" name="contact_mobile" class="input contact_mobile required digits" placeholder="'-'를 제외한 숫자만 입력해주세요." value="{{ $apply->contact_mobile }}"/>
+                        <input type="phone" name="contact_mobile" class="input contact_mobile required" placeholder="'-'를 제외한 숫자만 입력해주세요." value="{{ $apply->contact_mobile }}"/>
                     </div>
                     <div class="form-group half-layout">
                         <label for="contact_phone">전화</label>
                         <input type="phone" name="contact_phone" class="input contact_phone" placeholder="'-'를 제외한 숫자만 입력해주세요." value="{{ $apply->contact_phone }}"/>
                     </div>
                 </div>
-                <div class="form-group">
-                    <input type="submit" value="수정하기" class="submit"/>
+                <div class="group">
+                    <div class="form-group one-layout button">
+                        <input type="submit" value="수정" class="submit"/>
+                    </div>
+                </div>
+            </form>
+             <form class="ShopApply delete" method="POST" action="{{ url('/apply') . '/' . $apply->id }}">   
+            {{ method_field('delete') }}
+            {{ csrf_field() }}
+                <div class="group">
+                    <div class="form-group one-layout button del">
+                        <input type="submit" value="삭제" class="delete"/>
+                    </div>
                 </div>
             </form>
         </div>

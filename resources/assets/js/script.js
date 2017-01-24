@@ -19,7 +19,6 @@
 
     var originImg = $('div.image-logo img').attr('src');
     $('input.image').on('change', function(){
-        console.log(originImg);
         var image = $(this).val();
         var imageonly = image.toLowerCase().split(".");
         if( image != '' ){
@@ -29,12 +28,20 @@
             }else{
                     var reader = new FileReader();
                     reader.onload = function(e){
-                        $('div.image-logo img').attr('src', e.target.result);
+                        if( !$('div.image-logo').is('img') ){
+                            $('div.image-logo').append('<img src="'+e.target.result+'" alt="">');
+                        }else{
+                            $('div.image-logo img').attr('src', e.target.result);
+                        }
                     }
                     reader.readAsDataURL(this.files[0]);
             }
         }else{
-            $('div.image-logo img').attr('src', originImg);
+            if( !$('div.image-logo').is('img') ){
+                $('div.image-logo img').remove();
+            }else{
+                $('div.image-logo img').attr('src', originImg);
+            }
         }
     });
     
@@ -106,7 +113,7 @@
         $(this).parent().parent().next().toggleClass('fadein');
     });
 
-    //fav Ajax
+//fav Ajax
     $("a.bookmark").on('click',function() {
         bookmark( $(this), 'bookmark' , 'shop_id' );
     });
@@ -165,8 +172,8 @@
             $(this).toggleClass('active');
         }else{
             if( $(this).attr('class')=='active' ){
-                document.getElementById($(this).attr('for')).checked = false;
-                $(this).removeClass('active');
+                // document.getElementById($(this).attr('for')).checked = false;
+                // $(this).removeClass('active');
             }
             else{
                 $(this).parent().find('label').removeClass('active');

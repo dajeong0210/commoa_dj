@@ -1,8 +1,15 @@
 @extends('layouts.layout')
 
 @section('content')
-    <div class="page mypage">
-        @include('layouts.myLayout')   
+    <div class="page mypage admin">
+        <nav class="tap-nav admin">
+            <ul>
+                <li class="{{ Request::segment(2) == 'user' ? 'active' : '' }}"><a href="{{ url('/admin/user') }}">유저관리</a></li>
+                <li class="{{ Request::segment(2) == 'shop' ? 'active' : '' }}"><a href="{{ url('/admin/shop') }}">샵관리</a></li>
+                <li class="{{ Request::segment(2) == 'product' ? 'active' : '' }}"><a href="{{ url('/admin/product') }}">상품관리</a></li>
+                <li class="{{ Request::segment(1) == 'apply' ? 'active' : '' }}"><a href="{{ url('/apply') }}">입점승인</a></li>
+            </ul>
+        </nav>
         <div class="my-wrap">
             <div class="user_profile">
                 <h2>
@@ -11,35 +18,44 @@
                     <a href="{{ url('myinfo') }}"><i class="fa fa-cog" aria-hidden="true"></i></a>
                 </h2>
                 <div class="detail">
-                    <div class="thumbnail"></div>
-                    <p class="name">{{ $user->name }}</p>
-                    <p>E-mail : {{ $user->email }}</p>
-                    <p>가입일 : {{ $user->created_at }}</p>
+                    <div class="thumbnail">
+                    </div>
+                    <p class="name">관리자모드</p>
+                    <p>User : {{ $user->name }}</p>
+                    <p style="text-decoration:underline"><a href="{{ url('mypage') }}">{{ $user->name }}의 마이페이지</a></p>
                 </div>
             </div>
             <div class="fav-list">
                 <h2>
                     <i class="fa fa-heart" aria-hidden="true"></i>
-                    <span>FAVORITE</span>
-                    <a href="{{ url('favorite') }}">전체보기</a>
+                    <span>입점신청리스트</span>
+                    <a href="{{ url('apply') }}">전체보기</a>
                 </h2>
                 <div class="my-list">
                     <ul>
-                        @foreach( $favorites as $fav )
-                        <li>
-                            <a href="{{ url('product') . '/' . $fav->id }}">
-                                <div class="image-cover"></div>
-                                <img src="{{ $fav->image }}" alt="">
-                            </a>
-                            <div class="detail-box">
-                                <p>
-                                    <a href="{{ url('product') . '/' . $fav->id }}">{{ $fav->name }}</a>
-                                </p>
-                                <p>
-                                    <a href="{{ $fav->shop->url }}" target="_blank">{{ $fav->shop->name }}</a>
-                                </p>
-                            </div>
-                        </li>
+                        @foreach( $applies as $apply )
+                            <li>
+                                <div class="detail-box">
+                                    <h3>User</h3>
+                                    <p>
+                                        {{ $apply->user_email }}
+                                    </p>
+                                </div>
+                                <div class="detail-box">
+                                    <h3>Shop Name</h3>
+                                    <p>
+                                        {{ $apply->shop_name }}
+                                    </p>
+                                </div>
+                                <div class="detail-box">
+                                    <h3>Contact</h3>
+                                    <p>
+                                        {{ $apply->contact_mobile }}
+                                    </p>
+                                </div>
+                                <a href="{{ url('apply') . '/' . $apply->id }}" class="apply-list">보기
+                                </a>
+                            </li>
                         @endforeach
                     </ul>
                 </div>
@@ -52,16 +68,7 @@
                 </h2>
                 <div class="my-list">
                     <ul>
-                        @foreach( $bookmarks as $bookmark )
-                        <li>
-                            <div class="thumbnail">
-                                <a href="{{ $bookmark->url }}" target="_blank">
-                                    <img src="{{ $bookmark->image }}" alt="">
-                                </a>
-                            </div>
-                            <a href="{{ $bookmark->url }}">{{ $bookmark->name }}</a>
-                        </li>
-                        @endforeach
+                        
                     </ul>
                 </div>
             </div>
