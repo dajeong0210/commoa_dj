@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ApplyStoreRequest;
+use App\Http\Requests\ApplyUpdateRequest;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Http\Request;
@@ -13,22 +14,12 @@ use Validator;
 
 class ApplyController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $applies = Apply::orderBy('permission', 'asc')->orderBy('created_at', 'desc')->paginate(18);
         return view('apply.index')->with('applies', $applies);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         if( Auth::user()->apply()->count() != 0) {
@@ -39,12 +30,6 @@ class ApplyController extends Controller
         }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(ApplyStoreRequest $request)
     {
         if( Auth::user()->apply()->count() != 0) {
@@ -69,45 +54,23 @@ class ApplyController extends Controller
             $apply->contact_phone = $request->input('contact_phone');
             $apply->user_id = User::where('email', $request->input('user_email'))->first()->id;
             $apply->save();
-            
             return redirect('/');
         } 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $apply = Apply::find($id);
-
         return view('apply.show')->with('apply', $apply);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $apply = Apply::find($id);
-
         return view('apply.edit')->with('apply', $apply);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function update(ApplyUpdateRequest $request, $id)
     {
         $apply = Apply::find($id);
         if( $request->file('business_docu') != null ) { 
@@ -132,23 +95,14 @@ class ApplyController extends Controller
         $apply->contact_phone = $request->input('contact_phone');
         $apply->user_id = User::where('email', $request->input('user_email'))->first()->id;
         $apply->save();
-
         return view('apply.edit')->with('apply', $apply);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $apply = Apply::find($id);
-
-        if(Auth::user()->email == $apply->user_email)
+        if(Auth::user()->id == $apply->user_id)
             $apply->delete();
-
-        return redirect('main');
+        return redirect('/');
     }
 }

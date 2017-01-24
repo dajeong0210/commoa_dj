@@ -27,7 +27,8 @@ Route::post('/viewcount/{product_id}', 'ProductController@viewCount');
 Route::group(['middleware' => 'auth'], function () {
 
     // Route::put('/apply/{id}', 'ApplyController@update');
-    Route::resource('/myinfo', 'InfoController');
+    Route::get('/myinfo', 'InfoController@index');
+    Route::put('/myinfo/{id}', 'InfoController@update');
     Route::get('/mypage', 'UserController@index');
     Route::get('/bookmark', 'BookmarkController@index');
     Route::post('/bookmark/{shop_id}', 'BookmarkController@store');

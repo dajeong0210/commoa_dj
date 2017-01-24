@@ -11,11 +11,7 @@ use App\Apply;
 
 class ShopController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index(Request $request)
     {
         $shop_sort = $request->input('shop-sort');
@@ -32,22 +28,11 @@ class ShopController extends Controller
         return view('shop.index')->with('shops', $shops);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('shop.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //apply id를 받아옴  
@@ -85,37 +70,18 @@ class ShopController extends Controller
         return redirect('apply');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $shop = Shop::find($id);
         return view('shop.show')->with('shop', $shop);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $shop = Shop::find($id);
         return view('shop.edit')->with('shop', $shop);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $shop = Shop::find($id);
@@ -134,12 +100,6 @@ class ShopController extends Controller
         return redirect('shop/'.$shop->id.'/edit')->with('shop', $shop);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $shop = Shop::find($id);

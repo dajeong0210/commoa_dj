@@ -33,4 +33,14 @@ class ApplyStoreRequest extends FormRequest
         ];
     }
 
+    public function response(array $errors){
+        return response()->json([
+            'status' => 'ERROR',
+            'errors' => [
+                'message' => $errors,
+                // 'code' => 111 // validation fail error code
+            ]
+        ]);
+    }
+
 }

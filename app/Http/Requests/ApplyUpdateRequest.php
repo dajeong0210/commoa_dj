@@ -36,8 +36,6 @@ class ApplyUpdateRequest extends FormRequest
             'contact_email' => 'required|email',
             'contact_mobile' => 'required',
             'contact_phone' => 'required',
-            'agree_01' => 'accepted',
-            'agree_02' => 'accepted',
         ];
     }
 }
