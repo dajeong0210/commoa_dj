@@ -31,12 +31,12 @@
             @foreach( $products as $product )
             <li>
                 <div class="image-box">
-                    <a href="{{ $product->url }}">
+                    <a href="{{ url('product') . '/' . $product->id }}">
                         <img src="{{ $product->image }}" alt="">
                     </a>
                 </div>
                 <div class="mydetail-box">
-                    <a class="myprod-title" href="{{ $product->url }}"> {{ $product->name }} </a>
+                    <a class="myprod-title" href="{{ url('product') . '/' . $product->id }}"> {{ $product->name }} </a>
                     <p class="myprod-price">\{{ number_format($product->price) }}원
                     </p>
                     <ul>

@@ -44,7 +44,7 @@ class InfoController extends Controller
             'password' => 'required|min:6|confirmed',
         ]);
         if ($validator->fails()) {
-            return redirect('myinfo/'.$id.'/edit')
+            return redirect('myinfo/')
                         ->withErrors($validator)
                         ->withInput();
         }
