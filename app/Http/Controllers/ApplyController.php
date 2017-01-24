@@ -66,6 +66,9 @@ class ApplyController extends Controller
 
     public function edit($id)
     {
+        if( Auth::user()->apply()->first()->id != $id  ) { 
+            return back();
+        }
         $apply = Apply::find($id);
         return view('apply.edit')->with('apply', $apply);
     }

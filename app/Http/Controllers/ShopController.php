@@ -69,6 +69,9 @@ class ShopController extends Controller
 
     public function edit($id)
     {
+        if( Auth::user()->shop()->first()->id != $id ) {
+            return back();
+        }
         $shop = Shop::find($id);
         return view('shop.edit')->with('shop', $shop);
     }
