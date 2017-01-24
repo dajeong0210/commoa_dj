@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ShopUpdateRequest;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Http\Request;
@@ -45,16 +46,6 @@ class ShopController extends Controller
             $shop_admin->save();
             $apply->permission = 1;
             $apply->save();
-            
-            // $shop = new Shop;
-            // $shop->name = $request->input('shop_name');
-            // $shop->url = $request->input('shop_url');
-            // $shop->contact_address = $request->input('business_address');
-            // $shop->contact_name = $request->input('contact_name');
-            // $shop->contact_phone = $request->input('contact_phone');
-            // $shop->contact_email = $request->input('contact_email');
-            // $shop->user_id = User::where('email', $apply_email)->first()->id;
-            // $shop->save();
            
             $shop = new Shop;
             $shop->name = $apply->shop_name;
@@ -82,7 +73,7 @@ class ShopController extends Controller
         return view('shop.edit')->with('shop', $shop);
     }
 
-    public function update(Request $request, $id)
+    public function update(ShopUpdateRequest $request, $id)
     {
         $shop = Shop::find($id);
         if( $request->file('image') != null ) { 

@@ -54,11 +54,13 @@ class InfoController extends Controller
                 $user->name = $request->input('user_name');
                 $user->password = bcrypt($request->input('password'));
                 $user->save();
-                return redirect('mypage');
+                return redirect('/mypage');
             } else {
+                //validation message!! 
                 return redirect('/myinfo');
             }
         } else {
+            //validation message!! 
             return redirect('/myinfo');
         }
     }

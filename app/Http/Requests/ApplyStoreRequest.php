@@ -32,4 +32,8 @@ class ApplyStoreRequest extends FormRequest
             'agree_02' => 'accepted',
         ];
     }
+
+    public function response(array $errors){
+        return redirect('apply/create')->withErrors($errors)->withInput();
+    }
 }
