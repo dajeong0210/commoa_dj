@@ -35,10 +35,6 @@ class ApplyController extends Controller
                 return view('apply.index')->with('applies', $applies);
             }
         }
-        
-
-        $applies = Apply::orderBy('permission', 'asc')->orderBy('created_at', 'desc')->paginate(18);
-        return view('apply.index')->with('applies', $applies);
     }
 
     public function create()
