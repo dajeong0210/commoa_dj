@@ -11,7 +11,9 @@
                     <span>└</span>
                     <span class="hidden">{{ $category->id  }}</span>
                     <em class="name">{{ $category->name }}</em>
-                    <input type="text" class="modify hidden" name="modify{{ $category->id }}" value="{{ $category->name }}">
+                    <form method="POST" name="modify{{ $catrgory->id }}" action="{{ url('/admin/category') . '/' . $category->id }}">
+                    <input type="text" class="modify hidden" value="{{ $category->name }}">
+                    </form>
                     <a href="#" class="delete">
                     <i class="fa fa-times" aria-hidden="true"></i>
                     </a>
@@ -22,12 +24,15 @@
                 </li>
             @endforeach
             </ul>
-            <form method="POST" name="modify" action="{{ url('/admin/category') . '/' . $category->id }}">
+            <input type="submit" value="수정" class="modify-btn">
+            <!---
+            <form method="POST" name="modify" action="{{ url('/admin/category') }}">
                 @foreach( $categories as $category )
                 <input type="hidden" class="modify hidden" name="category{{ $category->id }}" value="{{ $category->name }}">
                 @endforeach
                 <input type="submit" value="수정" class="modify-btn">
             </form>
+            -->
         </div>
     </div>
 @endsection
