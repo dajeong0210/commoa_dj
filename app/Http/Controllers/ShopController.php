@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ShopUpdateRequest;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Shop;
 use App\User;
