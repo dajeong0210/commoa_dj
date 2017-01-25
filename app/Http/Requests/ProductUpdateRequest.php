@@ -17,7 +17,7 @@ class ProductUpdateRequest extends FormRequest
         return [
             'name' => 'required',
             'url' => 'required',
-            'price' => 'required',
+            'price' => 'required|numeric',
             'cpu' => 'required',
             'vga' => 'required',
             'ram' => 'required|numeric',

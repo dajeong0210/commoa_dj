@@ -35,7 +35,6 @@ class ApplyUpdateRequest extends FormRequest
             'contact_name' => 'required',
             'contact_email' => 'required|email',
             'contact_mobile' => 'required',
-            'contact_phone' => 'required',
         ];
     }
 
