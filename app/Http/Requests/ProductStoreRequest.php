@@ -19,7 +19,7 @@ class ProductStoreRequest extends FormRequest
             'name' => 'required',
             'image' => 'required',
             'url' => 'required',
-            'price' => 'required',
+            'price' => 'required|numeric',
             'cpu' => 'required',
             'vga' => 'required',
             'ram' => 'required|numeric',
