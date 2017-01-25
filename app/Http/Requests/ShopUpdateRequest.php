@@ -16,12 +16,12 @@ class ShopUpdateRequest extends FormRequest
     {
         return [
             'user_email' => 'required|email',
-            'shop_name' => 'required',
-            'shop_url' => 'required',
+            'name' => 'required',
+            'url' => 'required',
             'contact_name' => 'required',
             'contact_email' => 'required|email',
             'contact_mobile' => 'required',
-            'business_address' => 'required',
+            'contact_address' => 'required',
             'image' => 'image',
         ];
     }

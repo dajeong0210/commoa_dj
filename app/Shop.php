@@ -6,6 +6,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class Shop extends Model
 {
+    protected $fillable = [
+        'name',
+        'image',
+        'url',
+        'contact_address',
+        'contact_name',
+        'contact_phone',
+        'contact_mobile',
+        'contact_email',
+    ];
+
+    protected $guarded= [
+        'user_email',
+        'id',
+        'image',
+    ];
+
     public function user()
     {
         return $this->belongsTo('App\User');
