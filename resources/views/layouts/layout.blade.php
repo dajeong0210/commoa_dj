@@ -26,11 +26,11 @@
     </script>
 </head>
 <body>
-    <div id="app" class="{{ Request::segment(1) == 'admin' || Request::segment(1) == 'apply' ? 'admin' : '' }}">
+    <div id="app">
         <nav class="nav-bar">
             <h1 class="logo">
                 <a href="{{ url('/') }}">
-                    <img src="{{ Request::segment(1) == 'admin' ? url('/') . '/image/commoa_logo_inverted.png' : url('/') . '/image/commoa_logo.png'}}" alt="컴모아"/>
+                    <img src="{{ url('/') . '/image/commoa_logo.png' }}" alt="컴모아"/>
                 </a>
             </h1>
             <a href="#" class="menu_btn">

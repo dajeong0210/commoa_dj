@@ -14,10 +14,27 @@ use Validator;
 
 class ApplyController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $applies = Apply::orderBy('permission', 'asc')->orderBy('created_at', 'desc')->paginate(18);
-        return view('apply.index')->with('applies', $applies);
+        $sortBy = $request->input('apply');
+        if( !$request ){
+            $applies = Apply::orderBy('permission', 'asc')->orderBy('created_at', 'desc')->paginate(18);
+            return view('apply.index')->with('applies', $applies);
+        }else{
+            if( $sortBy == '전체' ){
+                $applies = Apply::orderBy('permission', 'asc')->orderBy('created_at', 'desc')->paginate(18);
+                return view('apply.index')->with('applies', $applies);
+            }else if( $sortBy == '미승인' ){
+                $applies = Apply::where('permission', 0)->orderBy('created_at', 'desc')->paginate(18);
+                return view('apply.index')->with('applies', $applies);
+            }else if( $sortBy == '승인' ){
+                $applies = Apply::where('permission', 1)->orderBy('created_at', 'desc')->paginate(18);
+                return view('apply.index')->with('applies', $applies);
+            }else{
+                $applies = Apply::orderBy('permission', 'asc')->orderBy('created_at', 'desc')->paginate(18);
+                return view('apply.index')->with('applies', $applies);
+            }
+        }
     }
 
     public function create()
