@@ -34,6 +34,12 @@ div.slider{
             color:#fff;
             opacity:0.7;
             margin:0 40px;
+            @include respond-to('small'){
+                margin:0 20px;
+            }
+            @include respond-to('too-small'){
+                margin:0 10px;
+            }
             &.left{
                 float:left;
             }
@@ -114,6 +120,7 @@ div.slider{
                     font-weight:bold;
                     letter-spacing:-1px;
                     font-size:30px;
+                    // text-shadow:0 0 15px #333;
                     @include respond-to('small'){
                         font-size:26px;
                     }
