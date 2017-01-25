@@ -39,6 +39,7 @@
             <p>
                 <a href="{{ url('/') }}">Home</a>
                 <a href="{{ url('/mypage') }}">Mypage</a>
+                <a href="{{ url('/admin') }}">Admin</a>
             </p>
             <ul class="nav-group admin">
                 <li>

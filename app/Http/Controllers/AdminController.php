@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Category;
 use Illuminate\Support\Facades\Auth;
 use App\Apply;
 use App\User;
@@ -18,7 +19,14 @@ class AdminController extends Controller
     {
         $user = User::find( Auth::user()->id );
         $applies = Apply::orderBy('permission', 'asc')->orderBy('created_at', 'desc')->paginate(18);
-        return view('admin.index')->with('applies', $applies)->with('user', $user);
+        return view('Admin.index')->with('applies', $applies)->with('user', $user);
+    }
+
+    public function category()
+    {
+        //
+        $categories = Category::get();
+        return view('Admin.category')->with('categories', $categories);
     }
 
     /**
