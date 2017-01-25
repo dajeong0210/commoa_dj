@@ -5,24 +5,30 @@
         @include('layouts.adminMenu')
         <div class="category">
             <h2>카테고리편집</h2>
-                <ul>
+            <ul>
+            @foreach( $categories as $category )
+                <li>
+                    <span>└</span>
+                    <span class="hidden">{{ $category->id  }}</span>
+                    <em class="name">{{ $category->name }}</em>
+                    <input type="text" class="modify hidden" value="{{ $category->name }}">
+                    <a href="#" class="delete">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                    </a>
+                    <form name="delete" class="hidden" method="POST" action="{{ url('/admin/category') . '/' . $category->id }}">
+                        {{ method_field('delete') }}
+                        {{ csrf_field() }}
+                    </form>
+                </li>
+            @endforeach
+            </ul>
+            <form method="POST" name="modify" action="{{ url('/admin/category') }}">
+            {{ csrf_field() }}
                 @foreach( $categories as $category )
-                    <li>
-                        <form method="POST" name="modify" action="{{ url('/admin/category') . '/' . $category->id }}">
-                            <span>└</span><em class="name">{{ $category->name }}</em>
-                            <input type="text" class="modify hidden" value="{{ $category->name }}">
-                            <a href="#" class="delete">
-                            <i class="fa fa-times" aria-hidden="true"></i>
-                            </a>
-                        </form>
-                        <form name="delete" class="hidden" method="POST" action="{{ url('/admin/category') . '/' . $category->id }}">
-                            {{ method_field('delete') }}
-                            {{ csrf_field() }}
-                        </form>
-                    </li>
+                <input type="hidden" class="modify hidden" name="category{{ $category->id }}" value="{{ $category->name }}">
                 @endforeach
-                </ul>
-                <button class="modify">수정</button>
+                <input type="submit" value="수정" class="modify-btn">
+            </form>
         </div>
     </div>
 @endsection
