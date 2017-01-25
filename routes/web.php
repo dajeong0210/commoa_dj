@@ -56,6 +56,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/apply', 'ApplyController@index');
         Route::get('/apply/{id}', 'ApplyController@show');
         Route::post('/shop', 'ShopController@store');
+        Route::put('/admin/category/{id}', 'AdminController@categoryUpdate');
+        Route::delete('/admin/category/{id}', 'AdminController@categoryDelete');
     });
 
 

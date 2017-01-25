@@ -18,7 +18,6 @@
                         <form name="delete" class="hidden" method="POST" action="{{ url('/admin/category') . '/' . $category->id }}">
                             {{ method_field('delete') }}
                             {{ csrf_field() }}
-                            <input type="submit" value="삭제" class="delete"/>
                         </form>
                     </li>
                 @endforeach

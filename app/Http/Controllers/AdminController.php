@@ -24,9 +24,17 @@ class AdminController extends Controller
 
     public function category()
     {
-        //
         $categories = Category::get();
         return view('Admin.category')->with('categories', $categories);
+    }
+
+    public function categoryUpdate(Request $request) {
+        $categories = $request->input('modify');
+
+    }
+
+    public function categoryDelete($c_id) {
+
     }
 
     /**
