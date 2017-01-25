@@ -24,11 +24,13 @@
         $(this).next().toggleClass('hidden').focus();
     });
     $('input.modify').on('focusout', function(){
+        $nth = $(this).prev().prev().html();
         $('input.modify').addClass('hidden');
         $('div.category em').removeClass('hidden');
+        $(this).prev('em').html( $(this).val() );
+        $('form[name="modify"] input').eq($nth-1).val($(this).val());
     }).on('keypress', function(e){
         if(e.keyCode == 13){
-            $(this).prev('em').html( $(this).val() );
             $(this).focusout();
             return false;
         }
