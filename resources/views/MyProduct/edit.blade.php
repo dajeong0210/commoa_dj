@@ -10,9 +10,12 @@
             {{ csrf_field() }}
                 <div class="shop-group group">
                     <h3>상품 정보 입력</h3>
-                    <div class="form-group half-layout">
+                    <div class="form-group half-layout form-group{{ $errors->has('product_name') ? ' has-error' : '' }}">
                         <label for="name">상품 이름</label>
                         <input type="text" name="name" class="input product_name required" value="{{ $product->name }}"/>
+                        @if( $errors->has('product_name') )
+                        <label class="error">{{ $errors->first('product_name') }}</label>
+                        @endif
                     </div>
                     <div class="form-group half-layout">
                         <label for="image">상품 이미지</label>
@@ -21,20 +24,26 @@
                             <img src="{{ $product->image }}" alt="">
                         </div>
                     </div>
-                    <div class="form-group half-layout">
+                    <div class="form-group half-layout form-group{{ $errors->has('url') ? ' has-error' : '' }}">
                         <label for="url">상품 URL</label>
                         <input type="text" name="url" class="input required" value="{{ $product->url }}"/>
+                        @if( $errors->has('url') )
+                        <label class="error">{{ $errors->first('url') }}</label>
+                        @endif
                     </div>
-                    <div class="form-group half-layout">
+                    <div class="form-group half-layout form-group{{ $errors->has('price') ? ' has-error' : '' }}">
                         <label for="price">상품 가격</label>
-                        <input type="text" name="price" class="input required" value="{{ $product->price }}"/>
+                        <input type="text" name="price" class="input digits required" value="{{ $product->price }}"/>
                         <span>원</span>
+                        @if( $errors->has('price') )
+                        <label class="error">{{ $errors->first('price') }}</label>
+                        @endif
                     </div>
                     <h3>상품 사양 입력</h3>
-                    <div class="form-group half-layout">
+                    <div class="form-group half-layout form-group{{ $errors->has('cpu') ? ' has-error' : '' }}">
                         <h4>CPU</h4>
                         <label for="cpu" class="hidden">CPU</label>
-                        <select name="cpu" required>
+                        <select name="cpu" class="required" required>
                             @foreach( $cpus as $cpu )
                                 @if( $product->cpu_id == $cpu->id )
                                     <option value="{{ $cpu->id }}" selected>{{ $cpu->name }}</option>
@@ -43,8 +52,11 @@
                                 @endif
                             @endforeach
                         </select>
+                        @if( $errors->has('user_email') )
+                        <label class="error">{{ $errors->first('cpu') }}</label>
+                        @endif
                     </div>
-                    <div class="form-group half-layout">
+                    <div class="form-group half-layout form-group{{ $errors->has('user_email') ? ' has-error' : '' }}">
                         <h4>VGA</h4>
                         <label for="vga" class="hidden">VGA</label>
                         <select name="vga" required>
@@ -56,32 +68,47 @@
                                 @endif
                             @endforeach
                         </select>
+                        @if( $errors->has('vga') )
+                        <label class="error">{{ $errors->first('vga') }}</label>
+                        @endif
                     </div>
-                    <div class="form-group semi-layout">
+                    <div class="form-group semi-layout form-group{{ $errors->has('ram') ? ' has-error' : '' }}">
                         <h4>RAM</h4>
                         <label for="ram" class="hidden">RAM</label>
-                        <input type="text" name="ram" class="input required" value="{{ $product->ram }}"/>
+                        <input type="text" name="ram" class="input digits required" value="{{ $product->ram }}"/>
                         <span>GB</span>
+                        @if( $errors->has('ram') )
+                        <label class="error">{{ $errors->first('ram') }}</label>
+                        @endif
                     </div>
-                    <div class="form-group semi-layout">
+                    <div class="form-group semi-layout form-group{{ $errors->has('ssd') ? ' has-error' : '' }}">
                         <h4>SSD</h4>
                         <label for="ssd" class="hidden">SSD</label>
-                        <input type="text" name="ssd" class="input required" value="{{ $product->ssd }}"/>
+                        <input type="text" name="ssd" class="input digits required" value="{{ $product->ssd }}"/>
                         <span>GB</span>
+                        @if( $errors->has('ssd') )
+                        <label class="error">{{ $errors->first('ssd') }}</label>
+                        @endif
                     </div>
-                    <div class="form-group semi-layout">
+                    <div class="form-group semi-layout form-group{{ $errors->has('hdd') ? ' has-error' : '' }}">
                         <h4>HDD</h4>
                         <label for="hdd" class="hidden">HDD</label>
-                        <input type="text" name="hdd" class="input required" value="{{ $product->hdd }}"/>
+                        <input type="text" name="hdd" class="input digits required" value="{{ $product->hdd }}"/>
                         <span>GB</span>
+                        @if( $errors->has('hdd') )
+                        <label class="error">{{ $errors->first('hdd') }}</label>
+                        @endif
                     </div>
-                    <div class="form-group semi-layout">
+                    <div class="form-group semi-layout form-group{{ $errors->has('power') ? ' has-error' : '' }}">
                         <h4>POWER</h4>
                         <label for="power" class="hidden">Power</label>
-                        <input type="text" name="power" class="input required" value="{{ $product->power }}"/>
+                        <input type="text" name="power" class="input digits required" value="{{ $product->power }}"/>
                         <span>W</span>
+                        @if( $errors->has('power') )
+                        <label class="error">{{ $errors->first('power') }}</label>
+                        @endif
                     </div>
-                    <div class="form-group triple-layout">
+                    <div class="form-group triple-layout form-group{{ $errors->has('os') ? ' has-error' : '' }}">
                         <h4>OS</h4>
                         <ul>
                             <li>
@@ -93,24 +120,33 @@
                                 <input type="radio" name="os" id="yes-os" class="input required" value="1"/>
                             </li>
                         </ul>
+                        @if( $errors->has('os') )
+                        <label class="error">{{ $errors->first('os') }}</label>
+                        @endif
                     </div>
-                    <div class="form-group triple-layout">
+                    <div class="form-group triple-layout form-group{{ $errors->has('overclock') ? ' has-error' : '' }}">
                         <h4>OVERCLOCK</h4>
                         <ul>
                             <li>
-                                <label for="no-overclock">없음</label>
+                                <label for="no-overclock">불가</label>
                                 <input type="radio" name="overclock" id="no-overclock" class="input required" value="0" checked/>
                             </li>
                             <li>
-                                <label for="yes-overclock">있음</label>
+                                <label for="yes-overclock">가능</label>
                                 <input type="radio" name="overclock" id="yes-overclock" class="input required" value="1"/>
                             </li>
                         </ul>
+                        @if( $errors->has('overclock') )
+                        <label class="error">{{ $errors->first('overclock') }}</label>
+                        @endif
                     </div>
-                    <div class="form-group triple-layout">
+                    <div class="form-group triple-layout form-group{{ $errors->has('monitor') ? ' has-error' : '' }}">
                         <h4>모니터</h4>
-                        <input type="text" name="monitor" class="input" value="{{ $product->monitor == NULL ? '' : $product->monitor }}"/>
+                        <input type="text" name="monitor" class="input digits" value="{{ $product->monitor == NULL ? '' : $product->monitor }}"/>
                         <span>inch</span>
+                        @if( $errors->has('monitor') )
+                        <label class="error">{{ $errors->first('monitor') }}</label>
+                        @endif
                     </div>
                     <div class="form-group one-layout">
                         <h4>카테고리</h4>

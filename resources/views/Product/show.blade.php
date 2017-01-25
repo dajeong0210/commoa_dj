@@ -42,10 +42,10 @@
             <ul class="detail">
                 <li><span>cpu</span> {{ $product->cpu->name }}<span></span></li>
                 <li><span>vga</span> {{ $product->vga->name }}<span></span></li>
-                <li><span>ram</span> {{ $product->ram }}<span></span></li>
-                <li><span>ssd</span> {{ $product->ssd }}<span></span></li>
-                <li><span>hdd</span> {{ $product->hdd }}<span></span></li>
-                <li><span>power</span> {{ $product->power }}<span></span></li>
+                <li><span>ram</span> {{ $product->ram }}<span>GB</span></li>
+                <li><span>ssd</span> {{ $product->ssd }}<span>GB</span></li>
+                <li><span>hdd</span> {{ $product->hdd }}<span>GB</span></li>
+                <li><span>power</span> {{ $product->power }}<span>W</span></li>
                 <li>
                     <span>os</span>
                     @if( $product->os == 1 )

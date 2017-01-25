@@ -40,7 +40,7 @@ class InfoController extends Controller
 
     public function update(UserUpdateRequest $request, $id)
     {
-
+    
         $user = User::find($id);
         if( Hash::check( $request->input('old_password'), $user->password) ) {
             if( $request->input('password') == $request->input('password_confirmation')) {

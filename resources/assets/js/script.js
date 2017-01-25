@@ -45,6 +45,21 @@
         }
     });
     
+    $('form.user_edit').find('input[type="submit"]').on('click',function(e){
+        if ( $('input[name="password"]').val() != "" ){
+            if( $('input[name="password"]').val() != $('input[name="password_confirmation"]').val() ){
+                e.preventDefault();
+                if( $('input.password').next().hasClass('error') ){
+                    $('input.password').next().remove();
+                }
+                $('input.password').after('<label class="error">비밀번호 확인값이 일치하지 않습니다!</label>');
+                $('input.password').val('');
+                $('input.password-confirm').val('');
+                return false;
+                
+            }
+        }
+    });
 //login-form
     $('label.remember').on('click', function(){
         $(this).find('i').toggleClass('active');
