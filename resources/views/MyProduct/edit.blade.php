@@ -40,10 +40,10 @@
                         @endif
                     </div>
                     <h3>상품 사양 입력</h3>
-                    <div class="form-group half-layout form-group{{ $errors->has('cpu') ? ' has-error' : '' }}">
+                    <div class="form-group half-layout form-group{{ $errors->has('cpu_id') ? ' has-error' : '' }}">
                         <h4>CPU</h4>
-                        <label for="cpu" class="hidden">CPU</label>
-                        <select name="cpu" class="required" required>
+                        <label for="cpu_id" class="hidden">CPU</label>
+                        <select name="cpu_id" class="required" required>
                             @foreach( $cpus as $cpu )
                                 @if( $product->cpu_id == $cpu->id )
                                     <option value="{{ $cpu->id }}" selected>{{ $cpu->name }}</option>
@@ -52,14 +52,14 @@
                                 @endif
                             @endforeach
                         </select>
-                        @if( $errors->has('user_email') )
-                        <label class="error">{{ $errors->first('cpu') }}</label>
+                        @if( $errors->has('cpu_id') )
+                        <label class="error">{{ $errors->first('cpu_id') }}</label>
                         @endif
                     </div>
-                    <div class="form-group half-layout form-group{{ $errors->has('user_email') ? ' has-error' : '' }}">
+                    <div class="form-group half-layout form-group{{ $errors->has('vga_id') ? ' has-error' : '' }}">
                         <h4>VGA</h4>
-                        <label for="vga" class="hidden">VGA</label>
-                        <select name="vga" required>
+                        <label for="vga_id" class="hidden">VGA</label>
+                        <select name="vga_id" required>
                             @foreach( $vgas as $vga )
                                 @if( $product->vga_id == $vga->id )
                                     <option value="{{ $vga->id }}">{{ $vga->name }}</option>
@@ -68,8 +68,8 @@
                                 @endif
                             @endforeach
                         </select>
-                        @if( $errors->has('vga') )
-                        <label class="error">{{ $errors->first('vga') }}</label>
+                        @if( $errors->has('vga_id') )
+                        <label class="error">{{ $errors->first('vga_id') }}</label>
                         @endif
                     </div>
                     <div class="form-group semi-layout form-group{{ $errors->has('ram') ? ' has-error' : '' }}">

@@ -1,4 +1,4 @@
-<nav class="tap-nav">
+<nav class="tab-nav">
     <ul>
         <li class="{{ Request::segment(1) == 'mypage' ? 'active' : '' }}"><a href="{{ url('/mypage') }}">메인</a></li>
         <li class="{{ Request::segment(1) == 'myinfo' ? 'active' : '' }}"><a href="{{ url('/myinfo') }}">정보수정</a></li>

@@ -6,6 +6,27 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+    protected $fillable = [
+        'name',
+        'image',
+        'url',
+        'price',
+        'monitor',
+        'ram',
+        'ssd',
+        'hdd',
+        'overclock',
+        'power',
+        'os',
+        'cpu_id',
+        'vga_id',
+    ];
+
+    protected $guarded= [
+        'id',
+        'image',
+    ];
+
     public function shop()
     {
         return $this->belongsTo('App\Shop');

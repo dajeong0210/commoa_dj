@@ -43,14 +43,19 @@ class InfoController extends Controller
     
         $user = User::find($id);
         if( Hash::check( $request->input('old_password'), $user->password) ) {
-            if( $request->input('password') == $request->input('password_confirmation')) {
+            if( $request->input('password') != '' &&
+                $request->input('password') == $request->input('password_confirmation')) {
                 $user->name = $request->input('user_name');
                 $user->password = bcrypt($request->input('password'));
                 $user->save();
                 return redirect('/mypage');
-            } 
+            } else if ( $request->input('password') == '' ) {
+                $user->name = $request->input('user_name');
+                $user->save();
+                return redirect('/mypage');
+            }
         } else {
-            //validation ??
+            session()->flash('msg', "비밀번호가 일치하지 않습니다.");
             return back();
         }
     }

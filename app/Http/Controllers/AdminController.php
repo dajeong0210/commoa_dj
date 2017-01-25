@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use Illuminate\Support\Facades\Auth;
+use App\Apply;
+use App\User;
 
 class AdminController extends Controller
 {
@@ -14,8 +17,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
-        return view('Admin.index');
+        $user = User::find( Auth::user()->id );
+        $applies = Apply::orderBy('permission', 'asc')->orderBy('created_at', 'desc')->paginate(18);
+        return view('Admin.index')->with('applies', $applies)->with('user', $user);
     }
 
     public function category()

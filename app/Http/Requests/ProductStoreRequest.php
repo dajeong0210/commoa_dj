@@ -17,11 +17,11 @@ class ProductStoreRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'image' => 'required',
+            'image' => 'required|image',
             'url' => 'required',
             'price' => 'required|numeric',
-            'cpu' => 'required',
-            'vga' => 'required',
+            'cpu_id' => 'required',
+            'vga_id' => 'required',
             'ram' => 'required|numeric',
             'ssd' => 'required|numeric',
             'hdd' => 'required|numeric',

@@ -2,29 +2,28 @@
 
 @section('content')
     <div class="page mypage list admin">
-        <nav class="tab-nav apply">
-            <ul>
-                <form method="GET" name="sortApply">
-                    <li class="{{ isset($_GET['apply'])? $_GET['apply'] == '전체'? 'active' : '' : 'active' }}"><a href="#">전체</a></li>
-                    <li class="{{ isset($_GET['apply'])? $_GET['apply'] == '미승인'? 'active' : '' : '' }}"><a href="#">미승인</a></li>
-                    <li class="{{ isset($_GET['apply'])? $_GET['apply'] == '승인'? 'active' : '' : '' }}"><a href="#">승인</a></li>
-                    <li class="hidden">
-                        <input type="hidden" name="apply" val=""/>
-                    </li>
-                </form>
-            </ul>
-        </nav>
+        @include('layouts.adminMenu')
         <div class="category">
-            <ul>
-            @foreach( $categories as $category )
-                <li>
-                    <span>└</span>{{ $category->name }}
-                    <a href="#" class="delete">
-                    <i class="fa fa-times" aria-hidden="true"></i>
-                    </a>
-                </li>
-            @endforeach
-            </ul>
+            <h2>카테고리편집</h2>
+                <ul>
+                @foreach( $categories as $category )
+                    <li>
+                        <form method="POST" name="modify" action="{{ url('/admin/category') . '/' . $category->id }}">
+                            <span>└</span><em class="name">{{ $category->name }}</em>
+                            <input type="text" class="modify hidden" value="{{ $category->name }}">
+                            <a href="#" class="delete">
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                            </a>
+                        </form>
+                        <form name="delete" class="hidden" method="POST" action="{{ url('/admin/category') . '/' . $category->id }}">
+                            {{ method_field('delete') }}
+                            {{ csrf_field() }}
+                            <input type="submit" value="삭제" class="delete"/>
+                        </form>
+                    </li>
+                @endforeach
+                </ul>
+                <button class="modify">수정</button>
         </div>
     </div>
 @endsection
