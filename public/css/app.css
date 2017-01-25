@@ -2315,19 +2315,19 @@ div#app.admin div.admin-content {
   }
 }
 
-div#app.admin div.admin-content div.page.list.mypage.admin {
+div#app.admin div.admin-content div.page {
   width: 100%;
   max-width: 800px;
   min-width: initial;
 }
 
 @media (max-width: 800px) {
-  div#app.admin div.admin-content div.page.list.mypage.admin nav.apply ul li {
+  div#app.admin div.admin-content div.page nav.apply ul li {
     width: 33.333333333333333%;
     margin: 0;
     padding: 0;
   }
-  div#app.admin div.admin-content div.page.list.mypage.admin nav.apply ul li:nth-child(5), div#app.admin div.admin-content div.page.list.mypage.admin nav.apply ul li:nth-child(6) {
+  div#app.admin div.admin-content div.page nav.apply ul li:nth-child(5), div#app.admin div.admin-content div.page nav.apply ul li:nth-child(6) {
     width: 50%;
   }
 }
