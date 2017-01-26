@@ -80,19 +80,22 @@ class ShopController extends Controller
     public function update(ShopUpdateRequest $request, $id)
     {
         $shop = Shop::find($id);
+        // $this->authorize('update', $shop);
         if( $request->file('image') != null ) { 
-            $path_i = $request->file('image')->store('images');
-            $shop->image = $path_i;
+            $request->merge(['image' => $request->file('image')->store('images')]);
         } 
-        $shop->name = $request->input('shop_name');
-        $shop->url = $request->input('shop_url');
-        $shop->contact_address = $request->input('business_address');
-        $shop->contact_name = $request->input('contact_name');
-        $shop->contact_phone = $request->input('contact_phone');
-        $shop->contact_mobile = $request->input('contact_mobile');
-        $shop->contact_email = $request->input('contact_email');
-        $shop->save();
+        $request->except(['_method', '_token']);
+        $shop->update($request->all());
         return redirect('shop/'.$shop->id.'/edit')->with('shop', $shop);
+        // $shop->name = $request->input('name');
+        // $shop->url = $request->input('url');
+        // $shop->contact_address = $request->input('contact_address');
+        // $shop->contact_name = $request->input('contact_name');
+        // $shop->contact_phone = $request->input('contact_phone');
+        // $shop->contact_mobile = $request->input('contact_mobile');
+        // $shop->contact_email = $request->input('contact_email');
+        // $shop->save();
+        
     }
 
     public function destroy($id)

@@ -20,18 +20,18 @@
                 </div>
                 <div class="shop-group group">
                     <h3>Shop 정보 입력</h3>
-                    <div class="form-group half-layout form-group{{ $errors->has('shop_name') ? ' has-error' : '' }}">
-                        <label for="shop_name">Shop 이름</label>
-                        <input type="text" name="shop_name" class="input shop_name required" value="{{ $shop->name }}"/>
-                        @if ($errors->has('shop_name'))
-                            <label class="error">{{ $errors->first('shop_name') }}</label>
+                    <div class="form-group half-layout form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                        <label for="name">Shop 이름</label>
+                        <input type="text" name="name" class="input name required" value="{{ $shop->name }}"/>
+                        @if ($errors->has('name'))
+                            <label class="error">{{ $errors->first('name') }}</label>
                         @endif
                     </div>
-                    <div class="form-group half-layout form-group{{ $errors->has('shop_url') ? ' has-error' : '' }}">
-                        <label for="shop_url">Shop URL</label>
-                        <input type="text" name="shop_url" class="input shop_url required" value="{{ $shop->url }}"/>
-                        @if ($errors->has('shop_url'))
-                            <label class="error">{{ $errors->first('shop_url') }}</label>
+                    <div class="form-group half-layout form-group{{ $errors->has('url') ? ' has-error' : '' }}">
+                        <label for="url">Shop URL</label>
+                        <input type="text" name="url" class="input required" value="{{ $shop->url }}"/>
+                        @if ($errors->has('url'))
+                            <label class="error">{{ $errors->first('url') }}</label>
                         @endif
                     </div>
                     <div class="form-group half-layout">
@@ -72,11 +72,11 @@
                         <label for="contact_phone">전화</label>
                         <input type="phone" name="contact_phone" class="input contact_phone" value="{{ $shop->contact_phone }}" placeholder="'-'를 제외한 숫자만 입력해주세요."/>
                     </div>
-                    <div class="form-group one-layout form-group{{ $errors->has('business_address') ? ' has-error' : '' }}">
-                        <label for="business_address">주소</label>
-                        <input type="address" name="business_address" class="input business_address required" value="{{ $shop->contact_address }}"/>
-                        @if ($errors->has('business_address'))
-                            <label class="error">{{ $errors->first('business_address') }}</label>
+                    <div class="form-group one-layout form-group{{ $errors->has('contact_address') ? ' has-error' : '' }}">
+                        <label for="contact_address">주소</label>
+                        <input type="address" name="contact_address" class="input contact_address required" value="{{ $shop->contact_address }}"/>
+                        @if ($errors->has('contact_address'))
+                            <label class="error">{{ $errors->first('contact_address') }}</label>
                         @endif
                     </div>
                 </div>

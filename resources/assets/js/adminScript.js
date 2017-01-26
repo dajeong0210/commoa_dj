@@ -36,6 +36,9 @@
                 return false;
             }
         });
+        $('input.modify-btn').click(function(){
+            $('form[name="modify"]').submit();
+        });
     //delete
         $('a.delete').on('click', function(){
             $nth = $(this).prev().prev().prev().html();

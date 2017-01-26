@@ -11,9 +11,7 @@
                     <span>└</span>
                     <span class="hidden">{{ $category->id  }}</span>
                     <em class="name">{{ $category->name }}</em>
-                    <form method="POST" name="modify{{ $catrgory->id }}" action="{{ url('/admin/category') . '/' . $category->id }}">
                     <input type="text" class="modify hidden" value="{{ $category->name }}">
-                    </form>
                     <a href="#" class="delete">
                     <i class="fa fa-times" aria-hidden="true"></i>
                     </a>
@@ -24,15 +22,14 @@
                 </li>
             @endforeach
             </ul>
-            <input type="submit" value="수정" class="modify-btn">
-            <!---
-            <form method="POST" name="modify" action="{{ url('/admin/category') }}">
+            <form method="POST" name="modify" action="{{ url('/admin/category/edit') }}">
+            {{ method_field('put') }}
+            {{ csrf_field() }}
                 @foreach( $categories as $category )
                 <input type="hidden" class="modify hidden" name="category{{ $category->id }}" value="{{ $category->name }}">
                 @endforeach
                 <input type="submit" value="수정" class="modify-btn">
             </form>
-            -->
         </div>
     </div>
 @endsection
