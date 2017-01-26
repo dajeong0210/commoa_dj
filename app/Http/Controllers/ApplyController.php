@@ -99,7 +99,7 @@ class ApplyController extends Controller
     public function update(ApplyUpdateRequest $request, $id)
     {
         $apply = Apply::find($id);
-
+        // $this->authorize('update', $apply);
         if( $request->file('business_docu') != null ) {
             $request->merge(['business_docu' => $request->file('business_docu')->store('images')]);
         }

@@ -31,10 +31,20 @@ class AdminController extends Controller
     public function categoryUpdate(Request $request) {
 
         $categories = Category::get();
+        //edit
         foreach ($categories as $category) {
             $id = $category->id;
             $category->name = $request->input('category'.$id);
             $category->save();
+        }
+        //추가된 카테고리가 존재할 때 
+        //create
+        if( $addCategory = $request->input('create') ) { 
+            for( $i=0; $i<count($addCategory); $i++ ) { 
+                $newCategory = new Category;
+                $newCategory->name = $addCategory[$i];
+                $newCategory->save();
+            }
         }
         return redirect('/admin/category');
     }
