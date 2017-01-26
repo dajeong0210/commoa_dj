@@ -58,7 +58,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/shop', 'ShopController@store');
         Route::put('/admin/category/{id}', 'AdminController@categoryUpdate');
         Route::delete('/admin/category/{id}', 'AdminController@categoryDelete');
-        Route::get('/categorycnt/{id}', 'AdminController@categoryCnt');
+        Route::post('/categorycnt/{id}', 'AdminController@categoryCnt');
     });
 
 

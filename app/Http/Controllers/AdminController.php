@@ -42,6 +42,7 @@ class AdminController extends Controller
         if( $addCategory = $request->input('create') ) { 
             for( $i=0; $i<count($addCategory); $i++ ) { 
                 $newCategory = new Category;
+                $name = $addCategory[$i];
                 $newCategory->name = $addCategory[$i];
                 $newCategory->save();
             }
