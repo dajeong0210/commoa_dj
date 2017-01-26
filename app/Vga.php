@@ -9,7 +9,6 @@ class Vga extends Model
     protected $fillable = [
         'name',
         'brand',
-        'cores',
         'level',
     ];
 

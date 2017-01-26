@@ -26,7 +26,6 @@ class VgaRequest extends FormRequest
         return [
             'name' => 'required|unique:vgas',
             'brand' => 'required',
-            'cores' => 'required',
             'level' => 'required',
         ];
     }
