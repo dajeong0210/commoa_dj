@@ -162,6 +162,11 @@ div#app.admin{
             span{
                 margin:0 5px;
                 color:#aaa;
+                &.count{
+                    letter-spacing:-1px;
+                    font-size:10px;
+                    margin:0 5px 0 0;
+                }
             }
             em{
                 font-style:normal;

@@ -24,13 +24,13 @@
             $(this).toggleClass('hidden');
             $(this).next().toggleClass('hidden').focus();
         });
-        $('input.modify').on('focusout', function(){
+        $('li').on('focusout', 'input.modify', function(){
             $nth = $(this).prev().prev().html();
             $('input.modify').addClass('hidden');
             $('div.category em').removeClass('hidden');
             $(this).prev('em').html( $(this).val().replace(/(\s*)/g, "") );
             $('input[name="category'+$nth+'"]').val($(this).val());
-        }).on('keypress', 'em', function(e){
+        }).on('keypress', 'input.modify', function(e){
             if(e.keyCode == 13){
                 $(this).focusout();
                 return false;
@@ -46,28 +46,36 @@
         });
 
     //delete
-        $('a.delete').on('click', function(){
-            $nth = $(this).prev().prev().prev().html();
-            var categoryId = { 'categoryId' : $nth }
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            $.ajax({
-                type:'POST',
-                url:'/categorycnt/'+$nth,
-                data:categoryId,
-                success:function(){
-                    if( data == 0 ){
-                        $('form[name="delete"]').submit();
-                    }else{
-                        alert('카테고리에 상품이 남아있어 지울 수 없습니다!');
+        $('li').on('click', 'a.delete', function(e){
+            e.preventDefault();
+            if( $(this).parent('li').hasClass('create') ){
+                $(this).parent('li').remove();
+            }else{
+                $nth = $(this).prev().prev().prev().prev().html();
+                var categoryId = { 'categoryId' : $nth }
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     }
-                },error:function(){
+                });
+                $.ajax({
+                    type:'POST',
+                    url:'/categorycnt/'+$nth,
+                    data:categoryId,
+                    success:function(data){
+                        if( data == 0 ){
+                            if( confirm('정말 삭제하겠습니까?') == false ){
+                                return false;
+                            }
+                            $('form[name="delete"]').submit();
+                        }else{
+                            alert('카테고리에 상품이 남아있어 지울 수 없습니다!');
+                        }
+                    },error:function(){
 
-                }
-            });
+                    }
+                });
+            }
         });
     //create
         $('a.create').on('click', function(){
@@ -76,9 +84,10 @@
         });
         $('input.create').on('focusout', function(){
             if( $(this).val() != '' ){
-                $(this).parent().parent().before('<li><span>└</span><em class="name">'+$(this).val()+'</em><input type="text" class="modify hidden" value="'+$(this).val()+'"><a href="#" class="delete"><i class="fa fa-times" aria-hidden="true"></i></a></li>');
+                // $(this).parent().parent().before('<li class="create"><span>└</span><em class="name">'+$(this).val()+'</em><input type="text" class="modify hidden" value="'+$(this).val()+'"><a href="#" class="delete"><i class="fa fa-times" aria-hidden="true"></i></a></li>');
                 $('input[type="submit"]').before('<input type="hidden" class="modify hidden" name="create[]" value="'+$(this).val()+'">');
                 $(this).val('');
+                $('form[name="modify"]').submit();
             }
             $(this).addClass('hidden');
         }).on('keypress', function(e){

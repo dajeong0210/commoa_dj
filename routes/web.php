@@ -52,8 +52,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::group(['middleware' => 'SystemAdmin'], function () {
         Route::get('/admin', 'AdminController@index');
-        Route::get('/admin/category', 'AdminController@category');
         Route::get('/apply', 'ApplyController@index');
+        Route::get('/admin/category', 'AdminController@category');
+        Route::get('/admin/cpu-vga', 'AdminController@cpuvga');
         Route::get('/apply/{id}', 'ApplyController@show');
         Route::post('/shop', 'ShopController@store');
         Route::put('/admin/category/{id}', 'AdminController@categoryUpdate');
