@@ -10,11 +10,6 @@ use App\User;
 
 class AdminController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $user = User::find( Auth::user()->id );
@@ -37,7 +32,6 @@ class AdminController extends Controller
             $category->name = $request->input('category'.$id);
             $category->save();
         }
-        //추가된 카테고리가 존재할 때 
         //create
         if( $addCategory = $request->input('create') ) { 
             for( $i=0; $i<count($addCategory); $i++ ) { 
@@ -62,69 +56,38 @@ class AdminController extends Controller
         return redirect('/admin/category');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function cpuCreate(Request $request) {
+        $cpu->create($request); 
+        return redirect('/admin/cpu-vga');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+    public function cpuUpdate(Request $request, $id) {
+        $cpu = Cpu::find($id);
+        $cpu->update($request->all());
+        return redirect('/admin/cpu-vga');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+    public function cpuDelete($id) {
+        $cpu = Cpu::find($id);
+        $cpu->delete();
+        return redirect('/admin/cpu-vga');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+    public function vgaCreate(Request $request) {
+        $vga->create($request); 
+        return redirect('/admin/cpu-vga');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+    public function vgaUpdate(Request $request, $id) {
+        $vga = Vga::find($id);
+        $vga->update($request->all());
+        return redirect('/admin/cpu-vga');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+    public function vgaDelete($id) {
+        $vga = Vga::find($id);
+        $vga->delete();
+        return redirect('/admin/cpu-vga');
     }
+    
 }
