@@ -11,8 +11,9 @@
                 <li>
                     <span>└</span>
                     <span class="hidden">{{ $category->id  }}</span>
-                    <em class="name">{{ $category->name }}<span class="count"> ( {{ $category->products()->count() }} )  </span></em>
+                    <em class="name">{{ $category->name }}</em>
                     <input type="text" class="modify hidden" value="{{ $category->name }}">
+                    <span class="count"> ( {{ $category->products()->count() }} )  </span>
                     <a href="#" class="delete">
                     <i class="fa fa-times" aria-hidden="true"></i>
                     </a>

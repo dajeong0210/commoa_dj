@@ -51,7 +51,8 @@
             if( $(this).parent('li').hasClass('create') ){
                 $(this).parent('li').remove();
             }else{
-                $nth = $(this).prev().prev().prev().prev().html();
+                $nth = $(this).prev().prev().prev().html();
+                console.log($nth);
                 var categoryId = { 'categoryId' : $nth }
                 $.ajaxSetup({
                     headers: {
