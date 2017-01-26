@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\CpuRequest;
+use App\Http\Requests\VgaRequest;
 use App\Category;
 use Illuminate\Support\Facades\Auth;
 use App\Apply;
@@ -67,12 +69,12 @@ class AdminController extends Controller
         return redirect('/admin/category');
     }
 
-    public function cpuCreate(Request $request) {
+    public function cpuCreate(CpuRequest $request) {
         $cpu->create($request); 
         return redirect('/admin/cpu-vga');
     }
 
-    public function cpuUpdate(Request $request, $id) {
+    public function cpuUpdate(CpuRequest $request, $id) {
         $cpu = Cpu::find($id);
         $cpu->update($request->all());
         return redirect('/admin/cpu-vga');
@@ -84,12 +86,12 @@ class AdminController extends Controller
         return redirect('/admin/cpu-vga');
     }
 
-    public function vgaCreate(Request $request) {
+    public function vgaCreate(VgaRequest $request) {
         $vga->create($request); 
         return redirect('/admin/cpu-vga');
     }
 
-    public function vgaUpdate(Request $request, $id) {
+    public function vgaUpdate(VgaRequest $request, $id) {
         $vga = Vga::find($id);
         $vga->update($request->all());
         return redirect('/admin/cpu-vga');
