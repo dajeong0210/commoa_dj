@@ -167,6 +167,12 @@ div#app.admin{
                 font-style:normal;
             }
         }
+        input[type="text"]{
+            padding:0;
+            margin:0;
+            font-size:13px;
+            height:13px;
+        }
         input.modify-btn{
             margin-top:20px;
             font-size:13px;

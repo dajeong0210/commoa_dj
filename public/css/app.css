@@ -2382,6 +2382,13 @@ div#app.admin div.category li em {
   font-style: normal;
 }
 
+div#app.admin div.category input[type="text"] {
+  padding: 0;
+  margin: 0;
+  font-size: 13px;
+  height: 13px;
+}
+
 div#app.admin div.category input.modify-btn {
   margin-top: 20px;
   font-size: 13px;
