@@ -21,6 +21,15 @@
                     </form>
                 </li>
             @endforeach
+                <li>
+                    <form method="POST" name="create" action="{{ url('/admin/category') }}">
+                        <span>└</span>
+                        <a href="#" class="create">
+                            <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+                        </a>
+                        <input type="text" name="create" class="create hidden">
+                    </form>
+                </li>
             </ul>
             <form method="POST" name="modify" action="{{ url('/admin/category/edit') }}">
             {{ method_field('put') }}
@@ -28,7 +37,7 @@
                 @foreach( $categories as $category )
                 <input type="hidden" class="modify hidden" name="category{{ $category->id }}" value="{{ $category->name }}">
                 @endforeach
-                <input type="submit" value="수정" class="modify-btn">
+                <input type="submit" value="저장" class="modify-btn">
             </form>
         </div>
     </div>
