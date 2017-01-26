@@ -7,6 +7,7 @@ use App\Category;
 use Illuminate\Support\Facades\Auth;
 use App\Apply;
 use App\User;
+use App\Product;
 use App\Cpu;
 use App\Vga;
 
@@ -29,7 +30,8 @@ class AdminController extends Controller
     {
         $cpus = Cpu::get();
         $vgas = Vga::get();
-        return view('Admin.cpu-vga')->with('cpus', $cpus)->with('vgas', $vgas);
+        $products = Product::get();
+        return view('Admin.cpu-vga')->with('cpus', $cpus)->with('vgas', $vgas)->with('products', $products);
     }
 
     public function categoryUpdate(Request $request) {

@@ -1,11 +1,8 @@
-
-
 //Nav
     $('a.menu_btn').on('click', function(){
         $('ul.nav-group').toggleClass('show');
         $(this).parent().addClass('active');
     });
-
 //tab
     $('nav.tab-nav a').on('click', function(e){
         if( $(this).parent().parent().parent().parent().hasClass('apply') )
@@ -15,7 +12,6 @@
         $('input[name="apply"]').val( $(this).html() );
         $('form[name="sortApply"]').submit();
     });
-
 //Category
     //modify
         $('div.category').on('click', 'em', function(){
@@ -97,3 +93,19 @@
                 $(this).focusout();
             }
         });
+//Cpu-vga
+    $('li.cpu').find('a.name').on('click',function(e){
+        e.preventDefault();
+        $('form[name="cpuForm"]').removeClass('hidden');
+        $('form[name="vgaForm"]').addClass('hidden');
+    });
+    $('a.folder').on('click', function(e){
+        e.preventDefault();
+        $(this).parent().next().toggleClass('hidden');
+    })
+    $('li.vga').find('a.name').on('click',function(e){
+        e.preventDefault();
+        $('form[name="vgaForm"]').removeClass('hidden');
+        $('form[name="cpuForm"]').addClass('hidden');
+    });
+    //ajax -- form action && input value 값 각각 넣어주고 마지막에 submit

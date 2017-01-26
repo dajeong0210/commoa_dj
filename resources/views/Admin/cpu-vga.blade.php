@@ -3,46 +3,133 @@
 @section('content')
     <div class="page mypage list admin">
         @include('layouts.adminMenu')
-        <div class="category">
-            <h2>카테고리편집</h2>
-            <ul>
-            <li><i class="fa fa-folder-open-o" aria-hidden="true"></i> <strong>컴모아</strong></li>
-            @foreach( $categories as $category )
-                <li>
-                    <span>└</span>
-                    <span class="hidden">{{ $category->id  }}</span>
-                    <em class="name">{{ $category->name }}</em>
-                    <input type="text" class="modify hidden" value="{{ $category->name }}">
-                    <span class="count"> ( {{ $category->products()->count() }} )  </span>
-                    <a href="#" class="delete">
-                    <i class="fa fa-times" aria-hidden="true"></i>
-                    </a>
-                    <form name="delete" class="hidden" method="POST" action="{{ url('/admin/category') . '/' . $category->id }}">
-                        {{ method_field('delete') }}
-                        {{ csrf_field() }}
-                    </form>
-                </li>
-            @endforeach
-                <li>
-                    <form method="POST" name="create" action="{{ url('/admin/category/create') }}">
-                    {{ method_field('put') }}
-                    {{ csrf_field() }}
+        <div class="wrap">
+            <div class="cpu-vga category">
+                <h2>CPU/VGA편집</h2>
+                <ul>
+                    <li>
+                        <i class="fa fa-folder-open-o" aria-hidden="true"></i> <strong>컴모아</strong>
+                    </li>
+                    <li>
                         <span>└</span>
-                        <a href="#" class="create">
-                            <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+                        <a href="#" class="folder">
+                        <i class="fa fa-folder-open-o" aria-hidden="true"></i> <strong>CPU</strong>
                         </a>
-                        <input type="text" name="create" class="create hidden">
-                    </form>
-                </li>
-            </ul>
-            <form method="POST" name="modify" action="{{ url('/admin/category/edit') }}">
-            {{ method_field('put') }}
-            {{ csrf_field() }}
-                @foreach( $categories as $category )
-                <input type="hidden" class="modify hidden" name="category{{ $category->id }}" value="{{ $category->name }}">
-                @endforeach
-                <input type="submit" value="수정" class="modify-btn">
-            </form>
+                    </li>
+                    <li>
+                        <ul>
+                            @foreach( $cpus as $cpu )
+                            <li class="cpu">
+                                <span>└</span>
+                                <span class="hidden">{{ $cpu->id  }}</span>
+                                <a href="#" class="name">{{ $cpu->name }}</a>
+                                <span class="count"> ( {{ $products->where('cpu_id', $cpu->id)->count() }} )  </span>
+                                <a href="#" class="delete">
+                                <i class="fa fa-times" aria-hidden="true"></i>
+                                </a>
+                                <form name="delete" class="hidden" method="POST" action="{{ url('/admin/cpu') . '/' . $cpu->id }}">
+                                    {{ method_field('delete') }}
+                                    {{ csrf_field() }}
+                                </form>
+                            </li>
+                            @endforeach
+                        </ul>
+                    </li>
+                    <li>
+                        <span>└</span>
+                        <a href="#" class="folder">
+                            <i class="fa fa-folder-open-o" aria-hidden="true"></i> <strong>VGA</strong>
+                        </a>
+                    </li>
+                    <li>
+                        <ul>
+                            @foreach( $vgas as $vga )
+                            <li class="vga">
+                                <span>└</span>
+                                <span class="hidden">{{ $vga->id  }}</span>
+                                <a href="#" class="name">{{ $vga->name }}</a>
+                                <span class="count"> ( {{ $products->where('vga_id', $vga->id)->count() }} )  </span>
+                                <a href="#" class="delete">
+                                <i class="fa fa-times" aria-hidden="true"></i>
+                                </a>
+                                <form name="delete" class="hidden" method="POST" action="{{ url('/admin/vga') . '/' . $vga->id }}">
+                                    {{ method_field('delete') }}
+                                    {{ csrf_field() }}
+                                </form>
+                            </li>
+                            @endforeach
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="cpu-vga category form">
+                <form method="POST" name="cpuForm" action="">
+                    <h3>CPU {{ $cpu->name }} 정보</h3>
+                    <div class="group">
+                        <div class="form-group one-layout">
+                            <label for="cpu_name">이름</label>
+                            <input type="text" name="cpu_name" value="{{ $cpu->name }}"/>
+                        </div>
+                    </div>
+                    <div class="group">
+                        <div class="form-group one-layout">
+                            <label for="cpu_brand">브랜드</label>
+                            <input type="text" name="cpu_brand" value="{{ $cpu->brand }}"/>
+                        </div>
+                    </div>
+                    <div class="group">
+                        <div class="form-group one-layout">
+                            <label for="cpu_core">코어</label>
+                            <input type="text" name="cpu_core" value="{{ $cpu->cores }}"/>
+                        </div>
+                    </div>
+                    <div class="group">
+                        <div class="form-group one-layout">
+                            <label for="cpu_name">사양</label>
+                            <select name="cpu_name">
+                                <option value="3">상</option>
+                                <option value="2">중</option>
+                                <option value="1">하</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="group">
+                        <div class="form-group one-layout">
+                            <input type="submit" class="btn submit" value="수정하기"/>
+                        </div>
+                    </div>
+                </form>
+                <form method="POST" name="vgaForm" class="hidden">
+                    <h3>VGA {{ $vga->name }} 정보</h3>
+                    <div class="group">
+                        <div class="form-group one-layout">
+                            <label for="vga_name">이름</label>
+                            <input type="text" name="vga_name" value="{{ $vga->name }}"/>
+                        </div>
+                    </div>
+                    <div class="group">
+                        <div class="form-group one-layout">
+                            <label for="vga_brand">브랜드</label>
+                            <input type="text" name="vga_brand" value="{{ $vga->brand }}"/>
+                        </div>
+                    </div>
+                    <div class="group">
+                        <div class="form-group one-layout">
+                            <label for="vga_name">사양</label>
+                            <select name="vga_name">
+                                <option value="3">상</option>
+                                <option value="2">중</option>
+                                <option value="1">하</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="group">
+                        <div class="form-group one-layout">
+                            <input type="submit" class="btn submit" value="수정하기"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 @endsection
