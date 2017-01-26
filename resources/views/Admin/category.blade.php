@@ -22,7 +22,7 @@
                 </li>
             @endforeach
             </ul>
-            <form method="POST" name="modify" action="{{ url('/admin/category') }}">
+            <form method="POST" name="modify" action="{{ url('/admin/category/edit') }}">
             {{ method_field('put') }}
             {{ csrf_field() }}
                 @foreach( $categories as $category )
