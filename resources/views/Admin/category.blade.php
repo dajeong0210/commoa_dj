@@ -23,6 +23,7 @@
             @endforeach
             </ul>
             <form method="POST" name="modify" action="{{ url('/admin/category') }}">
+            {{ method_field('put') }}
             {{ csrf_field() }}
                 @foreach( $categories as $category )
                 <input type="hidden" class="modify hidden" name="category{{ $category->id }}" value="{{ $category->name }}">
