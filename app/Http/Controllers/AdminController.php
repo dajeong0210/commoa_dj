@@ -29,22 +29,26 @@ class AdminController extends Controller
     }
 
     public function categoryUpdate(Request $request) {
-        // $category = Category::find($id);
-        // $name = $request->input('category');
-        // $category->name = $request->input('category');
-        // $category->save();
+
         $categories = Category::get();
         foreach ($categories as $category) {
             $id = $category->id;
-            $name = $request->input('category'.$id);
             $category->name = $request->input('category'.$id);
             $category->save();
         }
         return redirect('/admin/category');
     }
 
-    public function categoryDelete($c_id) {
+    public function categoryCnt($id) { 
+        $category = Category::find($id);
+        $productCnt = $category->products()->count();
+        echo $productCnt;
+    }
 
+    public function categoryDelete($id) {
+        $category = Category::find($id);
+        $category->delete();
+        return redirect('/admin/category');
     }
 
     /**
