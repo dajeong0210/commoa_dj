@@ -27,7 +27,7 @@
                                 <a href="#" class="del">
                                 <i class="fa fa-times" aria-hidden="true"></i>
                                 </a>
-                                <form name="delete" class="hidden" method="POST" action="{{ url('/admin/cpu') . '/' . $cpu->id }}">
+                                <form name="delete" class="hidden cpu{{$cpu->id}}" method="POST" action="{{ url('/cpu') . '/' . $cpu->id }}">
                                     {{ method_field('delete') }}
                                     {{ csrf_field() }}
                                 </form>
@@ -53,7 +53,7 @@
                                 <a href="#" class="del">
                                 <i class="fa fa-times" aria-hidden="true"></i>
                                 </a>
-                                <form name="delete" class="hidden" method="POST" action="{{ url('/admin/vga') . '/' . $vga->id }}">
+                                <form name="delete" class="hidden vga{{$vga->id}}" method="POST" action="{{ url('/admin/vga') . '/' . $vga->id }}">
                                     {{ method_field('delete') }}
                                     {{ csrf_field() }}
                                 </form>
