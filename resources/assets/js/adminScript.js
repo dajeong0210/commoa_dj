@@ -33,13 +33,11 @@
             }
         });
         function Submit($target, $name){
-            $('input.modify-btn').click(function(){
-            $('form[name="modify"]').submit();
-        });
+            $target.click(function(){
+                $('form[name="'+$name+'"]').submit();
+            });
         }
-        $('input.modify-btn').click(function(){
-            $('form[name="modify"]').submit();
-        });
+        Submit( $('input.modify-btn'), 'modify' );
 
     //delete
         $('li').on('click', 'a.delete', function(e){
@@ -96,15 +94,35 @@
 //Cpu-vga
     $('a.folder').on('click', function(e){
         e.preventDefault();
+        $('a').removeClass('active');
         $(this).parent().next().toggleClass('hidden');
     })
-
+    $('a.create').on('click', function(e){
+        e.preventDefault();
+        $('a').removeClass('active');
+        $(this).addClass('active');
+        if( $(this).parent().hasClass('cpu') ){
+            $('form[name="cpuForm"] h3').html('CPU :: 추가하기');
+            $('form[name="cpuForm"] input').val('');
+            $('select[name="cpu_level"] option').eq(0).prop("selected", true);
+            $('form[name="cpuForm"]').removeClass('hidden').attr('action' , $url+'/cpu').find('input[type="submit"]').val('추가하기');
+            $('form[name="vgaForm"]').addClass('hidden');
+        }else{
+            $('form[name="vgaForm"] h3').html('VGA :: 추가하기');
+            $('form[name="vgaForm"] input').val('');
+            $('select[name="vga_level"] option').eq(0).prop("selected", true);
+            $('form[name="vgaForm"]').removeClass('hidden').attr('action' , $url+'/vga').find('input[type="submit"]').val('추가하기');
+            $('form[name="cpuForm"]').addClass('hidden');
+        }
+    })
     //ajax -- form action && input value 값 각각 넣어주고 마지막에 submit
-    $('a.name').on('click', function(){
+    $('a.name').on('click', function(e){
+        e.preventDefault();
+        $('a').removeClass('active');
+        $(this).addClass('active');
         $type = $(this).parent().attr('class');
         $targetId = $(this).prev().html();
         $url = window.location.protocol+'//'+window.location.host;
-        console.log($url);
         var dataArr = { 'type' : $type ,
                         'id' : $targetId }
         $.ajaxSetup({
@@ -119,17 +137,19 @@
             success:function(data){
                 var dataArr = JSON.parse(data);
                 if( $type == 'cpu' ){
+                    $('form[name="cpuForm"] h3').html('CPU :: '+dataArr.name);
                     $('input[name="cpu_name"]').val(dataArr.name);
                     $('input[name="cpu_brand"]').val(dataArr.brand);
                     $('input[name="cpu_core"]').val(dataArr.cores);
                     $('select[name="cpu_level"]').val(dataArr.level).prop("selected", true);
-                    $('form[name="cpuForm"]').removeClass('hidden').attr('action' , $url+'/cpu/'+$targetId+'/edit');
+                    $('form[name="cpuForm"]').removeClass('hidden').attr('action' , $url+'/cpu-edit/'+$targetId).find('input[type="submit"]').val('수정하기');
                     $('form[name="vgaForm"]').addClass('hidden');
                 }else{
+                    $('form[name="vgaForm"] h3').html('VGA :: '+dataArr.name);
                     $('input[name="vga_name"]').val(dataArr.name);
                     $('input[name="vga_brand"]').val(dataArr.brand);
                     $('select[name="vga_level"]').val(dataArr.level).prop("selected", true);
-                    $('form[name="vgaForm"]').removeClass('hidden').attr('action' , $url+'/vga/'+$targetId+'/edit');
+                    $('form[name="vgaForm"]').removeClass('hidden').attr('action' , $url+'/vga-edit/'+$targetId);
                     $('form[name="cpuForm"]').addClass('hidden');
                 }
             },error:function(){
