@@ -63,7 +63,7 @@
                 </ul>
             </div>
             <div class="cpu-vga category form">
-                <form method="POST" name="cpuForm" action="">
+                <form method="POST" name="cpuForm" action="{{ url('cpu') .'/'. $cpu->id . '/edit' }}">
                     <h3>CPU :: {{ $cpu->name }} </h3>
                     <div class="group">
                         <div class="form-group one-layout">
