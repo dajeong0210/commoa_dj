@@ -109,8 +109,11 @@ class AdminController extends Controller
         $brand = $cpu->brand;
         $cores = $cpu->cores;
         $level = $cpu->level;
-        
-        echo "{ 'name' : $name , 'brand' : $brand , 'cores' : $cores , 'level' : $level }"; 
+        $array = array( 'name' => $name, 
+                        'brand' => $brand, 
+                        'cores' => $cores, 
+                        'level' => $level ); 
+        echo $array; 
     }
 
     public function findVga($id) {
@@ -118,7 +121,9 @@ class AdminController extends Controller
         $name = $vga->name;
         $brand = $vga->brand;
         $level = $vga->level;
-
-        echo "{ 'name' : $name , 'brand' : $brand , 'level' : $level }"; 
+        $array = array( 'name' => $name, 
+                        'brand' => $brand, 
+                        'level' => $level );
+        echo $array;
     }
 }
