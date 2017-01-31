@@ -28,11 +28,6 @@ class BookmarkController extends Controller
         return view('bookmark.index')->with('shops', $shops);
     }
 
-    public function create()
-    {
-        //
-    }
-
     public function store($shop_id, Request $request)
     {
         $shop = Shop::find($shop_id);
@@ -41,23 +36,4 @@ class BookmarkController extends Controller
         echo $shop->users()->get()->where('id', Auth::user()->id)->count();
     }
 
-    public function show($id)
-    {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    public function destroy($id)
-    {
-        //
-    }
 }

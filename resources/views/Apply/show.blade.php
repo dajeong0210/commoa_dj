@@ -53,11 +53,11 @@
                     </div>
                     <div class="form-group half-layout">
                         <label for="business_docu">사업자등록증</label>
-                        <a href="{{ url('/') .'/'. $apply->business_docu }}" target="_blank">보기</a>
+                        <a href="{{ $apply->business_docu }}" target="_blank">보기</a>
                     </div>
                     <div class="form-group half-layout">
                         <label for="sale_docu">통신판매업증</label>
-                        <a href="{{ url('/') .'/'. $apply->sale_docu }}" target="_blank">보기</a>
+                        <a href="{{ $apply->sale_docu }}" target="_blank">보기</a>
                     </div>
                 </div>
                 <div class="contact-group group">
