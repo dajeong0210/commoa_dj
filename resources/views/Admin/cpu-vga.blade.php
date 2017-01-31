@@ -53,7 +53,7 @@
                                 <a href="#" class="del">
                                 <i class="fa fa-times" aria-hidden="true"></i>
                                 </a>
-                                <form name="delete" class="hidden" method="POST" action="{{ url('/admin/vga') . '/' . $vga->id }}">
+                                <form name="delete" class="hidden" method="POST" action="{{ url('/vga') . '/' . $vga->id }}">
                                     {{ method_field('delete') }}
                                     {{ csrf_field() }}
                                 </form>
