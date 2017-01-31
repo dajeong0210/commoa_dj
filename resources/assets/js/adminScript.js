@@ -33,13 +33,11 @@
             }
         });
         function Submit($target, $name){
-            $('input.modify-btn').click(function(){
-            $('form[name="modify"]').submit();
-        });
+            $target.click(function(){
+                $('form[name="'+$name+'"]').submit();
+            });
         }
-        $('input.modify-btn').click(function(){
-            $('form[name="modify"]').submit();
-        });
+        Submit( $('input.modify-btn'), 'modify' );
 
     //delete
         $('li').on('click', 'a.delete', function(e){
@@ -104,7 +102,6 @@
         $type = $(this).parent().attr('class');
         $targetId = $(this).prev().html();
         $url = window.location.protocol+'//'+window.location.host;
-        console.log($url);
         var dataArr = { 'type' : $type ,
                         'id' : $targetId }
         $.ajaxSetup({
@@ -119,17 +116,19 @@
             success:function(data){
                 var dataArr = JSON.parse(data);
                 if( $type == 'cpu' ){
+                    $('form[name="cpuForm"] h3').html('CPU :: '+dataArr.name);
                     $('input[name="cpu_name"]').val(dataArr.name);
                     $('input[name="cpu_brand"]').val(dataArr.brand);
                     $('input[name="cpu_core"]').val(dataArr.cores);
                     $('select[name="cpu_level"]').val(dataArr.level).prop("selected", true);
-                    $('form[name="cpuForm"]').removeClass('hidden').attr('action' , $url+'/cpu/'+$targetId+'/edit');
+                    $('form[name="cpuForm"]').removeClass('hidden').attr('action' , $url+'/cpu-edit/'+$targetId);
                     $('form[name="vgaForm"]').addClass('hidden');
                 }else{
+                    $('form[name="vgaForm"] h3').html('VGA :: '+dataArr.name);
                     $('input[name="vga_name"]').val(dataArr.name);
                     $('input[name="vga_brand"]').val(dataArr.brand);
                     $('select[name="vga_level"]').val(dataArr.level).prop("selected", true);
-                    $('form[name="vgaForm"]').removeClass('hidden').attr('action' , $url+'/vga/'+$targetId+'/edit');
+                    $('form[name="vgaForm"]').removeClass('hidden').attr('action' , $url+'/vga-edit/'+$targetId);
                     $('form[name="cpuForm"]').addClass('hidden');
                 }
             },error:function(){

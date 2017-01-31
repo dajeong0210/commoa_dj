@@ -63,30 +63,45 @@
                 </ul>
             </div>
             <div class="cpu-vga category form">
-                <form method="POST" name="cpuForm" action="{{ url('cpu') .'/'. $cpu->id . '/edit' }}">
+                <form method="POST" name="cpuForm" action="{{ url('cpu-edit') .'/'. $cpu->id }}">
                 {{ method_field('put') }}
                 {{ csrf_field() }}
                     <h3>CPU :: {{ $cpu->name }} </h3>
                     <div class="group">
-                        <div class="form-group one-layout">
+                        <div class="form-group one-layout form-group{{ $errors->has('cpu_name') ? ' has-error' : '' }}">
                             <label for="cpu_name">이름</label>
                             <input type="text" name="cpu_name" value="{{ $cpu->name }}"/>
+                            @if($errors->has('cpu_name'))
+                            <label class="error">
+                                <strong>{{ $errors->first('cpu_name') }}</strong>
+                            </label>
+                            @endif
                         </div>
                     </div>
                     <div class="group">
-                        <div class="form-group one-layout">
+                        <div class="form-group one-layout form-group{{ $errors->has('cpu_brand') ? ' has-error' : '' }}">
                             <label for="cpu_brand">브랜드</label>
                             <input type="text" name="cpu_brand" value="{{ $cpu->brand }}"/>
+                            @if($errors->has('cpu_brand'))
+                            <label class="error">
+                                <strong>{{ $errors->first('cpu_brand') }}</strong>
+                            </label>
+                            @endif
                         </div>
                     </div>
                     <div class="group">
-                        <div class="form-group one-layout">
+                        <div class="form-group one-layout form-group{{ $errors->has('cpu_core') ? ' has-error' : '' }}">
                             <label for="cpu_core">코어</label>
                             <input type="text" name="cpu_core" value="{{ $cpu->cores }}"/>
+                            @if($errors->has('cpu_core'))
+                            <label class="error">
+                                <strong>{{ $errors->first('cpu_core') }}</strong>
+                            </label>
+                            @endif
                         </div>
                     </div>
                     <div class="group">
-                        <div class="form-group one-layout">
+                        <div class="form-group one-layout form-group{{ $errors->has('cpu_level') ? ' has-error' : '' }}">
                             <label for="cpu_level">사양</label>
                             <select name="cpu_level">
                                 <option value="3">상</option>
@@ -97,7 +112,7 @@
                     </div>
                     <div class="group">
                         <div class="form-group one-layout">
-                            <input type="submit" class="btn submit" value="수정하기"/>
+                            <input type="submit" class="btn submit cpu-edit" value="수정하기"/>
                         </div>
                     </div>
                 </form>
@@ -129,7 +144,7 @@
                     </div>
                     <div class="group">
                         <div class="form-group one-layout">
-                            <input type="submit" class="btn submit" value="수정하기"/>
+                            <input type="submit" class="btn submit vga-edit" value="수정하기"/>
                         </div>
                     </div>
                 </form>

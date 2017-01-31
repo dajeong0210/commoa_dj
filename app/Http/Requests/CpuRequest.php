@@ -32,6 +32,7 @@ class CpuRequest extends FormRequest
     }
 
     public function response(array $errors){
-        return back()->withErrors($errors)->withInput();
+        //return back()->withErrors($errors)->withInput();
+        return redirect('admin');
     }
 }
