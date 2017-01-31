@@ -85,8 +85,8 @@
                     </div>
                     <div class="group">
                         <div class="form-group one-layout">
-                            <label for="cpu_name">사양</label>
-                            <select name="cpu_name">
+                            <label for="cpu_level">사양</label>
+                            <select name="cpu_level">
                                 <option value="3">상</option>
                                 <option value="2">중</option>
                                 <option value="1">하</option>
@@ -115,8 +115,8 @@
                     </div>
                     <div class="group">
                         <div class="form-group one-layout">
-                            <label for="vga_name">사양</label>
-                            <select name="vga_name">
+                            <label for="vga_level">사양</label>
+                            <select name="vga_level">
                                 <option value="3">상</option>
                                 <option value="2">중</option>
                                 <option value="1">하</option>

@@ -110,7 +110,9 @@ class AdminController extends Controller
         $cores = $cpu->cores;
         $level = $cpu->level;
         
-        echo "{ 'name' : $name , 'brand' : $brand , 'cores' : $cores , 'level' : $level }"; 
+        $arr = { 'name' : $name, 'brand' : $brand, 'cores' : $cores, 'level' : $level };
+        
+        echo json_encode($arr);
     }
 
     public function findVga($id) {
