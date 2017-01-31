@@ -61,7 +61,7 @@
                             if( confirm('정말 삭제하겠습니까?') == false ){
                                 return false;
                             }
-                            $('form[name="delete"]').submit();
+                            $('form.delete'+$nth).submit();
                         }else{
                             alert('카테고리에 상품이 남아있어 지울 수 없습니다!');
                         }
@@ -185,7 +185,7 @@
                         if( confirm('정말 삭제하겠습니까?') == false ){
                             return false;
                         }
-                        $('form[name="'+$target+'Form"]').submit();
+                        $('form.'+$target+$nth).submit();
                     }else{
                         alert($print+'에 상품이 남아있어 지울 수 없습니다!');
                     }

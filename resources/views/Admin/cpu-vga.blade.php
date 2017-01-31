@@ -27,7 +27,7 @@
                                 <a href="#" class="del">
                                 <i class="fa fa-times" aria-hidden="true"></i>
                                 </a>
-                                <form name="delete" class="hidden" method="POST" action="{{ url('/cpu') . '/' . $cpu->id }}">
+                                <form name="delete" class="hidden cpu{{$cpu->id}}" method="POST" action="{{ url('/cpu') . '/' . $cpu->id }}">
                                     {{ method_field('delete') }}
                                     {{ csrf_field() }}
                                 </form>
