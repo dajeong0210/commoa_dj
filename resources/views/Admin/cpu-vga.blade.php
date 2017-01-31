@@ -104,7 +104,7 @@
                     <div class="group">
                         <div class="form-group one-layout form-group{{ $errors->has('cpu_level') ? ' has-error' : '' }}">
                             <label for="cpu_level">사양</label>
-                            <select name="cpu_level">]
+                            <select name="cpu_level">
                                 <option>선택해주세요</option>
                                 <option value="3">상</option>
                                 <option value="2">중</option>
@@ -119,7 +119,6 @@
                     </div>
                 </form>
                 <form method="POST" name="vgaForm" class="hidden">
-                {{ method_field('put') }}
                 {{ csrf_field() }}
                     <h3>VGA</h3>
                     <div class="group">
@@ -138,6 +137,7 @@
                         <div class="form-group one-layout">
                             <label for="vga_level">사양</label>
                             <select name="vga_level">
+                                <option>선택해주세요</option>
                                 <option value="3">상</option>
                                 <option value="2">중</option>
                                 <option value="1">하</option>

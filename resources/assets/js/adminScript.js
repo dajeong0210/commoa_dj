@@ -105,14 +105,14 @@
         if( $(this).parent().hasClass('cpu') ){
             $('form[name="cpuForm"]').find('input[name="_method"]').remove();
             $('form[name="cpuForm"] h3').html('CPU :: 추가하기');
-            $('form[name="cpuForm"] input').val('');
+            $('form[name="cpuForm"] input').not('[name="_token"]').val('');
             $('select[name="cpu_level"] option').eq(0).prop("selected", true);
             $('form[name="cpuForm"]').removeClass('hidden').attr('action' , $url+'/cpu').find('input[type="submit"]').val('추가하기');
             $('form[name="vgaForm"]').addClass('hidden');
         }else{
             $('form[name="vgaForm"]').find('input[name="_method"]').remove();
             $('form[name="vgaForm"] h3').html('VGA :: 추가하기');
-            $('form[name="vgaForm"] input').val('');
+            $('form[name="vgaForm"] input').not('[name="_token"]').val('');
             $('select[name="vga_level"] option').eq(0).prop("selected", true);
             $('form[name="vgaForm"]').removeClass('hidden').attr('action' , $url+'/vga').find('input[type="submit"]').val('추가하기');
             $('form[name="cpuForm"]').addClass('hidden');
