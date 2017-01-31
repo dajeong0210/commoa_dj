@@ -168,7 +168,9 @@
     }
 //Product sort
     $('nav.tab-nav a').on('click', function(e){
-        e.preventDefault();
+        if( !$(this).parent().parent().hasClass('mypage') ){
+            e.preventDefault();
+        }
         $('nav.tab-nav a').parent().removeClass('active');
         $('div.filter-wrap').not('.'+$(this).attr('class')).addClass('hidden').find('div.sortBy input').remove();
         $( 'div.filter-wrap.'+$(this).attr('class') ).removeClass('hidden').find('div.sortBy').append('<input type="text" id="sortBy_rank" name="product-sort" class="input" value="all"/>');

@@ -64,7 +64,7 @@
             </div>
             <div class="cpu-vga category form">
                 <form method="POST" name="cpuForm" action="">
-                    <h3>CPU {{ $cpu->name }} 정보</h3>
+                    <h3>CPU :: {{ $cpu->name }} </h3>
                     <div class="group">
                         <div class="form-group one-layout">
                             <label for="cpu_name">이름</label>
@@ -100,7 +100,7 @@
                     </div>
                 </form>
                 <form method="POST" name="vgaForm" class="hidden">
-                    <h3>VGA {{ $vga->name }} 정보</h3>
+                    <h3>VGA :: {{ $vga->name }}</h3>
                     <div class="group">
                         <div class="form-group one-layout">
                             <label for="vga_name">이름</label>

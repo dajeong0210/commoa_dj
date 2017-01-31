@@ -230,6 +230,11 @@ div#app.admin{
                 margin:5px;
                 line-height:2;
             }
+            a{
+                &:not(.folder):hover{
+                    text-decoration:underline;
+                }
+            }
             input:not([type="submit"]){
                 padding:10px 7px;
                 height:initial;

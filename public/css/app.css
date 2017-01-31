@@ -2455,6 +2455,10 @@ div#app.admin div.category.cpu-vga label {
   line-height: 2;
 }
 
+div#app.admin div.category.cpu-vga a:not(.folder):hover {
+  text-decoration: underline;
+}
+
 div#app.admin div.category.cpu-vga input:not([type="submit"]) {
   padding: 10px 7px;
   height: initial;

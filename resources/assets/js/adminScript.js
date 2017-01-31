@@ -109,3 +109,24 @@
         $('form[name="cpuForm"]').addClass('hidden');
     });
     //ajax -- form action && input value 값 각각 넣어주고 마지막에 submit
+    $('a.name').on('click', function(){
+        $type = $(this).parent().attr('class');
+        $targetId = $(this).prev().html();
+        var dataArr = { 'type' : $type ,
+                        'id' : $targetId }
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            type:'POST',
+            url:'/'+$type+'/'+$targetId,
+            data:dataArr,
+            success:function(data){
+
+            },error:function(){
+
+            }
+        });
+    });
