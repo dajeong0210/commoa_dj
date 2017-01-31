@@ -168,7 +168,7 @@
     }
 //Product sort
     $('nav.tab-nav a').on('click', function(e){
-        if( !$(this).parent().parent().hasClass('mypage') ){
+        if( !$(this).parent().parent().parent().hasClass('mypage') ){
             e.preventDefault();
         }
         $('nav.tab-nav a').parent().removeClass('active');
