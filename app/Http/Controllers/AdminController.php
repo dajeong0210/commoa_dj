@@ -102,5 +102,23 @@ class AdminController extends Controller
         $vga->delete();
         return redirect('/admin/cpu-vga');
     }
-    
+
+    public function findCpu($id) {
+        $cpu = Cpu::find($id);
+        $name = $cpu->name;
+        $brand = $cpu->brand;
+        $cores = $cpu->cores;
+        $level = $cpu->level;
+        
+        echo "{ 'name' : $name , 'brand' : $brand , 'cores' : $cores , 'level' : $level }"; 
+    }
+
+    public function findVga($id) {
+        $vga = Vga::find($id);
+        $name = $vga->name;
+        $brand = $vga->brand;
+        $level = $vga->level;
+
+        echo "{ 'name' : $name , 'brand' : $brand , 'level' : $level }"; 
+    }
 }

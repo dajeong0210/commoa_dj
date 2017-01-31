@@ -60,6 +60,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::put('/admin/category/{id}', 'AdminController@categoryUpdate');
         Route::delete('/admin/category/{id}', 'AdminController@categoryDelete');
         Route::post('/categorycnt/{id}', 'AdminController@categoryCnt');
+        Route::post('/cpu/{id}', 'AdminController@findCpu');
+        Route::post('/vga/{id}', 'AdminController@findVga');
     });
 
 
