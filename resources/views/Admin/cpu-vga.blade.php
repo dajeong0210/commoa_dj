@@ -65,8 +65,7 @@
                 </ul>
             </div>
             <div class="cpu-vga category form">
-                <form method="POST" name="cpuForm" action="{{ url('cpu-edit') .'/'. $cpu->id }}">
-                {{ method_field('put') }}
+                <form method="POST" name="cpuForm" action="{{ url('cpu') }}">
                 {{ csrf_field() }}
                     <h3>CPU :: 추가하기 </h3>
                     <div class="group">

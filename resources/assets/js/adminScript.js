@@ -99,15 +99,18 @@
     })
     $('a.create').on('click', function(e){
         e.preventDefault();
+        $url = window.location.protocol+'//'+window.location.host;
         $('a').removeClass('active');
         $(this).addClass('active');
         if( $(this).parent().hasClass('cpu') ){
+            $('form[name="cpuForm"]').find('input[name="_method"]').remove();
             $('form[name="cpuForm"] h3').html('CPU :: 추가하기');
             $('form[name="cpuForm"] input').val('');
             $('select[name="cpu_level"] option').eq(0).prop("selected", true);
             $('form[name="cpuForm"]').removeClass('hidden').attr('action' , $url+'/cpu').find('input[type="submit"]').val('추가하기');
             $('form[name="vgaForm"]').addClass('hidden');
         }else{
+            $('form[name="vgaForm"]').find('input[name="_method"]').remove();
             $('form[name="vgaForm"] h3').html('VGA :: 추가하기');
             $('form[name="vgaForm"] input').val('');
             $('select[name="vga_level"] option').eq(0).prop("selected", true);
@@ -137,6 +140,7 @@
             success:function(data){
                 var dataArr = JSON.parse(data);
                 if( $type == 'cpu' ){
+                    $('form[name="cpuForm"]').prepend('<input type="hidden" name="_method" value="put">');
                     $('form[name="cpuForm"] h3').html('CPU :: '+dataArr.name);
                     $('input[name="cpu_name"]').val(dataArr.name);
                     $('input[name="cpu_brand"]').val(dataArr.brand);
@@ -145,6 +149,7 @@
                     $('form[name="cpuForm"]').removeClass('hidden').attr('action' , $url+'/cpu-edit/'+$targetId).find('input[type="submit"]').val('수정하기');
                     $('form[name="vgaForm"]').addClass('hidden');
                 }else{
+                    $('form[name="vgaForm"]').prepend('<input type="hidden" name="_method" value="put">');
                     $('form[name="vgaForm"] h3').html('VGA :: '+dataArr.name);
                     $('input[name="vga_name"]').val(dataArr.name);
                     $('input[name="vga_brand"]').val(dataArr.brand);
