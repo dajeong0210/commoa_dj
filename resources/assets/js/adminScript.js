@@ -123,8 +123,9 @@
             type:'POST',
             url:'/'+$type+'/'+$targetId,
             data:dataArr,
-            success:function(data){
-
+            success:function(data){ 
+                console.log(data);
+                
             },error:function(request,status,error){
                 alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
             }
