@@ -74,12 +74,12 @@ class AdminController extends Controller
         return redirect('/admin/cpu-vga');
     }
 
-    public function cpuUpdate(CpuRequest $request, $id) {
+    public function cpuUpdate(Request $request, $id) {
         $cpu = Cpu::find($id);
-        $cpu->name = $request->cpu_name;
-        $cpu->brand = $request->cpu_brand;
-        $cpu->cores = $request->cpu_core;
-        $cpu->level = $request->cpu_level;
+        $cpu->name = $request->input('cpu_name');
+        $cpu->brand = $request->input('cpu_brand');
+        $cpu->cores = $request->input('cpu_core');
+        $cpu->level = $request->input('cpu_level');
         $cpu->save();
         // $cpu->update($request->all());
         return redirect('/admin/cpu-vga');
