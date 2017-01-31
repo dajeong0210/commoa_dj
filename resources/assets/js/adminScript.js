@@ -46,7 +46,6 @@
                 $(this).parent('li').remove();
             }else{
                 $nth = $(this).prev().prev().prev().html();
-                console.log($nth);
                 var categoryId = { 'categoryId' : $nth }
                 $.ajaxSetup({
                     headers: {
@@ -161,4 +160,38 @@
                 console.log('error');
             }
         });
+    });
+    $('a.del').on('click', function(e){
+        e.preventDefault();
+        $nth = $(this).prev().prev().prev().html();
+        var dataArr = { 'targetId' : $nth }
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        if( $(this).parent('li').hasClass('cpu') ){
+            deleteAjax('cpu', dataArr, 'CPU');
+        }else{
+            deleteAjax('vga', dataArr, 'VGA');
+        }
+        function deleteAjax( $target, dataArr, $print){
+            $.ajax({
+                type:'POST',
+                url:'/'+$target+'-delete/'+$nth,
+                data:dataArr,
+                success:function(data){
+                    if( data == 0 ){
+                        if( confirm('정말 삭제하겠습니까?') == false ){
+                            return false;
+                        }
+                        $('form[name="'+$target+'Form"]').submit();
+                    }else{
+                        alert($print+'에 상품이 남아있어 지울 수 없습니다!');
+                    }
+                },error:function(){
+
+                }
+            });
+        }
     });

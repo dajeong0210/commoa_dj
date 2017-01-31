@@ -182,7 +182,7 @@ div#app.admin{
             }
             a{
                 color:#333;
-                &.delete{
+                &.delete, &.del{
                     color:$point-color2;
                 }
             }

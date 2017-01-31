@@ -2403,7 +2403,7 @@ div#app.admin div.category li a {
   color: #333;
 }
 
-div#app.admin div.category li a.delete {
+div#app.admin div.category li a.delete, div#app.admin div.category li a.del {
   color: #FA5858;
 }
 
