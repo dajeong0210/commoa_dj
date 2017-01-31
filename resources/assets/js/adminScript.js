@@ -123,11 +123,22 @@
             type:'POST',
             url:'/'+$type+'/'+$targetId,
             data:dataArr,
-            success:function(data){ 
-                console.log(data);
-                
-            },error:function(request,status,error){
-                alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+            success:function(data){
+                if( $type == 'cpu' ){
+                    // alert(data);
+                    var dataArr = JSON.parse(data);
+                    console.log(dataArr.name);
+                    $('input[name="cpu_name"]').val(dataArr.name);
+                    $('input[name="cpu_brand"]').val(dataArr.brand);
+                    $('input[name="cpu_core"]').val(dataArr.cores);
+                    $('select[name="cpu_level"]').val(dataArr.level).prop("selected", true);
+                }else{
+                    $('input[name="vga_name"]').val(dataArr.name);
+                    $('input[name="vga_brand"]').val(dataArr.brand);
+                    $('select[name="vga_level"]').val(dataArr.level).prop("selected", true);
+                }
+            },error:function(){
+                console.log('error');
             }
         });
     });
