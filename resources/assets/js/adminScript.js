@@ -164,6 +164,7 @@
     $('a.del').on('click', function(e){
         e.preventDefault();
         $nth = $(this).prev().prev().prev().html();
+        console.log($nth);
         var dataArr = { 'targetId' : $nth }
         $.ajaxSetup({
             headers: {

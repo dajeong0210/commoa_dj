@@ -47,13 +47,13 @@
                             @foreach( $vgas as $vga )
                             <li class="vga">
                                 <span>└</span>
-                                <span class="hidden">{{ $vga->id  }}</span>
+                                <span class="hidden">{{ $vga->id }}</span>
                                 <a href="#" class="name">{{ $vga->name }}</a>
                                 <span class="count"> ( {{ $products->where('vga_id', $vga->id)->count() }} )  </span>
                                 <a href="#" class="del">
                                 <i class="fa fa-times" aria-hidden="true"></i>
                                 </a>
-                                <form name="delete" class="hidden vga{{$vga->id}}" method="POST" action="{{ url('/admin/vga') . '/' . $vga->id }}">
+                                <form name="delete" class="hidden vga{{$vga->id}}" method="POST" action="{{ url('/vga') . '/' . $vga->id }}">
                                     {{ method_field('delete') }}
                                     {{ csrf_field() }}
                                 </form>
