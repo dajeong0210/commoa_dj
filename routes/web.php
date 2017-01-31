@@ -64,6 +64,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/vga/{id}', 'AdminController@findVga');
         Route::put('/cpu-edit/{id}', 'AdminController@cpuUpdate');
         Route::put('/vga-edit/{id}', 'AdminController@vgaUpdate');
+        Route::post('/cpu', 'AdminController@cpuCreate');
+        Route::post('/vga', 'AdminController@vgaCreate');
     });
 
 

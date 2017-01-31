@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\CpuRequest;
 use App\Http\Requests\VgaRequest;
+use App\Http\Requests\VgaCreateRequest;
+use App\Http\Requests\CpuCreateRequest;
 use App\Category;
 use Illuminate\Support\Facades\Auth;
 use App\Apply;
@@ -69,17 +71,23 @@ class AdminController extends Controller
         return redirect('/admin/category');
     }
 
-    public function cpuCreate(CpuRequest $request) {
-        $cpu->create($request); 
+    public function cpuCreate(CpuCreateRequest $request) {
+        // $cpu->create($request); 
+        $cpu = new Cpu;
+        $cpu->name = $request->input('cpu_name');
+        $cpu->brand = $request->input('cpu_brand');
+        $cpu->cores = $request->input('cpu_core');
+        $cpu->level = $request->input('cpu_level');
+        $cpu->save();
         return redirect('/admin/cpu-vga');
     }
 
     public function cpuUpdate(CpuRequest $request, $id) {
         $cpu = Cpu::find($id);
-        $cpu->name = $request->cpu_name;
-        $cpu->brand = $request->cpu_brand;
-        $cpu->cores = $request->cpu_core;
-        $cpu->level = $request->cpu_level;
+        $cpu->name = $request->input('cpu_name');
+        $cpu->brand = $request->input('cpu_brand');
+        $cpu->cores = $request->input('cpu_core');
+        $cpu->level = $request->input('cpu_level');
         $cpu->save();
         // $cpu->update($request->all());
         return redirect('/admin/cpu-vga');
@@ -91,14 +99,23 @@ class AdminController extends Controller
         return redirect('/admin/cpu-vga');
     }
 
-    public function vgaCreate(VgaRequest $request) {
-        $vga->create($request); 
+    public function vgaCreate(VgaCreateRequest $request) {
+        // $vga->create($request);
+        $vga = new Vga;
+        $vga->name = $request->input('vga_name');
+        $vga->brand = $request->input('vga_brand');
+        $vga->level = $request->input('vga_level');
+        $vga->save();
         return redirect('/admin/cpu-vga');
     }
 
     public function vgaUpdate(VgaRequest $request, $id) {
         $vga = Vga::find($id);
-        $vga->update($request->all());
+        $vga->name = $request->input('vga_name');
+        $vga->brand = $request->input('vga_brand');
+        $vga->level = $request->input('vga_level');
+        $vga->save();
+        // $vga->update($request->all());
         return redirect('/admin/cpu-vga');
     }
 

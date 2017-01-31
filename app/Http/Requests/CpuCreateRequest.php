@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class VgaRequest extends FormRequest
+class CpuCreateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +24,10 @@ class VgaRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|unique:vgas,name',
-            'name' => 'required',
-            'brand' => 'required',
-            'level' => 'required',
+            'cpu_name' => 'required|unique:cpus,name',
+            'cpu_brand' => 'required',
+            'cpu_core' => 'required',
+            'cpu_level' => 'required',
         ];
     }
 

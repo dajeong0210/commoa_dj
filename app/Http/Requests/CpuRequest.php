@@ -24,10 +24,11 @@ class CpuRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:cpus',
-            'brand' => 'required',
-            'cores' => 'required',
-            'level' => 'required',
+            // 'cpu_name' => 'required|unique:cpus,name',
+            'cpu_name' => 'required',
+            'cpu_brand' => 'required',
+            'cpu_core' => 'required',
+            'cpu_level' => 'required',
         ];
     }
 
