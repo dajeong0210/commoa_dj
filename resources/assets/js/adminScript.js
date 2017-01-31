@@ -123,24 +123,11 @@
             type:'POST',
             url:'/'+$type+'/'+$targetId,
             data:dataArr,
-            success:function(data){
-                alert(data);
-                // if( $type == 'cpu' ){
-                //     $('input.cpu_name').val(data[0]);
-                //     $('input.cpu_brand').val(data[1]);
-                //     $('input.cpu_core').val(data[2]);
-                //     if( $('select.cpu_level option').attr('value') == data[3] ){
-                //         $('select.cpu_level option').attr('selected');
-                //     }
-                // }else{
-                //     $('input.vga_name').val(data.name);
-                //     $('input.vga_brand').val(data.brand);
-                //     if( $('select.vga_level option').attr('value') == data.level ){
-                //         $('select.vga_level option').attr('selected');
-                //     }
-                // }
-            },error:function(){
-                console.log('error');
+            success:function(data){ 
+                console.log(data);
+                
+            },error:function(request,status,error){
+                alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
             }
         });
     });

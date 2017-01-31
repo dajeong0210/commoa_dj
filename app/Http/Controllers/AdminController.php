@@ -109,10 +109,12 @@ class AdminController extends Controller
         $brand = $cpu->brand;
         $cores = $cpu->cores;
         $level = $cpu->level;
-        
-        $arr = { 'name' : $name, 'brand' : $brand, 'cores' : $cores, 'level' : $level };
-        
-        echo json_encode($arr);
+
+        $array = array( 'name' => $name, 
+                        'brand' => $brand, 
+                        'cores' => $cores, 
+                        'level' => $level );
+        echo json_encode($array);
     }
 
     public function findVga($id) {
@@ -120,7 +122,6 @@ class AdminController extends Controller
         $name = $vga->name;
         $brand = $vga->brand;
         $level = $vga->level;
-
-        echo "{ 'name' : $name , 'brand' : $brand , 'level' : $level }"; 
+        echo json_encode($array);
     }
 }
