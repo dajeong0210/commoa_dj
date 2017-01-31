@@ -105,25 +105,18 @@ class AdminController extends Controller
 
     public function findCpu($id) {
         $cpu = Cpu::find($id);
-        $name = $cpu->name;
-        $brand = $cpu->brand;
-        $cores = $cpu->cores;
-        $level = $cpu->level;
-        $array = array( 'name' => $name, 
-                        'brand' => $brand, 
-                        'cores' => $cores, 
-                        'level' => $level );
+        $array = array( 'name' => $cpu->name, 
+                        'brand' => $cpu->brand, 
+                        'cores' => $cpu->cores, 
+                        'level' => $cpu->level );
         echo json_encode($array);
     }
 
     public function findVga($id) {
         $vga = Vga::find($id);
-        $name = $vga->name;
-        $brand = $vga->brand;
-        $level = $vga->level;
-        $array = array( 'name' => $name, 
-                        'brand' => $brand, 
-                        'level' => $level );
+        $array = array( 'name' => $vga->name, 
+                        'brand' => $vga->brand, 
+                        'level' => $vga->level );
         echo json_encode($array);
     }
 }
