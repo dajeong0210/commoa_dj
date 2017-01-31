@@ -93,6 +93,12 @@ class AdminController extends Controller
         return redirect('/admin/cpu-vga');
     }
 
+    public function cpuCnt($id) { 
+        $cpu = Cpu::find($id);
+        $productCnt = $cpu->product()->count();
+        echo $productCnt;
+    }
+
     public function cpuDelete($id) {
         $cpu = Cpu::find($id);
         $cpu->delete();
@@ -117,6 +123,12 @@ class AdminController extends Controller
         $vga->save();
         // $vga->update($request->all());
         return redirect('/admin/cpu-vga');
+    }
+
+    public function vgaCnt($id) { 
+        $vga = Vga::find($id);
+        $productCnt = $vga->product()->count();
+        echo $productCnt;
     }
 
     public function vgaDelete($id) {

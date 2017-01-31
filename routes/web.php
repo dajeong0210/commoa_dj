@@ -66,6 +66,10 @@ Route::group(['middleware' => 'auth'], function () {
         Route::put('/vga-edit/{id}', 'AdminController@vgaUpdate');
         Route::post('/cpu', 'AdminController@cpuCreate');
         Route::post('/vga', 'AdminController@vgaCreate');
+        Route::post('/cpucnt/{id}', 'AdminController@cpuCnt');
+        Route::post('/vgacnt/{id}', 'AdminController@vgaCnt');
+        Route::delete('/cpu/{id}', 'AdminController@cpuDelete');
+        Route::delete('/vga/{id}', 'AdminController@vgaDelete');
     });
 
 
