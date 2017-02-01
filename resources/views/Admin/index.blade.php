@@ -3,7 +3,7 @@
 @section('content')
     <div class="page mypage admin">
         <div class="adminIndex half-layout">
-            <h2>최신 업데이트된 상품</h2>
+            <h2>최신 업데이트된 상품<a href="{{ url('admin/product') }}">+전체보기</a></h2>
             <ul>
             @foreach( $products as $product )
                 <li>
@@ -14,7 +14,7 @@
             </ul>
         </div>
         <div class="adminIndex">
-            <h2>최신 업데이트된 쇼핑몰</h2>
+            <h2>최신 업데이트된 쇼핑몰<a href="{{ url('admin/shop') }}">+전체보기</a></h2>
             <ul>
             @foreach( $shops as $shop )
                 <li>
@@ -25,7 +25,7 @@
             </ul>
         </div>
         <div class="adminIndex">
-            <h2>입점신청현황</h2>
+            <h2>입점신청현황<a href="{{ url('apply') }}">+전체보기</a></h2>
             <ul>
             @foreach( $applies as $apply )
                 <li>

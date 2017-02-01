@@ -2297,6 +2297,11 @@ div#app.admin nav.admin-nav ul.nav-group li {
   text-align: left;
 }
 
+div#app.admin nav.admin-nav ul.nav-group li.active a {
+  color: #2bde73;
+  font-weight: bold;
+}
+
 @media (max-width: 800px) {
   div#app.admin nav.admin-nav ul.nav-group li {
     margin: 0;
@@ -2612,6 +2617,21 @@ div#app.admin div.adminIndex h2 {
   font-size: 15px;
   padding-left: 20px;
   border-left: 2px solid #2bde73;
+  position: relative;
+}
+
+div#app.admin div.adminIndex h2 a {
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: normal;
+  color: #aaa;
+  position: absolute;
+  right: 10px;
+}
+
+div#app.admin div.adminIndex h2 a:hover {
+  text-decoration: underline;
+  color: #FA5858;
 }
 
 div#app.admin div.adminIndex li {
