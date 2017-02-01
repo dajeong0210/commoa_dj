@@ -76,7 +76,7 @@ class ShopController extends Controller
     public function edit($id)
     {
         $shop = Shop::find($id);
-        
+
         if( $shop->user->id != Auth::user()->id && Auth::user()->permission != 2 ) {
             return back();
         }
@@ -134,6 +134,6 @@ class ShopController extends Controller
         $shop->delete();
         //user permission edit 
         $shop->user->permission = 0;
-        return redirect('/');
+        return redirect('/admin/shop');
     }
 }
