@@ -38,6 +38,8 @@ class MyProductController extends Controller
                 $products = $products->orderBy('price', 'desc')->paginate(12);
             } else if ( $product_sort == 'priceByasc' ) {
                 $products = $products->orderBy('price', 'asc')->paginate(12);
+            } else if ( $product_sort == 'nameBy' ) {
+                $products = $products->orderBy('name', 'asc')->paginate(12);
             } else {
                 $products = $products->orderBy('products.updated_at', 'desc')->paginate(12);
             } 

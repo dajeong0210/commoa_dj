@@ -113,18 +113,15 @@ class ShopController extends Controller
     public function destroy($id)
     {
         $shop = Shop::find($id);
-        //shop_user pivot delete 
+        //shop_user delete 
         $shop = Shop::find($id);
         $bookmark_users = $shop->users()->get();
         foreach ($bookmark_users as $user) {
             $shop->users()->toggle( $user->id );
         }
-        //category_product delete
-        //category delete 
-        //product_user pivot delete
-        //product delete
+        //category_product, category delete
+        //product_user, product delete
         $products = $shop->products()->get();
-        
         foreach ($products as $product) {
             $product = Product::find($product->id);
             $categories = $product->categories()->get();
@@ -141,6 +138,7 @@ class ShopController extends Controller
         $shop->delete();
         //user permission edit 
         $shop->user->permission = 0;
+        $shop->user->save();
         return redirect('/admin/shop');
     }
 }
