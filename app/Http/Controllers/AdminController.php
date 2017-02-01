@@ -154,9 +154,6 @@ class AdminController extends Controller
         echo json_encode($array);
     }
 
-    public function rindex() {
-        return view('admin.recommend');
-    }
     public function recommend($id) {
         $product = Product::find($id); 
         $product->recommend = 1; 
