@@ -61,111 +61,111 @@ class AdminController extends Controller
         return view('Admin.cpu-vga')->with('cpus', $cpus)->with('vgas', $vgas)->with('products', $products);
     }
     //cpu
-        public function categoryCnt($id) { 
-            $category = Category::find($id);
-            $productCnt = $category->products()->count();
-            echo $productCnt;
-        }
+    public function categoryCnt($id) { 
+        $category = Category::find($id);
+        $productCnt = $category->products()->count();
+        echo $productCnt;
+    }
 
-        public function categoryDelete($id) {
-            $category = Category::find($id);
-            $category->delete();
-            return redirect('/admin/category');
-        }
+    public function categoryDelete($id) {
+        $category = Category::find($id);
+        $category->delete();
+        return redirect('/admin/category');
+    }
 
-        public function cpuCreate(CpuCreateRequest $request) {
-            // $cpu->create($request); 
-            $cpu = new Cpu;
-            $cpu->name = $request->input('cpu_name');
-            $cpu->brand = $request->input('cpu_brand');
-            $cpu->cores = $request->input('cpu_core');
-            $cpu->level = $request->input('cpu_level');
-            $cpu->save();
-            return redirect('/admin/cpu-vga');
-        }
+    public function cpuCreate(CpuCreateRequest $request) {
+        // $cpu->create($request); 
+        $cpu = new Cpu;
+        $cpu->name = $request->input('cpu_name');
+        $cpu->brand = $request->input('cpu_brand');
+        $cpu->cores = $request->input('cpu_core');
+        $cpu->level = $request->input('cpu_level');
+        $cpu->save();
+        return redirect('/admin/cpu-vga');
+    }
 
-        public function cpuUpdate(CpuRequest $request, $id) {
-            $cpu = Cpu::find($id);
-            $cpu->name = $request->input('cpu_name');
-            $cpu->brand = $request->input('cpu_brand');
-            $cpu->cores = $request->input('cpu_core');
-            $cpu->level = $request->input('cpu_level');
-            $cpu->save();
-            // $cpu->update($request->all());
-            return redirect('/admin/cpu-vga');
-        }
+    public function cpuUpdate(CpuRequest $request, $id) {
+        $cpu = Cpu::find($id);
+        $cpu->name = $request->input('cpu_name');
+        $cpu->brand = $request->input('cpu_brand');
+        $cpu->cores = $request->input('cpu_core');
+        $cpu->level = $request->input('cpu_level');
+        $cpu->save();
+        // $cpu->update($request->all());
+        return redirect('/admin/cpu-vga');
+    }
 
-        public function cpuCnt($id) { 
-            $cpu = Cpu::find($id);
-            $productCnt = $cpu->product()->count();
-            echo $productCnt;
-        }
+    public function cpuCnt($id) { 
+        $cpu = Cpu::find($id);
+        $productCnt = $cpu->product()->count();
+        echo $productCnt;
+    }
 
-        public function cpuDelete($id) {
-            $cpu = Cpu::find($id);
-            $cpu->delete();
-            return redirect('/admin/cpu-vga');
-        }
+    public function cpuDelete($id) {
+        $cpu = Cpu::find($id);
+        $cpu->delete();
+        return redirect('/admin/cpu-vga');
+    }
 
-        public function findCpu($id) {
-            $cpu = Cpu::find($id);
-            $array = array( 'name' => $cpu->name, 
-                            'brand' => $cpu->brand, 
-                            'cores' => $cpu->cores, 
-                            'level' => $cpu->level );
-            echo json_encode($array);
-        }
-    //vga
-        public function vgaCreate(VgaCreateRequest $request) {
-            // $vga->create($request);
-            $vga = new Vga;
-            $vga->name = $request->input('vga_name');
-            $vga->brand = $request->input('vga_brand');
-            $vga->level = $request->input('vga_level');
-            $vga->save();
-            return redirect('/admin/cpu-vga');
-        }
+    public function findCpu($id) {
+        $cpu = Cpu::find($id);
+        $array = array( 'name' => $cpu->name, 
+                        'brand' => $cpu->brand, 
+                        'cores' => $cpu->cores, 
+                        'level' => $cpu->level );
+        echo json_encode($array);
+    }
+//vga
+    public function vgaCreate(VgaCreateRequest $request) {
+        // $vga->create($request);
+        $vga = new Vga;
+        $vga->name = $request->input('vga_name');
+        $vga->brand = $request->input('vga_brand');
+        $vga->level = $request->input('vga_level');
+        $vga->save();
+        return redirect('/admin/cpu-vga');
+    }
 
-        public function vgaUpdate(VgaRequest $request, $id) {
-            $vga = Vga::find($id);
-            $vga->name = $request->input('vga_name');
-            $vga->brand = $request->input('vga_brand');
-            $vga->level = $request->input('vga_level');
-            $vga->save();
-            // $vga->update($request->all());
-            return redirect('/admin/cpu-vga');
-        }
+    public function vgaUpdate(VgaRequest $request, $id) {
+        $vga = Vga::find($id);
+        $vga->name = $request->input('vga_name');
+        $vga->brand = $request->input('vga_brand');
+        $vga->level = $request->input('vga_level');
+        $vga->save();
+        // $vga->update($request->all());
+        return redirect('/admin/cpu-vga');
+    }
 
-        public function vgaCnt($id) { 
-            $vga = Vga::find($id);
-            $productCnt = $vga->product()->count();
-            echo $productCnt;
-        }
+    public function vgaCnt($id) { 
+        $vga = Vga::find($id);
+        $productCnt = $vga->product()->count();
+        echo $productCnt;
+    }
 
-        public function vgaDelete($id) {
-            $vga = Vga::find($id);
-            $vga->delete();
-            return redirect('/admin/cpu-vga');
-        }
+    public function vgaDelete($id) {
+        $vga = Vga::find($id);
+        $vga->delete();
+        return redirect('/admin/cpu-vga');
+    }
 
-        public function findVga($id) {
-            $vga = Vga::find($id);
-            $array = array( 'name' => $vga->name, 
-                            'brand' => $vga->brand, 
-                            'level' => $vga->level );
-            echo json_encode($array);
-        }
+    public function findVga($id) {
+        $vga = Vga::find($id);
+        $array = array( 'name' => $vga->name, 
+                        'brand' => $vga->brand, 
+                        'level' => $vga->level );
+        echo json_encode($array);
+    }
 
-        public function rindex() {
-            return view('admin.recommend');
-        }
-        public function recommend($id) {
-            $product = Product::find($id); 
-            $product->recommend = 1; 
-            $product->save();
-        }
-    
 
 //Product
+    public function recommend($id) {
+        $product = Product::find($id); 
+        $product->recommend = 1; 
+        $product->save();
+    }
+    
 //Shop
+
 }
+
+
