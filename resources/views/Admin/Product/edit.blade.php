@@ -5,7 +5,7 @@
         @include('layouts.adminMenu') 
         <div class="form">
             <h2>상품 정보 수정</h2>
-            <form class="prodEdit validate" method="POST" action="{{ url('/myproduct') . '/' . $product->id }}" enctype="multipart/form-data">
+            <form class="prodEdit validate" method="POST" action="{{ url('/admin/product') . '/' . $product->id }}" enctype="multipart/form-data">
             {{ method_field('put') }}
             {{ csrf_field() }}
                 <div class="shop-group group">
