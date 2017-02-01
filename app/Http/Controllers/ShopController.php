@@ -27,7 +27,12 @@ class ShopController extends Controller
                 $shops = Shop::orderBy('name', 'asc')->paginate(20);
             }
         }      
-        return view('shop.index')->with('shops', $shops);
+        if( Auth::user()->permission == 2 ) {
+            return view('admin.shop.index')->with('shops', $shops);
+        } else { 
+            return view('shop.index')->with('shops', $shops);
+        }
+        
     }
 
     public function create()
@@ -70,11 +75,17 @@ class ShopController extends Controller
 
     public function edit($id)
     {
-        if( Auth::user()->shop()->first()->id != $id ) {
+        $shop = Shop::find($id);
+        
+        if( $shop->user->id != Auth::user()->id && Auth::user()->permission != 2 ) {
             return back();
         }
-        $shop = Shop::find($id);
-        return view('shop.edit')->with('shop', $shop);
+
+        if( Auth::user()->permission == 2 ) {
+            return view('admin.shop.edit')->with('shop', $shop);
+        } else { 
+            return view('shop.edit')->with('shop', $shop);
+        }
     }
 
     public function update(ShopUpdateRequest $request, $id)
