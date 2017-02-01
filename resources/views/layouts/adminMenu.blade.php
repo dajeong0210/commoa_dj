@@ -1,7 +1,7 @@
 <nav class="tab-nav">
     <ul>
-        <li><a href="{{ url('/admin') }}">메인</a></li>
-        <li class="{{ Request::segment(1) == 'apply' && Request::segment(2) != 'create' && Request::segment(3) != 'edit'  ? 'active' : '' }}"><a href="{{ url('/apply') }}">신청관리</a></li>
+        <li class="{{ Request::segment(1) == 'admin' && Request::segment(2) == 'product' ? 'active' : '' }}"><a href="{{ url('/admin/product') }}">상품관리</a></li>
+        <li class="{{ Request::segment(1) == 'admin' && Request::segment(2) == 'shop' ? 'active' : '' }}"><a href="{{ url('/admin/shop') }}">쇼핑몰관리</a></li>
         <li class="{{ Request::segment(2) == 'category' ? 'active' : '' }}"><a href="{{ url('/admin/category') }}">카테고리</a></li>
         <li class="{{ Request::segment(2) == 'cpu-vga' ? 'active' : '' }}"><a href="{{ url('/admin/cpu-vga') }}">CPU/VGA</a></li>
         @if( Auth::user()->permission == '1' && Auth::user()->shop )
