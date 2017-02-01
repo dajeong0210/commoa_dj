@@ -25,7 +25,7 @@
             </div>
         </div>
         <div class="write-btn">
-            <a href="{{ url('myproduct/create') }}">상품등록</a>
+            <a href="{{ url('/admin/product/create') }}">상품등록</a>
         </div>
         <ul class="myProduct">
             @foreach( $products as $product )
@@ -74,11 +74,11 @@
                     </ul>
                 </div>
                 <div class="mybutton">
-                    <form class="myprod-del" method="POST" action="{{ url('/myproduct') . '/' . $product->id }}" enctype="multipart/form-data">
+                    <form class="myprod-del" method="POST" action="{{ url('/admin/product') . '/' . $product->id }}" enctype="multipart/form-data">
                     {{ method_field('delete') }}
                     {{ csrf_field() }}
                         <div class="button-group">
-                            <a href="{{ url('myproduct').'/'. $product->id .'/edit' }}" class="modify">수정</a>
+                            <a href="{{ url('/admin/product').'/'. $product->id .'/edit' }}" class="modify">수정</a>
                             <input type="submit" value="삭제" class="delete"/>
                         </div>
                     </form>

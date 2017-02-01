@@ -42,7 +42,12 @@ class MyProductController extends Controller
                 $products = $products->orderBy('products.updated_at', 'desc')->paginate(12);
             } 
         } 
-        return view('myproduct.index')->with('products', $products)->with('search', $search);
+
+        if( Auth::user()->permission == 2 ) { 
+            return view('admin.product.index')->with('products', $products)->with('search', $search);
+        } else { 
+            return view('myproduct.index')->with('products', $products)->with('search', $search);
+        }
     }
 
     public function create()
@@ -51,7 +56,12 @@ class MyProductController extends Controller
         $cpus = Cpu::get();
         $vgas = Vga::get();
 
-        return view('myproduct.create')->with('categories', $categories)->with('cpus', $cpus)->with('vgas', $vgas);
+        if( Auth::user()->permission == 2 ) { 
+            return view('admin.product.create')->with('categories', $categories)->with('cpus', $cpus)->with('vgas', $vgas);
+        } else { 
+            return view('myproduct.create')->with('categories', $categories)->with('cpus', $cpus)->with('vgas', $vgas);
+        }
+        
     }
 
     public function store(ProductStoreRequest $request)
@@ -89,12 +99,16 @@ class MyProductController extends Controller
         if( $categories != null )
             $product->categories()->sync($categories);
 
-        return redirect('myproduct');
+        if( Auth::user()->permission == 2 ){
+            return redirect('admin/product');
+        } else {
+            return redirect('myproduct');
+        }
     }
 
     public function edit($id)
     {
-        if( Product::find($id)->shop()->first()->user()->first()->id != Auth::user()->id ) {
+        if( Product::find($id)->shop()->first()->user()->first()->id != Auth::user()->id && Auth::user()->permission != 2 ) {
             return back();
         }
         $product = Product::find($id);
@@ -105,9 +119,14 @@ class MyProductController extends Controller
         foreach ($product->categories()->get() as $category) {
            array_push($selected, $category->id);
         }
-        
-        return view('myproduct.edit')->with('product', $product)->with('categories', $categories)
+        if( Auth::user()->permission == 2 ) { 
+            return view('admin.product.edit')->with('product', $product)->with('categories', $categories)
                 ->with('cpus', $cpus)->with('vgas', $vgas)->with('selected', $selected);
+        } else {
+            return view('myproduct.edit')->with('product', $product)->with('categories', $categories)
+                ->with('cpus', $cpus)->with('vgas', $vgas)->with('selected', $selected);
+        }
+        
     }
 
     public function update(ProductUpdateRequest $request, $id)
@@ -126,7 +145,12 @@ class MyProductController extends Controller
         $request = $request->except(['_method', '_token', 'category']);
         $product->update($request);
 
-        return redirect('myproduct');
+        if( Auth::user()->permission == 2 ){
+            return redirect('admin/product');
+        } else {
+            return redirect('myproduct');
+        }
+        
 //before 
         // $product = Product::find($id);
         // if( $request->file('image') != Null ) {
@@ -167,9 +191,14 @@ class MyProductController extends Controller
         foreach ($users as $user) {
             $product->users()->toggle( $user->id );
         }
-        if( Auth::user()->id == $product->shop->user_id ) {
+        if( Auth::user()->id == $product->shop->user_id || Auth::user()->permission == 2 ) {
             $product->delete();
         }
-        return redirect('myproduct');
+
+        if( Auth::user()->permission == 2 ){
+            return redirect('admin/product');
+        } else {
+            return redirect('myproduct');
+        }
     }
 }

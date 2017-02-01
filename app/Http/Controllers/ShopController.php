@@ -101,7 +101,28 @@ class ShopController extends Controller
     public function destroy($id)
     {
         $shop = Shop::find($id);
+        //shop_user pivot delete 
+        $shop = Shop::find($id);
+        $bookmark_users = $shop->users()->get();
+        foreach ($bookmark_users as $user) {
+            $shop->users()->toggle( $user->id );
+        }
+        
+        //product_user pivot delete
+        //product delete
+        $products = $shop->products()->get();
+        foreach ($products as $product) {
+            $product = Product::find($product_id);
+            $favorite_users = $product->users()->get();
+            foreach ($favorite_users as $user) {
+                $product->users()->toggle( $user->id );
+            }
+            $product->delete();
+        }
+        //shop delete
         $shop->delete();
+        //user permission edit 
+        $shop->user->permission = 0;
         return redirect('/');
     }
 }
