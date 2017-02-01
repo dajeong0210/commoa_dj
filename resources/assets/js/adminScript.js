@@ -3,6 +3,10 @@
         $('ul.nav-group').toggleClass('show');
         $(this).parent().addClass('active');
     });
+    $('nav.admin-nav ul.nav-group > li > a').on('click', function(e){
+        e.preventDefault();
+        $(this).next('ul').toggleClass('hidden');
+    })
 //tab
     $('nav.tab-nav a').on('click', function(e){
         if( $(this).parent().parent().parent().parent().hasClass('apply') )

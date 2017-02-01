@@ -113,9 +113,7 @@
                         </div>
                     </div>
                     <div class="group">
-                        <div class="form-group one-layout">
-                            <input type="submit" class="btn submit cpu-edit" value="추가하기"/>
-                        </div>
+                        <input type="submit" class="btn submit cpu-edit" value="추가하기"/>
                     </div>
                 </form>
                 <form method="POST" name="vgaForm" class="hidden">
@@ -145,9 +143,7 @@
                         </div>
                     </div>
                     <div class="group">
-                        <div class="form-group one-layout">
-                            <input type="submit" class="btn submit vga-edit" value="수정하기"/>
-                        </div>
+                        <input type="submit" class="btn submit vga-edit" value="수정하기"/>
                     </div>
                 </form>
             </div>

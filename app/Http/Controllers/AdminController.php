@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Apply;
 use App\User;
 use App\Product;
+use App\Shop;
 use App\Cpu;
 use App\Vga;
 
@@ -19,9 +20,13 @@ class AdminController extends Controller
 {
     public function index()
     {
-        $user = User::find( Auth::user()->id );
-        $applies = Apply::orderBy('permission', 'asc')->orderBy('created_at', 'desc')->paginate(18);
-        return view('Admin.index')->with('applies', $applies)->with('user', $user);
+        // $user = User::find( Auth::user()->id );
+        // $applies = Apply::orderBy('permission', 'asc')->orderBy('created_at', 'desc')->paginate(18);
+        // return view('Admin.index')->with('applies', $applies)->with('user', $user);
+        $products = Product::orderBy('updated_at', 'desc')->limit(5)->get();
+        $shops = Shop::orderBy('updated_at', 'desc')->limit(5)->get();
+        $applies = Apply::orderBy('updated_at', 'desc')->where('permission', 0)->limit(10)->get();
+        return view('Admin.index')->with('products', $products)->with('shops', $shops)->with('applies', $applies);
     }
 
     public function category()
