@@ -2662,6 +2662,10 @@ div#app.admin div.adminIndex li span {
   white-space: nowrap;
 }
 
+div#app.admin div.form {
+  width: 100%;
+}
+
 div.page.list.admin {
   width: 60%;
 }

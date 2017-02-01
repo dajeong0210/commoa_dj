@@ -80,8 +80,19 @@
                         @endif
                     </div>
                 </div>
-                <div class="form-group">
-                    <input type="submit" value="수정하기" class="submit"/>
+                <div class="group">
+                    <div class="form-group one-layout button">
+                        <input type="submit" value="수정" class="submit"/>
+                    </div>
+                </div>
+            </form>
+             <form class="ShopApply delete" method="POST" action="{{ url('/apply') . '/' . $apply->id }}">   
+            {{ method_field('delete') }}
+            {{ csrf_field() }}
+                <div class="group">
+                    <div class="form-group one-layout button del">
+                        <input type="submit" value="삭제" class="delete"/>
+                    </div>
                 </div>
             </form>
         </div>
