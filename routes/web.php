@@ -71,12 +71,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::delete('/cpu/{id}', 'AdminController@cpuDelete');
         Route::delete('/vga/{id}', 'AdminController@vgaDelete');
         Route::resource('/admin/product', 'MyProductController');
-        // Route::get('/admin/product/create', 'MyProductController@create');
-        // Route::get('/admin/product/{p_id}/edit', 'MyProductController@edit');
         Route::resource('/admin/shop', 'ShopController');
-        // Route::get('/admin/shop/{s_id}/edit', 'ShopController@edit');
-        // Route::put('/admin/shop/{s_id}', 'ShopController@update');
-        // Route::delete('/admin/shop/{id}', 'ShopController@destroy');
     });
 
 
