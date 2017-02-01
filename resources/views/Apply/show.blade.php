@@ -1,8 +1,8 @@
-@extends('layouts.layout')
+@extends('layouts.admin')
 
 @section('content')
-    <div class="page mypage">
-        @include('layouts.myLayout') 
+    <div class="page mypage admin">
+        @include('layouts.adminMenu') 
         <div class="form apply">
             <h2>입점승인</h2>
             <form class="ShopApply validate" method="POST" action="{{ url('/shop') }}" enctype="multipart/form-data">

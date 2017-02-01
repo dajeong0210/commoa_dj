@@ -164,7 +164,8 @@ class AdminController extends Controller
             $product->recommend = 1; 
             $product->save();
         }
-    }
-}
+    
+
 //Product
 //Shop
+}
