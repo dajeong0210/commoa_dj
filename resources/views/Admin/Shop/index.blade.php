@@ -1,7 +1,8 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="page list admin">
+    <div class="page mypage list admin">
+        @include('layouts.adminMenu') 
         <div class="sort-group">
             <div class="sort-wrap shop">
             <ul class="sort-list">
@@ -23,26 +24,8 @@
                     <img src="{{ $shop->image }}" alt="">
                 </div>
                 </a>
-                @if( Auth::guest() )
-                <div class="bookmark guest">
-                @else
-                <div class="bookmark">
-                    <span>
-                        <a href="#" class="bookmark" onclick="return false;">
-                            @if( $shop->users()->get()->where('id', Auth::user()->id)->count() == 0 )
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                                <i class="fa fa-star hidden" aria-hidden="true"></i>
-                            @else
-                                <i class="fa fa-star-o hidden" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                            @endif
-                        </a>
-                    </span>    
-                    <span class="hidden">{{ $shop->id }}</span>
-                @endif
-                </div>
                 <div class="detail-box" id="shop">
-                    <a class="prod-title shop" href="{{ $shop->url }}" target="_blank"> {{ $shop->name }} </a>
+                    <a class="prod-title shop" href="{{ url('admin/shop').'/'. $shop->id .'/edit' }}"> {{ $shop->name }} </a>
                 </div>
             </li>
             @endforeach
