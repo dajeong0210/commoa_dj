@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Shop;
 use App\User;
 use App\Apply;
+use App\Product;
 
 class ShopController extends Controller
 {
@@ -118,13 +119,19 @@ class ShopController extends Controller
         foreach ($bookmark_users as $user) {
             $shop->users()->toggle( $user->id );
         }
-        
+        //category_product delete
+        //category delete 
         //product_user pivot delete
         //product delete
         $products = $shop->products()->get();
+        
         foreach ($products as $product) {
-            $product = Product::find($product_id);
+            $product = Product::find($product->id);
+            $categories = $product->categories()->get();
             $favorite_users = $product->users()->get();
+            foreach ($categories as $category) {
+                $category->products()->toggle( $product->id );
+            }
             foreach ($favorite_users as $user) {
                 $product->users()->toggle( $user->id );
             }
