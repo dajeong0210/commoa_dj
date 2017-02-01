@@ -165,6 +165,6 @@ class AdminController extends Controller
             $product->save();
         }
     }
-
+}
 //Product
 //Shop
