@@ -158,4 +158,13 @@ class AdminController extends Controller
                         'level' => $vga->level );
         echo json_encode($array);
     }
+
+    public function rindex() {
+        return view('admin.recommend');
+    }
+    public function recommend($id) {
+        $product = Product::find($id); 
+        $product->recommend = 1; 
+        $product->save();
+    }
 }

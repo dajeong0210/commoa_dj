@@ -32,11 +32,6 @@ class FavoriteController extends Controller
         return view('favorite.index')->with('products', $products);
     }
 
-    public function create()
-    {
-        //
-    }
-
     public function store($product_id, Request $request)
     {
         $product = Product::find($product_id);
@@ -45,23 +40,4 @@ class FavoriteController extends Controller
         echo $product->users()->get()->where('id', Auth::user()->id)->count();
     }
 
-    public function show($id)
-    {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    public function destroy($id)
-    {
-        //
-    }
 }

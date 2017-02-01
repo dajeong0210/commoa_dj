@@ -84,6 +84,7 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
         'cpu_id' => $faker->randomElement($cpu_id),
         'vga_id' => $faker->randomElement($vga_id),
         'shop_id' => $faker->randomElement($shop_id),
+        'recommend' => 0,
     ];
 });
 

@@ -110,6 +110,11 @@
                                 <option value="2">중</option>
                                 <option value="1">하</option>
                             </select>
+                            @if ($errors->has('cpu_level'))
+                                <span class="error">
+                                    <strong>{{ $errors->first('cpu_level') }}</strong>
+                                </span>
+                            @endif
                         </div>
                     </div>
                     <div class="group">
@@ -123,12 +128,22 @@
                         <div class="form-group one-layout">
                             <label for="vga_name">이름</label>
                             <input type="text" name="vga_name" value="{{ $vga->name }}"/>
+                            @if ($errors->has('vga_name'))
+                                <span class="error">
+                                    <strong>{{ $errors->first('vga_name') }}</strong>
+                                </span>
+                            @endif
                         </div>
                     </div>
                     <div class="group">
                         <div class="form-group one-layout">
                             <label for="vga_brand">브랜드</label>
                             <input type="text" name="vga_brand" value="{{ $vga->brand }}"/>
+                            @if ($errors->has('vga_brand'))
+                                <span class="error">
+                                    <strong>{{ $errors->first('vga_brand') }}</strong>
+                                </span>
+                            @endif
                         </div>
                     </div>
                     <div class="group">
@@ -140,6 +155,11 @@
                                 <option value="2">중</option>
                                 <option value="1">하</option>
                             </select>
+                            @if ($errors->has('vga_level'))
+                                <span class="error">
+                                    <strong>{{ $errors->first('vga_level') }}</strong>
+                                </span>
+                            @endif
                         </div>
                     </div>
                     <div class="group">

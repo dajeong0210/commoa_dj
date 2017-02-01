@@ -18,26 +18,6 @@ class InfoController extends Controller
         return view('mypage.edit')->with('user', $user);
     }
 
-    public function create()
-    {
-        //
-    }
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-    public function show($id)
-    {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
-    }
-
     public function update(UserUpdateRequest $request, $id)
     {
     
@@ -60,8 +40,4 @@ class InfoController extends Controller
         }
     }
 
-    public function destroy($id)
-    {
-        //
-    }
 }

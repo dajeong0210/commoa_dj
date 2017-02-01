@@ -87,11 +87,6 @@ class MyProductController extends Controller
         return redirect('myproduct');
     }
 
-    public function show($id)
-    {
-        //
-    }
-
     public function edit($id)
     {
         if( Product::find($id)->shop()->first()->user()->first()->id != Auth::user()->id ) {
