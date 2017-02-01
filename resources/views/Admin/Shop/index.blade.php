@@ -18,7 +18,7 @@
         <ul class="list-group">
             @foreach( $shops as $shop )
             <li class="shop">
-                <a href="{{ url('admin/shop') . '/' . $shop->id .'/edit' }}" target="_blank">
+                <a href="{{ url('admin/shop') . '/' . $shop->id .'/edit' }}" >
                 <div class="img-box shop">
                     <img src="{{ $shop->image }}" alt="">
                 </div>
