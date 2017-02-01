@@ -1,4 +1,43 @@
+@charset "UTF-8";
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+html {
+  scrollbar-3dLight-Color: #efefef;
+  scrollbar-arrow-color: #dfdfdf;
+  scrollbar-base-color: #efefef;
+  scrollbar-Face-Color: #dfdfdf;
+  scrollbar-Track-Color: #efefef;
+  scrollbar-DarkShadow-Color: #efefef;
+  scrollbar-Highlight-Color: #efefef;
+  scrollbar-Shadow-Color: #efefef;
+}
+
+/* Chrome, Safari용 스크롤 바 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  border: 3px solid #fff;
+}
+
+::-webkit-scrollbar-button:start:decrement, ::-webkit-scrollbar-button:end:increment {
+  display: block;
+  height: 10px;
+  background: url("./images/bg.png") #efefef;
+}
+
+::-webkit-scrollbar-track {
+  background: #efefef;
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  height: 50px;
+  width: 50px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
 .hidden {
   display: none;
 }
@@ -2163,11 +2202,13 @@ div.page.mypage div.my-wrap > div h2 a i {
 
 div#app.admin nav.admin-nav {
   width: 20%;
-  height: 3000px;
+  height: 100%;
   border-right: 1px solid #ddd;
   background: #282828;
   position: fixed;
-  top: 0;
+  overflow-x: hidden;
+  top: 0px;
+  bottom: 0px;
   float: left;
   box-sizing: border-box;
   z-index: 200;
@@ -2178,6 +2219,8 @@ div#app.admin nav.admin-nav {
     width: 100%;
     max-width: initial;
     height: 60px;
+    box-sizing: initial;
+    overflow-x: initial;
   }
 }
 
@@ -2249,14 +2292,23 @@ div#app.admin nav.admin-nav ul.nav-group {
 
 div#app.admin nav.admin-nav ul.nav-group li {
   clear: both;
-  margin: 10px 0;
+  margin: 5px 0;
   padding: 0 20px;
+  text-align: left;
+}
+
+div#app.admin nav.admin-nav ul.nav-group li.active a {
+  color: #2bde73;
+  font-weight: bold;
 }
 
 @media (max-width: 800px) {
   div#app.admin nav.admin-nav ul.nav-group li {
     margin: 0;
     padding: 0;
+  }
+  div#app.admin nav.admin-nav ul.nav-group li a {
+    padding: 0 20px;
   }
   div#app.admin nav.admin-nav ul.nav-group li a:hover {
     text-decoration: none;
@@ -2267,6 +2319,18 @@ div#app.admin nav.admin-nav ul.nav-group li {
 div#app.admin nav.admin-nav ul.nav-group li a {
   font-size: 13px;
   color: #fff;
+}
+
+div#app.admin nav.admin-nav ul.nav-group li a i {
+  margin-right: 5px;
+}
+
+div#app.admin nav.admin-nav ul.nav-group > li li a {
+  font-size: 12px;
+}
+
+div#app.admin nav.admin-nav ul.nav-group > li li a.active {
+  color: #2bde73;
 }
 
 div#app.admin nav.admin-nav a:hover {
@@ -2318,9 +2382,18 @@ div#app.admin div.admin-content {
 }
 
 div#app.admin div.admin-content div.page {
-  width: 100%;
+  width: 90%;
   max-width: 800px;
   min-width: initial;
+  padding: 20px 5%;
+  margin: 0;
+}
+
+@media (max-width: 800px) {
+  div#app.admin div.admin-content div.page {
+    width: 100%;
+    padding: 0;
+  }
 }
 
 @media (max-width: 800px) {
@@ -2344,7 +2417,7 @@ div#app.admin div.wrap {
 div#app.admin div.category {
   width: 50%;
   clear: both;
-  margin: 0 auto;
+  margin: 0 auto 50px auto;
   border: 1px solid #ddd;
   background: #eee;
   padding: 20px;
@@ -2432,13 +2505,39 @@ div#app.admin div.category.cpu-vga:first-child {
   box-sizing: border-box;
 }
 
+@media (max-width: 800px) {
+  div#app.admin div.category.cpu-vga:first-child {
+    width: 80%;
+    margin: 1% 10%;
+  }
+}
+
+@media (max-width: 480px) {
+  div#app.admin div.category.cpu-vga:first-child {
+    width: 98%;
+  }
+}
+
 div#app.admin div.category.cpu-vga:last-child {
   text-align: left;
   clear: initial;
   float: right;
   width: 48%;
-  margin: 1%;
+  margin: 1% 1% 50px 1%;
   box-sizing: border-box;
+}
+
+@media (max-width: 800px) {
+  div#app.admin div.category.cpu-vga:last-child {
+    width: 80%;
+    margin: 20px 10%;
+  }
+}
+
+@media (max-width: 480px) {
+  div#app.admin div.category.cpu-vga:last-child {
+    width: 98%;
+  }
 }
 
 div#app.admin div.category.cpu-vga h3 {
@@ -2475,6 +2574,92 @@ div#app.admin div.category.cpu-vga select {
   padding: 10px 7px;
   width: 60%;
   border: 1px solid #ccc;
+}
+
+div#app.admin div.adminIndex {
+  float: left;
+  width: 49%;
+  margin: 7px 0;
+  padding: 5px 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+div#app.admin div.adminIndex.half-layout {
+  margin-right: 2%;
+}
+
+div#app.admin div.adminIndex:last-child {
+  width: 100%;
+}
+
+@media (max-width: 800px) {
+  div#app.admin div.adminIndex:last-child {
+    width: 96%;
+  }
+}
+
+@media (max-width: 800px) {
+  div#app.admin div.adminIndex {
+    margin-left: 2%;
+    width: 96%;
+  }
+  div#app.admin div.adminIndex:first-child {
+    margin-top: 30px;
+  }
+}
+
+div#app.admin div.adminIndex h2 {
+  height: 20px;
+  line-height: 20px;
+  letter-spacing: -2px;
+  font-size: 15px;
+  padding-left: 20px;
+  border-left: 2px solid #2bde73;
+  position: relative;
+}
+
+div#app.admin div.adminIndex h2 a {
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: normal;
+  color: #aaa;
+  position: absolute;
+  right: 10px;
+}
+
+div#app.admin div.adminIndex h2 a:hover {
+  text-decoration: underline;
+  color: #FA5858;
+}
+
+div#app.admin div.adminIndex li {
+  width: 100%;
+  height: 25px;
+  position: relative;
+}
+
+div#app.admin div.adminIndex li a {
+  font-size: 13px;
+  color: #333;
+}
+
+div#app.admin div.adminIndex li a:hover {
+  text-decoration: underline;
+}
+
+div#app.admin div.adminIndex li span {
+  line-height: 25px;
+  font-size: 11px;
+  color: #666;
+  position: absolute;
+  right: 0;
+  display: inline-block;
+  width: 100px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 div.page.list.admin {

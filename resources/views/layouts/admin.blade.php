@@ -42,14 +42,35 @@
                 <a href="{{ url('/admin') }}">Admin</a>
             </p>
             <ul class="nav-group admin">
-                <li>
-                    <a href="{{ url('/apply') }}">쇼핑몰신청관리</a>
+                <li><a href="#"><i class="fa fa-caret-down" aria-hidden="true"></i>USER관리</a>
+                    <ul class="hidden">
+                        <li>
+                            <a href="{{ url('/apply') }}">전체목록</a>
+                        </li>
+                    </ul>
                 </li>
-                <li>
-                    <a href="{{ url('/admin/category') }}">카테고리편집</a>
+                <li><a href="#"><i class="fa fa-caret-down" aria-hidden="true"></i>SHOP관리</a>
+                    <ul class="{{ Request::segment(1) == 'apply' || Request::segment(2) == 'shop' || Request::segment(2) == 'product' ? '' : 'hidden' }}">
+                        <li class="{{ Request::segment(1) == 'apply' ? 'active' : '' }}">
+                            <a href="{{ url('/apply') }}">입점신청승인</a>
+                        </li>
+                        <li class="{{ Request::segment(2) == 'shop' ? 'active' : '' }}">
+                            <a href="{{ url('/admin/shop') }}">쇼핑몰관리</a>
+                        </li>
+                        <li class="{{ Request::segment(2) == 'product' ? 'active' : '' }}">
+                            <a href="{{ url('/admin/product') }}">상품관리</a>
+                        </li>
+                    </ul>
                 </li>
-                <li>
-                    <a href="{{ url('/admin/cpu-vga') }}">CPU/VGA편집</a>
+                <li><a href="#"><i class="fa fa-caret-down" aria-hidden="true"></i>데이터베이스관리</a>
+                    <ul class="{{ Request::segment(2) == 'category' || Request::segment(2) == 'cpu-vga' ? '' : 'hidden' }}">
+                        <li class="{{ Request::segment(2) == 'category' ? 'active' : '' }}">
+                            <a href="{{ url('/admin/category') }}">카테고리편집</a>
+                        </li>
+                        <li class="{{ Request::segment(2) == 'cpu-vga' ? 'active' : '' }}">
+                            <a href="{{ url('/admin/cpu-vga') }}">CPU/VGA편집</a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </nav>
