@@ -44,8 +44,8 @@
             <ul class="nav-group admin">
                 <li><a href="#"><i class="fa fa-caret-down" aria-hidden="true"></i>USER관리</a>
                     <ul class="hidden">
-                        <li>
-                            <a href="{{ url('/apply') }}">전체목록</a>
+                        <li class="{{ Request::segment(1) == 'admin' && Request::segment(2) == 'user' ? 'active' : '' }}">
+                            <a href="{{ url('/admin/user') }}">회원관리</a>
                         </li>
                     </ul>
                 </li>

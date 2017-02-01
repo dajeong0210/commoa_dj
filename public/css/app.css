@@ -2325,6 +2325,16 @@ div#app.admin nav.admin-nav ul.nav-group li a i {
   margin-right: 5px;
 }
 
+div#app.admin nav.admin-nav ul.nav-group > li ul.hidden {
+  display: block;
+}
+
+@media (max-width: 800px) {
+  div#app.admin nav.admin-nav ul.nav-group > li ul.hidden {
+    display: none;
+  }
+}
+
 div#app.admin nav.admin-nav ul.nav-group > li li a {
   font-size: 12px;
 }
@@ -2365,6 +2375,10 @@ div#app.admin nav.user-nav a {
 
 div#app.admin nav.user-nav a:hover {
   text-decoration: underline;
+}
+
+div#app.admin nav.tab-nav li {
+  margin: 0;
 }
 
 div#app.admin div.admin-content {
@@ -2726,7 +2740,7 @@ div.page.list.admin div.apply-list p {
 div.page.list.admin div.apply-list p span {
   display: inline-block;
   width: 55px;
-  color: #2bde73;
+  color: #222;
   font-weight: bold;
   margin: 0 10px;
 }

@@ -14,7 +14,7 @@
                     <input type="text" id="sortBy_rank" name="shop-sort" class="input" value="all"/>
                 </div>
             </form>
-        </div>
+            </div>
         </div>
         <ul class="list-group">
             @foreach( $shops as $shop )

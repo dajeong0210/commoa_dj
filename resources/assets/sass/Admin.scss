@@ -95,6 +95,14 @@ div#app.admin{
                 }
             }
             >li{
+                ul{
+                    &.hidden{
+                        display:block;
+                        @include respond-to('small'){
+                            display:none;
+                        }
+                    }
+                }
                 li{
                     a{
                         font-size:12px;
@@ -129,6 +137,11 @@ div#app.admin{
             &:hover{
                 text-decoration:underline;
             }
+        }
+    }
+    nav.tab-nav{
+        li{
+            margin:0;
         }
     }
     div.admin-content{

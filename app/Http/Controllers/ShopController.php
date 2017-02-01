@@ -11,6 +11,7 @@ use App\Shop;
 use App\User;
 use App\Apply;
 use App\Product;
+use URL;
 
 class ShopController extends Controller
 {
@@ -28,7 +29,7 @@ class ShopController extends Controller
                 $shops = Shop::orderBy('name', 'asc')->paginate(20);
             }
         }      
-        if( Auth::user()->permission == 2 ) {
+        if( Auth::user()->permission == 2 && strpos( URL::current() , 'admin') ) {
             return view('admin.shop.index')->with('shops', $shops);
         } else { 
             return view('shop.index')->with('shops', $shops);

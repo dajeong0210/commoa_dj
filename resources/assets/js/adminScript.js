@@ -8,11 +8,10 @@
         $(this).next('ul').toggleClass('hidden');
     })
 //tab
-    $('nav.tab-nav a').on('click', function(e){
-        if( $(this).parent().parent().parent().parent().hasClass('apply') )
-        e.preventDefault();
-        $(this).parent().parent().find('li').removeClass('active');
-        $(this).parent().addClass('active');
+    $('ul.sort-list li').on('click', function(){
+        if( $(this).parent().hasClass('apply') )
+        $('ul.sort-list li').removeClass('active');
+        $(this).addClass('active');
         $('input[name="apply"]').val( $(this).html() );
         $('form[name="sortApply"]').submit();
     });
