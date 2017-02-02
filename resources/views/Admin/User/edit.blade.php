@@ -3,7 +3,7 @@
 @section('content')
     <div class="page mypage admin">
         @include('layouts.adminMenu') 
-        <div class="form">
+        <div class="form user-edit">
             <h2>{{ $user->name }} 정보</h2>
             <form class="user_edit validate" method="POST" action="{{ url('/admin') . '/' . $user->id }}">
             {{ method_field('put') }}
@@ -25,8 +25,10 @@
                 </div>
             </div>
             <div class="group">
-                <input type="submit" value="수정" class="submit"/>
-            </div>
+                    <div class="form-group one-layout button">
+                        <input type="submit" value="수정" class="submit"/>
+                    </div>
+                </div>
             </form>
             <form class="ShopApply delete" method="POST" action="{{ url('/admin/user') . '/' . $user->id }}">   
             {{ method_field('delete') }}

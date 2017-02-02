@@ -271,7 +271,7 @@ class AdminController extends Controller
     public function userShow($id)
     {
         $user = User::find($id);
-        return view('admin.user.show')->with('user', $user);
+        return view('admin.user.edit')->with('user', $user);
     }
 }
 

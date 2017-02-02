@@ -73,7 +73,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('/admin/product', 'MyProductController');
         Route::resource('/admin/shop', 'ShopController');
         Route::get('/admin/user', 'AdminController@userIndex');
-        Route::get('/admin/user/{id}', 'AdminController@userShow');
+        Route::get('/admin/user/{id}/edit', 'AdminController@userShow');
         Route::put('/admin/user/{id}', 'AdminController@userUpdate'); 
         Route::delete('/admin/user/{id}', 'AdminController@userDelete');
     });

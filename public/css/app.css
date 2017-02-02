@@ -2762,6 +2762,16 @@ div#app.admin div.user-list table tr td a:hover {
   text-decoration: underline;
 }
 
+div#app.admin div.form.user-edit {
+  width: 60%;
+}
+
+@media (max-width: 800px) {
+  div#app.admin div.form.user-edit {
+    width: 90%;
+  }
+}
+
 div.page.list.admin {
   width: 60%;
 }

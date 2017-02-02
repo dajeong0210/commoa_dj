@@ -450,4 +450,10 @@ div#app.admin{
             }
         }
     }
+    div.form.user-edit{
+        width:60%;
+        @include respond-to('small'){
+            width:90%;
+        }
+    }
 }
