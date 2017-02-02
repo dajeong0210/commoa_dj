@@ -10,16 +10,16 @@
                     <input type="text" id="search" name="search" placeholder="Search users By name" @if( $search )value="{{ $search }}"@endif/>
                 </div>
                 <div class="sortBy hidden">
-                    <input type="text" id="sortBy" name="user-sort" class="input" value="all"/>
+                    <input type="text" id="sortBy" name="user-sort" class="input" value=""/>
                 </div>
             </form>
         </div>
         <div class="wrap">
             <div class="sort-wrap">
                 <ul class="sort-list">
-                    <li name="all" class="all {{ isset($_GET['user-sort'])? $_GET['user-sort'] == 'all' ? 'active' : '' : 'active' }}">최신순</li>
-                    <li name="nameBy" class="nameBy {{ isset($_GET['user-sort'])? $_GET['user-sort'] == 'nameBy'? 'active' : '' : '' }}">이름순</li>
-                    <li name="rankBy" class="rankBy {{ isset($_GET['user-sort'])? $_GET['user-sort'] == 'rankBy'? 'active' : '' : '' }}">클릭순</li>
+                    <li name="" class="{{ isset($_GET['user-sort'])? $_GET['user-sort'] == '' ? 'active' : '' : 'active' }}">전체</li>
+                    <li name="일반회원" class="{{ isset($_GET['user-sort'])? $_GET['user-sort'] == '일반회원' ? 'active' : '' : '' }}">일반회원</li>
+                    <li name="쇼핑몰회원" class="{{ isset($_GET['user-sort'])? $_GET['user-sort'] == '쇼핑몰회원'? 'active' : '' : '' }}">쇼핑몰회원</li>
                 </ul>
             </div>
         </div>
