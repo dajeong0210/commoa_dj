@@ -5,7 +5,7 @@
         @include('layouts.adminMenu') 
         <div class="form user-edit">
             <h2>회원정보</h2>
-            <form class="user_edit validate" method="POST" action="{{ url('/admin') . '/' . $user->id }}">
+            <form class="user_edit validate" method="POST" action="{{ url('/admin/user') . '/' . $user->id }}">
             {{ method_field('put') }}
             {{ csrf_field() }}
             <div class="user-group group">
