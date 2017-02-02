@@ -115,7 +115,6 @@ class ShopController extends Controller
     {
         $shop = Shop::find($id);
         //shop_user delete 
-        $shop = Shop::find($id);
         $bookmark_users = $shop->users()->get();
         foreach ($bookmark_users as $user) {
             $shop->users()->toggle( $user->id );

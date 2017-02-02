@@ -168,13 +168,94 @@ class AdminController extends Controller
     public function userIndex(Request $request) {
         
         $user_sort = $request->input('user_sort');
+        $search = $request->input('search');
+
+        if( $search != '' ) { 
+            $users = User::where('name', 'LIKE', '%'.$search.'%');
+        } else { 
+            $users = User::whereNotNull('name');
+        }
+
         if( $user_sort == '' ) { 
-            $users = User::orderBy('created_at', 'desc')->paginate(20);
-        } 
+            $users = $users->orderBy('created_at', 'desc')->paginate(20);
+        } else if( $user_sort == '일반회원' ) {
+            $users = $users->where('permission', 0)->orderBy('created_at', 'desc')->paginate(20);
+        } else if( $user_sort == '쇼핑몰회원' ) {
+            $users = $users->where('permission', 1)->orderBy('created_at', 'desc')->paginate(20);
+        }
 
         return view('admin.user.index')->with('users', $users);
     }
 
+    public function userUpdate($id) {
+        //shop 관리자 -> 일반회원
+        $user = User::find($id);
+        $shop = $user->shop;
+        $bookmark_users = $shop->users()->get();
+        foreach ($bookmark_users as $user) {
+            $shop->users()->toggle( $user->id );
+        }
+        //category_product, category delete
+        //product_user, product delete
+        $products = $shop->products()->get();
+        foreach ($products as $product) {
+            $product = Product::find($product->id);
+            $categories = $product->categories()->get();
+            $favorite_users = $product->users()->get();
+            foreach ($categories as $category) {
+                $category->products()->toggle( $product->id );
+            }
+            foreach ($favorite_users as $user) {
+                $product->users()->toggle( $user->id );
+            }
+            $product->delete();
+        }
+        //shop delete
+        $shop->delete();
+        //user permission edit 
+        $shop->user->permission = 0;
+        $shop->user->save();
+        return redirect('/admin/user');
+    }
+
+    public function userDelete($id) {
+        $user = User::find($id);
+        //자신이 bookmark, favorite 한 것! 
+        $shop->users()->toggle( $user->id );
+        $product->users()->toggle( $user->id );
+
+        if( $user->permission == 0 ) {
+            $user->delete();
+        } else if ( $user->permission == 1 ) {
+            //shop_user delete 
+            $shop = $user->shop;
+            $bookmark_users = $shop->users()->get();
+            foreach ($bookmark_users as $buser) {
+                $shop->users()->toggle( $buser->id );
+            }
+            //category_product, category delete
+            //product_user, product delete
+            $products = $shop->products()->get();
+            foreach ($products as $product) {
+                $product = Product::find($product->id);
+                $categories = $product->categories()->get();
+                $favorite_users = $product->users()->get();
+                foreach ($categories as $category) {
+                    $category->products()->toggle( $product->id );
+                }
+                foreach ($favorite_users as $fuser) {
+                    $product->users()->toggle( $fuser->id );
+                }
+                $product->delete();
+            }
+            //shop delete
+            $shop->delete();
+            //user delete
+            $user->delete();
+        }
+        return redirect('/admin/user');
+
+    }
 }
 
 

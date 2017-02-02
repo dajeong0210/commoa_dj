@@ -21,13 +21,15 @@ class MyProductController extends Controller
     public function index(Request $request)
     {   
         if( Auth::user()->permission == 2 ) { 
-            $products = Product::select('id', 'name', 'cpu_id', 'vga_id', 'ram', 'ssd', 'hdd', 'power', 'os', 'overclock', 'monitor', 'image', 'price');
+            $products = Product::whereNotNull('name');
         } else { 
             $products = User::find(Auth::user()->id)->shop->products();
         }
+
         $search = $request->input('search');
         $product_sort = $request->input('product-sort');
         $products = $products->where('name', 'LIKE', '%'.$search.'%');
+        
         if( $product_sort == '' ) {
             $products = $products->orderBy('updated_at', 'desc')->paginate(12);
             // $products = $products->orderBy('products.updated_at', 'desc')->paginate(12);
