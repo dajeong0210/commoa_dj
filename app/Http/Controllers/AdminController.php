@@ -247,28 +247,30 @@ class AdminController extends Controller
         } else if ( $user->permission == 1 ) {
             //shop_user delete 
             $shop = $user->shop;
-            $bookmark_users = $shop->users()->get();
-            foreach ($bookmark_users as $buser) {
-                $shop->users()->detach( $buser->id );
-            }
+            if( $shop != null ) {
+                $bookmark_users = $shop->users()->get();
+                foreach ($bookmark_users as $buser) {
+                    $shop->users()->detach( $buser->id );
+                }     
             
-            //category_product, category delete
-            //product_user, product delete
-            $products = $shop->products()->get();
-            foreach ($products as $product) {
-                $product = Product::find($product->id);
-                $categories = $product->categories()->get();
-                $favorite_users = $product->users()->get();
-                foreach ($categories as $category) {
-                    $category->products()->detach( $product->id );
-                }
-                foreach ($favorite_users as $fuser) {
-                    $product->users()->detach( $fuser->id );
-                }
-                $product->delete();
+                //category_product, category delete
+                //product_user, product delete
+                $products = $shop->products()->get();
+                foreach ($products as $product) {
+                    $product = Product::find($product->id);
+                    $categories = $product->categories()->get();
+                    $favorite_users = $product->users()->get();
+                    foreach ($categories as $category) {
+                        $category->products()->detach( $product->id );
+                    }
+                    foreach ($favorite_users as $fuser) {
+                        $product->users()->detach( $fuser->id );
+                    }
+                    $product->delete();
+                }     
+                //shop delete
+                $shop->delete();
             }
-            //shop delete
-            $shop->delete();
             //user delete
             $user->delete();
         }
