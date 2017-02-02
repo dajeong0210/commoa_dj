@@ -188,7 +188,15 @@ class AdminController extends Controller
         return view('admin.user.index')->with('users', $users)->with('search', $search);
     }
 
-    public function userUpdate($id) {
+    public function userUpdate(Request $request, $id) {
+        $user = User::find($id);
+        $user->name = $request->input('user_name');
+        $user->save();
+
+        return redirect('/admin/user');
+    }
+
+    public function permissionUpdate($id) {
         //shop 관리자 -> 일반회원
         $user = User::find($id);
         $shop = $user->shop;
@@ -225,7 +233,7 @@ class AdminController extends Controller
         $bookmarks = $user->shops;
         $favorites = $user->products;
         foreach ($bookmarks as $bookmark) {
-           $bookmark->users()->detach($user->id);
+           $user->shops()->detach($bookmark->id);
         }
         foreach ($favorites as $favorite) {
             $user->products()->detach($favorite->id);
