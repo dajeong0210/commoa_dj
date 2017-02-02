@@ -387,4 +387,67 @@ div#app.admin{
     div.form{
         width:100%;
     }
+    div.user-list{
+        clear:both;
+        table{
+            width:100%;
+            table-layout:fixed;
+            word-break:break-all;
+            tr{
+                width:100%;
+                height:40px;
+                border-top:1px solid #ddd;
+                border-bottom:1px solid #ddd;
+                th{
+                    font-size:14px;
+                    background:#333;
+                    color:#fff;
+                }
+                td{
+                    font-size:12px;
+                    padding:0 5px;
+                    color:#333;
+                    &:first-child{
+                        width:4%;
+                        text-align:center;
+                        @include respond-to('small'){
+                            padding:0;
+                            width:0;
+                            text-overflow:ellipsis;
+                            overflow:hidden;
+                            white-space:nowrap;
+                        }
+                    }
+                    &:nth-child(2), &:nth-child(3){
+                        width:35%;
+                    }
+                    &:nth-child(4){
+                        width:13%;
+                        text-align:center;
+                        font-size:11px;
+                    }
+                    &:last-child{
+                        width:13%;
+                        text-align:center;
+                        @include respond-to('too-small'){
+                            width:17%;
+                        }
+                    }
+                    &.shop{
+                        color:$point-color;
+                        font-weight:bold;
+                    }
+                    &.admin{
+                        color:$point-color2
+                    }
+                    a{
+                        color:#333;
+                        &:hover{
+                            text-decoration:underline;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

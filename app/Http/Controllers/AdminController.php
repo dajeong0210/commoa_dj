@@ -167,12 +167,13 @@ class AdminController extends Controller
 //User
     public function userIndex(Request $request) {
         
-        $user_sort = $request->input('user_sort');
+        $user_sort = $request->input('user-sort');
+        $search = $request->input('search');
         if( $user_sort == '' ) { 
             $users = User::orderBy('created_at', 'desc')->paginate(20);
         } 
 
-        return view('admin.user.index')->with('users', $users);
+        return view('admin.user.index')->with('users', $users)->with('search', $search);
     }
 
 }

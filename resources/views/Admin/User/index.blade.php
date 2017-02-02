@@ -25,9 +25,35 @@
         </div>
         <div class="user-list">
             <table>
+                <colgroup>
+                    <col style="width:4%">
+                    <col span="2" style="width:35%">
+                    <col span="2" style="width:13%">
+                </colgroup>
+                <tr>
+                    <th></th>
+                    <th>이름</th>
+                    <th>이메일</th>
+                    <th>가입일</th>
+                    <th>권한</th>
+                </tr>
             @foreach( $users as $user )
                 <tr>
-                    <td></td>
+                    <td>{{ $user->id }}</td>
+                    <td><a href="{{ url('/admin/user'). '/' . $user->id }}">{{ $user->name }}</a></td>
+                    <td>{{ $user->email }}</td>
+                    <td>{{ explode( " ", $user->created_at)[0] }}</td>
+                    @if( $user->permission == 0 ) 
+                        <td>일반</td>
+                    @elseif( $user->permission == 1 )
+                        @if( $user->shop )
+                        <td class="shop">{{ $user->shop->name }}</td>
+                        @else
+                        <td>권한▼</td>
+                        @endif
+                    @else 
+                        <td class="admin">관리자</td>
+                    @endif
                 </tr>
             @endforeach
             </table>

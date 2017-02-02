@@ -14,6 +14,17 @@
         $('input#sortBy').val( $(this).attr('name') );
         $('input#sortBy').parent().parent().submit();
     });
+//Search
+    $('input[name=search]').on('keypress', function(e){
+        if( e.keyCode == 13 ){
+            $('form[name=searchForm]').submit();
+        }
+    });
+    $('input[name=search]').focus(function(){
+    $(this).parent('div').css('border', '1px solid rgba(43,222,115,1.0)').css('box-shadow', '0 0 15px rgba(43,222,115,0.3)');
+    }).blur(function(){
+        $(this).parent('div').css('border', '1px solid #ccc').css('box-shadow', 'none');
+    });
 //Category
     //modify
         $('div.category').on('click', 'em', function(){
