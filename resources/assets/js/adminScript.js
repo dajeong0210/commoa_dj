@@ -8,7 +8,7 @@
         $(this).next('ul').toggleClass('hidden');
     })
 //tab
-    $('ul.sort-list li').on('click', function(e){
+    $('ul.sort-list li').on('click', function(){
         $(this).parent().find('li').removeClass('active');
         $(this).addClass('active');
         $('input#sortBy').val( $(this).attr('name') );

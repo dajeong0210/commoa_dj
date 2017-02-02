@@ -2325,10 +2325,6 @@ div#app.admin nav.admin-nav ul.nav-group li a i {
   margin-right: 5px;
 }
 
-div#app.admin nav.admin-nav ul.nav-group > li ul.hidden {
-  display: block;
-}
-
 @media (max-width: 800px) {
   div#app.admin nav.admin-nav ul.nav-group > li ul.hidden {
     display: none;
@@ -2350,6 +2346,7 @@ div#app.admin nav.admin-nav a:hover {
 div#app.admin nav.user-nav {
   float: right;
   margin-right: 20px;
+  display: initial;
 }
 
 @media (max-width: 800px) {
