@@ -43,7 +43,7 @@
             </p>
             <ul class="nav-group admin">
                 <li><a href="#"><i class="fa fa-caret-down" aria-hidden="true"></i>USER관리</a>
-                    <ul class="hidden">
+                    <ul class="{{ Request::segment(1) == 'admin' && Request::segment(2) == 'user' ? '' : 'hidden' }}">
                         <li class="{{ Request::segment(1) == 'admin' && Request::segment(2) == 'user' ? 'active' : '' }}">
                             <a href="{{ url('/admin/user') }}">회원관리</a>
                         </li>
