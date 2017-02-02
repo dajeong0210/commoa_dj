@@ -8,12 +8,11 @@
         $(this).next('ul').toggleClass('hidden');
     })
 //tab
-    $('ul.sort-list li').on('click', function(){
-        if( $(this).parent().hasClass('apply') )
-        $('ul.sort-list li').removeClass('active');
+    $('ul.sort-list li').on('click', function(e){
+        $(this).parent().find('li').removeClass('active');
         $(this).addClass('active');
-        $('input[name="apply"]').val( $(this).html() );
-        $('form[name="sortApply"]').submit();
+        $('input#sortBy').val( $(this).attr('name') );
+        $('input#sortBy').parent().parent().submit();
     });
 //Category
     //modify

@@ -21,7 +21,7 @@
                     <div class="filter-group sortBy hidden">
                         @if( isset($_GET['cpu_level']) || isset($_GET['vga_level']) || isset($_GET['os']) || isset($_GET['ssd']) || isset($_GET['monitor']) )
                         @else
-                            <input type="text" id="sortBy_rank" name="product-sort" class="input" value="all"/>
+                            <input type="text" id="sortBy" name="product-sort" class="input" value="all"/>
                         @endif
                     </div>
                     <div class="filter-group purpose">
@@ -72,7 +72,7 @@
                     </div>
                     <div class="filter-group sortBy hidden">
                         @if( isset($_GET['cpu_level']) || isset($_GET['vga_level']) || isset($_GET['os']) || isset($_GET['ssd']) || isset($_GET['monitor']) )
-                            <input type="text" id="sortBy_rank" name="product-sort" class="input" value="all"/>
+                            <input type="text" id="sortBy" name="product-sort" class="input" value="all"/>
                         @endif
                     </div>
                     <div class="filter-group">
