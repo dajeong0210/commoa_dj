@@ -6,15 +6,15 @@
         <div class="sort-group">
             <div class="sort-wrap shop">
             <ul class="sort-list apply">
-                <form method="GET" name="sortApply">
-                    <li name="전체" class="{{ isset($_GET['apply'])? $_GET['apply'] == '전체'? 'active' : '' : 'active' }}">전체</li>
-                    <li name="미승인" class="{{ isset($_GET['apply'])? $_GET['apply'] == '미승인'? 'active' : '' : '' }}">미승인</li>
-                    <li name="승인" class="{{ isset($_GET['apply'])? $_GET['apply'] == '승인'? 'active' : '' : '' }}">승인</li>
-                    <li class="hidden">
-                        <input type="hidden" id="sortBy" name="apply" val=""/>
-                    </li>
-                </form>
+                <li name="전체" class="{{ isset($_GET['apply'])? $_GET['apply'] == '전체'? 'active' : '' : 'active' }}">전체</li>
+                <li name="미승인" class="{{ isset($_GET['apply'])? $_GET['apply'] == '미승인'? 'active' : '' : '' }}">미승인</li>
+                <li name="승인" class="{{ isset($_GET['apply'])? $_GET['apply'] == '승인'? 'active' : '' : '' }}">승인</li>
             </ul>
+            <form method="GET" name="sortApply">
+                <div class="hidden">
+                    <input type="hidden" id="sortBy" name="apply" val=""/>
+                </div>
+            </form>
             </div>
         </div>
  
