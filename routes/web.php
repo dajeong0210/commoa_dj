@@ -72,7 +72,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::delete('/vga/{id}', 'AdminController@vgaDelete');
         Route::resource('/admin/product', 'MyProductController');
         Route::resource('/admin/shop', 'ShopController');
+        Route::get('/admin/user', 'AdminController@userIndex');
     });
-
 
 });
