@@ -86,7 +86,7 @@
                     </div>
                 </div>
             </form>
-             <form class="ShopApply delete" method="POST" action="{{ url('/admin/shop') . '/' . $shop->id }}">   
+            <form class="ShopApply delete" method="POST" action="{{ url('/admin/shop') . '/' . $shop->id }}">   
             {{ method_field('delete') }}
             {{ csrf_field() }}
                 <div class="group">

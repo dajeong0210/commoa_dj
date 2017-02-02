@@ -40,7 +40,7 @@
             @foreach( $users as $user )
                 <tr>
                     <td>{{ $user->id }}</td>
-                    <td><a href="{{ url('/admin/user'). '/' . $user->id }}">{{ $user->name }}</a></td>
+                    <td><a href="{{ url('/admin/user'). '/' . $user->id .'/edit' }}">{{ $user->name }}</a></td>
                     <td>{{ $user->email }}</td>
                     <td>{{ explode( " ", $user->created_at)[0] }}</td>
                     @if( $user->permission == 0 ) 
