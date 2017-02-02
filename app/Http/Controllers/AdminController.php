@@ -163,8 +163,17 @@ class AdminController extends Controller
         $product->recommend = 1; 
         $product->save();
     }
-    
-//Shop
+
+//User
+    public function userIndex(Request $request) {
+        
+        $user_sort = $request->input('user_sort');
+        if( $user_sort == '' ) { 
+            $users = User::orderBy('created_at', 'desc')->paginate(20);
+        } 
+
+        return view('admin.user.index')->with('users', $users);
+    }
 
 }
 
