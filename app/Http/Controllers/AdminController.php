@@ -257,6 +257,12 @@ class AdminController extends Controller
         return redirect('/admin/user');
 
     }
+    
+    public function userShow($id)
+    {
+        $user = User::find($id);
+        return view('admin.user.show')->with('user', $user);
+    }
 }
 
 
