@@ -452,8 +452,26 @@ div#app.admin{
     }
     div.form.user-edit{
         width:60%;
+        position:relative;
         @include respond-to('small'){
             width:90%;
+        }
+        form.permission{
+            position:absolute;
+            bottom:-34px;
+            right:30px;
+            input{
+                background:$point-color2;
+                border:1px solid $point-color2;
+                border-radius: 0 0 10px 10px;
+                padding:2px 8px;
+                font-size:12px;
+                height:34px;
+                line-height:28px;
+                &:hover{
+                    color:#fff;
+                }
+            }
         }
     }
 }
