@@ -76,6 +76,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/admin/user/{id}/edit', 'AdminController@userShow');
         Route::put('/admin/user/{id}', 'AdminController@userUpdate'); 
         Route::delete('/admin/user/{id}', 'AdminController@userDelete');
+        Route::put('/admin/permission/{id}', 'AdminController@permissionUpdate');
     });
 
 });

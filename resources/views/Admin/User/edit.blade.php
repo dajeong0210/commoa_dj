@@ -41,6 +41,7 @@
             </form>
             @if( $user->permission == 1 )
                 <form class="ShopApply permission" method="POST" action="{{ url('/admin/permission') . '/' . $user->id }}">
+                {{ method_field('put') }}
                 {{ csrf_field() }}
                     <div class="group">
                         <input type="submit" value="일반회원으로" class="permission"/>
