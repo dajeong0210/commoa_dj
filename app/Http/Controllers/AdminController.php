@@ -222,9 +222,18 @@ class AdminController extends Controller
     public function userDelete($id) {
         $user = User::find($id);
         //자신이 bookmark, favorite 한 것! 
-        $shop->users()->toggle( $user->id );
-        $product->users()->toggle( $user->id );
-
+        $bookmarks = $user->shops;
+        $favorites = $user->products;
+        foreach ($bookmarks as $bookmark) {
+           $bookmark->users()->detach($user->id);
+        }
+        foreach ($favorites as $favorite) {
+            $user->products()->detach($favorite->id);
+        }
+        if( $user->apply != null ) { 
+            $user->apply->delete();
+        }
+        
         if( $user->permission == 0 ) {
             $user->delete();
         } else if ( $user->permission == 1 ) {
@@ -232,8 +241,9 @@ class AdminController extends Controller
             $shop = $user->shop;
             $bookmark_users = $shop->users()->get();
             foreach ($bookmark_users as $buser) {
-                $shop->users()->toggle( $buser->id );
+                $shop->users()->detach( $buser->id );
             }
+            
             //category_product, category delete
             //product_user, product delete
             $products = $shop->products()->get();
@@ -242,10 +252,10 @@ class AdminController extends Controller
                 $categories = $product->categories()->get();
                 $favorite_users = $product->users()->get();
                 foreach ($categories as $category) {
-                    $category->products()->toggle( $product->id );
+                    $category->products()->detach( $product->id );
                 }
                 foreach ($favorite_users as $fuser) {
-                    $product->users()->toggle( $fuser->id );
+                    $product->users()->detach( $fuser->id );
                 }
                 $product->delete();
             }
@@ -257,7 +267,7 @@ class AdminController extends Controller
         return redirect('/admin/user');
 
     }
-    
+
     public function userShow($id)
     {
         $user = User::find($id);
