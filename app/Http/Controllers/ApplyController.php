@@ -52,7 +52,7 @@ class ApplyController extends Controller
     {
         if( Auth::user()->apply()->count() != 0) {
             return view('apply.create');
-        } else { 
+        } else {  
             // $request->merge(['business_docu' => $request->file('business_docu')->store('images')]);
             // $request->merge(['sale_docu' => $request->file('sale_docu')->store('images')]);
             $sale_docu = $request->file('sale_docu');
