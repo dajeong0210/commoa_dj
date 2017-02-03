@@ -16,7 +16,6 @@
     <link href="/css/normalize.css" rel="stylesheet">
     <link href="/css/app.css" rel="stylesheet">
     
-    
     <!-- Scripts -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script>
@@ -43,31 +42,31 @@
             </p>
             <ul class="nav-group admin">
                 <li><a href="#"><i class="fa fa-caret-down" aria-hidden="true"></i>USER관리</a>
-                    <ul class="{{ Request::segment(1) == 'admin' && Request::segment(2) == 'user' ? '' : 'hidden' }}">
-                        <li class="{{ Request::segment(1) == 'admin' && Request::segment(2) == 'user' ? 'active' : '' }}">
+                    <ul class="{{ Request::segment(1) == 'admin' && Request::segment(2) == 'user' ? '' : 'not-show' }}">
+                        <li class="one-layout {{ Request::segment(1) == 'admin' && Request::segment(2) == 'user' ? 'active' : '' }}">
                             <a href="{{ url('/admin/user') }}">회원관리</a>
                         </li>
                     </ul>
                 </li>
                 <li><a href="#"><i class="fa fa-caret-down" aria-hidden="true"></i>SHOP관리</a>
-                    <ul class="{{ Request::segment(1) == 'apply' || Request::segment(2) == 'shop' || Request::segment(2) == 'product' ? '' : 'hidden' }}">
-                        <li class="{{ Request::segment(1) == 'apply' ? 'active' : '' }}">
+                    <ul class="{{ Request::segment(1) == 'apply' || Request::segment(2) == 'shop' || Request::segment(2) == 'product' ? '' : 'not-show' }}">
+                        <li class="triple-layout {{ Request::segment(1) == 'apply' ? 'active' : '' }}">
                             <a href="{{ url('/apply') }}">입점신청승인</a>
                         </li>
-                        <li class="{{ Request::segment(2) == 'shop' ? 'active' : '' }}">
+                        <li class="triple-layout {{ Request::segment(2) == 'shop' ? 'active' : '' }}">
                             <a href="{{ url('/admin/shop') }}">쇼핑몰관리</a>
                         </li>
-                        <li class="{{ Request::segment(2) == 'product' ? 'active' : '' }}">
+                        <li class="triple-layout {{ Request::segment(2) == 'product' ? 'active' : '' }}">
                             <a href="{{ url('/admin/product') }}">상품관리</a>
                         </li>
                     </ul>
                 </li>
                 <li><a href="#"><i class="fa fa-caret-down" aria-hidden="true"></i>데이터베이스관리</a>
-                    <ul class="{{ Request::segment(2) == 'category' || Request::segment(2) == 'cpu-vga' ? '' : 'hidden' }}">
-                        <li class="{{ Request::segment(2) == 'category' ? 'active' : '' }}">
+                    <ul class="{{ Request::segment(2) == 'category' || Request::segment(2) == 'cpu-vga' ? '' : 'not-show' }}">
+                        <li class="half-layout {{ Request::segment(2) == 'category' ? 'active' : '' }}">
                             <a href="{{ url('/admin/category') }}">카테고리편집</a>
                         </li>
-                        <li class="{{ Request::segment(2) == 'cpu-vga' ? 'active' : '' }}">
+                        <li class="half-layout {{ Request::segment(2) == 'cpu-vga' ? 'active' : '' }}">
                             <a href="{{ url('/admin/cpu-vga') }}">CPU/VGA편집</a>
                         </li>
                     </ul>
@@ -96,6 +95,7 @@
     </div>
     <!-- Scripts -->
     <script src="/js/app.js"></script>
+    <script src="/js/masonry.pkgd.min.js"></script>
     <script type="text/javascript" src="/js/adminScript.js"></script>
 </body>
 </html>

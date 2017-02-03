@@ -5,7 +5,7 @@
     });
     $('nav.admin-nav ul.nav-group > li > a').on('click', function(e){
         e.preventDefault();
-        $(this).next('ul').toggleClass('hidden');
+        $(this).next('ul').toggleClass('not-show').toggleClass('hidden');
     })
 //tab
     $('ul.sort-list li').on('click', function(){

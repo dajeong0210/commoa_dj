@@ -137,9 +137,9 @@
     </div>
     <div class="page list slider">
         <h3>디자이너용<br/><span>Recommend</span></h3>
-        <ul class="list-group slider recommend">
+        <ul class="list-group slider recommend grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 0 }'>
             @foreach( $products3 as $product )
-            <li>
+            <li class="grid-item">
                 <span class="badge recommend">추천!!</span>
                 <a href="{{ url('/product') . '/' . $product->id }}">
                 <div class="img-box prod">

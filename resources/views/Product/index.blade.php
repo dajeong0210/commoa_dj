@@ -89,9 +89,9 @@
                 <li name="rankBy" class="rankBy {{ isset($_GET['product-sort'])? $_GET['product-sort'] == 'rankBy'? 'active' : '' : '' }}">인기순</li>
             </ul>
         </div>
-        <ul class="list-group">
+        <ul class="list-group" class="grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 0 }'>
             @foreach( $products as $product )
-            <li>
+            <li class="grid-item">
                 @if( Request::get('sort') == 'rankBy' )
                     @if( $product->row == 1 )
                     <span class="badge medal">1</span>

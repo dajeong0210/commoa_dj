@@ -124,6 +124,7 @@
     <script type="text/javascript" src="/js/jquery.validate.js"></script>
     <script type="text/javascript" src="/js/additional-methods.js"></script>
     <script type="text/javascript" src="/js/messages_ko.min.js"></script>
+    <script src="/js/masonry.pkgd.min.js"></script>
     <script type="text/javascript" src="/js/script.js"></script>
 </body>
 </html>
