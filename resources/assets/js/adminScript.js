@@ -210,4 +210,24 @@
         }
     });
 
-//Recommend
+//Main
+    $('div.select input[type="radio"]').on('click', function(){
+        $mainId = $(this).parent().find('input:checked').prev().html().substr(2,1);
+        console.log($mainId);
+        var dataArr = { 'id' : $mainId };
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            type:'POST',
+            url:'/admin/main/'+$mainId,
+            data:dataArr,
+            success:function(data){
+
+            },error:function(){
+
+            }
+        });
+    });

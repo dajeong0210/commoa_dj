@@ -283,6 +283,12 @@ class AdminController extends Controller
         $user = User::find($id);
         return view('admin.user.edit')->with('user', $user);
     }
+
+//Main-Edit
+    public function mainIndex(Request $request) {
+            
+        return view('admin.main.index');
+    }
 }
 
 
