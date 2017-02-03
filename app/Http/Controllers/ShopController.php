@@ -93,21 +93,15 @@ class ShopController extends Controller
     public function update(ShopUpdateRequest $request, $id)
     {
         $shop = Shop::find($id);
+        $image = $request->file('image');
         // $this->authorize('update', $shop);
-        if( $request->file('image') != null ) { 
-            $request->merge(['image' => $request->file('image')->store('images')]);
+        if( $image != null ) { 
+            $request->merge(['image' => 'https://s3.ap-northeast-2.amazonaws.com/commoa/shop/'.Storage::disk("s3")->put('shop', $image, 'public')]);
+
         } 
         $request->except(['_method', '_token']);
         $shop->update($request->all());
         return redirect('shop/'.$shop->id.'/edit')->with('shop', $shop);
-        // $shop->name = $request->input('name');
-        // $shop->url = $request->input('url');
-        // $shop->contact_address = $request->input('contact_address');
-        // $shop->contact_name = $request->input('contact_name');
-        // $shop->contact_phone = $request->input('contact_phone');
-        // $shop->contact_mobile = $request->input('contact_mobile');
-        // $shop->contact_email = $request->input('contact_email');
-        // $shop->save();
         
     }
 

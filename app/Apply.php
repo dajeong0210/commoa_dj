@@ -7,8 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Apply extends Model
 {
     protected $fillable = [
-        'business_docu',
-        'sale_docu',
         'user_email',
         'shop_name',
         'shop_url',
@@ -21,12 +19,12 @@ class Apply extends Model
         'contact_email',
         'contact_mobile',
         'contact_phone',
+        'business_docu',
+        'sale_docu', 
     ];
 
     protected $guarded= [
         'id',
-        'business_docu',
-        'sale_docu',
     ];
 
     public function user() 

@@ -15,6 +15,7 @@ class WelcomeController extends Controller
     {
         DB::statement(DB::raw('set @row:=0'));
 
+        // $recommend = Product::where('recommend', '<>', 0)->orderBy('recommend', 'asc')->limit(4)->get();
         $products1 = Category::where('id', 1)->first()->products()->orderBy('views', 'desc')->limit(4)->get(); 
         $products2 = Category::where('id', 2)->first()->products()->orderBy('views', 'desc')->limit(4)->get(); 
         $products3 = Category::where('id', 3)->first()->products()->orderBy('views', 'desc')->limit(4)->get(); 

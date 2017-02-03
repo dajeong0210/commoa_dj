@@ -8,7 +8,6 @@ class Shop extends Model
 {
     protected $fillable = [
         'name',
-        'image',
         'url',
         'contact_address',
         'contact_name',
@@ -20,7 +19,6 @@ class Shop extends Model
     protected $guarded= [
         'user_email',
         'id',
-        'image',
     ];
 
     public function user()

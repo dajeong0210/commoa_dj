@@ -24,7 +24,6 @@ class Product extends Model
 
     protected $guarded= [
         'id',
-        'image',
     ];
 
     public function shop()

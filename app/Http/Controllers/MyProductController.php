@@ -69,30 +69,10 @@ class MyProductController extends Controller
 
     public function store(ProductStoreRequest $request)
     {
-//before
-        // $product = new Product;
-        // $path_i = $request->file('image')->store('images');
-        // $product->name = $request->input('name');
-        // $product->image = $path_i;
-        // $product->url = $request->input('url');
-        // $product->price = $request->input('price');
-        // if($request->input('monitor') == '') { 
-        //     $product->monitor = Null;
-        // } else { 
-        //     $product->monitor = $request->input('monitor');
-        // }
-        // $product->ram = $request->input('ram');
-        // $product->ssd = $request->input('ssd');
-        // $product->hdd = $request->input('hdd');
-        // $product->overclock = $request->input('overclock');
-        // $product->power = $request->input('power');
-        // $product->os = $request->input('os');
-        // $product->shop_id = User::find( Auth::user()->id )->shop->id;
-        // $product->cpu_id = $request->input('cpu_id');
-        // $product->vga_id = $request->input('vga_id');
-        // $product->save();
-//
-        $request->merge(['image' => $request->file('image')->store('images')]);
+        // $request->merge(['image' => $request->file('image')->store('images')]);
+        $image = $request->file('image');
+        $request->merge(['image' => 'https://s3.ap-northeast-2.amazonaws.com/commoa/product/'.Storage::disk("s3")->put('product', $image, 'public')]);
+
         if($request->input('monitor') == '') { 
             $request->merge(['monitor' => null]);
         }
@@ -136,11 +116,12 @@ class MyProductController extends Controller
     {
         $product = Product::find($id);
         $categories = $request->input('category');
+        $image = $request->file('image');
         if ( $categories == null ) { $categories = array(); }
         $product->categories()->sync($categories);
 
-        if( $request->file('image') != Null ) {
-            $request->merge(['image' => $request->file('image')->store('images')]);
+        if( $image != Null ) {
+            $request->merge(['image' => 'https://s3.ap-northeast-2.amazonaws.com/commoa/product/'.Storage::disk("s3")->put('product', $image, 'public')]);
         }
         if($request->input('monitor') == '') { 
             $request->merge(['monitor' => null]);
@@ -153,34 +134,7 @@ class MyProductController extends Controller
         } else {
             return redirect('myproduct');
         }
-        
-//before 
-        // $product = Product::find($id);
-        // if( $request->file('image') != Null ) {
-        //     $path_i = $request->file('image')->store('images');
-        //     $product->image = $path_i;
-        // }        
-        // $product->name = $request->input('name');
-        // $product->url = $request->input('url');
-        // $product->price = $request->input('price');
-        // $product->os = $request->input('os');
-        // $product->ram = $request->input('ram');
-        // $product->ssd = $request->input('ssd');
-        // $product->hdd = $request->input('hdd');
-        // $product->overclock = $request->input('overclock');
-        // $product->power = $request->input('power');
-        // if($request->input('monitor') == '') { 
-        //     $product->monitor = Null;
-        // } else { 
-        //     $product->monitor = $request->input('monitor');
-        // }
-        // $product->shop_id = User::find( Auth::user()->id )->shop->id;
-        // $product->cpu_id = $request->input('cpu');
-        // $product->vga_id = $request->input('vga');
-        // $product->save();
-        // $categories = $request->input('category');
-        // $product->categories()->sync($categories);
-//
+
     }
 
     public function destroy($id)
