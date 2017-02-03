@@ -286,8 +286,17 @@ class AdminController extends Controller
 
 //banner
     public function bannerIndex() {
-        $banners = Banner::get();
-        return view('admin.banner.index')->with('banners', $banners);
+        $banner = Banner::where('order', 1)->get();
+        return view('admin.banner.index')->with('banner', $banner);
+    }
+
+    public function bannerFind($order) {
+        $banner = Banner::find($order);
+        $array = array( 'image' => $banner->image, 
+                        'title' => $banner->title, 
+                        'content' => $banner->content,
+                        'url' => $banner->url );
+        echo json_encode($array);
     }
 
     public function bannerStore(Request $request) {
