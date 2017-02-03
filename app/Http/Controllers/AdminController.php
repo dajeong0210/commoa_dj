@@ -283,6 +283,32 @@ class AdminController extends Controller
         $user = User::find($id);
         return view('admin.user.edit')->with('user', $user);
     }
+
+//banner
+    public function bannerIndex() {
+        $banners = Banner::get();
+        return view('admin.banner.index')->with('banners', $banners);
+    }
+
+    public function bannerStore(Request $request) {
+        $banner = new Banner($request->all());
+        $banner_img = $request->file('image');
+        $banner->image = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('banner',  $banner_img, 'public');
+        $banner->save();
+        return redirect('/admin/banner');
+    }
+
+    public function bannerUpdate(Request $request, $id) {
+        $banner = Banner::find($id);
+        $banner_img = $request->file('image');
+        $request = $request->except(['_method', '_token']);
+        $banner->update($request);
+        if( $banner_img != null ) {
+            $banner->image = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('banner',  $banner_img, 'public');
+            $banner->save();
+        }
+        return redirect('/admin/banner');
+    }
 }
 
 
