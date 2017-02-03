@@ -69,14 +69,18 @@ class MyProductController extends Controller
 
     public function store(ProductStoreRequest $request)
     {
+        $product = new Product($request->all());
         // $request->merge(['image' => $request->file('image')->store('images')]);
         $image = $request->file('image');
-        $request->merge(['image' => 'https://s3.ap-northeast-2.amazonaws.com/commoa/product/'.Storage::disk("s3")->put('product', $image, 'public')]);
+        $product->image = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('product',  $image, 'public');
 
         if($request->input('monitor') == '') { 
-            $request->merge(['monitor' => null]);
+            // $request->merge(['monitor' => null]);
+            $product->monitor = null;
         }
-        $product = Auth::user()->shop->products()->create($request->all());
+        // $product = Auth::user()->shop->products()->create($request->all());
+        $product->shop_id = Auth::user()->shop->id;
+        $product->save();
 
         $categories = $request->input('category');
         if( $categories != null )
