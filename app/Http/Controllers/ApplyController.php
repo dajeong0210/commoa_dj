@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Auth;
 use App\Apply;
 use App\User;
 use Validator;
-// use Storage;
 
 class ApplyController extends Controller
 {
@@ -55,12 +54,22 @@ class ApplyController extends Controller
         } else { 
             // $request->merge(['business_docu' => $request->file('business_docu')->store('images')]);
             // $request->merge(['sale_docu' => $request->file('sale_docu')->store('images')]);
-            $sale_docu = $request->file('sale_docu');
+            // $sale_docu = $request->file('sale_docu');
+            // $business_docu = $request->file('business_docu');
+            // $aa = Storage::disk("s3")->put('apply', $request->file('sale_docu'), 'public');
+
+            // $request->sale_docu = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::disk('s3')->put('apply', $request->file('sale_docu'), 'public');
+            // $request->merge(['business_docu' => 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('apply',  $request->file('business_docu'), 'public')]);
+            // $request = $request->except(['agree_01', 'agree_02']);
+            // Auth::user()->apply()->create($request);
+
+            $apply = new Apply($request->all());
+            $apply->user_id = Auth::user()->id;
             $business_docu = $request->file('business_docu');
-            $request->merge(['sale_docu' => 'https://s3.ap-northeast-2.amazonaws.com/commoa/apply/'.Storage::disk("s3")->put('apply', $sale_docu, 'public')]);
-            $request->merge(['business_docu' => 'https://s3.ap-northeast-2.amazonaws.com/commoa/apply/'.Storage::disk("s3")->put('apply', $business_docu, 'public')]);
-            $request = $request->except(['agree_01', 'agree_02']);
-            Auth::user()->apply()->create($request);
+            $apply->business_docu = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('apply',  $business_docu, 'public');
+            $sale_docu = $request->file('sale_docu');
+            $apply->sale_docu = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('apply',  $sale_docu, 'public');
+            $apply->save();
             return redirect('/');
         } 
     }
@@ -83,22 +92,13 @@ class ApplyController extends Controller
     public function update(ApplyUpdateRequest $request, $id)
     {
         $apply = Apply::find($id);
-        // $this->authorize('update', $apply);
         if( $request->file('business_docu') != null ) {
-            // $request->merge(['business_docu' => $request->file('business_docu')->store('images')]);
-            
             $business_docu = $request->file('business_docu');
-            $request->merge(['business_docu' => 'https://s3.ap-northeast-2.amazonaws.com/commoa/apply/'.Storage::disk("s3")->put('apply', $business_docu, 'public')]);
-
-            // $request->merge(['business_docu' => Storage::disk("s3")->put('apply', $request->file('business_docu'), 'public')]);
-            
-
+            $apply->business_docu = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('apply',  $business_docu, 'public');
         }
         if( $request->file('sale_docu') != null ) { 
-            // $request->merge(['sale_docu' => $request->file('sale_docu')->store('images')]);
             $sale_docu = $request->file('sale_docu');
-            $request->merge(['sale_docu' => 'https://s3.ap-northeast-2.amazonaws.com/commoa/apply/'.Storage::disk("s3")->put('apply', $sale_docu, 'public')]);
-
+            $apply->sale_docu = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('apply',  $sale_docu, 'public');
         }
         $request = $request->except(['_method', '_token']);
         $apply->update($request);

@@ -96,8 +96,7 @@ class ShopController extends Controller
         $image = $request->file('image');
         // $this->authorize('update', $shop);
         if( $image != null ) { 
-            $request->merge(['image' => 'https://s3.ap-northeast-2.amazonaws.com/commoa/shop/'.Storage::disk("s3")->put('shop', $image, 'public')]);
-
+            $shop->image = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('shop',  $image, 'public');
         } 
         $request->except(['_method', '_token']);
         $shop->update($request->all());
