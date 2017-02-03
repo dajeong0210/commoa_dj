@@ -120,19 +120,21 @@ class MyProductController extends Controller
     {
         $product = Product::find($id);
         $categories = $request->input('category');
-        $image = $request->file('image');
         if ( $categories == null ) { $categories = array(); }
         $product->categories()->sync($categories);
-
-        if( $image != Null ) {
-            $request->merge(['image' => 'https://s3.ap-northeast-2.amazonaws.com/commoa/product/'.Storage::disk("s3")->put('product', $image, 'public')]);
-        }
-        if($request->input('monitor') == '') { 
+        $image = $request->file('image');
+        $monitor = $request->input('monitor');
+        if( $monitor == '' ) { 
             $request->merge(['monitor' => null]);
         }
         $request = $request->except(['_method', '_token', 'category']);
         $product->update($request);
-
+        
+        if( $image != Null ) {
+            $product->image = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::disk("s3")->put('product', $image, 'public');    
+        }
+        $product->save();
+        
         if( Auth::user()->permission == 2 ){
             return redirect('admin/product');
         } else {

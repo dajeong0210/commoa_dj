@@ -92,17 +92,18 @@ class ApplyController extends Controller
     public function update(ApplyUpdateRequest $request, $id)
     {
         $apply = Apply::find($id);
-        if( $request->file('business_docu') != null ) {
-            $business_docu = $request->file('business_docu');
-            $apply->business_docu = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('apply',  $business_docu, 'public');
-        }
-        if( $request->file('sale_docu') != null ) { 
-            $sale_docu = $request->file('sale_docu');
-            $apply->sale_docu = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('apply',  $sale_docu, 'public');
-        }
+        $business_docu = $request->file('business_docu');
+        $sale_docu = $request->file('sale_docu');
         $request = $request->except(['_method', '_token']);
         $apply->update($request);
-       
+        if( $business_docu != null ) {
+            $apply->business_docu = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('apply', $business_docu, 'public');
+        }
+        if( $sale_docu != null ) { 
+            $apply->sale_docu = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('apply', $sale_docu, 'public');
+        }
+        $apply->save();
+
         return redirect('apply/'.$apply->id.'/edit')->with('apply', $apply);
     }
 
