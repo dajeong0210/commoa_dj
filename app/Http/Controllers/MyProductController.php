@@ -29,10 +29,9 @@ class MyProductController extends Controller
         $search = $request->input('search');
         $product_sort = $request->input('product-sort');
         $products = $products->where('name', 'LIKE', '%'.$search.'%');
-        
+
         if( $product_sort == '' ) {
             $products = $products->orderBy('updated_at', 'desc')->paginate(12);
-            // $products = $products->orderBy('products.updated_at', 'desc')->paginate(12);
         } else {
             if ( $product_sort == 'rankBy' ) {
                 $products = $products->orderBy('views', 'desc')->paginate(12);
