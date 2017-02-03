@@ -61,8 +61,10 @@ div#app.admin{
             margin:50px 0;
             position:static;
             @include respond-to('small'){
+                min-height:100%;
                 position:absolute;
                 margin:0;
+                overflow-x:hidden;
             }
             li{
                 clear:both;
@@ -71,7 +73,7 @@ div#app.admin{
                 text-align:left;
                 &.active{
                     a{
-                        color:$point-color;
+                        color:$point-color2;
                         font-weight:bold;
                     }
                 }
@@ -95,19 +97,66 @@ div#app.admin{
                 }
             }
             >li{
+                @include respond-to('small'){
+                    border-top:1px solid #282828;
+                    border-bottom:1px solid #282828;
+                    box-sizing:border-box;
+                    margin-top:-1px;
+                }
                 ul{
-                    &.hidden{
-                        //display:block;
+                    &.not-show{
                         @include respond-to('small'){
                             display:none;
                         }
                     }
+                    &.hidden{
+                        @include respond-to('small'){
+                            display:initial;
+                        }
+                    }
                 }
                 li{
+                    height:40px;
                     a{
+                        height:40px;
+                        line-height:40px;
                         font-size:12px;
+                        @include respond-to('small'){
+                            padding-left:50px;
+                        }
                         &.active{
                             color:$point-color;
+                        }
+                    }
+                    @include respond-to('small'){
+                        border-top:1px solid #282828;
+                        border-bottom:1px solid #282828;
+                        //border-right:1px solid #282828;
+                        box-sizing:border-box;
+                        &.one-layout{
+                            width:100%;
+                            a{
+                                padding-left:0;
+                                text-align:center;
+                            }
+                        }
+                        &.half-layout{
+                            clear:initial;
+                            float:left;
+                            width:50%;
+                            a{
+                                padding-left:0;
+                                text-align:center;
+                            }
+                        }
+                        &.triple-layout{
+                            clear:initial;
+                            float:left;
+                            width:33.33333333333333333333333333333333333%;
+                            a{
+                                padding-left:0;
+                                text-align:center;
+                            }
                         }
                     }
                 }
@@ -475,4 +524,7 @@ div#app.admin{
             }
         }
     }
+}
+html, body{
+    height:100%;
 }

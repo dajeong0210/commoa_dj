@@ -966,7 +966,7 @@ div.page.list div.detail-box a.prod-title.shop {
 }
 
 div.page.list div.detail-box ul.prod_category {
-  height: 80px;
+  height: auto;
   line-height: 1.2;
   margin: 0;
   padding: 0 10px;
@@ -2285,8 +2285,10 @@ div#app.admin nav.admin-nav ul.nav-group {
 
 @media (max-width: 800px) {
   div#app.admin nav.admin-nav ul.nav-group {
+    min-height: 100%;
     position: absolute;
     margin: 0;
+    overflow-x: hidden;
   }
 }
 
@@ -2298,7 +2300,7 @@ div#app.admin nav.admin-nav ul.nav-group li {
 }
 
 div#app.admin nav.admin-nav ul.nav-group li.active a {
-  color: #2bde73;
+  color: #FA5858;
   font-weight: bold;
 }
 
@@ -2326,17 +2328,77 @@ div#app.admin nav.admin-nav ul.nav-group li a i {
 }
 
 @media (max-width: 800px) {
-  div#app.admin nav.admin-nav ul.nav-group > li ul.hidden {
+  div#app.admin nav.admin-nav ul.nav-group > li {
+    border-top: 1px solid #282828;
+    border-bottom: 1px solid #282828;
+    box-sizing: border-box;
+    margin-top: -1px;
+  }
+}
+
+@media (max-width: 800px) {
+  div#app.admin nav.admin-nav ul.nav-group > li ul.not-show {
     display: none;
   }
 }
 
+@media (max-width: 800px) {
+  div#app.admin nav.admin-nav ul.nav-group > li ul.hidden {
+    display: initial;
+  }
+}
+
+div#app.admin nav.admin-nav ul.nav-group > li li {
+  height: 40px;
+}
+
 div#app.admin nav.admin-nav ul.nav-group > li li a {
+  height: 40px;
+  line-height: 40px;
   font-size: 12px;
+}
+
+@media (max-width: 800px) {
+  div#app.admin nav.admin-nav ul.nav-group > li li a {
+    padding-left: 50px;
+  }
 }
 
 div#app.admin nav.admin-nav ul.nav-group > li li a.active {
   color: #2bde73;
+}
+
+@media (max-width: 800px) {
+  div#app.admin nav.admin-nav ul.nav-group > li li {
+    border-top: 1px solid #282828;
+    border-bottom: 1px solid #282828;
+    box-sizing: border-box;
+  }
+  div#app.admin nav.admin-nav ul.nav-group > li li.one-layout {
+    width: 100%;
+  }
+  div#app.admin nav.admin-nav ul.nav-group > li li.one-layout a {
+    padding-left: 0;
+    text-align: center;
+  }
+  div#app.admin nav.admin-nav ul.nav-group > li li.half-layout {
+    clear: initial;
+    float: left;
+    width: 50%;
+  }
+  div#app.admin nav.admin-nav ul.nav-group > li li.half-layout a {
+    padding-left: 0;
+    text-align: center;
+  }
+  div#app.admin nav.admin-nav ul.nav-group > li li.triple-layout {
+    clear: initial;
+    float: left;
+    width: 33.33333333333333333333333333333333333%;
+  }
+  div#app.admin nav.admin-nav ul.nav-group > li li.triple-layout a {
+    padding-left: 0;
+    text-align: center;
+  }
 }
 
 div#app.admin nav.admin-nav a:hover {
@@ -2788,6 +2850,10 @@ div#app.admin div.form.user-edit form.permission input {
 
 div#app.admin div.form.user-edit form.permission input:hover {
   color: #fff;
+}
+
+html, body {
+  height: 100%;
 }
 
 div.page.list.admin {
