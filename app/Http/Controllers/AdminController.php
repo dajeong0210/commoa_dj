@@ -287,8 +287,8 @@ class AdminController extends Controller
 
 //banner
     public function bannerIndex() {
-        $banner = Banner::where('order', 1)->get();
-        return view('admin.banner.index')->with('banner', $banner);
+        $banners = Banner::get();
+        return view('admin.banner.index')->with('banners', $banners);
     }
 
     public function bannerFind($order) {
