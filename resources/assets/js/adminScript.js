@@ -215,6 +215,8 @@
         $nth = $(this).attr('id');
         $('div.slider ul li.'+$nth).removeClass('hidden');
         $('div.slider ul li').not('.'+$nth).addClass('hidden');
+        $url = window.location.protocol+'//'+window.location.host;
+        $('form[name="main-edit"]').attr('action', $url+'/admin/banner/'+$nth.charAt(4));
     });
     $('a.preview').on('click', function(e){
         e.preventDefault();
