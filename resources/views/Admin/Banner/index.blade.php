@@ -49,7 +49,7 @@
                     </ul>
                 </div>
             </div>
-            <form method="POST" action="{{ url('/admin/banner/1') }}" enctype="multipart/form-data">
+            <form method="POST" name="main-edit" action="{{ url('/admin/banner/1') }}" enctype="multipart/form-data">
             {{ method_field('put') }}
             {{ csrf_field() }}
                 <div class="group">
@@ -90,9 +90,9 @@
                 <div class="align">
                     <div class="form-group one-layout">
                         <label for="left-align">왼쪽정렬</label>
-                        <input type="radio" id="left-align" name="align">
+                        <input type="radio" id="left-align" name="align" value="0">
                         <label for="right-align">오른쪽정렬</label>
-                        <input type="radio" id="right-align" name="align">
+                        <input type="radio" id="right-align" name="align" value="1">
                     </div>
                 </div>
                 <div class="group">
