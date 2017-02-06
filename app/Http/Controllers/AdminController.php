@@ -292,24 +292,6 @@ class AdminController extends Controller
         return view('admin.banner.index')->with('banners', $banners);
     }
 
-    // public function bannerFind($order) {
-    //     $banner = Banner::find($order);
-    //     $array = array( 'type' => $banner->type,
-    //                     'image' => $banner->image, 
-    //                     'title' => $banner->title, 
-    //                     'content' => $banner->content,
-    //                     'url' => $banner->url );
-    //     echo json_encode($array);
-    // }
-
-    // public function bannerStore(Request $request) {
-    //     $banner = new Banner($request->all());
-    //     $banner_img = $request->file('image');
-    //     $banner->image = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('banner',  $banner_img, 'public');
-    //     $banner->save();
-    //     return redirect('/admin/banner');
-    // }
-
     public function bannerUpdate(Request $request, $id) {
         $banner = Banner::find($id);
         $banner_img = $request->file('image');
