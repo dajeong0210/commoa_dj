@@ -15,6 +15,7 @@ use App\Product;
 use App\Shop;
 use App\Cpu;
 use App\Vga;
+use App\Banner;
 
 class AdminController extends Controller
 {
@@ -292,7 +293,8 @@ class AdminController extends Controller
 
     public function bannerFind($order) {
         $banner = Banner::find($order);
-        $array = array( 'image' => $banner->image, 
+        $array = array( 'type' => $banner->type,
+                        'image' => $banner->image, 
                         'title' => $banner->title, 
                         'content' => $banner->content,
                         'url' => $banner->url );
@@ -319,5 +321,3 @@ class AdminController extends Controller
         return redirect('/admin/banner');
     }
 }
-
-
