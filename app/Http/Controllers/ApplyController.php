@@ -47,6 +47,16 @@ class ApplyController extends Controller
         }
     }
 
+    public function thumbnail($image) {
+        $size = getimagesize($image);
+        if( $size[0] > 400 || $size[1] > 400 ) {
+            $width = $size[0]/2;
+            $width = $size[1]/2;
+        }
+        Image::make($image)
+            ->resize($width, $height, false, false)
+            ->save();
+    }
     public function store(ApplyStoreRequest $request)
     {
         if( Auth::user()->apply()->count() != 0) {

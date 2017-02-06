@@ -49,7 +49,9 @@
                     </ul>
                 </div>
             </div>
-            <form method="POST" action="{{ url('/admin/main/1') }}"></form>
+            <form method="POST" action="{{ url('/admin/banner/1') }}" enctype="multipart/form-data">
+            {{ method_field('put') }}
+            {{ csrf_field() }}
                 <div class="group">
                     <label>종류</label>
                     <div class="select type">
@@ -63,26 +65,26 @@
                 </div>
                 <div class="group">
                     <div class="form-group half-layout">
-                        <label for="main-image" class="top-align">메인이미지</label>
-                        <input type="file" name="main-image" class="main-image image">
+                        <label for="image" class="top-align">메인이미지</label>
+                        <input type="file" name="image" class="main-image image">
                     </div>
                 </div>
                 <div class="group">
                     <div class="form-group half-layout">
-                        <label for="main-title" class="top-align">메인타이틀</label>
-                        <textarea name="main-title" rows="2"></textarea>
+                        <label for="title" class="top-align">메인타이틀</label>
+                        <textarea name="title" rows="2"></textarea>
                     </div>
                 </div>
                 <div class="group">
                     <div class="form-group one-layout">
-                        <label for="main-text" class="top-align">메인글</label>
-                        <textarea name="main-text" rows="5"></textarea>
+                        <label for="content" class="top-align">메인글</label>
+                        <textarea name="content" rows="5"></textarea>
                     </div>
                 </div>
                 <div class="group">
                     <div class="form-group one-layout">
-                        <label for="main-url" class="top-align">URL</label>
-                        <input type="text" name="main-url"/>
+                        <label for="url" class="top-align">URL</label>
+                        <input type="text" name="url"/>
                     </div>
                 </div>
                 <div class="align">
