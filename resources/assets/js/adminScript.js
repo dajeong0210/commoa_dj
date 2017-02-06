@@ -220,9 +220,9 @@
         e.preventDefault();
         $nth = $('div.nth').find('input:checked').attr('id');
         $type = $('div.type').find('input:checked').prev().html();
-        $title = $('textarea[name="main-title"]').val();
-        $content = $('textarea[name="main-text"]').val();
-        $url = $('input[name="main-url"]').val();
+        $title = $('textarea[name="title"]').val();
+        $content = $('textarea[name="content"]').val();
+        $url = $('input[name="url"]').val();
         $('div.slider ul li.'+$nth).find('span').html($type);
         $('div.slider ul li.'+$nth).find('h3').html($title);
         $('div.slider ul li.'+$nth).find('p').html($content);
