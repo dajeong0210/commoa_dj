@@ -64,7 +64,7 @@
                 <div class="group">
                     <div class="form-group half-layout">
                         <label for="main-image" class="top-align">메인이미지</label>
-                        <input type="file" name="main-image" class="main-image">
+                        <input type="file" name="main-image" class="main-image image">
                     </div>
                 </div>
                 <div class="group">

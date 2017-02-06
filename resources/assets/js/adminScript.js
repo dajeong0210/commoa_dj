@@ -228,3 +228,26 @@
         $('div.slider ul li.'+$nth).find('p').html($content);
         $('div.slider ul li.'+$nth).find('a').attr('href', $url);
     });
+    $('input.image').on('change', function(){
+        var image = $(this).val();
+        var imageonly = image.toLowerCase().split(".");
+        if( image != '' ){
+            if( imageonly[1] != 'jpg' && imageonly[1] != 'png' && imageonly[1] != 'jpeg' && imageonly[1] != 'gif' && imageonly[1] != 'bmp'){
+                alert('이미지 파일만 업로드 가능합니다!');
+                $(this).val('');
+            }else{
+                $nth = $('div.nth').find('input:checked').attr('id');
+                var reader = new FileReader();
+                reader.onload = function(e){
+                    $('div.slider ul li.'+$nth).attr('style', 'background:url('+e.target.result+') no-repeat; background-size:cover;');
+                }
+                reader.readAsDataURL(this.files[0]);
+            }
+        }else{
+            if( !$('div.image-logo').is('img') ){
+                $('div.image-logo img').remove();
+            }else{
+                $('div.image-logo img').attr('src', originImg);
+            }
+        }
+    });
