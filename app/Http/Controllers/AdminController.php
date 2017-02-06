@@ -311,22 +311,13 @@ class AdminController extends Controller
 
     public function bannerUpdate(Request $request, $id) {
         $banner = Banner::find($id);
-        // if( $banner == null ) {
-        //     $request = $request->except(['_method', '_token']);
-        //     $banner = new Banner($request);
-            
-        //     $banner_img = $request->file('image');
-        //     $banner->image = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('banner',  $banner_img, 'public');
-        //     $banner->save();
-        // } else {
-            $banner_img = $request->file('image');
-            $request = $request->except(['_method', '_token']);
-            $banner->update($request);
-            if( $banner_img != null ) {
-                $banner->image = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('banner',  $banner_img, 'public');
-                $banner->save();
-            }
-        // }
+        $banner_img = $request->file('image');
+        $request = $request->except(['_method', '_token']);
+        $banner->update($request);
+        if( $banner_img != null ) {
+            $banner->image = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('banner',  $banner_img, 'public');
+            $banner->save();
+        }
         
         return redirect('/admin/banner');
     }
