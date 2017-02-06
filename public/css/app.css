@@ -429,44 +429,15 @@ div.slider ul.slider.list-group.recommend > li {
 div.slider ul.slider > li {
   width: 33.3333333333333333333333333333333%;
   float: left;
-}
-
-div.slider ul.slider > li.game_01 {
   height: 400px;
-  background: url(../image/overwatch.jpg) no-repeat;
   background-position: 0 -40px;
   background-size: cover;
 }
 
 @media (max-width: 800px) {
-  div.slider ul.slider > li.game_01 {
+  div.slider ul.slider > li {
     background-position: center 0;
   }
-}
-
-div.slider ul.slider > li.game_02 {
-  height: 400px;
-  background: orange;
-}
-
-div.slider ul.slider > li.game_03 {
-  height: 400px;
-  background: yellow;
-}
-
-div.slider ul.slider > li.game_04 {
-  height: 400px;
-  background: green;
-}
-
-div.slider ul.slider > li.game_05 {
-  height: 400px;
-  background: blue;
-}
-
-div.slider ul.slider > li.game_06 {
-  height: 400px;
-  background: pink;
 }
 
 div.slider ul.slider > li div.slider-cover {

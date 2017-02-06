@@ -72,34 +72,11 @@ div.slider{
         > li{
             width:33.3333333333333333333333333333333%;
             float:left;
-            &.game_01{
-                height:400px;
-                background:url(../image/overwatch.jpg) no-repeat;
-                background-position:0 -40px;
-                background-size:cover;
-                @include respond-to('small'){
-                    background-position:center 0;
-                }
-            }
-            &.game_02{
-                height:400px;
-                background:orange;
-            }
-            &.game_03{
-                height:400px;
-                background:yellow;
-            }
-            &.game_04{
-                height:400px;
-                background:green;
-            }
-            &.game_05{
-                height:400px;
-                background:blue;
-            }
-            &.game_06{
-                height:400px;
-                background:pink;
+            height:400px;
+            background-position:0 -40px;
+            background-size:cover;
+            @include respond-to('small'){
+                background-position:center 0;
             }
             div.slider-cover{
                 width:100%;

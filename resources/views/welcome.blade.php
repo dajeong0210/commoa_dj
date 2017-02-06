@@ -11,42 +11,16 @@
             </a>
         </nav>
         <ul class="slider auto">
-            <li class="game_01">
-                <div class="slider-cover">
-                    <span>인기상품</span>
-                    <h2>신년에도 인기는 계속 된다!<br/>
-                    오버워치 게임용 PC</h2>
-                    <p>
-                    개나리 노란꽃 그늘 아래<br/>
-                    가지런히 놓여있는 꼬까신 하나
-                    </p>
-                    <a href="" class="btn">바로가기</a>
+            @foreach( $banners as $banner )
+            <li class="{{ 'game_0' . $banner->order .' main' . $banner->order }}" style="{{ 'background:url(' . $banner->image . ') no-repeat center 0; background-size:cover;' }}">
+                <div class="slider-cover" style="{{ $banner->align == 1 ? 'text-align:right;' : 'text-align:left;' }}">
+                    <span>{{ $banner->type }}</span>
+                    <h2 style="{{ $banner->align == 1 ? 'text-align:right;' : 'text-align:left;' }}">{!! nl2br( e($banner->title) ) !!}</h2>
+                    <p>{!! nl2br( e($banner->content) ) !!}</p>
+                    <a href="{{ $banner->url }}" class="btn" onclick="return false;">바로가기</a>
                 </div>
             </li>
-            <li class="game_02">
-                <div class="slider-cover">
-                    <span>인기상품</span>
-                    <h2>신년에도 인기는 계속 된다!<br/>
-                    오버워치 게임용 PC</h2>
-                    <p>
-                    개나리 노란꽃 그늘 아래<br/>
-                    가지런히 놓여있는 꼬까신 하나
-                    </p>
-                    <a href="" class="btn">바로가기</a>
-                </div>
-            </li>
-            <li class="game_03">
-                <div class="slider-cover">
-                    <span>인기상품</span>
-                    <h2>신년에도 인기는 계속 된다!<br/>
-                    오버워치 게임용 PC</h2>
-                    <p>
-                    개나리 노란꽃 그늘 아래<br/>
-                    가지런히 놓여있는 꼬까신 하나
-                    </p>
-                    <a href="" class="btn">바로가기</a>
-                </div>
-            </li>
+            @endforeach
         </ul>
     </div>
     <div class="page list slider">
