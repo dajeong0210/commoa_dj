@@ -36,12 +36,12 @@
                         </a>
                     </nav>
                     <ul class="slider auto">
-                        @foreach( $banners as $key=>$banner )
-                        <li class="{{ 'game_0' . $key .' main' . $key }}" style="{{ 'background:url(' . $banner->img.') no-repeat;' }}">
-                            <div class="slider-cover">
+                        @foreach( $banners as $banner )
+                        <li class="{{ 'game_0' . $banner->order .' main' . $banner->order }}" style="{{ 'background:url(' . $banner->image . ') no-repeat; background-size:cover;' }}">
+                            <div class="slider-cover" style="{{ $banner->align == 1 ? 'text-align:right;' : 'text-align:left;' }}">
                                 <span>{{ $banner->type }}</span>
-                                <h3>{{ $banner->title }}</h3>
-                                <p>{{ $banner->content }}</p>
+                                <h3 style="{{ $banner->align == 1 ? 'text-align:right;' : 'text-align:left;' }}">{!! nl2br( e($banner->title) ) !!}</h3>
+                                <p>{!! nl2br( e($banner->content) ) !!}</p>
                                 <a href="#" class="btn" onclick="return false;">바로가기</a>
                             </div>
                         </li>
@@ -54,11 +54,11 @@
                     <label>종류</label>
                     <div class="select type">
                         <label for="type1">인기상품</label>
-                        <input type="radio" id="type1" name="type" checked>
+                        <input type="radio" id="type1" name="type" value="인기상품" checked>
                         <label for="type2">이벤트</label>
-                        <input type="radio" id="type2" name="type">
+                        <input type="radio" id="type2" name="type" value="이벤트">
                         <label for="type3">공지사항</label>
-                        <input type="radio" id="type3" name="type">
+                        <input type="radio" id="type3" name="type" value="공지사항">
                     </div>
                 </div>
                 <div class="group">
