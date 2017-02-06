@@ -15,6 +15,7 @@ use App\Product;
 use App\Shop;
 use App\Cpu;
 use App\Vga;
+use App\Banner;
 
 class AdminController extends Controller
 {

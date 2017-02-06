@@ -211,23 +211,20 @@
     });
 
 //Main
-    $('div.select input[type="radio"]').on('click', function(){
-        $mainId = $(this).parent().find('input:checked').prev().html().substr(2,1);
-        console.log($mainId);
-        var dataArr = { 'id' : $mainId };
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        $.ajax({
-            type:'POST',
-            url:'/admin/main/'+$mainId,
-            data:dataArr,
-            success:function(data){
-
-            },error:function(){
-
-            }
-        });
+    $('div.nth input').on('click', function(){
+        $nth = $(this).attr('id');
+        $('div.slider ul li.'+$nth).removeClass('hidden');
+        $('div.slider ul li').not('.'+$nth).addClass('hidden');
+    });
+    $('a.preview').on('click', function(e){
+        e.preventDefault();
+        $nth = $('div.nth').find('input:checked').attr('id');
+        $type = $('div.type').find('input:checked').prev().html();
+        $title = $('textarea[name="main-title"]').val();
+        $content = $('textarea[name="main-text"]').val();
+        $url = $('input[name="main-url"]').val();
+        $('div.slider ul li.'+$nth).find('span').html($type);
+        $('div.slider ul li.'+$nth).find('h3').html($title);
+        $('div.slider ul li.'+$nth).find('p').html($content);
+        $('div.slider ul li.'+$nth).find('a').attr('href', $url);
     });

@@ -574,11 +574,25 @@ div#app.admin{
                     width:300px;
                 }
             }
+            div.slider{
+                nav{
+                    position:absolute;
+                    top:50%;
+                    margin-top:-50px;
+                }
+                h3{
+                    font-size:26px;
+                    color:#fff;
+                    font-weight:bold;
+                    letter-spacing:-1px;
+                    text-align:left;
+                }
+            }
         }
         div.group{
             margin:20px 0;
             clear:both;
-            label{
+            >label, div.form-group label{
                 display:inline-block;
                 width:12%;
                 @include respond-to('small'){
@@ -588,6 +602,9 @@ div#app.admin{
                     vertical-align:top;
                     top:3px;
                 }
+            }
+            div.select.type{
+                display:inline;
             }
             input[type="file"]{
                 width:200px;
@@ -604,7 +621,7 @@ div#app.admin{
             &:last-child{
                 padding-top:20px;
                 text-align:center;
-                input[type="submit"]{
+                input[type="submit"], a.preview{
                     font-size:15px;
                     font-weight:bold;
                     letter-spacing:-1px;
