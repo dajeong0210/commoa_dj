@@ -52,17 +52,6 @@ class ApplyController extends Controller
         if( Auth::user()->apply()->count() != 0) {
             return view('apply.create');
         } else {  
-            // $request->merge(['business_docu' => $request->file('business_docu')->store('images')]);
-            // $request->merge(['sale_docu' => $request->file('sale_docu')->store('images')]);
-            // $sale_docu = $request->file('sale_docu');
-            // $business_docu = $request->file('business_docu');
-            // $aa = Storage::disk("s3")->put('apply', $request->file('sale_docu'), 'public');
-
-            // $request->sale_docu = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::disk('s3')->put('apply', $request->file('sale_docu'), 'public');
-            // $request->merge(['business_docu' => 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('apply',  $request->file('business_docu'), 'public')]);
-            // $request = $request->except(['agree_01', 'agree_02']);
-            // Auth::user()->apply()->create($request);
-
             $apply = new Apply($request->all());
             $apply->user_id = Auth::user()->id;
             $business_docu = $request->file('business_docu');
