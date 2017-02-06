@@ -41,17 +41,20 @@
                 <a href="{{ url('/admin') }}">Admin</a>
             </p>
             <ul class="nav-group admin">
-                <li><a href="#"><i class="fa fa-caret-down" aria-hidden="true"></i>USER관리</a>
-                    <ul class="{{ Request::segment(1) == 'admin' && Request::segment(2) == 'user' ? '' : 'not-show' }}">
-                        <li class="one-layout {{ Request::segment(1) == 'admin' && Request::segment(2) == 'user' ? 'active' : '' }}">
-                            <a href="{{ url('/admin/user') }}">회원관리</a>
+                <li><a href="#"><i class="fa fa-caret-down" aria-hidden="true"></i>메인페이지편집</a>
+                    <ul class="{{ Request::segment(1) == 'admin' && Request::segment(2) == 'banner' ? '' : 'not-show' }}">
+                        <li class="one-layout {{ Request::segment(1) == 'admin' && Request::segment(2) == 'banner' ? 'active' : '' }}">
+                            <a href="{{ url('/admin/banner') }}">메인슬라이드</a>
                         </li>
                     </ul>
                 </li>
-                <li><a href="#"><i class="fa fa-caret-down" aria-hidden="true"></i>SHOP관리</a>
-                    <ul class="{{ Request::segment(1) == 'apply' || Request::segment(2) == 'shop' || Request::segment(2) == 'product' ? '' : 'not-show' }}">
-                        <li class="triple-layout {{ Request::segment(1) == 'apply' ? 'active' : '' }}">
+                <li><a href="#"><i class="fa fa-caret-down" aria-hidden="true"></i>회원/상품관리</a>
+                    <ul class="{{ Request::segment(1) == 'apply' || Request::segment(2) == 'shop' || Request::segment(2) == 'product' && Request::segment(2) == 'user'? '' : 'not-show' }}">
+                        <li class="one-layout {{ Request::segment(1) == 'apply' ? 'active' : '' }}">
                             <a href="{{ url('/apply') }}">입점신청승인</a>
+                        </li>
+                        <li class="triple-layout {{ Request::segment(1) == 'admin' && Request::segment(2) == 'user' ? 'active' : '' }}">
+                            <a href="{{ url('/admin/user') }}">회원관리</a>
                         </li>
                         <li class="triple-layout {{ Request::segment(2) == 'shop' ? 'active' : '' }}">
                             <a href="{{ url('/admin/shop') }}">쇼핑몰관리</a>
