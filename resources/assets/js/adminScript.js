@@ -226,8 +226,8 @@
         $content = $('textarea[name="content"]').val();
         $url = $('input[name="url"]').val();
         $('div.slider ul li.'+$nth).find('span').html($type);
-        $('div.slider ul li.'+$nth).find('h3').html($title);
-        $('div.slider ul li.'+$nth).find('p').html($content);
+        $('div.slider ul li.'+$nth).find('h3').html($title.replace(/\n/g, '<br/>'));
+        $('div.slider ul li.'+$nth).find('p').html($content.replace(/\n/g, '<br/>'));
         $('div.slider ul li.'+$nth).find('a').attr('href', $url);
     });
     $('input.image').on('change', function(){
