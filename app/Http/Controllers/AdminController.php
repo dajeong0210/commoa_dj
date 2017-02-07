@@ -162,7 +162,7 @@ class AdminController extends Controller
 //Recommend
     public function recommendIndex(Request $request) {
 
-        $recommends = Product::whereIn('recommend', [1, 2, 3, 4])->orderBy('recommend', 'asc');
+        $recommends = Product::whereIn('recommend', [1, 2, 3, 4])->orderBy('recommend', 'asc')->get();
         
         $products = Product::whereNotNull('name');
         $search = $request->input('search');

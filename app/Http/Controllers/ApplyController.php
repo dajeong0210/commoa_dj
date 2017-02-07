@@ -47,19 +47,17 @@ class ApplyController extends Controller
             return view('apply.create');
         }
     }
-/*
-    public function thumbnail($image) {
-        $size = getimagesize($image);
-        $width = $size[0];
-        $height = $size[1];
-        if( $size[0] > 400 || $size[1] > 400 ) {
-            $width = $size[0]/2;
-            $height = $size[1]/2;
-        }
-        $resize_image = Image::make($image)->resize($width, $height);
-        return $resize_image;      
+
+    public function thumbnail($image, $filename) {
+        $img = Image::make($image);
+        $width = $img->width()/2;
+        $height = $img->height()/2;
+        $mime = explode("/", $img->mime());
+        $img = $img->resize($width, $height)->stream();  
+        $directory = 'thumb/' . $filename;
+        Storage::disk('s3')->put($directory, $img->__toString(), 'public');
     }
-*/
+
     public function store(ApplyStoreRequest $request)
     {
         if( Auth::user()->apply()->count() != 0) {
@@ -68,16 +66,15 @@ class ApplyController extends Controller
             $apply = new Apply($request->all());
             $apply->user_id = Auth::user()->id;
             $business_docu = $request->file('business_docu');
-            $apply->business_docu = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('apply',  $business_docu, 'public');
+            $store_business = Storage::put('apply',  $business_docu, 'public');
+            $apply->business_docu = 'https://s3.ap-northeast-2.amazonaws.com/commoa/' . $store_business;
+            $store_business = explode("/", $store_business);
             $sale_docu = $request->file('sale_docu');
-            $apply->sale_docu = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('apply',  $sale_docu, 'public');
-            //thumbnail save
-            // $size_b = getimagesize($business_docu);
-            // $size_s = getimagesize($sale_docu);
-            // $resize_b = Image::make($business_docu->getRealPath())->fit($size_b[0]/2, $size_b[1]/2);
-            // $resize_s = Image::make($sale_docu->getRealPath())->fit($size_s[0]/2, $size_s[1]/2);
-            // 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('apply-thumb',  $resize_b->__string(), 'public');
-            // 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('apply-thumb',  $resize_s->__string(), 'public');
+            $store_sale = Storage::put('apply',  $sale_docu, 'public');
+            $apply->sale_docu = 'https://s3.ap-northeast-2.amazonaws.com/commoa/' . $store_sale;
+            $store_sale = explode("/", $store_sale);
+            $this->thumbnail($business_docu, $store_business[1]);
+            $this->thumbnail($sale_docu, $store_sale[1]);
             $apply->save();
             return redirect('/');
         } 
