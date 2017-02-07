@@ -264,21 +264,24 @@
         }
     });
 //Recommend
-    function Recommend($target, $inputname){
+    function Recommend($target, $inputname, $product, $shop){
         $('a.'+$target).on('click', function(e){
-            console.log('dpd');
             e.preventDefault();
-            var imgSrc = $(this).parent().parent().prev().prev().find('img').attr('src'); 
+            var imgSrc = $(this).parent().parent().prev().prev().find('img').attr('src');
+            var prodName = $(this).parent().parent().prev().find('a').html();
+            var shopName = $(this).parent().parent().prev().find('p.shop-name').html();
             var productId = $(this).next().html();
             opener.document.getElementById($target).src=imgSrc;
+            opener.document.getElementById($product).innerHTML=prodName;
+            opener.document.getElementById($shop).innerHTML=shopName;
             opener.document.getElementById($inputname).value=productId;
             self.close();
         });
     }
-    Recommend('recommend1', 'productId1');
-    Recommend('recommend2', 'productId2');
-    Recommend('recommend3', 'productId3');
-    Recommend('recommend4', 'productId4');
+    Recommend('recommend1', 'productId1', 'prodName1', 'shopName1');
+    Recommend('recommend2', 'productId2', 'prodName2', 'shopName2');
+    Recommend('recommend3', 'productId3', 'prodName3', 'shopName3');
+    Recommend('recommend4', 'productId4', 'prodName4', 'shopName4');
     $('a.rcm-submit').click(function(){
         $('form[name="newRecommend"]').submit();
     });

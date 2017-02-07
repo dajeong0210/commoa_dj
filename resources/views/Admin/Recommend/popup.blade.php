@@ -59,6 +59,7 @@
                     </div>
                     <div class="mydetail-box">
                         <a class="myprod-title" href="{{ url('product') . '/' . $product->id }}"> {{ $product->name }} </a>
+                        <p class="shop-name hidden">{{ $product->shop->name }}</p>
                         <p class="myprod-price">\{{ number_format($product->price) }}원
                         </p>
                         <ul>
