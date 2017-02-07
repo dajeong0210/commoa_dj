@@ -42,7 +42,8 @@
                                 <span>{{ $banner->type }}</span>
                                 <h3 style="{{ $banner->align == 1 ? 'text-align:right;' : 'text-align:left;' }}">{!! nl2br( e($banner->title) ) !!}</h3>
                                 <p>{!! nl2br( e($banner->content) ) !!}</p>
-                                <a href="#" class="btn" onclick="return false;">바로가기</a>
+                                <a href="{{ $banner->url }}" class="btn" onclick="return false;">바로가기</a>
+                                <span class="hidden">{{ $banner->align }}</span>
                             </div>
                         </li>
                         @endforeach
@@ -56,11 +57,11 @@
                     <label>종류</label>
                     <div class="select type">
                         <label for="type1">인기상품</label>
-                        <input type="radio" id="type1" name="type" value="인기상품" checked>
+                        <input type="radio" id="type1" name="type" value="인기상품" {{ $banners->first()->type == '인기상품' ? 'checked' : '' }}>
                         <label for="type2">이벤트</label>
-                        <input type="radio" id="type2" name="type" value="이벤트">
+                        <input type="radio" id="type2" name="type" value="이벤트" {{ $banners->first()->type == '이벤트' ? 'checked' : '' }}>
                         <label for="type3">공지사항</label>
-                        <input type="radio" id="type3" name="type" value="공지사항">
+                        <input type="radio" id="type3" name="type" value="공지사항" {{ $banners->first()->type == '공지사항' ? 'checked' : '' }}>
                     </div>
                 </div>
                 <div class="group">
@@ -72,27 +73,27 @@
                 <div class="group">
                     <div class="form-group half-layout">
                         <label for="title" class="top-align">메인타이틀</label>
-                        <textarea name="title" rows="2"></textarea>
+                        <textarea name="title" rows="2">{{ $banners->first()->title }}</textarea>
                     </div>
                 </div>
                 <div class="group">
                     <div class="form-group one-layout">
                         <label for="content" class="top-align">메인글</label>
-                        <textarea name="content" rows="5"></textarea>
+                        <textarea name="content" rows="5">{{ $banners->first()->content }}</textarea>
                     </div>
                 </div>
                 <div class="group">
                     <div class="form-group one-layout">
                         <label for="url" class="top-align">URL</label>
-                        <input type="text" name="url"/>
+                        <input type="text" name="url" value="{{ $banners->first()->url }}"/>
                     </div>
                 </div>
                 <div class="align">
                     <div class="form-group one-layout">
                         <label for="left-align">왼쪽정렬</label>
-                        <input type="radio" id="left-align" name="align" value="0">
+                        <input type="radio" id="left-align" name="align" value="0" {{ $banners->first()->align == 0 ? 'checked' : '' }}>
                         <label for="right-align">오른쪽정렬</label>
-                        <input type="radio" id="right-align" name="align" value="1">
+                        <input type="radio" id="right-align" name="align" value="1" {{ $banners->first()->align == 1 ? 'checked' : '' }}>
                     </div>
                 </div>
                 <div class="group">

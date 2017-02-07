@@ -217,6 +217,16 @@
         $('div.slider ul li').not('.'+$nth).addClass('hidden');
         $url = window.location.protocol+'//'+window.location.host;
         $('form[name="main-edit"]').attr('action', $url+'/admin/banner/'+$nth.charAt(4));
+        $type = $('ul.slider li.'+$nth).find('span:first-child').html();
+        $title = $('ul.slider li.'+$nth).find('h3').html();
+        $content = $('ul.slider li.'+$nth).find('p').html();
+        $url = $('ul.slider li.'+$nth).find('a').attr('href');
+        $align = $('ul.slider li.'+$nth).find('span.hidden').html();
+        $('input[value="'+$type+'"]').prop('checked', true);
+        $('textarea[name="title"]').html($title.replace('<br>',''));
+        $('textarea[name="content"]').html($content.replace('<br>',''));
+        $('input[name="url"]').val($url);
+        $('input[value="'+$align+'"]').prop('checked', true);
     });
     $('a.preview').on('click', function(e){
         e.preventDefault();
