@@ -37,7 +37,7 @@
             <div class="mybutton group">
                 <a href="#" class="recommend rcm-submit">수정</a>
             </div>
-            <form name="newRecommend" action="/admin/recommend/modify">
+            <form name="newRecommend" method="POST" action="/admin/recommend/modify">
                 {{ method_field('put') }}
                 {{ csrf_field() }}
                 <input type="hidden" name="productId1">
