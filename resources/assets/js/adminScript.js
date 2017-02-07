@@ -271,7 +271,7 @@
             var imgSrc = $(this).parent().parent().prev().prev().find('img').attr('src'); 
             var productId = $(this).next().html();
             opener.document.getElementById($target).src=imgSrc;
-            opener.document.getElementsByName($inputname).value=productId;
+            opener.document.getElementById($inputname).value=productId;
             self.close();
         });
     }
