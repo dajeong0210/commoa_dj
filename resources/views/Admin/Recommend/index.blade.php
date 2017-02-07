@@ -40,10 +40,10 @@
             <form name="newRecommend" method="POST" action="/admin/recommend/modify">
                 {{ method_field('put') }}
                 {{ csrf_field() }}
-                <input type="hidden" name="productId1">
-                <input type="hidden" name="productId2">
-                <input type="hidden" name="productId3">
-                <input type="hidden" name="productId4">
+                <input type="hidden" name="productId1" id="productId1">
+                <input type="hidden" name="productId2" id="productId2">
+                <input type="hidden" name="productId3" id="productId3">
+                <input type="hidden" name="productId4" id="productId4">
             </form>
         </div>
     </div>
