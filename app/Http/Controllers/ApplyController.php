@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Apply;
 use App\User;
 use Validator;
+use Image;
 
 class ApplyController extends Controller
 {
@@ -46,17 +47,19 @@ class ApplyController extends Controller
             return view('apply.create');
         }
     }
-
+/*
     public function thumbnail($image) {
         $size = getimagesize($image);
+        $width = $size[0];
+        $height = $size[1];
         if( $size[0] > 400 || $size[1] > 400 ) {
             $width = $size[0]/2;
-            $width = $size[1]/2;
+            $height = $size[1]/2;
         }
-        Image::make($image)
-            ->resize($width, $height, false, false)
-            ->save();
+        $resize_image = Image::make($image)->resize($width, $height);
+        return $resize_image;      
     }
+*/
     public function store(ApplyStoreRequest $request)
     {
         if( Auth::user()->apply()->count() != 0) {
@@ -68,6 +71,13 @@ class ApplyController extends Controller
             $apply->business_docu = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('apply',  $business_docu, 'public');
             $sale_docu = $request->file('sale_docu');
             $apply->sale_docu = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('apply',  $sale_docu, 'public');
+            //thumbnail save
+            // $size_b = getimagesize($business_docu);
+            // $size_s = getimagesize($sale_docu);
+            // $resize_b = Image::make($business_docu->getRealPath())->fit($size_b[0]/2, $size_b[1]/2);
+            // $resize_s = Image::make($sale_docu->getRealPath())->fit($size_s[0]/2, $size_s[1]/2);
+            // 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('apply-thumb',  $resize_b->__string(), 'public');
+            // 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('apply-thumb',  $resize_s->__string(), 'public');
             $apply->save();
             return redirect('/');
         } 

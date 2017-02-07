@@ -159,11 +159,44 @@ class AdminController extends Controller
     }
 
 
-//Product
-    public function recommend($id) {
+//Recommend
+    public function recommendIndex(Request $request) {
+
+        $recommends = Product::whereIn('recommend', [1, 2, 3, 4])->orderBy('recommend', 'asc');
+        
+        $products = Product::whereNotNull('name');
+        $search = $request->input('search');
+        $product_sort = $request->input('product-sort');
+        $products = $products->where('name', 'LIKE', '%'.$search.'%');
+
+        if( $product_sort == '' ) {
+            $products = $products->orderBy('updated_at', 'desc')->paginate(12);
+        } else {
+            if ( $product_sort == 'rankBy' ) {
+                $products = $products->orderBy('views', 'desc')->paginate(12);
+            } else if ( $product_sort == 'priceBydesc' ) {
+                $products = $products->orderBy('price', 'desc')->paginate(12);
+            } else if ( $product_sort == 'priceByasc' ) {
+                $products = $products->orderBy('price', 'asc')->paginate(12);
+            } else if ( $product_sort == 'nameBy' ) {
+                $products = $products->orderBy('name', 'asc')->paginate(12);
+            } else {
+                $products = $products->orderBy('updated_at', 'desc')->paginate(12);
+            } 
+        } 
+        return view('admin.recommend.index')->with('recommends', $recommends)->with('products', $products);
+    }
+
+    public function recommendUpdate(Request $request, $id) {
+        $order = $request->input('order');
+        $before = Product::where('recommend', $order)->first();
+        $before->recommend = 0;
+        $before->save();
+
         $product = Product::find($id); 
-        $product->recommend = 1; 
+        $product->recommend = $order;
         $product->save();
+        return redirect('/admin/recommend');
     }
 
 //User
@@ -292,42 +325,15 @@ class AdminController extends Controller
         return view('admin.banner.index')->with('banners', $banners);
     }
 
-    // public function bannerFind($order) {
-    //     $banner = Banner::find($order);
-    //     $array = array( 'type' => $banner->type,
-    //                     'image' => $banner->image, 
-    //                     'title' => $banner->title, 
-    //                     'content' => $banner->content,
-    //                     'url' => $banner->url );
-    //     echo json_encode($array);
-    // }
-
-    // public function bannerStore(Request $request) {
-    //     $banner = new Banner($request->all());
-    //     $banner_img = $request->file('image');
-    //     $banner->image = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('banner',  $banner_img, 'public');
-    //     $banner->save();
-    //     return redirect('/admin/banner');
-    // }
-
     public function bannerUpdate(Request $request, $id) {
         $banner = Banner::find($id);
-        // if( $banner == null ) {
-        //     $request = $request->except(['_method', '_token']);
-        //     $banner = new Banner($request);
-            
-        //     $banner_img = $request->file('image');
-        //     $banner->image = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('banner',  $banner_img, 'public');
-        //     $banner->save();
-        // } else {
-            $banner_img = $request->file('image');
-            $request = $request->except(['_method', '_token']);
-            $banner->update($request);
-            if( $banner_img != null ) {
-                $banner->image = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('banner',  $banner_img, 'public');
-                $banner->save();
-            }
-        // }
+        $banner_img = $request->file('image');
+        $request = $request->except(['_method', '_token']);
+        $banner->update($request);
+        if( $banner_img != null ) {
+            $banner->image = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('banner',  $banner_img, 'public');
+            $banner->save();
+        }
         
         return redirect('/admin/banner');
     }
