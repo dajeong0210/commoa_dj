@@ -263,3 +263,19 @@
             }
         }
     });
+//Recommend
+function Recommend($target, $inputname){
+    $('a.'+$target).on('click', function(e){
+        console.log('dpd');
+        e.preventDefault();
+        var imgSrc = $(this).parent().parent().prev().prev().find('img').attr('src'); 
+        var productId = $(this).next().html();
+        opener.document.getElementById($target).src=imgSrc;
+        opener.document.getElementsByName($inputname).value=productId;
+        self.close();
+    });
+}
+Recommend('recommend1', 'productId1');
+Recommend('recommend2', 'productId2');
+Recommend('recommend3', 'productId3');
+Recommend('recommend4', 'productId4');
