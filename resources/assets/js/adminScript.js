@@ -1,6 +1,6 @@
 //Nav
     $('a.menu_btn').on('click', function(){
-        $('ul.nav-group').toggleClass('show');
+        $('ul.nav-group.menu').toggleClass('show');
         $(this).parent().addClass('active');
     });
     $('nav.admin-nav ul.nav-group > li > a').on('click', function(e){

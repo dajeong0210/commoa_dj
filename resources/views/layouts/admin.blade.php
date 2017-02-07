@@ -40,7 +40,7 @@
                 <a href="{{ url('/mypage') }}">Mypage</a>
                 <a href="{{ url('/admin') }}">Admin</a>
             </p>
-            <ul class="nav-group admin">
+            <ul class="nav-group menu admin">
                 <li><a href="#"><i class="fa fa-caret-down" aria-hidden="true"></i>메인페이지편집</a>
                     <ul class="{{ Request::segment(1) == 'admin' && Request::segment(2) == 'banner' ? '' : 'not-show' }}">
                         <li class="half-layout {{ Request::segment(1) == 'admin' && Request::segment(2) == 'banner' ? 'active' : '' }}">
@@ -52,7 +52,7 @@
                     </ul>
                 </li>
                 <li><a href="#"><i class="fa fa-caret-down" aria-hidden="true"></i>회원/상품관리</a>
-                    <ul class="{{ Request::segment(1) == 'apply' || Request::segment(2) == 'shop' || Request::segment(2) == 'product' && Request::segment(2) == 'user'? '' : 'not-show' }}">
+                    <ul class="{{ Request::segment(1) == 'apply' || Request::segment(2) == 'shop' || Request::segment(2) == 'product' || Request::segment(2) == 'user'? '' : 'not-show' }}">
                         <li class="one-layout {{ Request::segment(1) == 'apply' ? 'active' : '' }}">
                             <a href="{{ url('/apply') }}">입점신청승인</a>
                         </li>

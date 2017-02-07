@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="page list mypage admin">
-        @include('layouts.adminMenu') 
+        @include('layouts.mainEditMenu') 
         <div class="main-edit">
             <h2>메인배너수정</h2>
             <div class="select nth">

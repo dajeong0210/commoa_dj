@@ -2876,6 +2876,12 @@ div#app.admin div.main-edit div.preview.recommend {
   height: 330px;
 }
 
+@media (max-width: 800px) {
+  div#app.admin div.main-edit div.preview.recommend {
+    height: initial;
+  }
+}
+
 div#app.admin div.main-edit div.preview nav {
   margin: 0;
   width: 100%;
@@ -2908,6 +2914,18 @@ div#app.admin div.main-edit div.preview div.slider h3 {
   letter-spacing: -1px;
 }
 
+@media (max-width: 800px) {
+  div#app.admin div.main-edit div.preview div.slider h3 {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  div#app.admin div.main-edit div.preview div.slider h3 {
+    font-size: 20px;
+  }
+}
+
 div#app.admin div.main-edit div.preview div.recommend-list ul {
   width: 100%;
   padding: 0;
@@ -2918,6 +2936,13 @@ div#app.admin div.main-edit div.preview div.recommend-list ul li {
   height: 200px;
   float: left;
   position: relative;
+}
+
+@media (max-width: 800px) {
+  div#app.admin div.main-edit div.preview div.recommend-list ul li {
+    width: 50%;
+    height: initial;
+  }
 }
 
 div#app.admin div.main-edit div.preview div.recommend-list ul li a {
@@ -2941,9 +2966,23 @@ div#app.admin div.main-edit div.preview div.recommend-list div.thumbnail {
   overflow: hidden;
 }
 
+@media (max-width: 800px) {
+  div#app.admin div.main-edit div.preview div.recommend-list div.thumbnail {
+    width: 100%;
+    height: auto;
+  }
+}
+
 div#app.admin div.main-edit div.preview div.recommend-list div.thumbnail img {
   width: auto;
   height: 100%;
+}
+
+@media (max-width: 800px) {
+  div#app.admin div.main-edit div.preview div.recommend-list div.thumbnail img {
+    width: 100%;
+    height: auto;
+  }
 }
 
 div#app.admin div.main-edit div.preview div.recommend-list p {
@@ -2951,6 +2990,9 @@ div#app.admin div.main-edit div.preview div.recommend-list p {
   line-height: 1.2;
   text-align: center;
   font-weight: bold;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 div#app.admin div.main-edit div.preview div.recommend-list p:last-child {

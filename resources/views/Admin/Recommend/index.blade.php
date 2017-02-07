@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="page list mypage admin">
-        @include('layouts.adminMenu') 
+        @include('layouts.mainEditMenu') 
         <div class="main-edit">
             <h2>추천상품편집</h2>
             <div class="preview recommend">
