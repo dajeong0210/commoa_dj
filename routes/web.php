@@ -79,6 +79,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::put('/admin/permission/{id}', 'AdminController@permissionUpdate');
         Route::get('/admin/banner', 'AdminController@bannerIndex');
         Route::put('/admin/banner/{id}', 'AdminController@bannerUpdate');
+        Route::get('/admin/recommend', 'AdminController@recommendIndex');
+        Route::put('/admin/recommend/{id}', 'AdminController@recommendUpdate');
     });
 
 });
