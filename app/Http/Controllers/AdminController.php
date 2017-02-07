@@ -332,178 +332,119 @@ class AdminController extends Controller
 	}
 	
 	
-	public function recommendUpdate(Request $request, $id) {
+	public function recommendUpdate(Request $request) {
 		
-		$order = $request->input('order');
-		
-		$before = Product::where('recommend', $order)->first();
-		
-		$before->recommend = 0;
-		
-		$before->save();
-		
-		
-		$product = Product::find($id);
-		
-		$product->recommend = $order;
-		
-		$product->save();
+		for( $i=1; $i<=4; $i++ ) {
+			$id = $request->input('productId'.$i);
+			if( $id != '' ) {
+				$before = Product::where('recommend', $i)->first();
+				$before->recommend = 0;
+				$before->save();
+
+				$product = Product::find($id);
+				$product->recommend = $i;
+				$product->save();
+			}
+		}
 		
 		return redirect('/admin/recommend');
 		
 	}
-	
-	
-	//U	ser
+		
+	//User
 	public function userIndex(Request $request) {
-		
-		
-		
+
 		$user_sort = $request->input('user-sort');
-		
 		$search = $request->input('search');
-		
-		
-		if( $search != '' ) {
-			
-			$users = User::where('name', 'LIKE', '%'.$search.'%');
-			
+		if( $search != '' ) {	
+			$users = User::where('name', 'LIKE', '%'.$search.'%');		
 		}
-		else {
-			
-			$users = User::whereNotNull('name');
-			
+		else {		
+			$users = User::whereNotNull('name');		
+		}		
+		if( $user_sort == '' ) {	
+			$users = $users->orderBy('id', 'desc')->paginate(20);		
 		}
-		
-		
-		if( $user_sort == '' ) {
-			
-			$users = $users->orderBy('id', 'desc')->paginate(20);
-			
+		else if( $user_sort == '일반회원' ) {	
+			$users = $users->where('permission', 0)->orderBy('id', 'desc')->paginate(20);	
 		}
-		else if( $user_sort == '일반회원' ) {
-			
-			$users = $users->where('permission', 0)->orderBy('id', 'desc')->paginate(20);
-			
+		else if( $user_sort == '쇼핑몰회원' ) {	
+			$users = $users->where('permission', 1)->orderBy('id', 'desc')->paginate(20);	
 		}
-		else if( $user_sort == '쇼핑몰회원' ) {
-			
-			$users = $users->where('permission', 1)->orderBy('id', 'desc')->paginate(20);
-			
-		}
-		
 		
 		return view('admin.user.index')->with('users', $users)->with('search', $search);
-		
 	}
 	
-	
+
 	public function userUpdate(Request $request, $id) {
-		
 		$user = User::find($id);
-		
 		$user->name = $request->input('user_name');
-		
 		$user->save();
 		
-		
 		return redirect('/admin/user');
-		
 	}
 	
-	
 	public function permissionUpdate($id) {
-		
-		//s		hop 관리자 -> 일반회원
+		//shop 관리자 -> 일반회원
 		$user = User::find($id);
-		
 		$shop = $user->shop;
-		
 		$bookmark_users = $shop->users()->get();
-		
 		foreach ($bookmark_users as $user) {
-			
 			$shop->users()->toggle( $user->id );
-			
 		}
 		
-		//c		ategory_product, category delete
-		//p		roduct_user, product delete
+		//category_product, category delete
+		//product_user, product delete
 		$products = $shop->products()->get();
-		
 		foreach ($products as $product) {
-			
 			$product = Product::find($product->id);
-			
 			$categories = $product->categories()->get();
-			
 			$favorite_users = $product->users()->get();
 			
 			foreach ($categories as $category) {
-				
 				$category->products()->toggle( $product->id );
-				
 			}
-			
+		
 			foreach ($favorite_users as $user) {
-				
 				$product->users()->toggle( $user->id );
-				
 			}
-			
 			$product->delete();
-			
 		}
 		
-		//s		hop delete
+		//shop delete
 		$shop->delete();
-		
-		//u		ser permission edit 
+		//user permission edit 
 		$shop->user->permission = 0;
-		
 		$shop->user->save();
 		
 		return redirect('/admin/user');
-		
 	}
 	
 	
 	public function userDelete($id) {
 		
 		$user = User::find($id);
-		
-		//자		신이 bookmark, favorite 한 것! 
+		//자신이 bookmark, favorite 한 것! 
 		$bookmarks = $user->shops;
-		
 		$favorites = $user->products;
-		
 		foreach ($bookmarks as $bookmark) {
-			
 			$user->shops()->detach($bookmark->id);
-			
 		}
-		
+	
 		foreach ($favorites as $favorite) {
-			
 			$user->products()->detach($favorite->id);
-			
 		}
 		
 		if( $user->apply != null ) {
-			
 			$user->apply->delete();
-			
 		}
 		
-		
 		if( $user->permission == 0 ) {
-			
 			$user->delete();
-			
 		}
 		else if ( $user->permission == 1 ) {
 			
-			//s			hop_user delete 
+			//shop_user delete 
 			$shop = $user->shop;
 			
 			if( $shop != null ) {
