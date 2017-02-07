@@ -27,8 +27,8 @@
                             <div class="thumbnail">
                                 <img id="recommend{{$recommend->recommend}}" src="{{ $recommend->image }}">
                             </div>
-                            <p>{{ $recommend->name }}</p>
-                            <p>{{ $recommend->shop->name }}</p>
+                            <p id="prodName{{$recommend->recommend}}">{{ $recommend->name }}</p>
+                            <p id="shopName{{$recommend->recommend}}">{{ $recommend->shop->name }}</p>
                         </li>
                         @endforeach
                     </ul>
