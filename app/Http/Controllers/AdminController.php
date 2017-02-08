@@ -169,7 +169,7 @@ class AdminController extends Controller
 	public function recommendIndex(Request $request) {
 		$recommends = Product::whereIn('recommend', [1, 2, 3, 4])->orderBy('recommend', 'asc')->get();
 		$recommend_arr = array();
-		for( $i=0; $i<$recommends->count(); $i++ ){
+		for( $i=0; $i<$recommends->count(); $i++ ) {
 			array_push($recommend_arr, $recommends[$i]->recommend);
 		}
 		return view('admin.recommend.index')->with('recommends', $recommends)->with('recommend_arr', $recommend_arr);
@@ -222,6 +222,11 @@ class AdminController extends Controller
 		}
 		
 		return redirect('/admin/recommend');
+	}
+
+	public function recommendDelete($id) {
+		$product = Product::where('recommend', $id)->get();
+		$product->delete();
 	}
 		
 	//User
