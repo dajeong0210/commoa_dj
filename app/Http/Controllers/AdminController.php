@@ -228,6 +228,8 @@ class AdminController extends Controller
 		$product = Product::where('recommend', $id)->first();
 		$product->recommend = 0;
 		$product->save();
+
+		return redirect('/admin/recommend');
 	}
 		
 	//User
