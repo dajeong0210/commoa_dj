@@ -20,17 +20,29 @@
                 </nav>
                 <div class="recommend-list">
                     <ul>
-                        @foreach($recommends as $recommend)
-                        <li>
-                            <a href="#" onclick="javascript_:window.open('popup/{{$recommend->recommend}}','pop', 'menubar=no,status=no,scrollbars=no,resizable=no ,width=500,height=500,top=50,left=50');">
-                            </a>
-                            <div class="thumbnail">
-                                <img id="recommend{{$recommend->recommend}}" src="{{ $recommend->image }}">
-                            </div>
-                            <p id="prodName{{$recommend->recommend}}">{{ $recommend->name }}</p>
-                            <p id="shopName{{$recommend->recommend}}">{{ $recommend->shop->name }}</p>
-                        </li>
-                        @endforeach
+                        @for( $i=1; $i<=4; $i++ )
+                            @if( !in_array($i , $recommend_arr) )
+                            <li>
+                                <a href="#" onclick="javascript_:window.open('popup/{{$i}}','pop', 'menubar=no,status=no,scrollbars=no,resizable=no ,width=500,height=500,top=50,left=50');">
+                                <span>+</span>
+                                </a>
+                                <div id="recommend{{$i}}" class="thumbnail">
+                                </div>
+                                <p id="prodName{{$i}}"></p>
+                                <p id="shopName{{$i}}"></p>
+                            </li>
+                            @else
+                            <li>
+                                <a href="#" onclick="javascript_:window.open('popup/{{$i}}','pop', 'menubar=no,status=no,scrollbars=no,resizable=no ,width=500,height=500,top=50,left=50');">
+                                <span>+</span>
+                                </a>
+                                <div id="recommend{{$i}}" class="thumbnail" style="background:url({{ $recommends->where('recommend', $i)->first()->image }}) center no-repeat; background-size:cover;">
+                                </div>
+                                <p id="prodName{{$i}}">{{ $recommends->where('recommend', $i)->first()->name }}</p>
+                                <p id="shopName{{$i}}">{{ $recommends->where('recommend', $i)->first()->shop->name }}</p>
+                            </li>
+                            @endif
+                        @endfor
                     </ul>
                 </div>
             </div>

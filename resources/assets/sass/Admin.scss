@@ -608,12 +608,13 @@ div#app.admin{
                     padding:0;
                     li{
                         width:25%;
-                        height:200px;
+                        border-right:1px solid #fff;
+                        box-sizing:border-box;
+                        height:270px;
                         float:left;
                         position:relative;
                         @include respond-to('small'){
                             width:50%;
-                            height:initial;
                         }
                         a{
                             display:block;
@@ -622,28 +623,32 @@ div#app.admin{
                             position:absolute;
                             top:0;
                             z-index:30;
+                            text-align:center;
                             transition:all 0.5s;
+                            background:rgba(0,0,0,0.2);
                             &:hover{
-                                background:rgba(0,0,0,0.5);
+                                background:rgba(0,0,0,0.6);
+                                span{
+                                    color:#fff;
+                                }
+                            }
+                            span{
+                                color:#333;
+                                line-height:260px;
+                                font-size:50px;
+                                text-shadow:0 0 5px #fff;
+                                transition:all 0.5s;
                             }
                         }
                     }
                 }
                 div.thumbnail{
                     width:auto;
-                    height:100%;
+                    height:75%;
                     overflow:hidden;
                     @include respond-to('small'){
                         width:100%;
-                        height:auto;
-                    }
-                    img{
-                        width:auto;
-                        height:100%;
-                        @include respond-to('small'){
-                            width:100%;
-                            height:auto;
-                        }
+                        height:75%;
                     }
                 }
                 p{
