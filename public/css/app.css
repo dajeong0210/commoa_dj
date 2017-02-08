@@ -2946,7 +2946,7 @@ div#app.admin div.main-edit div.preview div.recommend-list ul li {
   }
 }
 
-div#app.admin div.main-edit div.preview div.recommend-list ul li a {
+div#app.admin div.main-edit div.preview div.recommend-list ul li a:not(.delete) {
   display: block;
   width: 100%;
   height: 100%;
@@ -2959,21 +2959,35 @@ div#app.admin div.main-edit div.preview div.recommend-list ul li a {
   background: rgba(0, 0, 0, 0.2);
 }
 
-div#app.admin div.main-edit div.preview div.recommend-list ul li a:hover {
+div#app.admin div.main-edit div.preview div.recommend-list ul li a:not(.delete):hover {
   background: rgba(0, 0, 0, 0.6);
 }
 
-div#app.admin div.main-edit div.preview div.recommend-list ul li a:hover span {
+div#app.admin div.main-edit div.preview div.recommend-list ul li a:not(.delete):hover span {
   color: #fff;
 }
 
-div#app.admin div.main-edit div.preview div.recommend-list ul li a span {
+div#app.admin div.main-edit div.preview div.recommend-list ul li a:not(.delete) span {
   color: #333;
   line-height: 260px;
   font-size: 50px;
   text-shadow: 0 0 5px #fff;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
+}
+
+div#app.admin div.main-edit div.preview div.recommend-list ul li a.delete {
+  font-size: 20px;
+  color: #fff;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  z-index: 50;
+}
+
+div#app.admin div.main-edit div.preview div.recommend-list ul li a.delete:hover {
+  color: #FA5858;
+  text-shadow: 0 0 5px #000;
 }
 
 div#app.admin div.main-edit div.preview div.recommend-list div.thumbnail {

@@ -40,6 +40,11 @@
                                 </div>
                                 <p id="prodName{{$i}}">{{ $recommends->where('recommend', $i)->first()->name }}</p>
                                 <p id="shopName{{$i}}">{{ $recommends->where('recommend', $i)->first()->shop->name }}</p>
+                                <a class="delete rcm-delete" href="#"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                <form name="recommend-del" method="POST" action="{{ url('/admin/recommend') . '/' . $i }}">
+                                {{ method_field('delete') }}
+                                {{ csrf_field() }}
+                                </form>
                             </li>
                             @endif
                         @endfor
