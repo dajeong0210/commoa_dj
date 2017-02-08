@@ -50,8 +50,21 @@ class ApplyController extends Controller
 
     public function thumbnail($image, $filename) {
         $img = Image::make($image);
-        $width = $img->width()/2;
-        $height = $img->height()/2;
+        //adroid mobile 480px
+        /*
+        if( $width * $height > 480 ) {
+            $scale = sqrt( ($width * $height) / 480 );
+            $width = $width / $scale;
+            $height = $height / $scale;
+        }
+        */
+        $width = $img->width();
+        $height = $img->height();
+        if( $width > 480 ) {
+            $scale = $width / 480;
+            $width = $width / $scale;
+            $height = $height / $scale;
+        }
         $mime = explode("/", $img->mime());
         $img = $img->resize($width, $height)->stream();  
         $directory = 'thumb/' . $filename;
