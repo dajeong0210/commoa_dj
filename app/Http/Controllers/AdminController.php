@@ -225,8 +225,9 @@ class AdminController extends Controller
 	}
 
 	public function recommendDelete($id) {
-		$product = Product::where('recommend', $id)->get();
-		$product->delete();
+		$product = Product::where('recommend', $id)->first();
+		$product->recommend = 0;
+		$product->save();
 	}
 		
 	//User

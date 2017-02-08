@@ -82,6 +82,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/admin/recommend', 'AdminController@recommendIndex');
         Route::put('/admin/recommend/{id}', 'AdminController@recommendUpdate');
         Route::get('/admin/popup/{id}', 'AdminController@recommendPopup');
+        Route::delete('/admin/recommend/{id}', 'AdminController@recommendDelete');
     });
 
 });
