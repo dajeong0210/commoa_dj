@@ -1,6 +1,6 @@
 //Nav
     $('a.menu_btn').on('click', function(){
-        $('ul.nav-group').toggleClass('show');
+        $('ul.nav-group.menu').toggleClass('show');
         $(this).parent().addClass('active');
     });
     $('nav.admin-nav ul.nav-group > li > a').on('click', function(e){
@@ -271,7 +271,7 @@
             var prodName = $(this).parent().parent().prev().find('a').html();
             var shopName = $(this).parent().parent().prev().find('p.shop-name').html();
             var productId = $(this).next().html();
-            opener.document.getElementById($target).src=imgSrc;
+            opener.document.getElementById($target).style="background:url("+imgSrc+") center no-repeat; background-size:cover;";
             opener.document.getElementById($product).innerHTML=prodName;
             opener.document.getElementById($shop).innerHTML=shopName;
             opener.document.getElementById($inputname).value=productId;

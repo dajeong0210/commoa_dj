@@ -168,7 +168,11 @@ class AdminController extends Controller
 //Recommend
 	public function recommendIndex(Request $request) {
 		$recommends = Product::whereIn('recommend', [1, 2, 3, 4])->orderBy('recommend', 'asc')->get();
-		return view('admin.recommend.index')->with('recommends', $recommends)->with('product', $product);
+		$recommend_arr = array();
+		for( $i=0; $i<$recommends->count(); $i++ ){
+			array_push($recommend_arr, $recommends[$i]->recommend);
+		}
+		return view('admin.recommend.index')->with('recommends', $recommends)->with('recommend_arr', $recommend_arr);
 	}
 	
 	public function recommendPopup(Request $request, $id) {
@@ -207,12 +211,10 @@ class AdminController extends Controller
 			$id = $request->input('productId'.$i);
 			if( $id != '' ) {
 				$before = Product::where('recommend', $i)->first();
-				// if( $before == null ) {
-				// 	$before = new Product;
-				// }
-				$before->recommend = 0;
-				$before->save();
-
+				if( $before != null ) {
+					$before->recommend = 0;
+					$before->save();
+				}
 				$product = Product::find($id);
 				$product->recommend = $i;
 				$product->save();
