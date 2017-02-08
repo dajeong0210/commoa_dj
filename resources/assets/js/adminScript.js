@@ -285,3 +285,6 @@
     $('a.rcm-submit').click(function(){
         $('form[name="newRecommend"]').submit();
     });
+    $('a.rcm-delete').click(function(){
+        $('form[name="recommend-del"]').submit();
+    });

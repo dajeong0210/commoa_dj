@@ -616,7 +616,7 @@ div#app.admin{
                         @include respond-to('small'){
                             width:50%;
                         }
-                        a{
+                        a:not(.delete){
                             display:block;
                             width:100%;
                             height:100%;
@@ -638,6 +638,18 @@ div#app.admin{
                                 font-size:50px;
                                 text-shadow:0 0 5px #fff;
                                 transition:all 0.5s;
+                            }
+                        }
+                        a.delete{
+                            font-size:20px;
+                            color:#fff;
+                            position:absolute;
+                            top:5px;
+                            right:10px;
+                            z-index:50;
+                            &:hover{
+                                color:$point-color2;
+                                text-shadow:0 0 5px #000;
                             }
                         }
                     }
