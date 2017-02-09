@@ -28,6 +28,7 @@ class CreateProductsTable extends Migration
             $table->integer('monitor')->unsigned()->nullable();
             $table->integer('views')->unsinged()->default(0);
             $table->integer('recommend')->unsinged()->default(0);
+            $table->string('use');
             $table->timestamps();
 
             $table->integer('shop_id')->unsigned();

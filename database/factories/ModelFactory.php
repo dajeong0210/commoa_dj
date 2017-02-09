@@ -84,6 +84,7 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
         'views' => $faker->numberBetween(0, 1000),
         'cpu_id' => $faker->randomElement($cpu_id),
         'vga_id' => $faker->randomElement($vga_id),
+        'use' => $faker->randomElement($array = array ('사무용', '게임용', '그래픽용')),
         'shop_id' => $faker->randomElement($shop_id),
         'recommend' => 0,
     ];
