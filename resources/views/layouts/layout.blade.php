@@ -45,6 +45,27 @@
                 @endif
                 </li>
                 <li>
+                @if( Request::segment(1) == 'office' )
+                    <a href="{{ url('office/')}}" class="active">사무용</a>
+                @else
+                    <a href="{{ url('office/')}}">사무용</a>
+                @endif
+                </li>
+                <li>
+                @if( Request::segment(1) == 'game' )
+                    <a href="{{ url('game/')}}" class="active">게임용</a>
+                @else
+                    <a href="{{ url('game/')}}">게임용</a>
+                @endif
+                </li>
+                <li>
+                @if( Request::segment(1) == 'graphic' )
+                    <a href="{{ url('graphic/')}}" class="active">그래픽용</a>
+                @else
+                    <a href="{{ url('graphic/')}}">그래픽용</a>
+                @endif
+                </li>
+                <li>
                 @if( Request::segment(1) == 'shop' && !Request::segment(2) )
                     <a href="{{ url('shop/') }}" class="active">쇼핑몰</a>
                 @else

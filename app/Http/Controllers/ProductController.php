@@ -9,6 +9,7 @@ use App\Product;
 use App\Cpu;
 use App\Vga;
 use App\Category;
+use URL;
 
 class ProductController extends Controller
 {
@@ -25,7 +26,15 @@ class ProductController extends Controller
         $os = $request->input('os');
         $monitor = $request->input('monitor');
         $ssd = $request->input('ssd');
-        $products = new Product;
+        if ( strpos( URL::current() , 'office') ) {
+            $products = Product::where('use', '사무용');
+        } else if ( strpos( URL::current() , 'game') ) {
+            $products = Product::where('use', '게임용');
+        } else if ( strpos( URL::current() , 'graphic') ){
+            $products = Product::where('use', '그래픽용');
+        } else {
+            $products = new Product;
+        }
 
         if( $categories != null ) {
             // AND type filter
