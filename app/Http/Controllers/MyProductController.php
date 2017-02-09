@@ -70,15 +70,12 @@ class MyProductController extends Controller
     public function store(ProductStoreRequest $request)
     {
         $product = new Product($request->all());
-        // $request->merge(['image' => $request->file('image')->store('images')]);
         $image = $request->file('image');
         $product->image = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('product',  $image, 'public');
 
         if($request->input('monitor') == '') { 
-            // $request->merge(['monitor' => null]);
             $product->monitor = null;
         }
-        // $product = Auth::user()->shop->products()->create($request->all());
         $product->shop_id = Auth::user()->shop->id;
         $product->save();
 
@@ -119,6 +116,9 @@ class MyProductController extends Controller
     public function update(ProductUpdateRequest $request, $id)
     {
         $product = Product::find($id);
+        if( Auth::user()->permission != 2 ) {
+            $this->authorize('update', $product->shop);
+        }
         $categories = $request->input('category');
         if ( $categories == null ) { $categories = array(); }
         $product->categories()->sync($categories);
@@ -146,6 +146,9 @@ class MyProductController extends Controller
     public function destroy($id)
     {
         $product = Product::find($id);
+        if( Auth::user()->permission != 2 ) {
+            $this->authorize('delete', $product->shop);
+        }
         $categories = $product->categories()->get();
         $users = $product->users()->get();
         foreach ($categories as $category) {
@@ -154,10 +157,8 @@ class MyProductController extends Controller
         foreach ($users as $user) {
             $product->users()->toggle( $user->id );
         }
-        if( Auth::user()->id == $product->shop->user_id || Auth::user()->permission == 2 ) {
-            $product->delete();
-        }
-
+        $product->delete();
+        
         if( Auth::user()->permission == 2 ){
             return redirect('admin/product');
         } else {
