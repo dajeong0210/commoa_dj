@@ -20,6 +20,9 @@ Auth::routes();
 
 Route::get('/shop', 'ShopController@index');
 Route::resource('/product', 'ProductController');
+Route::resource('/office', 'ProductController');
+Route::resource('/game', 'ProductController');
+Route::resource('/graphic', 'ProductController');
 Route::get('/category/{category_name}', 'CategoryController@show');
 Route::post('/viewcount/{product_id}', 'ProductController@viewCount');
 
