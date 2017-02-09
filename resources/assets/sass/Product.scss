@@ -297,6 +297,7 @@ div.page{
                     font-size:18px;
                     line-height:40px;
                     font-weight:bold;
+                    z-index:2;
                     &.medal{
                         width:70px;
                         height:70px;
@@ -317,8 +318,15 @@ div.page{
         }   
         div.img-box{
             width:100%;
+            display:inline-block;
+            position:relative;
             background:#fff;
             overflow:hidden;
+            &:after{
+                padding-top:100%;
+                display:block;
+                content:'';
+            }
             img{
                 width:100%;
                 height:auto;
@@ -347,20 +355,20 @@ div.page{
                 }
             }
             ul.prod_category{
-                height:auto;
+                height:100px;
                 line-height:1.2;
                 margin:0;
                 padding:0 10px;
                 li{
                     float:left;
-                    margin-right:3px;
+                    margin-right:2px;
                     a.category{
                         display:inline;
                         font-size:11px;
                         font-weight:bold;
-                        padding:2px 7px;
+                        padding:1.5px 7px;
                         margin:1px;
-                        line-height:2;
+                        line-height:1.5;
                         color:#fff;
                         border-radius:5px;
                         text-overflow:initial;

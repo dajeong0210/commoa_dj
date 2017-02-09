@@ -16,9 +16,9 @@
                 </div>
             </form>
         </div>
-        <ul class="list-group">
+        <ul class="list-group grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 0 }'>
             @foreach( $products as $product )
-            <li>
+            <li class="grid-item">
                 @if( Request::get('sort') == 'rankBy' )
                     @if( $product->row == 1 )
                     <span class="badge medal">1</span>
@@ -26,11 +26,10 @@
                     <span class="badge">{{ $product->row }}</span>
                     @endif
                 @endif
-                <div class="img-box prod">
-                    <a href="{{ url('product') . '/' . $product->id }}">
-                        <img src="{{ $product->image }}" alt="">
-                    </a>
-                 </div>
+                <a href="{{ url('/product') . '/' . $product->id }}">
+                    <div class="img-box prod" style="background:url({{ $product->image }}); background-size:cover;">
+                    </div>
+                </a> 
                 <div class="detail-box">
                     <a class="prod-title" href="{{ url('product') . '/' . $product->id }}"> {{ $product->name }} </a>
                     <ul class="prod_category">

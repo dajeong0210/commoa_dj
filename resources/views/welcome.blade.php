@@ -23,16 +23,73 @@
             @endforeach
         </ul>
     </div>
+    <div class="page list hot-items">
+        <h3><span>HOT PRODUCT</span></h3>
+        <ul class="list-group slider recommend">
+            @foreach( $products1 as $product )
+            <li>
+                <span class="badge recommend">추천!!</span>
+                <a href="{{ url('/product') . '/' . $product->id }}">
+                    <div class="img-box prod" style="background:url({{ $product->image }}); background-size:cover;">
+                    </div>
+                </a> 
+                <div class="detail-box">
+                    <a class="prod-title" href="{{ url('/product') . '/' . $product->id }}"> {{ $product->name }} </a>
+                    <ul class="prod_category">
+                    @foreach( $product->categories as $category )
+                        <li>
+                        <a class="category category_{{ $category->id }}" href="{{ url('category') . '/' . str_replace(' ','_',$category->name) }}">{{ $category->name }}</a>
+                        </li>
+                    @endforeach
+                    </ul>
+                    <p class="prod-shop">{{ $product->shop->name }}</p>
+                    <p class="prod-price">{{ number_format($product->price) }}원
+                        @if( Auth::guest() )
+                        @else
+                        <span>
+                            <a href="#" class="fav" onclick="return false;">
+                                @if( $product->users()->get()->where('id', Auth::user()->id)->count() == 0 )
+                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                    <i class="fa fa-heart hidden" aria-hidden="true"></i>
+                                @else
+                                    <i class="fa fa-heart-o hidden" aria-hidden="true"></i>
+                                    <i class="fa fa-heart" aria-hidden="true"></i>
+                                @endif
+                            </a>
+                        </span>
+                        @endif
+                        <span class="hidden">{{ $product->id }}</span>
+                    </p>
+                </div>
+            </li>
+            @endforeach
+        </ul>
+    </div>
     <div class="mainPage">
         <ul>
             <li class="one-layouts">
                 <h3>New Product</h3>
-                <div class="thumbnail" style="background:url({{ $products->first()->image }}) center no-repeat; background-size:cover;">
-                    <a href="{{ url('product').'/'.$products->first()->id }}">
-                    </a>
+                <div class="slider-wrap">
+                    <div class="slider">
+                    @foreach( $new_items as $key=>$new_item )
+                        <div class="item item_0{{$key+1}}">
+                            <div class="thumbnail" style="background:url({{ $new_item->image }}) center no-repeat; background-size:cover;">
+                                <a href="{{ url('product').'/'.$new_item->id }}">
+                                </a>
+                            </div>
+                            <p>{{ $new_item->name }}</p>
+                            <p>{{ $new_item->shop->name }}</p>
+                        </div>
+                    @endforeach
+                    </div>
                 </div>
-                <p>{{ $products->first()->name }}</p>
-                <p>{{ $products->first()->shop->name }}</p>
+                <nav class="new_product">
+                    <ul>
+                        @foreach( $new_items as $key=>$new_item )
+                            <li><a href="#" class="nav_newProduct {{ $key == 0 ? 'active' : '' }}"><i class="fa {{ $key == 0 ? 'fa-circle' : 'fa-circle-o' }}" aria-hidden="true"></i></a></li>
+                        @endforeach
+                    </ul>
+                </nav>
             </li>    
             @foreach($recommends as $recommend)
             <li class="half-layouts">

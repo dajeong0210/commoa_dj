@@ -89,7 +89,7 @@
                 <li name="rankBy" class="rankBy {{ isset($_GET['product-sort'])? $_GET['product-sort'] == 'rankBy'? 'active' : '' : '' }}">인기순</li>
             </ul>
         </div>
-        <ul class="list-group" class="grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 0 }'>
+        <ul class="list-group grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 0 }'>
             @foreach( $products as $product )
             <li class="grid-item">
                 @if( Request::get('sort') == 'rankBy' )
@@ -99,11 +99,10 @@
                     <span class="badge">{{ $product->row }}</span>
                     @endif
                 @endif
-                <div class="img-box prod">
-                    <a href="{{ url('/product') . '/' . $product->id }}">
-                        <img src="{{ $product->image }}" alt="">
-                    </a>
-                </div>
+                <a href="{{ url('/product') . '/' . $product->id }}">
+                    <div class="img-box prod" style="background:url({{ $product->image }}); background-size:cover;">
+                    </div>
+                </a> 
                 <div class="detail-box">
                     <a class="prod-title" href="{{ url('/product') . '/' . $product->id }}"> {{ $product->name }} </a>
                     <ul class="prod_category">
@@ -113,7 +112,6 @@
                         </li>
                     @endforeach
                     </ul>
-                    </p>
                     <p class="prod-shop">{{ $product->shop->name }}</p>
                     <p class="prod-price">{{ number_format($product->price) }}원
                         @if( Auth::guest() )
