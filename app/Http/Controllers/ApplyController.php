@@ -111,6 +111,7 @@ class ApplyController extends Controller
     public function update(ApplyUpdateRequest $request, $id)
     {
         $apply = Apply::find($id);
+        $this->authorize('update', $apply);
         $business_docu = $request->file('business_docu');
         $sale_docu = $request->file('sale_docu');
         $request = $request->except(['_method', '_token']);
@@ -129,8 +130,8 @@ class ApplyController extends Controller
     public function destroy($id)
     {
         $apply = Apply::find($id);
-        if(Auth::user()->id == $apply->user_id)
-            $apply->delete();
+        $this->authorize('delete', $apply);
+        $apply->delete();
         return redirect('/');
     }
 }

@@ -29,7 +29,7 @@ class ShopController extends Controller
                 $shops = Shop::orderBy('name', 'asc')->paginate(20);
             }
         }      
-        if( Auth::user()->permission == 2 && strpos( URL::current() , 'admin') ) {
+        if( Auth::check() && Auth::user()->permission == 2 && strpos( URL::current() , 'admin') ) {
             return view('admin.shop.index')->with('shops', $shops);
         } else { 
             return view('shop.index')->with('shops', $shops);
@@ -44,7 +44,6 @@ class ShopController extends Controller
 
     public function store(Request $request)
     {
-        //apply id를 받아옴  
         $apply_id = $request->input('apply_id');
         $apply = Apply::find($apply_id);
         $apply_email = Apply::find($apply_id)->user_email;
@@ -93,8 +92,10 @@ class ShopController extends Controller
     public function update(ShopUpdateRequest $request, $id)
     {
         $shop = Shop::find($id);
+        if( Auth::user()->permission != 2 ) {
+            $this->authorize('update', $shop);
+        }
         $image = $request->file('image');
-        // $this->authorize('update', $shop);
         if( $image != null ) { 
             $shop->image = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('shop',  $image, 'public');
         } 
@@ -107,6 +108,9 @@ class ShopController extends Controller
     public function destroy($id)
     {
         $shop = Shop::find($id);
+        if( Auth::user()->permission != 2 ) {
+            $this->authorize('delete', $shop);
+        }
         //shop_user delete 
         $bookmark_users = $shop->users()->get();
         foreach ($bookmark_users as $user) {
