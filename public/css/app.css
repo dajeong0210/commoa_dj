@@ -142,20 +142,23 @@ nav.nav-bar ul.nav-group > li {
 }
 
 nav.nav-bar ul.nav-group > li a {
+  display: inline-block;
   color: #fff;
+  max-width: 100px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 @media (max-width: 800px) {
   nav.nav-bar ul.nav-group > li a {
+    max-width: initial;
     display: block;
     height: 100%;
     width: 100%;
     height: 70px;
     line-height: 70px;
     background: #333;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
   }
   nav.nav-bar ul.nav-group > li a:hover {
     font-weight: bold;
@@ -504,6 +507,43 @@ div.slider ul.slider > li div.slider-cover a.btn:hover {
 div.page.list.hot-items h3 {
   font-size: 15px;
   letter-spacing: 0;
+  margin: 0;
+}
+
+div.page.list.hot-items ul.list-group > li {
+  margin-bottom: 50px;
+}
+
+div.back {
+  clear: both;
+  width: 100%;
+  height: 230px;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+@media (max-width: 800px) {
+  div.back {
+    height: 400px;
+  }
+}
+
+div.back p {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 100px;
+  margin: 0;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+  div.back p {
+    padding: 180px;
+  }
 }
 
 div.mainPage {
@@ -513,8 +553,7 @@ div.mainPage {
 
 div.mainPage > ul {
   width: 85%;
-  height: 800px;
-  padding: 150px 10% 50px 5%;
+  padding: 50px 10% 50px 5%;
 }
 
 @media (max-width: 800px) {
@@ -574,7 +613,8 @@ div.mainPage > ul > li.one-layouts nav.new_product li a.active {
 }
 
 div.mainPage > ul > li.one-layouts div.slider-wrap {
-  width: 400px;
+  max-width: 400px;
+  width: 100%;
   margin: 0 auto;
   overflow: hidden;
 }

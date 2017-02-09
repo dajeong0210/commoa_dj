@@ -131,6 +131,34 @@ div.page.list.hot-items{
     h3{
         font-size:15px;
         letter-spacing:0;
+        margin:0;
+    }
+    ul.list-group > li{
+        margin-bottom:50px;
+    }
+}
+div.back{
+    clear:both;
+    width:100%;
+    height:230px;
+    overflow:hidden;
+    padding:0;
+    margin:0;
+    @include respond-to('small'){
+        height:400px;
+    }
+    p{
+        display:block;
+        width:100%;
+        height:100%;
+        background:rgba(0,0,0,0.5);
+        padding:100px;
+        margin:0;
+        box-sizing:border-box;
+        text-align:center;
+        @include respond-to('small'){
+            padding:180px;
+        }
     }
 }
 div.mainPage{
@@ -138,9 +166,7 @@ div.mainPage{
     margin:0;
     > ul{
         width:85%;
-        height:800px;
-        padding:150px 10% 50px 5%;
-        // background:#333;
+        padding:50px 10% 50px 5%;
         @include respond-to('small'){
             height:1600px;
             background:none;
@@ -183,7 +209,8 @@ div.mainPage{
                     }
                 }
                 div.slider-wrap{
-                    width:400px;
+                    max-width:400px;
+                    width:100%;
                     margin:0 auto;
                     overflow:hidden;
                     div.slider{
