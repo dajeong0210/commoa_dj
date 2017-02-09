@@ -280,7 +280,7 @@
     }
     Recommend('recommend1', 'productId1', 'prodName1', 'shopName1');
     Recommend('recommend2', 'productId2', 'prodName2', 'shopName2');
-    Recommend('recommend3', 'productId3', 'prodName3', 'shopName3');
+    Recommend('recommend3', 'productId3', 'prodName3', 'shopName3'); 
     Recommend('recommend4', 'productId4', 'prodName4', 'shopName4');
     $('a.rcm-submit').click(function(){
         $('form[name="newRecommend"]').submit();

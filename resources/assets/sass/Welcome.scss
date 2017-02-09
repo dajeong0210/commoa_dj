@@ -2,7 +2,6 @@
 div.slider{
     width:100%;
     height:400px;
-    margin-bottom:50px;
     overflow:hidden;
     position:relative;
     &.page.list{
@@ -123,6 +122,104 @@ div.slider{
                     &:hover{
                         background:$point-color;
                     }
+                }
+            }
+        }
+    }
+}
+div.mainPage{
+    clear:both;
+    margin:0;
+    ul{
+        width:85%;
+        height:800px;
+        padding:150px 10% 50px 5%;
+        // background:#333;
+        @include respond-to('small'){
+            height:1600px;
+            background:none;
+            padding:0 5%;
+            width:90%;
+        }
+        li{
+            float:left;
+            margin:0;
+            background:#fff;
+            &.one-layouts{
+                width:52.94117647058824%;
+                height:800px;
+                padding:150px 0;
+                text-align:center;
+                // border-right:10px solid #333;
+                box-sizing:border-box;
+                @include respond-to('small'){
+                    width:100%;
+                }
+                div.thumbnail{
+                    width:200px;
+                    height:200px;
+                    margin:0 auto;
+                }
+            }
+            &.half-layouts{
+                width:23.52941176470588%;
+                height:400px;
+                margin:0;
+                @include respond-to('small'){
+                    width:50%;
+                }
+                @include respond-to('too-small'){
+                    width:100%;
+                    border:none;
+                    clear:both;
+                    margin:10px auto;
+                }
+                p{
+                    padding-left:20px;
+                    font-size:20px;
+                    color:#000;
+                    text-shadow:0 0 10px #fff;
+                    &:last-child{
+                        color:#333;
+                    }
+                    @include respond-to('small'){
+                        padding-left:10px;
+                        font-size:15px;
+                    }
+                }
+            }
+            h3{
+                text-align: center;
+                font-size: 30px;
+                font-family: 'Exo 2', sans-serif;
+                letter-spacing: 5px;
+            }
+            div.thumbnail{
+                width:auto;
+                height:80%;
+                overflow:hidden;
+                @include respond-to('small'){
+                    width:100%;
+                    height:75%;
+                }
+                a{
+                    display:block;
+                    width:100%;
+                    height:100%;
+                }
+            }
+            p{
+                margin:10px auto;
+                line-height:1.5;
+                font-weight:bold;
+                text-overflow:ellipsis;
+                overflow:hidden;
+                white-space:nowrap;
+                &:last-child{
+                    line-height:1.0;
+                    color:#aaa;
+                    font-size:12px;
+                    font-weight:normal;
                 }
             }
         }

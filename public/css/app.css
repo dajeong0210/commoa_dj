@@ -331,7 +331,6 @@ div.footer div.wrap-footer em a:hover {
 div.slider {
   width: 100%;
   height: 400px;
-  margin-bottom: 50px;
   overflow: hidden;
   position: relative;
 }
@@ -497,6 +496,133 @@ div.slider ul.slider > li div.slider-cover a.btn {
 
 div.slider ul.slider > li div.slider-cover a.btn:hover {
   background: #2bde73;
+}
+
+div.mainPage {
+  clear: both;
+  margin: 0;
+}
+
+div.mainPage ul {
+  width: 85%;
+  height: 800px;
+  padding: 150px 10% 50px 5%;
+}
+
+@media (max-width: 800px) {
+  div.mainPage ul {
+    height: 1600px;
+    background: none;
+    padding: 0 5%;
+    width: 90%;
+  }
+}
+
+div.mainPage ul li {
+  float: left;
+  margin: 0;
+  background: #fff;
+}
+
+div.mainPage ul li.one-layouts {
+  width: 52.94117647058824%;
+  height: 800px;
+  padding: 150px 0;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+@media (max-width: 800px) {
+  div.mainPage ul li.one-layouts {
+    width: 100%;
+  }
+}
+
+div.mainPage ul li.one-layouts div.thumbnail {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+div.mainPage ul li.half-layouts {
+  width: 23.52941176470588%;
+  height: 400px;
+  margin: 0;
+}
+
+@media (max-width: 800px) {
+  div.mainPage ul li.half-layouts {
+    width: 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  div.mainPage ul li.half-layouts {
+    width: 100%;
+    border: none;
+    clear: both;
+    margin: 10px auto;
+  }
+}
+
+div.mainPage ul li.half-layouts p {
+  padding-left: 20px;
+  font-size: 20px;
+  color: #000;
+  text-shadow: 0 0 10px #fff;
+}
+
+div.mainPage ul li.half-layouts p:last-child {
+  color: #333;
+}
+
+@media (max-width: 800px) {
+  div.mainPage ul li.half-layouts p {
+    padding-left: 10px;
+    font-size: 15px;
+  }
+}
+
+div.mainPage ul li h3 {
+  text-align: center;
+  font-size: 30px;
+  font-family: 'Exo 2', sans-serif;
+  letter-spacing: 5px;
+}
+
+div.mainPage ul li div.thumbnail {
+  width: auto;
+  height: 80%;
+  overflow: hidden;
+}
+
+@media (max-width: 800px) {
+  div.mainPage ul li div.thumbnail {
+    width: 100%;
+    height: 75%;
+  }
+}
+
+div.mainPage ul li div.thumbnail a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+div.mainPage ul li p {
+  margin: 10px auto;
+  line-height: 1.5;
+  font-weight: bold;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+div.mainPage ul li p:last-child {
+  line-height: 1.0;
+  color: #aaa;
+  font-size: 12px;
+  font-weight: normal;
 }
 
 div.category_main {

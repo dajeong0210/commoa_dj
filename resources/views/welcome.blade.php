@@ -23,47 +23,27 @@
             @endforeach
         </ul>
     </div>
-    <div class="page list slider">
-        <h3>사무용<br/><span>Recommend</span></h3>
-        <ul class="list-group">
-            @foreach( $products1 as $product )
-            <li>
-                <span class="badge recommend">추천!!</span>
-                <a href="{{ url('/product') . '/' . $product->id }}">
-                <div class="img-box prod">
-                    <img src="{{ $product->image }}" alt="">
+    <div class="mainPage">
+        <ul>
+            <li class="one-layouts">
+                <h3>New Product</h3>
+                <div class="thumbnail" style="background:url({{ $products->first()->image }}) center no-repeat; background-size:cover;">
+                    <a href="{{ url('product').'/'.$products->first()->id }}">
+                    </a>
                 </div>
+                <p>{{ $products->first()->name }}</p>
+                <p>{{ $products->first()->shop->name }}</p>
+            </li>    
+            @foreach($recommends as $recommend)
+            <li class="half-layouts">
+                <a href="{{ url('product').'/'.$recommend->id }}">
+                    <div class="thumbnail" style="background:url({{ $recommend->image }}) center no-repeat; background-size:cover;">
+                    </div>
                 </a>
-                <div class="detail-box">
-                    <a class="prod-title" href="{{ url('/product') . '/' . $product->id }}"> {{ $product->name }} </a>
-                    <ul class="prod_category">
-                    @foreach( $product->categories as $category )
-                        <li>
-                        <a class="category category_{{ $category->id }}" href="{{ url('category') . '/' . str_replace(' ','_',$category->name) }}">{{ $category->name }}</a>
-                        </li>
-                    @endforeach
-                    </ul>
-                    <p class="prod-shop">{{ $product->shop->name }}</p>
-                    <p class="prod-price">{{ number_format($product->price) }}원
-                        @if( Auth::guest() )
-                        @else
-                        <span>
-                            <a href="#" class="fav" onclick="return false;">
-                                @if( $product->users()->get()->where('id', Auth::user()->id)->count() == 0 )
-                                    <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                    <i class="fa fa-heart hidden" aria-hidden="true"></i>
-                                @else
-                                    <i class="fa fa-heart-o hidden" aria-hidden="true"></i>
-                                    <i class="fa fa-heart" aria-hidden="true"></i>
-                                @endif
-                            </a>
-                        </span>
-                        @endif
-                        <span class="hidden">{{ $product->id }}</span>
-                    </p>
-                </div>
+                <p>{{ $recommend->name }}</p>
+                <p>{{ $recommend->shop->name }}</p>
             </li>
-            @endforeach
+            @endforeach   
         </ul>
     </div>
 @endsection
