@@ -8,7 +8,14 @@
     $('a.mypage').on('click', function(){
         $(this).next().toggleClass('hidden');
     });
-
+//NewProduct
+    $('nav.new_product a').on('click', function(e){
+        e.preventDefault();
+        var index = $('nav.new_product a').index(this);
+        $('div.mainPage div.slider').css('left', -100*index+'%');
+        $('nav.new_product a').removeClass('active').find('i').removeClass('fa-circle').addClass('fa-circle-o')
+        $(this).addClass('active').find('i').removeClass('fa-circle-o').addClass('fa-circle');
+    });
 //Validation
     $("form.validate").validate();
     $("form.validate input").on('keypress', function(){
@@ -95,7 +102,8 @@
                 } );
             }
     }
-//Auto-Slide
+    
+//Timer
     function AutoSlide(){
         var width = $('ul.slider.auto').find('li').outerWidth(true);
         $('ul.slider.auto').find('li:first-child').clone().appendTo( $('ul.slider.auto') );
@@ -103,23 +111,40 @@
             $('ul.slider.auto').css('left', '0').find('li:first-child').remove();
         } );
     }
-    var timer = setInterval( AutoSlide , 6000 );
-    $('ul.slider.auto').on( {
-        mouseenter : function(){
-        clearInterval( timer );
-        }, 
-        mouseleave : function(){
-        timer = setInterval( AutoSlide, 6000 );
+    var timer1 = setInterval( AutoSlide , 6000 );
+
+    function NewProduct(){
+        var index = $('nav.new_product a.active').parent('li').index()+1;
+        if( index == 4 ){
+            index = 0;
         }
-    });
-    $('nav.nav-slider').on( {
-        mouseenter : function(){
-        clearInterval( timer );
-        }, 
-        mouseleave : function(){
-        timer = setInterval( AutoSlide, 6000 );
-        }
-    });
+        $('div.mainPage div.slider').css('left', -100*index+'%');
+        $('nav.new_product a').removeClass('active').find('i').removeClass('fa-circle').addClass('fa-circle-o')
+        $('nav.new_product a').eq(index).addClass('active').find('i').removeClass('fa-circle-o').addClass('fa-circle');
+    }
+    var timer2 = setInterval( NewProduct , 6000 );
+    
+    function SetTimer( $target1, $target2, $function, $timer, $time ){
+        $($target1).on( {
+            mouseenter : function(){
+            clearInterval( $timer );
+            }, 
+            mouseleave : function(){
+            $timer = setInterval( $function, $time );
+            }
+        });
+        $($target2).on( {
+            mouseenter : function(){
+            clearInterval( $timer );
+            }, 
+            mouseleave : function(){
+            $timer = setInterval( $function, $time );
+            }
+        });
+    }
+    SetTimer( 'ul.slider.auto', 'nav.nav-slider', AutoSlide, timer1, 6000 );
+    SetTimer( 'div.item', 'nav.new_product', NewProduct , timer2, 6000 );
+    
 
 //ShopApply
 
