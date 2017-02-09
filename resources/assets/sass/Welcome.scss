@@ -153,21 +153,21 @@ div.mainPage{
             background:#fff;
             &.one-layouts{
                 width:52.94117647058824%;
-                height:800px;
-                padding:150px 0;
                 text-align:center;
-                // border-right:10px solid #333;
                 box-sizing:border-box;
                 position:relative;
+                display:inline-block;
+                &:after{
+                    padding-top:50%;
+                    display:block;
+                    content:'';
+                }
                 @include respond-to('small'){
                     width:100%;
                 }
                 nav.new_product{
                     width:66px;
-                    position:absolute;
-                    bottom:250px;
-                    left:50%;
-                    margin-left:-33px;
+                    margin:0 auto;
                     li{
                         float:left;
                         font-size:12px;
@@ -183,7 +183,7 @@ div.mainPage{
                     }
                 }
                 div.slider-wrap{
-                    width:50%;
+                    width:400px;
                     margin:0 auto;
                     overflow:hidden;
                     div.slider{
@@ -200,14 +200,13 @@ div.mainPage{
                     }
                 }
                 div.thumbnail{
-                    width:200px;
-                    height:200px;
+                    width:300px;
+                    height:300px;
                     margin:0 auto;
                 }
             }
             &.half-layouts{
                 width:23.52941176470588%;
-                height:400px;
                 margin:0;
                 @include respond-to('small'){
                     width:50%;
@@ -225,6 +224,7 @@ div.mainPage{
                     text-shadow:0 0 10px #fff;
                     &:last-child{
                         color:#333;
+                        padding-bottom:10px;
                     }
                     @include respond-to('small'){
                         padding-left:10px;
@@ -237,11 +237,18 @@ div.mainPage{
                 font-size: 30px;
                 font-family: 'Exo 2', sans-serif;
                 letter-spacing: 5px;
+                margin-top:200px;
             }
             div.thumbnail{
-                width:auto;
-                height:80%;
+                width:100%;
                 overflow:hidden;
+                display:inline-block;
+                position:relative;
+                &:after{
+                    padding-top:100%;
+                    display:block;
+                    content:'';
+                }
                 @include respond-to('small'){
                     width:100%;
                     height:75%;

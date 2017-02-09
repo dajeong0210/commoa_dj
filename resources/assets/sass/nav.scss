@@ -119,6 +119,9 @@
                         height:70px;
                         line-height:70px;
                         background:#333;
+                        text-overflow:ellipsis;
+                        overflow:hidden;
+                        white-space:nowrap;
                         &:hover{
                             font-weight:bold;
                             background:#282828;

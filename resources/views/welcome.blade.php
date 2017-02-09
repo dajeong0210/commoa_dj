@@ -30,9 +30,8 @@
             <li>
                 <span class="badge recommend">추천!!</span>
                 <a href="{{ url('/product') . '/' . $product->id }}">
-                <div class="img-box prod">
-                    <img src="{{ $product->image }}" alt="">
-                </div>
+                    <div class="img-box prod" style="background:url({{ $product->image }}); background-size:cover;">
+                    </div>
                 </a> 
                 <div class="detail-box">
                     <a class="prod-title" href="{{ url('/product') . '/' . $product->id }}"> {{ $product->name }} </a>
