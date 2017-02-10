@@ -3,13 +3,7 @@
 @section('content')
     <div class="page list">
         <div class="tab_wrap">
-            <nav class="tab-nav">
-                <ul>
-                    <li class="{{ isset($_GET['cpu_level']) || isset($_GET['vga_level']) || isset($_GET['os']) || isset($_GET['ssd']) || isset($_GET['monitor']) ? '' : 'active' }}"><a href="#" class="purpose">용도별</a></li>
-                    <li class="{{ isset($_GET['cpu_level']) || isset($_GET['vga_level']) || isset($_GET['os']) || isset($_GET['ssd']) || isset($_GET['monitor']) ? 'active' : '' }}"><a href="#" class="specification">사양별</a></li>
-                </ul>
-            </nav>
-            <div class="filter-wrap purpose {{ isset($_GET['cpu_level']) || isset($_GET['vga_level']) || isset($_GET['os']) || isset($_GET['ssd']) || isset($_GET['monitor']) ? 'hidden' : '' }}">
+            <div class="filter-wrap purpose {{ Request::segment(2)=='game' ? '' : 'hidden' }}">
                 <form method="GET" class="filter-form">
                     <div class="filter-group purpose">
                         <h3 class="hidden">용도별</h3>
@@ -29,7 +23,7 @@
                     </div>
                 </form>
             </div>
-            <div class="filter-wrap specification {{ isset($_GET['cpu_level']) || isset($_GET['vga_level']) || isset($_GET['os']) || isset($_GET['ssd']) || isset($_GET['monitor']) ? '' : 'hidden' }}">
+            <div class="filter-wrap specification {{ Request::segment(2)=='office' || Request::segment(2)=='graphic' ? '' : 'hidden' }}">
                 <form method="GET" class="filter-form">
                     <div class="filter-group">
                         <h3>CPU</h3>
