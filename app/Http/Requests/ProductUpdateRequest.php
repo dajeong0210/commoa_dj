@@ -25,6 +25,7 @@ class ProductUpdateRequest extends FormRequest
             'ssd' => 'required|numeric',
             'hdd' => 'required|numeric',
             'power' => 'required|numeric',
+            'use' => 'required',
         ];
     }
     

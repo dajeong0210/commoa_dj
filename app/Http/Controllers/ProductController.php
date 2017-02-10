@@ -27,11 +27,11 @@ class ProductController extends Controller
         $monitor = $request->input('monitor');
         $storage = $request->input('storage');
         if ( strpos( URL::current() , 'office') ) {
-            $products = Product::where('use', '사무용');
+            $products = Product::where('purpose', '사무용');
         } else if ( strpos( URL::current() , 'game') ) {
-            $products = Product::where('use', '게임용');
+            $products = Product::where('purpose', '게임용');
         } else if ( strpos( URL::current() , 'graphic') ){
-            $products = Product::where('use', '그래픽용');
+            $products = Product::where('purpose', '그래픽용');
         } else {
             $products = new Product;
         }
