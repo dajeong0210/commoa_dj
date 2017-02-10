@@ -49,7 +49,7 @@ class MyProductController extends Controller
         if( Auth::user()->permission == 2 ) { 
             return view('Admin.product.index')->with('products', $products)->with('search', $search);
         } else { 
-            return view('Myproduct.index')->with('products', $products)->with('search', $search);
+            return view('MyProduct.index')->with('products', $products)->with('search', $search);
         }
     }
 
@@ -62,7 +62,7 @@ class MyProductController extends Controller
         if( Auth::user()->permission == 2 ) { 
             return view('Admin.product.create')->with('categories', $categories)->with('cpus', $cpus)->with('vgas', $vgas);
         } else { 
-            return view('Myproduct.create')->with('categories', $categories)->with('cpus', $cpus)->with('vgas', $vgas);
+            return view('MyProduct.create')->with('categories', $categories)->with('cpus', $cpus)->with('vgas', $vgas);
         }
         
     }
@@ -107,7 +107,7 @@ class MyProductController extends Controller
             return view('Admin.product.edit')->with('product', $product)->with('categories', $categories)
                 ->with('cpus', $cpus)->with('vgas', $vgas)->with('selected', $selected);
         } else {
-            return view('Myproduct.edit')->with('product', $product)->with('categories', $categories)
+            return view('MyProduct.edit')->with('product', $product)->with('categories', $categories)
                 ->with('cpus', $cpus)->with('vgas', $vgas)->with('selected', $selected);
         }
         
