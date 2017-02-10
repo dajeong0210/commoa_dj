@@ -63,28 +63,23 @@ div.page{
                 height:55px;
                 li{
                     background:#333;
-                    margin-left:-1px;
                     text-align:center;
                     float:left;
-                    width:120px;
+                    width:30%;
+                    margin:0 35%;
                     height:40px;
-                    line-height:38px;
+                    line-height:32px;
                     font-weight:bold;
                     border:1px solid #ddd;
                     letter-spacing:2px;
                     transition:all 0.1s;
-                    @include respond-to('too-small'){
-                        width:100px;
-
-                    }
+                    box-sizing:border-box;
                     &.active{
                         background:#fff;
                         border-top:3px solid $point-color;
                         border-bottom:3px solid #fff;
-                        height:55px;
-                        margin-top:-16px;
-                        line-height:50px;
-                        z-index:50;
+                        position:relative;
+                        top:3px;
                         a{
                             color:#444;
                         }
@@ -103,8 +98,9 @@ div.page{
         div.filter-wrap{
             clear:both;
             width:100%;
+            
             margin:0 auto;
-            border-top:1px solid #ddd;
+            border:1px solid #ddd;
             position: relative;
             top: -14px;
             @include respond-to('small'){
@@ -169,6 +165,9 @@ div.page{
                     }
                 }
             }
+            &.small-layout{
+                max-width:400px;
+            }
             h2{
                 position:absolute;
                 display:inline-block;
@@ -181,12 +180,25 @@ div.page{
             }
             div.filter-group{
                 float:left;
-                width:18%;
                 padding:5px;
                 text-align:center;
                 box-sizing:border-box;
-                @include respond-to('small'){
-                    width:33.3333333333333333%;
+                &.quatro-layout{
+                    width:20%;
+                    @include respond-to('small'){
+                        &:first-child, &:nth-child(3), &:nth-child(5){
+                            width:33.3333333333333333%;
+                        }
+                        &:nth-child(6), &:nth-child(7){
+                            width:50%;
+                        }
+                    }
+                }
+                &.half-layout{
+                    width:50%;
+                }
+                &.one-layout{
+                    width:100%;
                 }
                 h3{
                     text-align:center;
@@ -211,14 +223,10 @@ div.page{
                     }
                 }
                 &:last-child{
-                    width:10%;
-                    height:150px;
+                    width:100%;
                     font-size:12px;
                     font-weight:bold;
                     padding:0;
-                    @include respond-to('small'){
-                        width:33.3333333333333333%;
-                    }
                     &.purpose{
                         width:10%;
                         @include respond-to('small'){

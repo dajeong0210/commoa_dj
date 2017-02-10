@@ -3,7 +3,12 @@
 @section('content')
     <div class="page list">
         <div class="tab_wrap">
-            <div class="filter-wrap purpose {{ Request::segment(2)=='game' ? '' : 'hidden' }}">
+            <nav class="tab-nav">
+                <ul>
+                    <li class="active"><a href="#">FILTER</a></li>
+                </ul>
+            </nav>
+            <div class="filter-wrap purpose {{ Request::segment(1)=='game' ? '' : 'hidden' }}">
                 <form method="GET" class="filter-form">
                     <div class="filter-group purpose">
                         <h3 class="hidden">용도별</h3>
@@ -23,9 +28,9 @@
                     </div>
                 </form>
             </div>
-            <div class="filter-wrap specification {{ Request::segment(1)=='office' || Request::segment(1) == 'graphic' || Request::segment(1)=='product' && !Request::segment(2) ? '' : 'hidden' }}">
+            <div class="filter-wrap specification {{ Request::segment(1)=='office' || Request::segment(1) == 'graphic' || Request::segment(1)=='product' && !Request::segment(2) ? '' : 'hidden' }} {{ Request::segment(1)=='office' || Request::segment(1) == 'graphic' ? 'small-layout' : '' }}">
                 <form method="GET" class="filter-form">
-                    <div class="filter-group">
+                    <div class="filter-group {{ Request::segment(1)=='product' && !Request::segment(2) ? 'quatro-layout' : 'hidden' }}">
                         <h3>CPU</h3>
                         <label for="cpu_level_high" @if( isset($_GET['cpu_level'])) @if( $_GET['cpu_level'] == '3' ) class="active" @endif @endif>상</label>
                         <input type="radio" id="cpu_level_high" name="cpu_level" class="input specification hidden" value="3" @if( isset($_GET['cpu_level'])) @if( $_GET['cpu_level'] == '3' ) checked="checked" @endif @endif/>
@@ -43,7 +48,7 @@
                         <p>중 : elnangagnawgkawgawgawgwangkangkanwnawkngkwanknngn</p>
                         <p>하 : elnangagnawgkawgawgawgwangkangkanwnawkngkwanknngn</p>
                     </div>
-                    <div class="filter-group">
+                    <div class="filter-group {{ Request::segment(1)=='product' && !Request::segment(2) ? 'quatro-layout' : 'hidden' }}">
                         <h3>VGA</h3>
                         <label for="vga_level_high" @if( isset($_GET['vga_level'])) @if( $_GET['vga_level'] == '3' ) class="active" @endif @endif>상</label>
                         <input type="radio" id="vga_level_high" name="vga_level" class="input specification hidden" value="3" @if( isset($_GET['vga_level'])) @if( $_GET['vga_level'] == '3' ) checked="checked" @endif @endif/>
@@ -61,7 +66,7 @@
                         <p>중 : elnangagnawgkawgawgawgwangkangkanwnawkngkwanknngn</p>
                         <p>하 : elnangagnawgkawgawgawgwangkangkanwnawkngkwanknngn</p>
                     </div>
-                    <div class="filter-group">
+                    <div class="filter-group {{ Request::segment(1)=='product' && !Request::segment(2) ? 'quatro-layout' : 'hidden' }}">
                         <h3>저장장치</h3>
                         <label for="hdd" @if( isset($_GET['storage'])) @if( $_GET['storage'] == 'hdd' ) class="active" @endif @endif>HDD</label>
                         <input type="radio" id="hdd" name="storage" class="input hidden" value="hdd" @if( isset($_GET['storage'])) @if( $_GET['storage'] == 'hdd' ) checked="checked" @endif @endif/>
@@ -70,14 +75,14 @@
                         <label for="hdd+ssd" @if( isset($_GET['storage'])) @if( $_GET['storage'] == 'hdd+ssd' ) class="active" @endif @endif>HDD+SSD</label>
                         <input type="radio" id="hdd+ssd" name="storage" class="input hidden" value="hdd+ssd" @if( isset($_GET['storage'])) @if( $_GET['storage'] == 'hdd+ssd' ) checked="checked" @endif @endif/>
                     </div>
-                    <div class="filter-group">
+                    <div class="filter-group {{ Request::segment(1)=='product' && !Request::segment(2) ? 'quatro-layout' : 'half-layout' }}">
                         <h3>OS</h3>
                         <label for="os_yes" @if( isset($_GET['os'])) @if( $_GET['os'] == '1' ) class="active" @endif @endif>있음</label>
                         <input type="radio" id="os_yes" name="os" class="input hidden" value="1" @if( isset($_GET['os'])) @if( $_GET['os'] == '1' ) checked="checked" @endif @endif/>
                         <label for="os_no" @if( isset($_GET['os'])) @if( $_GET['os'] == '0' ) class="active" @endif @endif>없음</label>
                         <input type="radio" id="os_no" name="os" class="input hidden" value="0" @if( isset($_GET['os'])) @if( $_GET['os'] == '0' ) checked="checked" @endif @endif/>
                     </div>
-                    <div class="filter-group">
+                    <div class="filter-group {{ Request::segment(1)=='product' && !Request::segment(2) ? 'quatro-layout' : 'half-layout' }}">
                         <h3>모니터</h3>
                         <label for="monitor_yes" @if( isset($_GET['monitor'])) @if( $_GET['monitor'] == '1' ) class="active" @endif @endif>있음</label>
                         <input type="radio" id="monitor_yes" name="monitor" class="input hidden" value="1" @if( isset($_GET['monitor'])) @if( $_GET['monitor'] == '1' ) checked="checked" @endif @endif/>
@@ -89,7 +94,7 @@
                             <input type="text" id="sortBy" name="product-sort" class="input" value="all"/>
                         @endif
                     </div>
-                    <div class="filter-group">
+                    <div class="filter-group one-layout purpose">
                         <input type="submit" class="submit filter-group" value="Go">
                     </div>
                 </form>
