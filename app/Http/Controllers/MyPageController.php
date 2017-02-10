@@ -109,5 +109,4 @@ class MyPageController extends Controller
         echo $product->users()->get()->where('id', Auth::user()->id)->count();
     }
 
-    
 }

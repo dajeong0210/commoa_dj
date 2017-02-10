@@ -76,11 +76,11 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
         'price' => $faker->numberBetween($min = 100000, $max = 500000),
         'os' => $faker->numberBetween(0, 1),
         'ram' => $faker->randomElement($array = array (2, 4, 8, 16, 32)),
-        'ssd' => $faker->randomElement($array = array (120, 128, 256, 512)),
-        'hdd' => $faker->randomElement($array = array (500, 1000, 2000)),
+        'ssd' => $faker->randomElement($array = array (null, 120, 128, 256, 512)),
+        'hdd' => $faker->randomElement($array = array (null, 500, 1000, 2000)),
         'overclock' => $faker->numberBetween(0, 1),
         'power' => $faker->randomElement($array = array (600, 700, 800, 900, 1000)),
-        'monitor' => $faker->numberBetween(18, 32),
+        'monitor' => $faker->numberBetween(null, 18, 32),
         'views' => $faker->numberBetween(0, 1000),
         'cpu_id' => $faker->randomElement($cpu_id),
         'vga_id' => $faker->randomElement($vga_id),
@@ -91,7 +91,6 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Apply::class, function (Faker\Generator $faker) {
-    // $user_email = App\User::pluck('email')->toArray();
     $user_id = App\User::whereIn('permission', [0,1])->pluck('id')->toArray();
     $faker_id = $faker->randomElement($user_id);
 
