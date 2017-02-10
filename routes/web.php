@@ -45,7 +45,7 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     Route::group(['middleware' => 'ShopAdmin'], function () {
-        Route::resource('/myproduct', 'MyproductController');
+        Route::resource('/myproduct', 'MyProductController');
         Route::get('/shop/{s_id}/edit', 'ShopController@edit');
         Route::put('/shop/{s_id}', 'ShopController@update');
     });
