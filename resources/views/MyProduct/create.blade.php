@@ -140,23 +140,6 @@
                         <span>inch</span>
                     </div>
                     <div class="form-group one-layout">
-                        <h4>용도</h4>
-                        <ul>
-                            <li>
-                                <label for="purpose">게임용</label>
-                                <input type="checkbox" name="purpose" id="purpose" value="게임용">
-                            </li>
-                            <li>
-                                <label for="purpose">사무용</label>
-                                <input type="checkbox" name="purpose" id="purpose" value="사무용">
-                            </li>
-                            <li>
-                                <label for="purpose">그래픽용</label>
-                                <input type="checkbox" name="purpose" id="purpose" value="그래픽용">
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="form-group one-layout">
                         <h4>카테고리</h4>
                         <ul>
                             @foreach( $categories as $category )

@@ -20,18 +20,18 @@ class ProductController extends Controller
 
         $product_sort = $request->input('product-sort');
         $total_categories = Category::get();
-        $categories = $request->input('purpose');
         $cpu_level = $request->input('cpu_level');
         $vga_level = $request->input('vga_level');
         $os = $request->input('os');
         $monitor = $request->input('monitor');
         $storage = $request->input('storage');
+        // $categories = 
         if ( strpos( URL::current() , 'office') ) {
-            $products = Product::where('purpose', '사무용');
+            $products = Category::where('name','사무용')->first()->products();
         } else if ( strpos( URL::current() , 'game') ) {
-            $products = Product::where('purpose', '게임용');
+            // $products = Category::where('name','그래픽용')->first()->products();
         } else if ( strpos( URL::current() , 'graphic') ){
-            $products = Product::where('purpose', '그래픽용');
+            $products = Category::where('name','그래픽용')->first()->products();
         } else {
             $products = new Product;
         }
