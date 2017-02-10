@@ -25,13 +25,13 @@ class ProductController extends Controller
         $vga_level = $request->input('vga_level');
         $os = $request->input('os');
         $monitor = $request->input('monitor');
-        $ssd = $request->input('ssd');
+        $storage = $request->input('storage');
         if ( strpos( URL::current() , 'office') ) {
-            $products = Product::where('use', '사무용');
+            $products = Product::where('purpose', '사무용');
         } else if ( strpos( URL::current() , 'game') ) {
-            $products = Product::where('use', '게임용');
+            $products = Product::where('purpose', '게임용');
         } else if ( strpos( URL::current() , 'graphic') ){
-            $products = Product::where('use', '그래픽용');
+            $products = Product::where('purpose', '그래픽용');
         } else {
             $products = new Product;
         }
@@ -44,7 +44,7 @@ class ProductController extends Controller
                 });
             }   
 
-        } else if( $cpu_level != '' || $vga_level != '' || $os != '' || $monitor != '' || $ssd != '' ) {
+        } else if( $cpu_level != '' || $vga_level != '' || $os != '' || $monitor != '' || $storage != '' ) {
 
             if( $cpu_level != '' ) {
                 $cpus = Cpu::where('level', $cpu_level)->get();
@@ -72,11 +72,13 @@ class ProductController extends Controller
                 }
             }
 
-            if( $ssd != '' ) {
-                if( $ssd == 0 ) {
-                    $products = $products->whereNull('ssd');
+            if( $storage != '' ) {
+                if( $storage == 'hdd' ) {
+                    $products = $products->whereNotNull('hdd')->whereNull('ssd');
+                } else if( $storage == 'ssd' ) {
+                    $products = $products->whereNotNull('ssd')->whereNull('hdd');
                 } else {
-                    $products = $products->whereNotNull('ssd');
+                    $products = $products->whereNotNull('hdd')->whereNotNull('ssd');
                 }
             }
             
@@ -121,7 +123,7 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
 
-        return view('product.show')->with('product', $product);
+        return view('Product.show')->with('product', $product);
     }
 
 }

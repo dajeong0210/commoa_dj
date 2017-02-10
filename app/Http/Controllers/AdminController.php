@@ -172,7 +172,7 @@ class AdminController extends Controller
 		for( $i=0; $i<$recommends->count(); $i++ ) {
 			array_push($recommend_arr, $recommends[$i]->recommend);
 		}
-		return view('admin.recommend.index')->with('recommends', $recommends)->with('recommend_arr', $recommend_arr);
+		return view('Admin.Recommend.index')->with('recommends', $recommends)->with('recommend_arr', $recommend_arr);
 	}
 	
 	public function recommendPopup(Request $request, $id) {
@@ -202,7 +202,7 @@ class AdminController extends Controller
 			}
 		}
 		
-        return view('admin.recommend.popup')->with('products', $products)->with('search', $search)->with('id', $id);
+        return view('Admin.Recommend.popup')->with('products', $products)->with('search', $search)->with('id', $id);
 	}
 	
 	public function recommendUpdate(Request $request) {
@@ -253,7 +253,7 @@ class AdminController extends Controller
 			$users = $users->where('permission', 1)->orderBy('id', 'desc')->paginate(20);	
 		}
 		
-		return view('admin.user.index')->with('users', $users)->with('search', $search);
+		return view('Admin.User.index')->with('users', $users)->with('search', $search);
 	}
 	
 	public function userUpdate(Request $request, $id) {
@@ -353,13 +353,13 @@ class AdminController extends Controller
 	
 	public function userShow($id) {
 		$user = User::find($id);
-		return view('admin.user.edit')->with('user', $user);
+		return view('Admin.User.edit')->with('user', $user);
 	}
 	
 	//banner
 	public function bannerIndex() {
 		$banners = Banner::get();
-		return view('admin.banner.index')->with('banners', $banners);
+		return view('Admin.Banner.index')->with('banners', $banners);
 	}
 	
 	public function bannerUpdate(Request $request, $id) {

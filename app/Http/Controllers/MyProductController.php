@@ -47,9 +47,9 @@ class MyProductController extends Controller
         } 
 
         if( Auth::user()->permission == 2 ) { 
-            return view('admin.product.index')->with('products', $products)->with('search', $search);
+            return view('Admin.product.index')->with('products', $products)->with('search', $search);
         } else { 
-            return view('myproduct.index')->with('products', $products)->with('search', $search);
+            return view('MyProduct.index')->with('products', $products)->with('search', $search);
         }
     }
 
@@ -60,9 +60,9 @@ class MyProductController extends Controller
         $vgas = Vga::get();
 
         if( Auth::user()->permission == 2 ) { 
-            return view('admin.product.create')->with('categories', $categories)->with('cpus', $cpus)->with('vgas', $vgas);
+            return view('Admin.product.create')->with('categories', $categories)->with('cpus', $cpus)->with('vgas', $vgas);
         } else { 
-            return view('myproduct.create')->with('categories', $categories)->with('cpus', $cpus)->with('vgas', $vgas);
+            return view('MyProduct.create')->with('categories', $categories)->with('cpus', $cpus)->with('vgas', $vgas);
         }
         
     }
@@ -104,10 +104,10 @@ class MyProductController extends Controller
            array_push($selected, $category->id);
         }
         if( Auth::user()->permission == 2 ) { 
-            return view('admin.product.edit')->with('product', $product)->with('categories', $categories)
+            return view('Admin.product.edit')->with('product', $product)->with('categories', $categories)
                 ->with('cpus', $cpus)->with('vgas', $vgas)->with('selected', $selected);
         } else {
-            return view('myproduct.edit')->with('product', $product)->with('categories', $categories)
+            return view('MyProduct.edit')->with('product', $product)->with('categories', $categories)
                 ->with('cpus', $cpus)->with('vgas', $vgas)->with('selected', $selected);
         }
         
