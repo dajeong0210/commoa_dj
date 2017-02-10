@@ -13,6 +13,6 @@ class CategoryController extends Controller
         $category_id = Category::where('name', $category_name)->first()->id;
         $products = Category::where('name', $category_name)->first()->products()->orderBy('id', 'desc')->paginate(12);
 
-        return view('category.show')->with('products', $products)->with('category_name', $category_name);
+        return view('Category.show')->with('products', $products)->with('category_name', $category_name);
     }
 }

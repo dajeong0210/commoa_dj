@@ -20,13 +20,13 @@ class MyPageController extends Controller
         $favorites = $user->products()->orderBy('pivot_product_user.created_at', 'desc')->limit(4)->get();
         $bookmarks = $user->shops()->orderBy('pivot_shop_user.created_at', 'desc')->limit(8)->get();
 
-        return view('mypage.index')->with('user', $user)->with('favorites', $favorites)->with('bookmarks', $bookmarks);
+        return view('Mypage.index')->with('user', $user)->with('favorites', $favorites)->with('bookmarks', $bookmarks);
     }
 
     public function userIndex()
     {
         $user = User::find( Auth::user()->id );
-        return view('mypage.edit')->with('user', $user);
+        return view('Mypage.edit')->with('user', $user);
     }
 
     public function userUpdate(UserUpdateRequest $request, $id)
@@ -67,7 +67,7 @@ class MyPageController extends Controller
             }
         }  
 
-        return view('bookmark.index')->with('shops', $shops);
+        return view('Bookmark.index')->with('shops', $shops);
     }
 
     public function bookmarkStore($id, Request $request)
@@ -98,7 +98,7 @@ class MyPageController extends Controller
             } 
         }  
 
-        return view('favorite.index')->with('products', $products);
+        return view('Favorite.index')->with('products', $products);
     }
 
     public function favoriteStore($id, Request $request)

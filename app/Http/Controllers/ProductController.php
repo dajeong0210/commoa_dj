@@ -123,7 +123,7 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
 
-        return view('product.show')->with('product', $product);
+        return view('Product.show')->with('product', $product);
     }
 
 }

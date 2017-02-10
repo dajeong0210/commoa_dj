@@ -20,20 +20,20 @@ class ApplyController extends Controller
         $sortBy = $request->input('apply');
         if( !$request ){
             $applies = Apply::orderBy('permission', 'asc')->orderBy('created_at', 'desc')->paginate(18);
-            return view('apply.index')->with('applies', $applies);
+            return view('Apply.index')->with('applies', $applies);
         }else{
             if( $sortBy == '전체' ){
                 $applies = Apply::orderBy('permission', 'asc')->orderBy('created_at', 'desc')->paginate(18);
-                return view('apply.index')->with('applies', $applies);
+                return view('Apply.index')->with('applies', $applies);
             }else if( $sortBy == '미승인' ){
                 $applies = Apply::where('permission', 0)->orderBy('created_at', 'desc')->paginate(18);
-                return view('apply.index')->with('applies', $applies);
+                return view('Apply.index')->with('applies', $applies);
             }else if( $sortBy == '승인' ){
                 $applies = Apply::where('permission', 1)->orderBy('created_at', 'desc')->paginate(18);
-                return view('apply.index')->with('applies', $applies);
+                return view('Apply.index')->with('applies', $applies);
             }else{
                 $applies = Apply::orderBy('permission', 'asc')->orderBy('created_at', 'desc')->paginate(18);
-                return view('apply.index')->with('applies', $applies);
+                return view('Apply.index')->with('applies', $applies);
             }
         }
     }
@@ -44,7 +44,7 @@ class ApplyController extends Controller
             $apply = Auth::user()->apply()->first();
             return redirect('apply/'.$apply->id.'/edit')->with('apply',$apply);
         } else {         
-            return view('apply.create');
+            return view('Apply.create');
         }
     }
 
@@ -74,7 +74,7 @@ class ApplyController extends Controller
     public function store(ApplyStoreRequest $request)
     {
         if( Auth::user()->apply()->count() != 0) {
-            return view('apply.create');
+            return view('Apply.create');
         } else {  
             $apply = new Apply($request->all());
             $apply->user_id = Auth::user()->id;
@@ -96,7 +96,7 @@ class ApplyController extends Controller
     public function show($id)
     {
         $apply = Apply::find($id);
-        return view('apply.show')->with('apply', $apply);
+        return view('Apply.show')->with('apply', $apply);
     }
 
     public function edit($id)
@@ -105,7 +105,7 @@ class ApplyController extends Controller
             return back();
         }
         $apply = Apply::find($id);
-        return view('apply.edit')->with('apply', $apply);
+        return view('Apply.edit')->with('apply', $apply);
     }
 
     public function update(ApplyUpdateRequest $request, $id)

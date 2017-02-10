@@ -30,16 +30,16 @@ class ShopController extends Controller
             }
         }      
         if( Auth::check() && Auth::user()->permission == 2 && strpos( URL::current() , 'admin') ) {
-            return view('admin.shop.index')->with('shops', $shops);
+            return view('Admin.shop.index')->with('shops', $shops);
         } else { 
-            return view('shop.index')->with('shops', $shops);
+            return view('Shop.index')->with('shops', $shops);
         }
         
     }
 
     public function create()
     {
-        return view('shop.create');
+        return view('Shop.create');
     }
 
     public function store(Request $request)
@@ -71,7 +71,7 @@ class ShopController extends Controller
     public function show($id)
     {
         $shop = Shop::find($id);
-        return view('shop.show')->with('shop', $shop);
+        return view('Shop.show')->with('shop', $shop);
     }
 
     public function edit($id)
@@ -83,9 +83,9 @@ class ShopController extends Controller
         }
 
         if( Auth::user()->permission == 2 ) {
-            return view('admin.shop.edit')->with('shop', $shop);
+            return view('Admin.shop.edit')->with('shop', $shop);
         } else { 
-            return view('shop.edit')->with('shop', $shop);
+            return view('Shop.edit')->with('shop', $shop);
         }
     }
 
