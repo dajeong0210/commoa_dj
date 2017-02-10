@@ -26,7 +26,6 @@ class ProductStoreRequest extends FormRequest
             'ssd' => 'required|numeric',
             'hdd' => 'required|numeric',
             'power' => 'required|numeric',
-            'purpose' => 'required',
         ];
     }
     

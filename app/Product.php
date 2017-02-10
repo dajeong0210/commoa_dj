@@ -20,7 +20,6 @@ class Product extends Model
         'os',
         'cpu_id',
         'vga_id',
-        'purpose',
     ];
 
     protected $guarded= [
