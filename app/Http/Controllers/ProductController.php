@@ -36,12 +36,10 @@ class ProductController extends Controller
         if ( strpos( URL::current() , 'office') ) {
             $products = Category::where('name', '사무용')->first()->products();
         } else if ( strpos( URL::current() , 'game') ) {
-            
-            foreach( $game_category as $category ) {
-                $products = $products->whereHas('game_category', function($products) use ($category) {  
-                        $products->where('categories.name', $category);            
-                });
-            }
+
+            $products = Product::whereHas('categories', function($products) use ($game_category) {
+                $products->whereIn('categories.name', $game_category);
+            });
 
         } else if ( strpos( URL::current() , 'graphic') ){
             $products = Category::where('name', '그래픽용')->first()->products();
