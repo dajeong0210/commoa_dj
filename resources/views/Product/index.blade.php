@@ -50,18 +50,20 @@
                         <input type="radio" id="vga_level_low" name="vga_level" class="input specification hidden" value="1" @if( isset($_GET['vga_level'])) @if( $_GET['vga_level'] == '1' ) checked="checked" @endif @endif/>
                     </div>
                     <div class="filter-group">
+                        <h3>저장장치</h3>
+                        <label for="hdd" @if( isset($_GET['storage'])) @if( $_GET['storage'] == 'hdd' ) class="active" @endif @endif>HDD</label>
+                        <input type="radio" id="hdd" name="storage" class="input hidden" value="hdd" @if( isset($_GET['storage'])) @if( $_GET['storage'] == 'hdd' ) checked="checked" @endif @endif/>
+                        <label for="ssd" @if( isset($_GET['storage'])) @if( $_GET['storage'] == 'ssd' ) class="active" @endif @endif>SSD</label>
+                        <input type="radio" id="ssd" name="storage" class="input hidden" value="ssd" @if( isset($_GET['storage'])) @if( $_GET['storage'] == 'ssd' ) checked="checked" @endif @endif/>
+                        <label for="hdd+ssd" @if( isset($_GET['storage'])) @if( $_GET['storage'] == 'hdd+ssd' ) class="active" @endif @endif>HDD+SSD</label>
+                        <input type="radio" id="hdd+ssd" name="storage" class="input hidden" value="hdd+ssd" @if( isset($_GET['storage'])) @if( $_GET['storage'] == 'hdd+ssd' ) checked="checked" @endif @endif/>
+                    </div>
+                    <div class="filter-group">
                         <h3>OS</h3>
                         <label for="os_yes" @if( isset($_GET['os'])) @if( $_GET['os'] == '1' ) class="active" @endif @endif>있음</label>
                         <input type="radio" id="os_yes" name="os" class="input hidden" value="1" @if( isset($_GET['os'])) @if( $_GET['os'] == '1' ) checked="checked" @endif @endif/>
                         <label for="os_no" @if( isset($_GET['os'])) @if( $_GET['os'] == '0' ) class="active" @endif @endif>없음</label>
                         <input type="radio" id="os_no" name="os" class="input hidden" value="0" @if( isset($_GET['os'])) @if( $_GET['os'] == '0' ) checked="checked" @endif @endif/>
-                    </div>
-                    <div class="filter-group">
-                        <h3>SSD</h3>
-                        <label for="ssd_yes" @if( isset($_GET['ssd'])) @if( $_GET['ssd'] == '1' ) class="active" @endif @endif>있음</label>
-                        <input type="radio" id="ssd_yes" name="ssd" class="input hidden" value="1" @if( isset($_GET['ssd'])) @if( $_GET['ssd'] == '1' ) checked="checked" @endif @endif/>
-                        <label for="ssd_no" @if( isset($_GET['ssd'])) @if( $_GET['ssd'] == '0' ) class="active" @endif @endif>없음</label>
-                        <input type="radio" id="ssd_no" name="ssd" class="input hidden" value="0" @if( isset($_GET['ssd'])) @if( $_GET['ssd'] == '0' ) checked="checked" @endif @endif/>
                     </div>
                     <div class="filter-group">
                         <h3>모니터</h3>
@@ -89,7 +91,7 @@
                 <li name="rankBy" class="rankBy {{ isset($_GET['product-sort'])? $_GET['product-sort'] == 'rankBy'? 'active' : '' : '' }}">인기순</li>
             </ul>
         </div>
-        <ul class="list-group grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 0 }'>
+        <ul class="list-group grid">
             @foreach( $products as $product )
             <li class="grid-item">
                 @if( Request::get('sort') == 'rankBy' )
