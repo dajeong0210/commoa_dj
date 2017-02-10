@@ -65,6 +65,9 @@
             @endforeach
         </ul>
     </div>
+    <div class="back" style="background:url({{$banners[2]->image}}); background-attachment:fixed;">
+        <p>test</p>
+    </div>
     <div class="mainPage">
         <ul>
             <li class="one-layouts">

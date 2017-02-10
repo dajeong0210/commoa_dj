@@ -24,9 +24,18 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
+    <script>
+        window.onload = function(){
+            $('div.loading').addClass('hidden');
+            $('div#app').removeClass('hidden');
+        }
+    </script>
 </head>
 <body>
-    <div id="app">
+    <div class="loading">
+        <img src="{{ url('').'/image/Loading_icon.gif' }}">
+    </div>
+    <div id="app" class="hidden">
         <nav class="nav-bar">
             <h1 class="logo">
                 <a href="{{ url('/') }}">
@@ -38,39 +47,19 @@
             </a>
             <ul class="nav-group menu">
                 <li>
-                @if( Request::segment(1) == 'product' )
-                    <a href="{{ url('product/')}}" class="active">상품</a>
-                @else
-                    <a href="{{ url('product/')}}">상품</a>
-                @endif
+                    <a href="{{ url('product/')}}" class="{{ Request::segment(1) == 'product' ? 'active' : ''}}">상품</a>
+                </li>
+                <li class="submenu">
+                    <a href="{{ url('office/')}}" class="{{ Request::segment(1) == 'office' ? 'active' : ''}}">사무용</a>
+                </li>
+                <li class="submenu">
+                    <a href="{{ url('game/')}}" class="{{ Request::segment(1) == 'game' ? 'active' : ''}}">게임용</a>
+                </li>
+                <li class="submenu">
+                    <a href="{{ url('graphic/')}}" class="{{ Request::segment(1) == 'graphic' ? 'active' : ''}}">그래픽용</a>
                 </li>
                 <li>
-                @if( Request::segment(1) == 'office' )
-                    <a href="{{ url('office/')}}" class="active">사무용</a>
-                @else
-                    <a href="{{ url('office/')}}">사무용</a>
-                @endif
-                </li>
-                <li>
-                @if( Request::segment(1) == 'game' )
-                    <a href="{{ url('game/')}}" class="active">게임용</a>
-                @else
-                    <a href="{{ url('game/')}}">게임용</a>
-                @endif
-                </li>
-                <li>
-                @if( Request::segment(1) == 'graphic' )
-                    <a href="{{ url('graphic/')}}" class="active">그래픽용</a>
-                @else
-                    <a href="{{ url('graphic/')}}">그래픽용</a>
-                @endif
-                </li>
-                <li>
-                @if( Request::segment(1) == 'shop' && !Request::segment(2) )
-                    <a href="{{ url('shop/') }}" class="active">쇼핑몰</a>
-                @else
-                    <a href="{{ url('shop/') }}">쇼핑몰</a>
-                @endif
+                    <a href="{{ url('shop/') }}" class="{{ Request::segment(1) == 'shop' && !Request::segment(2) ? 'active' : ''}}">쇼핑몰</a>
                 </li>
                 @if( Auth::guest() )
                     <li><a href="{{ url('/login') }}">로그인</a></li>

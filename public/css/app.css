@@ -38,6 +38,19 @@ html {
   -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.1);
 }
 
+div.loading {
+  width: 100%;
+  height: 100%;
+}
+
+div.loading img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -40px;
+  margin-top: -40px;
+}
+
 .hidden {
   display: none;
 }
@@ -98,7 +111,7 @@ nav.nav-bar a.menu_btn:hover, nav.nav-bar a.menu_btn:active {
 }
 
 nav.nav-bar ul.nav-group {
-  width: 350px;
+  width: 430px;
   position: absolute;
   right: 8%;
   z-index: 40;
@@ -121,11 +134,11 @@ nav.nav-bar ul.nav-group {
 }
 
 nav.nav-bar ul.nav-group > li {
-  padding: 15px 10px;
+  padding: 14px 10px;
   text-align: center;
-  margin: 0 10px;
+  margin: 0 3px;
   line-height: 30px;
-  font-size: 12px;
+  font-size: 13px;
   float: left;
   position: relative;
 }
@@ -141,21 +154,45 @@ nav.nav-bar ul.nav-group > li {
   }
 }
 
+nav.nav-bar ul.nav-group > li:first-child {
+  margin: 0 2px;
+}
+
+nav.nav-bar ul.nav-group > li.submenu {
+  margin: 0 2px;
+  padding: 14px 5px;
+  font-size: 11px;
+}
+
+@media (max-width: 800px) {
+  nav.nav-bar ul.nav-group > li.submenu {
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    padding: 0;
+    margin: 0;
+    clear: initial;
+    width: 33.333333333333333333333%;
+  }
+}
+
 nav.nav-bar ul.nav-group > li a {
+  display: inline-block;
   color: #fff;
+  max-width: 100px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 @media (max-width: 800px) {
   nav.nav-bar ul.nav-group > li a {
+    max-width: initial;
     display: block;
     height: 100%;
     width: 100%;
     height: 70px;
     line-height: 70px;
     background: #333;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
   }
   nav.nav-bar ul.nav-group > li a:hover {
     font-weight: bold;
@@ -502,8 +539,45 @@ div.slider ul.slider > li div.slider-cover a.btn:hover {
 }
 
 div.page.list.hot-items h3 {
-  font-size: 15px;
+  font-size: 20px;
   letter-spacing: 0;
+  margin-top: 50px;
+}
+
+div.page.list.hot-items ul.list-group > li {
+  margin: 0 1% 100px 1%;
+}
+
+div.back {
+  clear: both;
+  width: 100%;
+  height: 230px;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+@media (max-width: 800px) {
+  div.back {
+    height: 400px;
+  }
+}
+
+div.back p {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 100px;
+  margin: 0;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+  div.back p {
+    padding: 180px;
+  }
 }
 
 div.mainPage {
@@ -513,8 +587,7 @@ div.mainPage {
 
 div.mainPage > ul {
   width: 85%;
-  height: 800px;
-  padding: 150px 10% 50px 5%;
+  padding: 50px 10% 50px 5%;
 }
 
 @media (max-width: 800px) {
@@ -574,7 +647,8 @@ div.mainPage > ul > li.one-layouts nav.new_product li a.active {
 }
 
 div.mainPage > ul > li.one-layouts div.slider-wrap {
-  width: 400px;
+  max-width: 400px;
+  width: 100%;
   margin: 0 auto;
   overflow: hidden;
 }
@@ -832,18 +906,22 @@ div.page.list div.filter-wrap {
 }
 
 div.page.list div.filter-wrap.specification {
-  height: 120px;
+  height: 150px;
   border-bottom: 1px solid #333;
 }
 
 @media (max-width: 800px) {
   div.page.list div.filter-wrap.specification {
-    height: 240px;
+    height: 300px;
   }
 }
 
 div.page.list div.filter-wrap.specification div.filter-group {
-  height: 120px;
+  height: 150px;
+}
+
+div.page.list div.filter-wrap.specification div.filter-group label {
+  font-size: 11px;
 }
 
 div.page.list div.filter-wrap h2 {
@@ -901,7 +979,7 @@ div.page.list div.filter-wrap div.filter-group label.active {
 
 div.page.list div.filter-wrap div.filter-group:last-child {
   width: 10%;
-  height: 120px;
+  height: 150px;
   font-size: 12px;
   font-weight: bold;
   padding: 0;

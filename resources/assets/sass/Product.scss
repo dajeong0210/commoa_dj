@@ -111,13 +111,16 @@ div.page{
                 width:100%;
             }
             &.specification{
-                height:120px;
+                height:150px;
                 border-bottom:1px solid #333;
                 @include respond-to('small'){
-                    height:240px;
+                    height:300px;
                 }
                 div.filter-group{
-                    height:120px;
+                    height:150px;
+                    label{
+                        font-size:11px;
+                    }
                 }
             }
             h2{
@@ -163,7 +166,7 @@ div.page{
                 }
                 &:last-child{
                     width:10%;
-                    height:120px;
+                    height:150px;
                     font-size:12px;
                     font-weight:bold;
                     padding:0;

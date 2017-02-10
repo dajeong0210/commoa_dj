@@ -1,5 +1,4 @@
 
-
 //Nav
     $('a.menu_btn').on('click', function(){
         $('ul.nav-group').toggleClass('show');

@@ -30,6 +30,19 @@
     $point-color:rgba(43,222,115,1.0);
     $point-color2:#FA5858;
 
+/// Loading
+    div.loading{
+        width:100%;
+        height:100%;
+        img{
+            position:absolute;
+            top:50%;
+            left:50%;
+            margin-left:-40px;
+            margin-top:-40px
+        }
+    }
+
 /// Nav Css
     .hidden{
         display:none;
@@ -77,7 +90,7 @@
             }
         }
         ul.nav-group{
-            width:350px;
+            width:430px;
             position:absolute;
             right:8%;
             z-index:40;
@@ -95,11 +108,11 @@
                 }
             }
             & > li{
-                padding:15px 10px;
+                padding:14px 10px;
                 text-align:center;
-                margin:0 10px;
+                margin:0 3px;
                 line-height:30px;
-                font-size:12px;
+                font-size:13px;
                 float:left;
                 position:relative;
                 @include respond-to('small') {
@@ -110,18 +123,37 @@
                     clear:both;
                     width:100%;
                 }
-                a{
-                    color:#fff;
+                &:first-child{
+                    margin:0 2px;
+                }
+                &.submenu{
+                    margin:0 2px;
+                    padding:14px 5px;
+                    font-size:11px;
                     @include respond-to('small') {
+                        box-sizing:border-box;
+                        border-bottom:1px solid rgba(0,0,0,0.15);
+                        padding:0;
+                        margin:0;
+                        clear:initial;
+                        width:33.333333333333333333333%;
+                    }
+                }
+                a{
+                    display:inline-block;
+                    color:#fff;
+                    max-width:100px;
+                    text-overflow:ellipsis;
+                    overflow:hidden;
+                    white-space:nowrap;
+                    @include respond-to('small') {
+                        max-width:initial;
                         display:block;
                         height:100%;
                         width:100%;
                         height:70px;
                         line-height:70px;
                         background:#333;
-                        text-overflow:ellipsis;
-                        overflow:hidden;
-                        white-space:nowrap;
                         &:hover{
                             font-weight:bold;
                             background:#282828;
