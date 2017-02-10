@@ -122,6 +122,52 @@ div.page{
                         font-size:11px;
                     }
                 }
+                div.info_group{
+                    a{
+                        color:#333;
+                        &:hover{
+                            color:$point-color;
+                        }
+                    }
+                    position:relative;
+                }
+                div.popup{
+                    max-width:260px;
+                    z-index:99;
+                    font-size:12px;
+                    padding:10px 20px;
+                    border:1px solid #666;
+                    background:#fff;
+                    position:absolute;
+                    top:110px;
+                    &.cpu_info{
+                        left:0;
+                        &:after{
+                            left:57px;
+                        }
+                    }
+                    &.vga_info{
+                        right:70%;
+                        &:after{
+                            right:14px;
+                        }
+                    }
+                    &:after{
+                        width:10px;
+                        height:10px;
+                        content:'';
+                        background:#fff;
+                        border-top:1px solid #666;
+                        border-left:1px solid #666;
+                        transform:rotate(45deg);
+                        position:absolute;
+                        top:-6px;
+                    }
+                    p{
+                        width:100%;
+                        word-break:break-all;
+                    }
+                }
             }
             h2{
                 position:absolute;

@@ -190,6 +190,18 @@
             }
         });
     }
+//filter-Info
+    $('div.info_group').find('a').on({ focus : function(e){
+        e.preventDefault();
+        var className = $(this).attr('class');
+        $('div.popup').addClass('hidden');
+        $('div.popup.'+className).removeClass('hidden');
+    }, focusout : function(e){
+        if( !$('div.popup').is(':focus') ){
+            var className = $(this).attr('class');
+            $('div.popup.'+className).addClass('hidden');
+        }
+    }});
 //Product sort
     $('nav.tab-nav a').on('click', function(e){
         if( !$(this).parent().parent().parent().hasClass('mypage') ){

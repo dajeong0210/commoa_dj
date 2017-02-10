@@ -39,6 +39,15 @@
                         <input type="radio" id="cpu_level_mid" name="cpu_level" class="input specification hidden" value="2" @if( isset($_GET['cpu_level'])) @if( $_GET['cpu_level'] == '2' ) checked="checked" @endif @endif/>
                         <label for="cpu_level_low" @if( isset($_GET['cpu_level'])) @if( $_GET['cpu_level'] == '1' ) class="active" @endif @endif>하</label>
                         <input type="radio" id="cpu_level_low" name="cpu_level" class="input specification hidden" value="1" @if( isset($_GET['cpu_level'])) @if( $_GET['cpu_level']== '1' ) checked="checked" @endif @endif/>
+                        <div class="info_group">
+                            <a href="#" class="cpu_info"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <div class="cpu_info popup hidden">
+                        <strong>CPU 사양 기준</strong>
+                        <p>상 : elnangagnawgkawgawgawgwangkangkanwnawkngkwanknngn</p>
+                        <p>중 : elnangagnawgkawgawgawgwangkangkanwnawkngkwanknngn</p>
+                        <p>하 : elnangagnawgkawgawgawgwangkangkanwnawkngkwanknngn</p>
                     </div>
                     <div class="filter-group">
                         <h3>VGA</h3>
@@ -48,6 +57,15 @@
                         <input type="radio" id="vga_level_mid" name="vga_level" class="input specification hidden" value="2" @if( isset($_GET['vga_level'])) @if( $_GET['vga_level'] == '2' ) checked="checked" @endif @endif/>
                         <label for="vga_level_low" @if( isset($_GET['vga_level'])) @if( $_GET['vga_level'] == '1' ) class="active" @endif @endif>하</label>
                         <input type="radio" id="vga_level_low" name="vga_level" class="input specification hidden" value="1" @if( isset($_GET['vga_level'])) @if( $_GET['vga_level'] == '1' ) checked="checked" @endif @endif/>
+                        <div class="info_group">
+                            <a href="#" class="vga_info"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <div class="vga_info popup hidden">
+                        <strong>VGA 사양 기준</strong>
+                        <p>상 : elnangagnawgkawgawgawgwangkangkanwnawkngkwanknngn</p>
+                        <p>중 : elnangagnawgkawgawgawgwangkangkanwnawkngkwanknngn</p>
+                        <p>하 : elnangagnawgkawgawgawgwangkangkanwnawkngkwanknngn</p>
                     </div>
                     <div class="filter-group">
                         <h3>저장장치</h3>

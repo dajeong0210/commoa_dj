@@ -26,16 +26,14 @@
     </script>
     <script>
         window.onload = function(){
-            $('div.loading').addClass('hidden');
-            $('div#app').removeClass('hidden');
+            $('div.loading').fadeOut('slow');
         }
     </script>
 </head>
 <body>
     <div class="loading">
-        <img src="{{ url('').'/image/Loading_icon.gif' }}">
     </div>
-    <div id="app" class="hidden">
+    <div id="app">
         <nav class="nav-bar">
             <h1 class="logo">
                 <a href="{{ url('/') }}">
