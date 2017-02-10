@@ -30,7 +30,7 @@ class ShopController extends Controller
             }
         }      
         if( Auth::check() && Auth::user()->permission == 2 && strpos( URL::current() , 'admin') ) {
-            return view('Admin.shop.index')->with('shops', $shops);
+            return view('Admin.Shop.index')->with('shops', $shops);
         } else { 
             return view('Shop.index')->with('shops', $shops);
         }
