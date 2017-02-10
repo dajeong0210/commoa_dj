@@ -83,7 +83,7 @@ class ShopController extends Controller
         }
 
         if( Auth::user()->permission == 2 ) {
-            return view('Admin.shop.edit')->with('shop', $shop);
+            return view('Admin.Shop.edit')->with('shop', $shop);
         } else { 
             return view('Shop.edit')->with('shop', $shop);
         }
