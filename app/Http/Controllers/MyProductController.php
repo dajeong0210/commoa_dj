@@ -71,6 +71,13 @@ class MyProductController extends Controller
     {
         $product = new Product($request->all());
         $image = $request->file('image');
+        $categories = $request->category;
+        $count = count($categories);
+        if( $categories == null || count($categories) > 5 ) {
+            session()->flash('msg', "카테고리는 1~5개 범위로 선택해주세요.");
+            return back();
+        } 
+            
         $product->image = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('product',  $image, 'public');
 
         if($request->input('monitor') == '') { 
@@ -78,11 +85,8 @@ class MyProductController extends Controller
         }
         $product->shop_id = Auth::user()->shop->id;
         $product->save();
-
-        $categories = $request->input('category');
-        if( $categories != null )
-            $product->categories()->sync($categories);
-
+        $product->categories()->sync($categories);
+            
         if( Auth::user()->permission == 2 ){
             return redirect('admin/product');
         } else {
@@ -119,9 +123,15 @@ class MyProductController extends Controller
         if( Auth::user()->permission != 2 ) {
             $this->authorize('update', $product->shop);
         }
+
         $categories = $request->input('category');
-        if ( $categories == null ) { $categories = array(); }
-        $product->categories()->sync($categories);
+        if( $categories == null || count($categories) > 5 ) {
+            session()->flash('msg', "카테고리는 1~5개 범위로 선택해주세요.");
+            return back();
+        } else {
+            $product->categories()->sync($categories);
+        }
+       
         $image = $request->file('image');
         $monitor = $request->input('monitor');
         if( $monitor == '' ) { 
