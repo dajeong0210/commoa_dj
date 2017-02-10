@@ -17,7 +17,7 @@ class ProductController extends Controller
     public function index(Request $request)
     {        
         DB::statement(DB::raw('set @row:=0'));
-        $filter_categories = $request->input('category');
+        $filter_categories = $request->input('purpose');
         $product_sort = $request->input('product-sort');
         $cpu_level = $request->input('cpu_level');
         $vga_level = $request->input('vga_level');
@@ -49,7 +49,7 @@ class ProductController extends Controller
 
         if( $filter_categories != null ) {
             // AND type filter
-            foreach( $categories as $category ) {
+            foreach( $filter_categories as $category ) {
                 $products = $products->whereHas('categories', function($products) use ($category) {  
                         $products->where('categories.name', $category);            
                 });
