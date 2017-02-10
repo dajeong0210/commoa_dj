@@ -113,6 +113,6 @@
 </div>
 <!-- Scripts -->
 <script src="/js/app.js"></script>
-<script type="text/javascript" src="{{ url('/').'/js/adminscript.js' }}"></script>
+<script type="text/javascript" src="{{ url('/').'/js/adminScript.js' }}"></script>
 </body>
 </html>
