@@ -23,7 +23,7 @@
                     </div>
                 </form>
             </div>
-            <div class="filter-wrap specification {{ Request::segment(1)=='office' || Request::segment(1) == 'graphic' || Request::segment(1)=='product' && !isset(Request::segment(2)) ? '' : 'hidden' }}">
+            <div class="filter-wrap specification {{ Request::segment(1)=='office' || Request::segment(1) == 'graphic' || Request::segment(1)=='product' && !Request::segment(2) ? '' : 'hidden' }}">
                 <form method="GET" class="filter-form">
                     <div class="filter-group">
                         <h3>CPU</h3>
