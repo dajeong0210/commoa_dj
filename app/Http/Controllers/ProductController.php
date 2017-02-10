@@ -17,29 +17,31 @@ class ProductController extends Controller
     public function index(Request $request)
     {        
         DB::statement(DB::raw('set @row:=0'));
-
+        $filter_categories = $request->input('category');
         $product_sort = $request->input('product-sort');
         $cpu_level = $request->input('cpu_level');
         $vga_level = $request->input('vga_level');
         $os = $request->input('os');
         $monitor = $request->input('monitor');
         $storage = $request->input('storage');
-        $categories = Category::select('name')->get();
+
+        $categories = Category::get();
         $all_category = array();
         foreach($categories as $category) {
             array_push( $all_category, $category->name );
         }
         $other_category = array ( '사무용', '그래픽용' );
         $game_category = array_diff($all_category, $other_category);
+
         if ( strpos( URL::current() , 'office') ) {
             $products = Category::where('name', '사무용')->first()->products();
         } else if ( strpos( URL::current() , 'game') ) {
             
-            // foreach( $game_category as $category ) {
-            //     $products = $products->whereHas('categories', function($products) use ($category) {  
-            //             $products->where('categories.name', $category);            
-            //     });
-            // }
+            foreach( $game_category as $category ) {
+                $products = $products->whereHas('game_category', function($products) use ($category) {  
+                        $products->where('categories.name', $category);            
+                });
+            }
 
         } else if ( strpos( URL::current() , 'graphic') ){
             $products = Category::where('name', '그래픽용')->first()->products();
@@ -47,7 +49,7 @@ class ProductController extends Controller
             $products = new Product;
         }
 
-        if( $categories != null ) {
+        if( $filter_categories != null ) {
             // AND type filter
             foreach( $categories as $category ) {
                 $products = $products->whereHas('categories', function($products) use ($category) {  
