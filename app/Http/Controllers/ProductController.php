@@ -19,19 +19,30 @@ class ProductController extends Controller
         DB::statement(DB::raw('set @row:=0'));
 
         $product_sort = $request->input('product-sort');
-        $total_categories = Category::get();
         $cpu_level = $request->input('cpu_level');
         $vga_level = $request->input('vga_level');
         $os = $request->input('os');
         $monitor = $request->input('monitor');
         $storage = $request->input('storage');
-        // $categories = 
+        $categories = Category::select('name')->get();
+        $all_category = array();
+        foreach($categories as $category) {
+            array_push( $all_category, $category->name );
+        }
+        $other_category = array ( '사무용', '그래픽용' );
+        $game_category = array_diff($all_category, $other_category);
         if ( strpos( URL::current() , 'office') ) {
-            $products = Category::where('name','사무용')->first()->products();
+            $products = Category::where('name', '사무용')->first()->products();
         } else if ( strpos( URL::current() , 'game') ) {
-            // $products = Category::where('name','그래픽용')->first()->products();
+            
+            // foreach( $game_category as $category ) {
+            //     $products = $products->whereHas('categories', function($products) use ($category) {  
+            //             $products->where('categories.name', $category);            
+            //     });
+            // }
+
         } else if ( strpos( URL::current() , 'graphic') ){
-            $products = Category::where('name','그래픽용')->first()->products();
+            $products = Category::where('name', '그래픽용')->first()->products();
         } else {
             $products = new Product;
         }
@@ -108,7 +119,7 @@ class ProductController extends Controller
             } 
         } 
 
-        return view('Product.index')->with('products', $products)->with('categories', $total_categories);
+        return view('Product.index')->with('products', $products)->with('categories', $game_category);
     }
 
     public function viewCount($product_id, Request $request)
