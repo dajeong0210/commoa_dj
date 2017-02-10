@@ -203,15 +203,15 @@
         }
     }});
 //Product sort
-    $('nav.tab-nav a').on('click', function(e){
-        if( !$(this).parent().parent().parent().hasClass('mypage') ){
-            e.preventDefault();
-        }
-        $('nav.tab-nav a').parent().removeClass('active');
-        $('div.filter-wrap').not('.'+$(this).attr('class')).addClass('hidden').find('div.sortBy input').remove();
-        $( 'div.filter-wrap.'+$(this).attr('class') ).removeClass('hidden').find('div.sortBy').append('<input type="text" id="sortBy" name="product-sort" class="input" value="all"/>');
-        $(this).parent().addClass('active');
-    });
+    // $('nav.tab-nav a').on('click', function(e){
+    //     if( !$(this).parent().parent().parent().hasClass('mypage') ){
+    //         e.preventDefault();
+    //     }
+    //     $('nav.tab-nav a').parent().removeClass('active');
+    //     $('div.filter-wrap').not('.'+$(this).attr('class')).addClass('hidden').find('div.sortBy input').remove();
+    //     $( 'div.filter-wrap.'+$(this).attr('class') ).removeClass('hidden').find('div.sortBy').append('<input type="text" id="sortBy" name="product-sort" class="input" value="all"/>');
+    //     $(this).parent().addClass('active');
+    // });
 
     $('ul.sort-list li').on('click', function(e){
         $(this).parent().find('li').removeClass('active');
