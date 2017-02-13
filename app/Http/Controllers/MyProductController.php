@@ -71,12 +71,17 @@ class MyProductController extends Controller
     {
         $product = new Product($request->all());
         $image = $request->file('image');
-        $categories = $request->category;
-        $count = count($categories);
+        $categories = $request->input('category');
+        $category_ids = array();
         if( $categories == null || count($categories) > 5 ) {
             session()->flash('msg', "카테고리는 1~5개 범위로 선택해주세요.");
             return back();
         } 
+
+        foreach( $categories as $category ) {
+            $id = Category::where('name', $category)->first()->id;
+            array_push($category_ids, $id);
+        }
             
         $product->image = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('product',  $image, 'public');
 
@@ -85,7 +90,7 @@ class MyProductController extends Controller
         }
         $product->shop_id = Auth::user()->shop->id;
         $product->save();
-        $product->categories()->sync($categories);
+        $product->categories()->sync($category_ids);
             
         if( Auth::user()->permission == 2 ){
             return redirect('admin/product');
