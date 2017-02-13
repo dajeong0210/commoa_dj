@@ -164,12 +164,14 @@ nav.nav-bar ul.nav-group > li.submenu {
 @media (max-width: 800px) {
   nav.nav-bar ul.nav-group > li.submenu {
     box-sizing: border-box;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
     padding: 0;
-    margin: 0;
+    margin: -1px 0 0 0;
     clear: initial;
     width: 25%;
     height: 40px;
+  }
+  nav.nav-bar ul.nav-group > li.submenu a {
+    line-height: 40px;
   }
 }
 
@@ -249,7 +251,7 @@ nav.nav-bar ul.nav-group > li div.sub_menu li {
     width: 33.3333333333333333333333333333333%;
     clear: none;
     float: left;
-    height: 100%;
+    height: 40px;
     line-height: 25px;
     background: #333;
   }
@@ -264,6 +266,10 @@ nav.nav-bar ul.nav-group > li div.sub_menu li a {
 @media (max-width: 800px) {
   nav.nav-bar ul.nav-group > li div.sub_menu li a {
     color: #fff;
+    line-height: 40px;
+    height: initial;
+    box-sizing: border-box;
+    border-top: 1px solid #282828;
   }
 }
 
