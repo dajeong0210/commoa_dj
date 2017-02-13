@@ -24,15 +24,13 @@
                     </li>
                 @endforeach
                 </ul>
-                <form method="POST" name="create" action="{{ url('/admin/category/create') }}">
-                {{ method_field('put') }}
-                {{ csrf_field() }}
+                <li class="category">
                     <span>└</span>
                     <a href="#" class="create">
                         <i class="fa fa-plus-square-o" aria-hidden="true"></i>
                     </a>
                     <input type="text" name="create" class="create hidden">
-                </form>
+                </li>
             </div>
             <div class="cpu-vga category form">
                 <form method="POST" name="categoryForm" action="{{ url('category') }}">
@@ -51,7 +49,8 @@
                     </div>
                     <div class="group">
                         <div class="form-group one-layout form-group{{ $errors->has('category_image') ? ' has-error' : '' }}">
-                            <label for="category_image">브랜드</label>
+                            <label for="category_image">이미지</label>
+                            <div></div>
                             <input type="file" name="category_image"/>
                             @if($errors->has('category_image'))
                             <label class="error">

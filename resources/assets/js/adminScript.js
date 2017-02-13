@@ -41,84 +41,7 @@
     }).blur(function(){
         $(this).parent('div').css('border', '1px solid #ccc').css('box-shadow', 'none');
     });
-//Category
-    //modify
-        $('div.category').on('click', 'em', function(){
-            $('input.modify').addClass('hidden');
-            $('div.category em').removeClass('hidden');
-            $(this).toggleClass('hidden');
-            $(this).next().toggleClass('hidden').focus();
-        });
-        $('li').on('focusout', 'input.modify', function(){
-            $nth = $(this).prev().prev().html();
-            $('input.modify').addClass('hidden');
-            $('div.category em').removeClass('hidden');
-            $(this).prev('em').html( $(this).val().replace(/(\s*)/g, "") );
-            $('input[name="category'+$nth+'"]').val($(this).val());
-        }).on('keypress', 'input.modify', function(e){
-            if(e.keyCode == 13){
-                $(this).focusout();
-                return false;
-            }
-        });
-        function Submit($target, $name){
-            $target.click(function(){
-                $('form[name="'+$name+'"]').submit();
-            });
-        }
-        Submit( $('input.modify-btn'), 'modify' );
 
-    //delete
-        $('li').on('click', 'a.delete', function(e){
-            e.preventDefault();
-            if( $(this).parent('li').hasClass('create') ){
-                $(this).parent('li').remove();
-            }else{
-                $nth = $(this).prev().prev().prev().html();
-                var categoryId = { 'categoryId' : $nth }
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
-                $.ajax({
-                    type:'POST',
-                    url:'/categorycnt/'+$nth,
-                    data:categoryId,
-                    success:function(data){
-                        if( data == 0 ){
-                            if( confirm('정말 삭제하겠습니까?') == false ){
-                                return false;
-                            }
-                            $('form.delete'+$nth).submit();
-                        }else{
-                            alert('카테고리에 상품이 남아있어 지울 수 없습니다!');
-                        }
-                    },error:function(){
-
-                    }
-                });
-            }
-        });
-    //create
-        $('a.create').on('click', function(){
-            $(this).next('input').toggleClass('hidden');
-            $('input.create').focus();
-        });
-        $('input.create').on('focusout', function(){
-            if( $(this).val() != '' ){
-                // $(this).parent().parent().before('<li class="create"><span>└</span><em class="name">'+$(this).val()+'</em><input type="text" class="modify hidden" value="'+$(this).val()+'"><a href="#" class="delete"><i class="fa fa-times" aria-hidden="true"></i></a></li>');
-                $('input[type="submit"]').before('<input type="hidden" class="modify hidden" name="create[]" value="'+$(this).val()+'">');
-                $(this).val('');
-                $('form[name="modify"]').submit();
-            }
-            $(this).addClass('hidden');
-        }).on('keypress', function(e){
-            if( e.keyCode == 13 ){
-                e.preventDefault();
-                $(this).focusout();
-            }
-        });
 //Cpu-vga
     $('a.folder').on('click', function(e){
         e.preventDefault();
@@ -137,13 +60,19 @@
             $('select[name="cpu_level"] option').eq(0).prop("selected", true);
             $('form[name="cpuForm"]').removeClass('hidden').attr('action' , $url+'/cpu').find('input[type="submit"]').val('추가하기');
             $('form[name="vgaForm"]').addClass('hidden');
-        }else{
+        }else if( $(this).parent().hasClass('vga') ){
             $('form[name="vgaForm"]').find('input[name="_method"]').remove();
             $('form[name="vgaForm"] h3').html('VGA :: 추가하기');
             $('form[name="vgaForm"] input').not('[name="_token"]').val('');
             $('select[name="vga_level"] option').eq(0).prop("selected", true);
             $('form[name="vgaForm"]').removeClass('hidden').attr('action' , $url+'/vga').find('input[type="submit"]').val('추가하기');
             $('form[name="cpuForm"]').addClass('hidden');
+        }else{
+            $('form[name="categoryForm"]').find('input[name="_method"]').remove();
+            $('form[name="categoryForm"] h3').html('CPU :: 추가하기');
+            $('input[name="category_image"]').prev('div').removeClass('img-box').attr('style', '');
+            $('form[name="categoryForm"] input').not('[name="_token"]').val('');
+            $('form[name="categoryForm"]').attr('action' , $url+'/category').find('input[type="submit"]').val('추가하기');
         }
     })
     //ajax -- form action && input value 값 각각 넣어주고 마지막에 submit
@@ -188,8 +117,8 @@
                     $('form[name="categoryForm"]').prepend('<input type="hidden" name="_method" value="put">');
                     $('form[name="categoryForm"] h3').html('카테고리 :: '+dataArr.name);
                     $('input[name="category_name"]').val(dataArr.name);
-                    $('input[name="category_image"]').prev('<img src="'+dataArr.image+'"/>');
-                    $('form[name="categoryForm"]').attr('action' , $url+'/category-edit/'+$targetId);
+                    $('input[name="category_image"]').prev('div').addClass('img-box').attr('style', 'background:url('+dataArr.image+') center; background-size:cover;');
+                    $('form[name="categoryForm"]').attr('action' , $url+'/category/'+$targetId);
                 }
             },error:function(){
                 console.log('error');
