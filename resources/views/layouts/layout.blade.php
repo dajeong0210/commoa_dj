@@ -48,6 +48,9 @@
                     <a href="{{ url('product/')}}" class="{{ Request::segment(1) == 'product' ? 'active' : ''}}">상품</a>
                 </li>
                 <li class="submenu">
+                    <a href="{{ url('home/')}}" class="{{ Request::segment(1) == 'home' ? 'active' : ''}}">가정용</a>
+                </li>
+                <li class="submenu">
                     <a href="{{ url('office/')}}" class="{{ Request::segment(1) == 'office' ? 'active' : ''}}">사무용</a>
                 </li>
                 <li class="submenu">
