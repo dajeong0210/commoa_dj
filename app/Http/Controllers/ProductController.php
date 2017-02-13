@@ -26,10 +26,12 @@ class ProductController extends Controller
         $storage = $request->input('storage');
         $categories = Category::get();
         $game_category = array();
+        $g_category = array();
         foreach($categories as $category) {
             $name = $category->name;
             if( $name != '사무용' && $name != '그래픽용' ) {
                 array_push( $game_category, $category->name );
+                array_push( $g_category, $category);
             }
         }
 
@@ -119,7 +121,7 @@ class ProductController extends Controller
             } 
         } 
 
-        return view('Product.index')->with('products', $products)->with('categories', $game_category);
+        return view('Product.index')->with('products', $products)->with('categories', $g_category);
     }
 
     public function viewCount($product_id, Request $request)
