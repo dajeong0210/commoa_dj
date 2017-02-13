@@ -7,8 +7,9 @@ use App\Http\Requests\CpuRequest;
 use App\Http\Requests\VgaRequest;
 use App\Http\Requests\VgaCreateRequest;
 use App\Http\Requests\CpuCreateRequest;
-use App\Category;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use App\Category;
 use App\Apply;
 use App\User;
 use App\Product;
@@ -16,12 +17,11 @@ use App\Shop;
 use App\Cpu;
 use App\Vga;
 use App\Banner;
-use Illuminate\Support\Facades\Storage;
+
 
 class AdminController extends Controller
 {	
-	public function index()
-	{	
+	public function index() {	
 		$products = Product::orderBy('updated_at', 'desc')->limit(5)->get();		
 		$shops = Shop::orderBy('updated_at', 'desc')->limit(5)->get();
 		$applies = Apply::orderBy('updated_at', 'desc')->where('permission', 0)->limit(10)->get();
@@ -30,30 +30,34 @@ class AdminController extends Controller
 	}
 	
 //Category
-	public function category()
-	{	
+	public function category() {	
 		$categories = Category::get();	
 		return view('Admin.category')->with('categories', $categories);
 	}
 	
-	public function categoryUpdate(Request $request) {
+	public function categoryCreate(Request $request) {
+		$category = new Category; 
+		$category->name = $request->input('name');
+		$image = $request->file('image');
+		if( $image != null ) {
+			$category->image = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('category',  $image, 'public');
+		} else {
+			$category->image = null;
+		}
+		$category->save();
 		
-		$categories = Category::get();	
-		//edit
-		foreach ($categories as $category) {
-			$id = $category->id;
-			$category->name = $request->input('category'.$id);
-			$category->save();
+		return redirect('/admin/category');
+	}
+
+	public function categoryUpdate(Request $request, $id) {
+		$category = Category::find($id);
+		$category->name = $request->input('name');
+		$image = $request->file('image');
+		if( $image != null ) {
+			$category->image = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('category',  $image, 'public');
 		}
-		//create
-		if( $addCategory = $request->input('create') ) {
-			for ( $i=0; $i<count($addCategory); $i++ ) {
-				$newCategory = new Category;
-				$name = $addCategory[$i];
-				$newCategory->name = $addCategory[$i];
-				$newCategory->save();
-			}
-		}
+		$category->save();
+		
 		return redirect('/admin/category');
 	}
 
@@ -67,6 +71,14 @@ class AdminController extends Controller
 		$category = Category::find($id);
 		$productCnt = $category->products()->count();
 		echo $productCnt;
+	}
+
+	public function findCategory($id) {
+		$category = Category::find($id);
+		$array = array( 'name' => $category->name, 
+						'image' => $category->image );
+		
+		echo json_encode($array);
 	}
 	
 //cpu-vga

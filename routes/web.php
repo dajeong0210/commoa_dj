@@ -23,7 +23,7 @@ Route::resource('/product', 'ProductController');
 Route::resource('/office', 'ProductController');
 Route::resource('/game', 'ProductController');
 Route::resource('/graphic', 'ProductController');
-Route::get('/category/{category_name}', 'CategoryController@show');
+Route::get('/type/{category_name}', 'CategoryController@show');
 Route::post('/viewcount/{product_id}', 'ProductController@viewCount');
 
 Route::group(['middleware' => 'auth'], function () {
@@ -53,13 +53,15 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['middleware' => 'SystemAdmin'], function () {
         Route::get('/admin', 'AdminController@index');
         Route::get('/apply', 'ApplyController@index');
-        Route::get('/admin/category', 'AdminController@category');
-        Route::get('/admin/cpu-vga', 'AdminController@cpuvga');
         Route::get('/apply/{id}', 'ApplyController@show');
         Route::post('/shop', 'ShopController@store');
-        Route::put('/admin/category/{id}', 'AdminController@categoryUpdate');
-        Route::delete('/admin/category/{id}', 'AdminController@categoryDelete');
+        Route::get('/admin/category', 'AdminController@category');
+        Route::post('/category/{id}', 'AdminController@findCategory');
+        Route::post('/category', 'AdminController@categoryCreate');
+        Route::put('/category/{id}', 'AdminController@categoryUpdate');
+        Route::delete('/category/{id}', 'AdminController@categoryDelete');
         Route::post('/categorycnt/{id}', 'AdminController@categoryCnt');
+        Route::get('/admin/cpu-vga', 'AdminController@cpuvga');
         Route::post('/cpu/{id}', 'AdminController@findCpu');
         Route::post('/vga/{id}', 'AdminController@findVga');
         Route::put('/cpu-edit/{id}', 'AdminController@cpuUpdate');
