@@ -73,7 +73,7 @@ class MyProductController extends Controller
         $image = $request->file('image');
         $purpose = $request->input('purpose');
         $categories = $request->input('category');
-        $id = Category::where('name', $category)->first()->id;
+        $id = Category::where('name', $purpose)->first()->id;
         
         if( $purpose != '게임용') {
             $categories = array($id);
@@ -136,7 +136,7 @@ class MyProductController extends Controller
 
         $purpose = $request->input('purpose');
         $categories = $request->input('category');
-        $id = Category::where('name', $category)->first()->id;
+        $id = Category::where('name', $purpose)->first()->id;
         
         if( $purpose != '게임용') {
             $categories = array($id);
