@@ -150,7 +150,25 @@
                     </div>
                     <div class="form-group one-layout">
                         <h4>카테고리</h4>
-                        <ul>
+                        <ul class="purpose">
+                            <li>
+                                <label for="for_home">가정용</label>
+                                <input type="radio" name="purpose" id="for_home" class="input required" value="가정용" checked/>
+                            </li>
+                            <li>
+                                <label for="for_desk">사무용</label>
+                                <input type="radio" name="purpose" id="for_desk" class="input required" value="사무용"/>
+                            </li>
+                            <li>
+                                <label for="for_design">디자인용</label>
+                                <input type="radio" name="purpose" id="for_design" class="input required" value="디자인용"/>
+                            </li>
+                            <li>
+                                <label for="for_game">게임용</label>
+                                <input type="radio" name="purpose" id="for_game" class="input required" value="게임용"/>
+                            </li>
+                        </ul>
+                        <ul class="for_game_check">
                             @foreach( $categories as $category )
                                 @if( in_array( $category->id, $selected ) )
                                     <li>
