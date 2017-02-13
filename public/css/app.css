@@ -3413,7 +3413,7 @@ div#app.admin div.main-edit div.preview div.recommend-list p {
   white-space: nowrap;
 }
 
-div#app.admin div.main-edit div.preview div.recommend-list p.shop {
+div#app.admin div.main-edit div.preview div.recommend-list p.shop, div#app.admin div.main-edit div.preview div.recommend-list p:last-child {
   color: #aaa;
   font-size: 12px;
   font-weight: normal;

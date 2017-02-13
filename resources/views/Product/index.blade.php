@@ -12,9 +12,12 @@
                 <form method="GET" class="filter-form">
                     <div class="filter-group purpose">
                         <h3 class="hidden">용도별</h3>
-                        @foreach( $categories as $category )
-                            <label for="{{ 'purpose_' . $category }}" class="{{ isset($_GET['purpose'])? in_array( $category , $_GET['purpose'])? 'active' : '' : '' }}">{{ $category }}</label>
-                            <input type="checkbox" id="{{ 'purpose_' . $category }}" name="purpose[]" class="input purpose hidden" value="{{ $category }}" @if( isset($_GET['purpose'])) @if( in_array( $category , $_GET['purpose']) ) checked="checked" @endif @endif />
+                        @foreach( $categories as $key=>$category )
+                            @if( $key <4 )
+                                <a href="#"><div class="img-box" style="background:url({{ $category->image }}) center; background-size:cover;"></div></a>
+                            @endif
+                                <label for="{{ 'purpose_' . $category }}" class="{{ isset($_GET['purpose'])? in_array( $category , $_GET['purpose'])? 'active' : '' : '' }}">{{ $category }}</label>
+                                <input type="checkbox" id="{{ 'purpose_' . $category }}" name="purpose[]" class="input purpose hidden" value="{{ $category }}" @if( isset($_GET['purpose'])) @if( in_array( $category , $_GET['purpose']) ) checked="checked" @endif @endif />
                         @endforeach
                     </div>
                     <div class="filter-group sortBy hidden">
