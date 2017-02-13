@@ -56,6 +56,18 @@ class AdminController extends Controller
 		}
 		return redirect('/admin/category');
 	}
+
+	public function categoryDelete($id) {
+		$category = Category::find($id);
+		$category->delete();
+		return redirect('/admin/category');
+	}
+
+	public function categoryCnt($id) {
+		$category = Category::find($id);
+		$productCnt = $category->products()->count();
+		echo $productCnt;
+	}
 	
 //cpu-vga
 	public function cpuvga() {
@@ -65,20 +77,7 @@ class AdminController extends Controller
 		return view('Admin.cpu-vga')->with('cpus', $cpus)->with('vgas', $vgas)->with('products', $products);
 	}
 	
-    //cpu
-	public function categoryCnt($id) {
-		$category = Category::find($id);
-		$productCnt = $category->products()->count();
-		echo $productCnt;
-	}
-	
-	public function categoryDelete($id) {
-		$category = Category::find($id);
-		$category->delete();
-		return redirect('/admin/category');
-	}
-	
-	
+    //cpu	
 	public function cpuCreate(CpuCreateRequest $request) {
 		//$cpu->create($request);
 		$cpu = new Cpu;

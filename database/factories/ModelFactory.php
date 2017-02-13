@@ -61,6 +61,7 @@ $factory->define(App\Vga::class, function (Faker\Generator $faker) {
 $factory->define(App\Category::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
+        'image' => $faker->imageUrl($width = 300, $height = 300),
     ];
 });
 
