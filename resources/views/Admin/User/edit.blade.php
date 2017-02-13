@@ -30,23 +30,23 @@
                     </div>
                 </div>
             </form>
-            <form class="ShopApply delete" method="POST" action="{{ url('/admin/user') . '/' . $user->id }}">   
-            {{ method_field('delete') }}
-            {{ csrf_field() }}
-                <div class="group">
-                    <div class="form-group one-layout button del">
-                        <input type="submit" value="삭제" class="delete"/>
-                    </div>
+            <div class="group">
+                <div class="form-group one-layout button del">
+                    <input type="submit" value="삭제" class="delete del-submit"/>
+                    <form class="ShopApply delete" method="POST" action="{{ url('/admin/user') . '/' . $user->id }}">   
+                    {{ method_field('delete') }}
+                    {{ csrf_field() }}
+                    </form>
                 </div>
-            </form>
+            </div>
             @if( $user->permission == 1 )
-                <form class="ShopApply permission" method="POST" action="{{ url('/admin/permission') . '/' . $user->id }}">
-                {{ method_field('put') }}
-                {{ csrf_field() }}
-                    <div class="group">
-                        <input type="submit" value="일반회원으로" class="permission"/>
-                    </div>
-                </form>
+                <div class="group permission">
+                    <input type="submit" value="일반회원으로" class="permission"/>
+                    <form class="ShopApply permission" method="POST" action="{{ url('/admin/permission') . '/' . $user->id }}">
+                    {{ method_field('put') }}
+                    {{ csrf_field() }}
+                    </form>
+                </div>
             @endif
         </div>
     </div>

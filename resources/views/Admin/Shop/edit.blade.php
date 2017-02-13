@@ -86,15 +86,15 @@
                     </div>
                 </div>
             </form>
-            <form class="ShopApply delete" method="POST" action="{{ url('/admin/shop') . '/' . $shop->id }}">   
-            {{ method_field('delete') }}
-            {{ csrf_field() }}
-                <div class="group">
-                    <div class="form-group one-layout button del">
-                        <input type="submit" value="삭제" class="delete"/>
-                    </div>
+            <div class="group">
+                <div class="form-group one-layout button del">
+                    <input type="submit" value="삭제" class="delete del-submit"/>
+                    <form class="ShopApply delete" method="POST" action="{{ url('/admin/shop') . '/' . $shop->id }}">   
+                    {{ method_field('delete') }}
+                    {{ csrf_field() }}
+                    </form>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
 @endsection

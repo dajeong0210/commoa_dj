@@ -75,14 +75,14 @@
                         <label for="hdd+ssd" @if( isset($_GET['storage'])) @if( $_GET['storage'] == 'hdd+ssd' ) class="active" @endif @endif>HDD+SSD</label>
                         <input type="radio" id="hdd+ssd" name="storage" class="input hidden" value="hdd+ssd" @if( isset($_GET['storage'])) @if( $_GET['storage'] == 'hdd+ssd' ) checked="checked" @endif @endif/>
                     </div>
-                    <div class="filter-group {{ Request::segment(1)=='product' && !Request::segment(2) ? 'quatro-layout' : 'half-layout' }}">
+                    <div class="filter-group os {{ Request::segment(1)=='product' && !Request::segment(2) ? 'quatro-layout' : 'half-layout' }}">
                         <h3>OS</h3>
                         <label for="os_yes" @if( isset($_GET['os'])) @if( $_GET['os'] == '1' ) class="active" @endif @endif>있음</label>
                         <input type="radio" id="os_yes" name="os" class="input hidden" value="1" @if( isset($_GET['os'])) @if( $_GET['os'] == '1' ) checked="checked" @endif @endif/>
                         <label for="os_no" @if( isset($_GET['os'])) @if( $_GET['os'] == '0' ) class="active" @endif @endif>없음</label>
                         <input type="radio" id="os_no" name="os" class="input hidden" value="0" @if( isset($_GET['os'])) @if( $_GET['os'] == '0' ) checked="checked" @endif @endif/>
                     </div>
-                    <div class="filter-group {{ Request::segment(1)=='product' && !Request::segment(2) ? 'quatro-layout' : 'half-layout' }}">
+                    <div class="filter-group monitor {{ Request::segment(1)=='product' && !Request::segment(2) ? 'quatro-layout' : 'half-layout' }}">
                         <h3>모니터</h3>
                         <label for="monitor_yes" @if( isset($_GET['monitor'])) @if( $_GET['monitor'] == '1' ) class="active" @endif @endif>있음</label>
                         <input type="radio" id="monitor_yes" name="monitor" class="input hidden" value="1" @if( isset($_GET['monitor'])) @if( $_GET['monitor'] == '1' ) checked="checked" @endif @endif/>

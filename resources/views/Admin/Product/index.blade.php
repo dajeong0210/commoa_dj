@@ -70,14 +70,14 @@
                     </ul>
                 </div>
                 <div class="mybutton">
-                    <form class="myprod-del" method="POST" action="{{ url('/admin/product') . '/' . $product->id }}" enctype="multipart/form-data">
-                    {{ method_field('delete') }}
-                    {{ csrf_field() }}
-                        <div class="button-group">
-                            <a href="{{ url('/admin/product').'/'. $product->id .'/edit' }}" class="modify">수정</a>
-                            <input type="submit" value="삭제" class="delete"/>
-                        </div>
-                    </form>
+                    <div class="button-group">
+                        <a href="{{ url('/admin/product').'/'. $product->id .'/edit' }}" class="modify">수정</a>
+                        <input type="submit" value="삭제" class="delete del-submit" onclick="confirmation()"/>
+                        <form class="myprod-del" method="POST" action="{{ url('/admin/product') . '/' . $product->id }}" enctype="multipart/form-data">
+                        {{ method_field('delete') }}
+                        {{ csrf_field() }}
+                        </form>
+                    </div>
                 </div>
             </li>
             @endforeach

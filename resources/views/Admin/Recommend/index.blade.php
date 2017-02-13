@@ -39,7 +39,7 @@
                                 <div id="recommend{{$i}}" class="thumbnail" style="background:url({{ $recommends->where('recommend', $i)->first()->image }}) center no-repeat; background-size:cover;">
                                 </div>
                                 <p id="prodName{{$i}}">{{ $recommends->where('recommend', $i)->first()->name }}</p>
-                                <p id="shopName{{$i}}">{{ $recommends->where('recommend', $i)->first()->shop->name }}</p>
+                                <p id="shopName{{$i}}" class="shop">{{ $recommends->where('recommend', $i)->first()->shop->name }}</p>
                                 <a class="delete rcm-delete" href="#"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                 <form name="recommend-del" method="POST" action="{{ url('/admin/recommend') . '/' . $i }}">
                                 {{ method_field('delete') }}

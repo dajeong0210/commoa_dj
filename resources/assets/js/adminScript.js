@@ -7,6 +7,22 @@
         e.preventDefault();
         $(this).next('ul').toggleClass('not-show').toggleClass('hidden');
     })
+
+//confirm
+    $('a.rcm-delete, input.del-submit').click(function(){
+        if(confirm('정말 삭제하시겠습니까?') == true){
+            $(this).next().submit();
+        }else{
+            return;
+        }
+    });
+    $('input.permission').click(function(){
+        if(confirm('해당 회원을 일반회원으로 내리겠습니까?\n(※연관된 Shop과 상품이 전부 삭제됩니다.)') == true){
+            $(this).next().submit();
+        }else{
+            return;
+        }
+    });
 //tab
     $('ul.sort-list li').on('click', function(){
         $(this).parent().find('li').removeClass('active');
@@ -284,7 +300,4 @@
     Recommend('recommend4', 'productId4', 'prodName4', 'shopName4');
     $('a.rcm-submit').click(function(){
         $('form[name="newRecommend"]').submit();
-    });
-    $('a.rcm-delete').click(function(){
-        $(this).next().submit();
     });
