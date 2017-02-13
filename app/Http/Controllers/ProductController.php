@@ -29,7 +29,7 @@ class ProductController extends Controller
         $game_category = array();
         foreach($categories as $category) {
             $name = $category->name;
-            if( $name != '사무용' && $name != '그래픽용' ) {
+            if( $name != '사무용' && $name != '디자인용' && $name != '가정용' ) {
                 array_push( $name_category, $category->name );
                 array_push( $game_category, $category);
             }
@@ -43,8 +43,10 @@ class ProductController extends Controller
                 $products->whereIn('categories.name', $name_category);
             });
 
-        } else if ( strpos( URL::current() , 'graphic') ){
-            $products = Category::where('name', '그래픽용')->first()->products();
+        } else if ( strpos( URL::current() , 'graphic') ) {
+            $products = Category::where('name', '디자인용')->first()->products();
+        } else if ( strpos( URL::current() , 'home') ) {
+            $products = Category::where('name', '가정용')->first()->products();
         } else {
             $products = new Product;
         }

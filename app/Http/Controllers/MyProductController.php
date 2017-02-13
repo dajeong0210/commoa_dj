@@ -71,12 +71,22 @@ class MyProductController extends Controller
     {
         $product = new Product($request->all());
         $image = $request->file('image');
-        $categories = $request->category;
-        $count = count($categories);
-        if( $categories == null || count($categories) > 5 ) {
-            session()->flash('msg', "카테고리는 1~5개 범위로 선택해주세요.");
-            return back();
-        } 
+        $purpose = $request->input('purpose');
+        $categories = $request->input('category');
+        $id = Category::where('name', $purpose)->first()->id;
+        
+        if( $purpose != '게임용') {
+            $categories = array($id);
+        } else {
+
+            if( count($categories) > 5 ) {
+                session()->flash('msg', "카테고리는 1~5개 범위로 선택해주세요.");
+                return back();
+            } else {
+                array_push($categories, $id);
+            }
+            
+        }
             
         $product->image = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('product',  $image, 'public');
 
@@ -124,14 +134,24 @@ class MyProductController extends Controller
             $this->authorize('update', $product->shop);
         }
 
+        $purpose = $request->input('purpose');
         $categories = $request->input('category');
-        if( $categories == null || count($categories) > 5 ) {
-            session()->flash('msg', "카테고리는 1~5개 범위로 선택해주세요.");
-            return back();
+        $id = Category::where('name', $purpose)->first()->id;
+        
+        if( $purpose != '게임용') {
+            $categories = array($id);
         } else {
-            $product->categories()->sync($categories);
+
+            if( count($categories) > 5 ) {
+                session()->flash('msg', "카테고리는 1~5개 범위로 선택해주세요.");
+                return back();
+            } else {
+                array_push($categories, $id);
+            }
+            
         }
-       
+        
+        $product->categories()->sync($categories);
         $image = $request->file('image');
         $monitor = $request->input('monitor');
         if( $monitor == '' ) { 
