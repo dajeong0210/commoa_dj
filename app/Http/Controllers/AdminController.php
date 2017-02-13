@@ -37,8 +37,8 @@ class AdminController extends Controller
 	
 	public function categoryCreate(Request $request) {
 		$category = new Category; 
-		$category->name = $request->input('name');
-		$image = $request->file('image');
+		$category->name = $request->input('category_name');
+		$image = $request->file('category_image');
 		if( $image != null ) {
 			$category->image = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('category',  $image, 'public');
 		} else {
@@ -51,8 +51,8 @@ class AdminController extends Controller
 
 	public function categoryUpdate(Request $request, $id) {
 		$category = Category::find($id);
-		$category->name = $request->input('name');
-		$image = $request->file('image');
+		$category->name = $request->input('category_name');
+		$image = $request->file('category_image');
 		if( $image != null ) {
 			$category->image = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('category',  $image, 'public');
 		}
