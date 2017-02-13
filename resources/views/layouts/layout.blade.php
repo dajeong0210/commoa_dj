@@ -31,7 +31,7 @@
     </script>
 </head>
 <body>
-    <div class="loading" style="background:url({{ url('/') . 'image/loading_icon.gif' }} center no-repeat)">
+    <div class="loading" style="{{ 'background:url(' . url('/') . '/image/loading_icon.gif) center no-repeat #fff;'}}">
     </div>
     <div id="app">
         <nav class="nav-bar">
@@ -57,7 +57,7 @@
                     <a href="{{ url('game/')}}" class="{{ Request::segment(1) == 'game' ? 'active' : ''}}">게임용</a>
                 </li>
                 <li class="submenu">
-                    <a href="{{ url('graphic/')}}" class="{{ Request::segment(1) == 'graphic' ? 'active' : ''}}">그래픽용</a>
+                    <a href="{{ url('graphic/')}}" class="{{ Request::segment(1) == 'graphic' ? 'active' : ''}}">디자인용</a>
                 </li>
                 <li>
                     <a href="{{ url('shop/') }}" class="{{ Request::segment(1) == 'shop' && !Request::segment(2) ? 'active' : ''}}">쇼핑몰</a>

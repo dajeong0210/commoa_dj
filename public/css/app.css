@@ -141,10 +141,11 @@ nav.nav-bar ul.nav-group > li {
 
 @media (max-width: 800px) {
   nav.nav-bar ul.nav-group > li {
+    border-top: 1px solid #282828;
+    border-bottom: 1px solid #282828;
     box-sizing: border-box;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    margin: -1px 0 0 0;
     padding: 0;
-    margin: 0;
     clear: both;
     width: 100%;
   }

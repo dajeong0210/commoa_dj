@@ -36,7 +36,7 @@
                     </div>
                 </form>
             </div>
-            <div class="filter-wrap specification {{ Request::segment(1)=='office' || Request::segment(1) == 'graphic' || Request::segment(1)=='product' && !Request::segment(2) ? '' : 'hidden' }} {{ Request::segment(1)=='office' || Request::segment(1) == 'graphic' ? 'small-layout' : '' }}">
+            <div class="filter-wrap specification {{ Request::segment(1)=='home' || Request::segment(1) == 'office' || Request::segment(1) == 'graphic' ||Request::segment(1)=='product' && !Request::segment(2) ? '' : 'hidden' }} {{ Request::segment(1)=='home' || Request::segment(1)=='office' || Request::segment(1) == 'graphic' ? 'small-layout' : '' }}">
                 <form method="GET" class="filter-form">
                     <div class="filter-group {{ Request::segment(1)=='product' && !Request::segment(2) ? 'quatro-layout' : 'hidden' }}">
                         <h3>CPU</h3>

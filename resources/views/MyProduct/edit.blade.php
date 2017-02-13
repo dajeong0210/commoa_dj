@@ -113,11 +113,11 @@
                         <ul>
                             <li>
                                 <label for="no-os">없음</label>
-                                <input type="radio" name="os" id="no-os" class="input required" value="0" checked/>
+                                <input type="radio" name="os" id="no-os" class="input required" value="0" {{ $product->os != 1 ? "checked" : ""  }}/>
                             </li>
                             <li>
                                 <label for="yes-os">있음</label>
-                                <input type="radio" name="os" id="yes-os" class="input required" value="1"/>
+                                <input type="radio" name="os" id="yes-os" class="input required" value="1" {{ $product->os == 1 ? "checked" : ""  }}/>
                             </li>
                         </ul>
                         @if( $errors->has('os') )
@@ -129,11 +129,11 @@
                         <ul>
                             <li>
                                 <label for="no-overclock">불가</label>
-                                <input type="radio" name="overclock" id="no-overclock" class="input required" value="0" checked/>
+                                <input type="radio" name="overclock" id="no-overclock" class="input required" value="0" {{ $product->overclock != 1 ? "checked" : ""  }}/>
                             </li>
                             <li>
                                 <label for="yes-overclock">가능</label>
-                                <input type="radio" name="overclock" id="yes-overclock" class="input required" value="1"/>
+                                <input type="radio" name="overclock" id="yes-overclock" class="input required" value="1" {{ $product->overclock == 1 ? "checked" : ""  }}/>
                             </li>
                         </ul>
                         @if( $errors->has('overclock') )
@@ -153,19 +153,19 @@
                         <ul class="purpose">
                             <li>
                                 <label for="for_home">가정용</label>
-                                <input type="radio" name="purpose" id="for_home" class="input required" value="가정용" checked/>
+                                <input type="radio" name="purpose" id="for_home" class="input required" value="가정용" {{ in_array( '가정용', $product->categories ) ? "checked" : ""  }}/>
                             </li>
                             <li>
                                 <label for="for_desk">사무용</label>
-                                <input type="radio" name="purpose" id="for_desk" class="input required" value="사무용"/>
+                                <input type="radio" name="purpose" id="for_desk" class="input required" value="사무용" {{ in_array( '사무용', $product->categories ) ? "checked" : ""  }}/>
                             </li>
                             <li>
                                 <label for="for_design">디자인용</label>
-                                <input type="radio" name="purpose" id="for_design" class="input required" value="디자인용"/>
+                                <input type="radio" name="purpose" id="for_design" class="input required" value="디자인용" {{ in_array( '디자인용', $product->categories ) ? "checked" : ""  }}/>
                             </li>
                             <li>
                                 <label for="for_game">게임용</label>
-                                <input type="radio" name="purpose" id="for_game" class="input required" value="게임용"/>
+                                <input type="radio" name="purpose" id="for_game" class="input required" value="게임용" {{ in_array( '게임용', $product->categories ) ? "checked" : ""  }}/>
                             </li>
                         </ul>
                         <ul class="for_game_check">
