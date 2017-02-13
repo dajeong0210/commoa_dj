@@ -118,7 +118,7 @@
                     $('form[name="categoryForm"] h3').html('카테고리 :: '+dataArr.name);
                     $('input[name="category_name"]').val(dataArr.name);
                     $('input[name="category_image"]').prev('div').addClass('img-box').attr('style', 'background:url('+dataArr.image+') center; background-size:cover;');
-                    $('form[name="categoryForm"]').attr('action' , $url+'/category/'+$targetId);
+                    $('form[name="categoryForm"]').attr('action' , $url+'/category/'+$targetId).find('input[type="submit"]').val('수정하기');;
                 }
             },error:function(){
                 console.log('error');
@@ -199,10 +199,17 @@
                 alert('이미지 파일만 업로드 가능합니다!');
                 $(this).val('');
             }else{
-                $nth = $('div.nth').find('input:checked').attr('id');
-                var reader = new FileReader();
-                reader.onload = function(e){
-                    $('div.slider ul li.'+$nth).attr('style', 'background:url('+e.target.result+') no-repeat; background-size:cover;');
+                if( $(this).attr('name') == 'category_image' ){
+                    var reader = new FileReader();
+                    reader.onload = function(e){
+                        $('div.img-preview').addClass('img-box').attr('style', 'background:url('+e.target.result+') center no-repeat; background-size:cover;');
+                    }
+                }else{
+                    $nth = $('div.nth').find('input:checked').attr('id');
+                    var reader = new FileReader();
+                    reader.onload = function(e){
+                        $('div.slider ul li.'+$nth).attr('style', 'background:url('+e.target.result+') no-repeat; background-size:cover;');
+                    }
                 }
                 reader.readAsDataURL(this.files[0]);
             }

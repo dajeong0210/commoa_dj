@@ -33,7 +33,7 @@
                 </li>
             </div>
             <div class="cpu-vga category form">
-                <form method="POST" name="categoryForm" action="{{ url('category') }}">
+                <form method="POST" name="categoryForm" action="{{ url('category') }}" enctype="multipart/form-data">
                 {{ csrf_field() }}
                     <h3>카테고리 :: 추가하기 </h3>
                     <div class="group">
@@ -50,8 +50,8 @@
                     <div class="group">
                         <div class="form-group one-layout form-group{{ $errors->has('category_image') ? ' has-error' : '' }}">
                             <label for="category_image">이미지</label>
-                            <div></div>
-                            <input type="file" name="category_image"/>
+                            <div class="img-preview"></div>
+                            <input type="file" name="category_image" class="image"/>
                             @if($errors->has('category_image'))
                             <label class="error">
                                 <strong>{{ $errors->first('category_image') }}</strong>
