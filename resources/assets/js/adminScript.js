@@ -42,6 +42,7 @@
         $(this).parent('div').css('border', '1px solid #ccc').css('box-shadow', 'none');
     });
 
+
 //Cpu-vga
     $('a.folder').on('click', function(e){
         e.preventDefault();
@@ -137,8 +138,10 @@
         });
         if( $(this).parent('li').hasClass('cpu') ){
             deleteAjax('cpu', dataArr, 'CPU');
-        }else{
+        }else if( $(this).parent('li').hasClass('vga') ){
             deleteAjax('vga', dataArr, 'VGA');
+        }else{
+            deleteAjax('category', dataArr, '카테고리');
         }
         function deleteAjax( $target, dataArr, $print){
             $.ajax({

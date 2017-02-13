@@ -14,10 +14,10 @@
                         <span class="hidden">{{ $category->id  }}</span>
                         <a href="#" class="name">{{ $category->name }}<span class="count"> ( {{ $category->products()->count() }} )  </span></a>
                         <input type="text" class="modify hidden" value="{{ $category->name }}">
-                        <a href="#" class="delete">
+                        <a href="#" class="del">
                         <i class="fa fa-times" aria-hidden="true"></i>
                         </a>
-                        <form name="delete" class="hidden delete{{$category->id}}" method="POST" action="{{ url('/admin/category') . '/' . $category->id }}">
+                        <form name="delete" class="hidden category{{$category->id}}" method="POST" action="{{ url('/category') . '/' . $category->id }}">
                             {{ method_field('delete') }}
                             {{ csrf_field() }}
                         </form>
