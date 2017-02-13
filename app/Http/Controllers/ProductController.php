@@ -24,14 +24,14 @@ class ProductController extends Controller
         $os = $request->input('os');
         $monitor = $request->input('monitor');
         $storage = $request->input('storage');
-
         $categories = Category::get();
-        $all_category = array();
+        $game_category = array();
         foreach($categories as $category) {
-            array_push( $all_category, $category->name );
+            $name = $category->name;
+            if( $name != '사무용' && $name != '그래픽용' ) {
+                array_push( $game_category, $category->name );
+            }
         }
-        $other_category = array ( '사무용', '그래픽용' );
-        $game_category = array_diff($all_category, $other_category);
 
         if ( strpos( URL::current() , 'office') ) {
             $products = Category::where('name', '사무용')->first()->products();
