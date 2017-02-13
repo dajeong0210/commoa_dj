@@ -892,6 +892,14 @@ div.page.list div.filter-wrap {
 @media (max-width: 800px) {
   div.page.list div.filter-wrap {
     width: 100%;
+    max-width: 450px;
+  }
+}
+
+@media (max-width: 480px) {
+  div.page.list div.filter-wrap {
+    width: 100%;
+    max-width: 280px;
   }
 }
 
@@ -901,7 +909,7 @@ div.page.list div.filter-wrap.specification {
 }
 
 @media (max-width: 800px) {
-  div.page.list div.filter-wrap.specification {
+  div.page.list div.filter-wrap.specification:not(.small-layout) {
     height: 300px;
   }
 }
@@ -927,7 +935,7 @@ div.page.list div.filter-wrap.specification div.info_group a:hover {
 }
 
 div.page.list div.filter-wrap.specification div.popup {
-  max-width: 260px;
+  width: 300px;
   z-index: 99;
   font-size: 12px;
   padding: 10px 20px;
@@ -937,20 +945,66 @@ div.page.list div.filter-wrap.specification div.popup {
   top: 110px;
 }
 
+@media (max-width: 480px) {
+  div.page.list div.filter-wrap.specification div.popup {
+    top: 130px;
+  }
+}
+
 div.page.list div.filter-wrap.specification div.popup.cpu_info {
-  left: 0;
+  left: 4.8%;
+}
+
+@media (max-width: 480px) {
+  div.page.list div.filter-wrap.specification div.popup.cpu_info {
+    left: 50%;
+    width: 80%;
+    margin-left: -140px;
+  }
 }
 
 div.page.list div.filter-wrap.specification div.popup.cpu_info:after {
-  left: 57px;
+  left: 9%;
+}
+
+@media (max-width: 800px) {
+  div.page.list div.filter-wrap.specification div.popup.cpu_info:after {
+    left: 14%;
+  }
+}
+
+@media (max-width: 480px) {
+  div.page.list div.filter-wrap.specification div.popup.cpu_info:after {
+    left: 17%;
+  }
 }
 
 div.page.list div.filter-wrap.specification div.popup.vga_info {
-  right: 70%;
+  left: 14.5%;
+}
+
+@media (max-width: 480px) {
+  div.page.list div.filter-wrap.specification div.popup.vga_info {
+    width: 80%;
+    left: 50%;
+    margin-left: -120px;
+  }
 }
 
 div.page.list div.filter-wrap.specification div.popup.vga_info:after {
-  right: 14px;
+  left: 30%;
+}
+
+@media (max-width: 800px) {
+  div.page.list div.filter-wrap.specification div.popup.vga_info:after {
+    left: 45%;
+  }
+}
+
+@media (max-width: 480px) {
+  div.page.list div.filter-wrap.specification div.popup.vga_info:after {
+    left: 44%;
+  }
 }
 
 div.page.list div.filter-wrap.specification div.popup:after {
@@ -976,6 +1030,10 @@ div.page.list div.filter-wrap.small-layout {
   max-width: 400px;
 }
 
+div.page.list div.filter-wrap.small-layout div.filter-group {
+  padding: 20px 5px;
+}
+
 div.page.list div.filter-wrap h2 {
   position: absolute;
   display: inline-block;
@@ -992,6 +1050,10 @@ div.page.list div.filter-wrap div.filter-group {
   padding: 5px;
   text-align: center;
   box-sizing: border-box;
+}
+
+div.page.list div.filter-wrap div.filter-group.os, div.page.list div.filter-wrap div.filter-group.monitor {
+  padding: 20px 5px;
 }
 
 div.page.list div.filter-wrap div.filter-group.quatro-layout {
@@ -1068,6 +1130,7 @@ div.page.list div.filter-wrap div.filter-group.purpose {
 div.page.list div.filter-wrap div.filter-group.purpose:last-child {
   width: 100%;
   height: 35px;
+  border: 1px solid #333;
 }
 
 div.page.list div.filter-wrap div.filter-group.purpose label {
@@ -1085,8 +1148,8 @@ div.page.list div.filter-wrap div.filter-group input.submit.filter-group {
   height: 100%;
   background: #333;
   color: #2bde73;
-  border: none;
   padding: 0;
+  border: none;
 }
 
 div.page.list.mypage div.sort-wrap, div.page.list.mypage div.sort-wrap.shop {
@@ -2628,6 +2691,7 @@ div#app.admin nav.admin-nav ul.nav-group li.active a {
 div#app.admin nav.admin-nav ul.nav-group li a {
   font-size: 13px;
   color: #fff;
+  max-width: initial;
 }
 
 div#app.admin nav.admin-nav ul.nav-group li a i {
@@ -3139,13 +3203,14 @@ div#app.admin div.form.user-edit {
   }
 }
 
-div#app.admin div.form.user-edit form.permission {
+div#app.admin div.form.user-edit div.permission {
+  width: initial;
   position: absolute;
   bottom: -34px;
   right: 30px;
 }
 
-div#app.admin div.form.user-edit form.permission input {
+div#app.admin div.form.user-edit div.permission input {
   background: #FA5858;
   border: 1px solid #FA5858;
   border-radius: 0 0 10px 10px;
@@ -3155,7 +3220,7 @@ div#app.admin div.form.user-edit form.permission input {
   line-height: 28px;
 }
 
-div#app.admin div.form.user-edit form.permission input:hover {
+div#app.admin div.form.user-edit div.permission input:hover {
   color: #fff;
 }
 
@@ -3292,7 +3357,6 @@ div#app.admin div.main-edit div.preview div.recommend-list ul li a:not(.delete) 
   text-align: center;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
-  background: rgba(0, 0, 0, 0.2);
 }
 
 div#app.admin div.main-edit div.preview div.recommend-list ul li a:not(.delete):hover {
@@ -3349,7 +3413,7 @@ div#app.admin div.main-edit div.preview div.recommend-list p {
   white-space: nowrap;
 }
 
-div#app.admin div.main-edit div.preview div.recommend-list p:last-child {
+div#app.admin div.main-edit div.preview div.recommend-list p.shop {
   color: #aaa;
   font-size: 12px;
   font-weight: normal;

@@ -11,11 +11,10 @@
         <ul class="list-group">
             @foreach( $products as $product )
             <li>
-                <a href="{{ $product->url }}">
-                <div class="img-box prod">
-                    <img src="{{ $product->image }}" alt="">
-                </div>
-                </a>
+                <a href="{{ url('/product') . '/' . $product->id }}">
+                    <div class="img-box prod" style="background:url({{ $product->image }}); background-size:cover;">
+                    </div>
+                </a> 
                 <div class="detail-box">
                     <a class="prod-title" href="{{ $product->url }}"> {{ $product->name }} </a>
                     <ul class="prod_category">

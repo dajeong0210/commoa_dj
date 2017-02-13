@@ -98,19 +98,25 @@ div.page{
         div.filter-wrap{
             clear:both;
             width:100%;
-            
             margin:0 auto;
             border:1px solid #ddd;
             position: relative;
             top: -14px;
             @include respond-to('small'){
                 width:100%;
+                max-width:450px;
+            }
+            @include respond-to('too-small'){
+                width:100%;
+                max-width:280px;
             }
             &.specification{
                 height:150px;
                 border-bottom:1px solid #333;
                 @include respond-to('small'){
-                    height:300px;
+                    &:not(.small-layout){
+                        height:300px;
+                    }
                 }
                 div.filter-group{
                     height:150px;
@@ -128,7 +134,7 @@ div.page{
                     position:relative;
                 }
                 div.popup{
-                    max-width:260px;
+                    width:300px;
                     z-index:99;
                     font-size:12px;
                     padding:10px 20px;
@@ -136,16 +142,41 @@ div.page{
                     background:#fff;
                     position:absolute;
                     top:110px;
+                    @include respond-to('too-small'){
+                        top:130px;
+                    }
                     &.cpu_info{
-                        left:0;
+                        left:4.8%;
+                        @include respond-to('too-small'){
+                            left:50%;
+                            width:80%;
+                            margin-left:-140px;
+                        }
                         &:after{
-                            left:57px;
+                            left:9%;
+                            @include respond-to('small'){
+                                left:14%;
+                            }
+                            @include respond-to('too-small'){
+                                left:17%;
+                            }
                         }
                     }
                     &.vga_info{
-                        right:70%;
+                        left:14.5%;
+                        @include respond-to('too-small'){
+                            width:80%;
+                            left:50%;
+                            margin-left:-120px;
+                        }
                         &:after{
-                            right:14px;
+                            left:30%;
+                            @include respond-to('small'){
+                                left:45%;
+                            }
+                            @include respond-to('too-small'){
+                                left:44%;
+                            }
                         }
                     }
                     &:after{
@@ -167,7 +198,10 @@ div.page{
             }
             &.small-layout{
                 max-width:400px;
-            }
+                div.filter-group{
+                    padding:20px 5px;
+                }
+            }  
             h2{
                 position:absolute;
                 display:inline-block;
@@ -183,6 +217,9 @@ div.page{
                 padding:5px;
                 text-align:center;
                 box-sizing:border-box;
+                &.os, &.monitor{
+                    padding:20px 5px;   
+                }
                 &.quatro-layout{
                     width:20%;
                     @include respond-to('small'){
@@ -240,6 +277,7 @@ div.page{
                     &:last-child{
                         width:100%;
                         height:35px;
+                        border:1px solid #333;
                     }
                     label{
                         margin:8px;
@@ -253,8 +291,8 @@ div.page{
                     height:100%;
                     background:#333;
                     color:$point-color;
-                    border:none;
                     padding:0;
+                    border:none;
                 }
             }  
         }
