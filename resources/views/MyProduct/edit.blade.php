@@ -151,22 +151,14 @@
                     <div class="form-group one-layout">
                         <h4>카테고리</h4>
                         <ul class="purpose">
-                            <li>
-                                <label for="for_home">가정용</label>
-                                <input type="radio" name="purpose" id="for_home" class="input required" value="가정용" {{ in_array( '가정용', $product->categories ) ? "checked" : ""  }}/>
-                            </li>
-                            <li>
-                                <label for="for_desk">사무용</label>
-                                <input type="radio" name="purpose" id="for_desk" class="input required" value="사무용" {{ in_array( '사무용', $product->categories ) ? "checked" : ""  }}/>
-                            </li>
-                            <li>
-                                <label for="for_design">디자인용</label>
-                                <input type="radio" name="purpose" id="for_design" class="input required" value="디자인용" {{ in_array( '디자인용', $product->categories ) ? "checked" : ""  }}/>
-                            </li>
-                            <li>
-                                <label for="for_game">게임용</label>
-                                <input type="radio" name="purpose" id="for_game" class="input required" value="게임용" {{ in_array( '게임용', $product->categories ) ? "checked" : ""  }}/>
-                            </li>
+                            @foreach($categories as $key=>$category)
+                                @if( in_array( $category->name , ['가정용', '사무용', '디자인용', '게임용'] ) )
+                                <li>
+                                    <label for="purpose{{$key}}">{{ $category->name }}</label>
+                                    <input type="radio" name="purpose" id="purpose{{$key}}" class="input required" value="{{ $category->name }}" {{ in_array($category->id, $selected) ? 'checked' : ''}} />
+                                </li>
+                                @endif
+                            @endforeach
                         </ul>
                         <ul class="for_game_check">
                             @foreach( $categories as $category )
