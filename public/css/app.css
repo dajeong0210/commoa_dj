@@ -1137,6 +1137,24 @@ div.page.list div.filter-wrap div.filter-group.purpose label {
   margin: 8px;
 }
 
+div.page.list div.filter-wrap div.filter-group.purpose label.major_game {
+  display: block;
+  float: left;
+  width: 24%;
+  box-sizing: border-box;
+  margin: 0 0.45%;
+  text-align: center;
+}
+
+div.page.list div.filter-wrap div.filter-group.purpose label.major_game p {
+  width: 100%;
+  display: inline-block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-weight: bold;
+}
+
 @media (max-width: 480px) {
   div.page.list div.filter-wrap div.filter-group.purpose label {
     margin: 2px 1px;

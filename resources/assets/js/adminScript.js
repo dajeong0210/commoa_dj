@@ -176,7 +176,7 @@
                     $('select[name="cpu_level"]').val(dataArr.level).prop("selected", true);
                     $('form[name="cpuForm"]').removeClass('hidden').attr('action' , $url+'/cpu-edit/'+$targetId).find('input[type="submit"]').val('수정하기');
                     $('form[name="vgaForm"]').addClass('hidden');
-                }else{
+                }else if( $type == 'vga' ){
                     $('form[name="vgaForm"]').prepend('<input type="hidden" name="_method" value="put">');
                     $('form[name="vgaForm"] h3').html('VGA :: '+dataArr.name);
                     $('input[name="vga_name"]').val(dataArr.name);
@@ -184,6 +184,12 @@
                     $('select[name="vga_level"]').val(dataArr.level).prop("selected", true);
                     $('form[name="vgaForm"]').removeClass('hidden').attr('action' , $url+'/vga-edit/'+$targetId);
                     $('form[name="cpuForm"]').addClass('hidden');
+                }else{
+                    $('form[name="categoryForm"]').prepend('<input type="hidden" name="_method" value="put">');
+                    $('form[name="categoryForm"] h3').html('카테고리 :: '+dataArr.name);
+                    $('input[name="category_name"]').val(dataArr.name);
+                    $('input[name="category_image"]').prev('<img src="'+dataArr.image+'"/>');
+                    $('form[name="categoryForm"]').attr('action' , $url+'/category-edit/'+$targetId);
                 }
             },error:function(){
                 console.log('error');

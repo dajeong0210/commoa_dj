@@ -281,6 +281,22 @@ div.page{
                     }
                     label{
                         margin:8px;
+                        &.major_game{
+                            display:block;
+                            float:left;
+                            width:24%;
+                            box-sizing:border-box;
+                            margin:0 0.45%;
+                            text-align:center;
+                            p{
+                                width:100%;
+                                display:inline-block;
+                                text-overflow:ellipsis;
+                                overflow:hidden;
+                                white-space:nowrap;
+                                font-weight:bold;
+                            }
+                        }
                         @include respond-to('too-small'){
                             margin:2px 1px;
                         }
