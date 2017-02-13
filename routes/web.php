@@ -23,6 +23,7 @@ Route::resource('/product', 'ProductController');
 Route::resource('/office', 'ProductController');
 Route::resource('/game', 'ProductController');
 Route::resource('/graphic', 'ProductController');
+Route::resource('/home', 'ProductController');
 Route::get('/type/{category_name}', 'CategoryController@show');
 Route::post('/viewcount/{product_id}', 'ProductController@viewCount');
 
