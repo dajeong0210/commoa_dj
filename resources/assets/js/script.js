@@ -7,6 +7,14 @@
     $('a.mypage').on('click', function(){
         $(this).next().toggleClass('hidden');
     });
+//confirm
+    $('a.rcm-delete, input.del-submit').click(function(){
+        if(confirm('정말 삭제하시겠습니까?') == true){
+            $(this).next().submit();
+        }else{
+            return;
+        }
+    });
 //NewProduct
     $('nav.new_product a').on('click', function(e){
         e.preventDefault();
