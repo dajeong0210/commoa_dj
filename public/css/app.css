@@ -45,7 +45,6 @@ div.loading {
   z-index: 49;
   left: 0;
   top: 0;
-  background: url("../image/loading_icon.gif") 50% 50% no-repeat #f9f9f9;
 }
 
 .hidden {
@@ -2021,7 +2020,7 @@ div.mypage div.form div.group div.form-group:not(.agree).one-layout {
   clear: both;
 }
 
-div.mypage div.form div.group div.form-group:not(.agree).one-layout input[type="checkbox"] {
+div.mypage div.form div.group div.form-group:not(.agree).one-layout input[type="checkbox"], div.mypage div.form div.group div.form-group:not(.agree).one-layout input[type="radio"] {
   width: 15px;
   margin: 0;
   padding: 0;
@@ -2058,10 +2057,18 @@ div.mypage div.form div.group div.form-group:not(.agree).one-layout.button input
 
 div.mypage div.form div.group div.form-group:not(.agree).one-layout ul {
   width: 100%;
+}
+
+div.mypage div.form div.group div.form-group:not(.agree).one-layout ul.purpose {
+  height: 50px;
+}
+
+div.mypage div.form div.group div.form-group:not(.agree).one-layout ul.for_game_check {
+  clear: both;
   background: #eee;
   border: 1px solid #ddd;
   border-radius: 5px;
-  margin: 20px 0 0 0;
+  opacity: 0.7;
 }
 
 div.mypage div.form div.group div.form-group:not(.agree).one-layout ul li {

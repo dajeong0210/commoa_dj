@@ -141,12 +141,32 @@
                     </div>
                     <div class="form-group one-layout">
                         <h4>카테고리</h4>
-                        <ul>
+                        <ul class="purpose">
+                            <li>
+                                <label for="for_home">가정용</label>
+                                <input type="radio" name="purpose" id="for_home" class="input required" value="가정용" checked/>
+                            </li>
+                            <li>
+                                <label for="for_desk">사무용</label>
+                                <input type="radio" name="purpose" id="for_desk" class="input required" value="사무용"/>
+                            </li>
+                            <li>
+                                <label for="for_design">디자인용</label>
+                                <input type="radio" name="purpose" id="for_design" class="input required" value="디자인용"/>
+                            </li>
+                            <li>
+                                <label for="for_game">게임용</label>
+                                <input type="radio" name="purpose" id="for_game" class="input required" value="게임용"/>
+                            </li>
+                        </ul>
+                        <ul class="for_game_check">
                             @foreach( $categories as $category )
+                            @if( !in_array( $category->name, ['가정용', '사무용', '디자인용', '게임용' ]) )
                             <li>
                                 <label for="{{ 'category' . $category->id }}">{{ $category->name }}</label>
-                                <input type="checkbox" name="category[]" id="{{ 'category' . $category->id }}" value="{{ $category->id }}">
+                                <input type="checkbox" name="category[]" id="{{ 'category' . $category->id }}" value="{{ $category->id }}" disabled="disabled">
                             </li>
+                            @endif
                             @endforeach
                             <p>※ 중복 선택 가능합니다.</p>
                         </ul>
