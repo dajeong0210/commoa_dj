@@ -45,16 +45,16 @@
             </a>
             <ul class="nav-group menu">
                 <li>
-                    <a href="{{ url('product/')}}" class="{{ Request::segment(1) == 'product' ? 'active' : ''}}">상품</a>
+                    <a href="{{ url('product/')}}" class="{{ Request::segment(1) == 'product' ? 'active' : ''}}">사양별</a>
+                </li>
+                <li class="submenu">
+                    <a href="{{ url('game/')}}" class="{{ Request::segment(1) == 'game' ? 'active' : ''}}">게임용</a>
                 </li>
                 <li class="submenu">
                     <a href="{{ url('home/')}}" class="{{ Request::segment(1) == 'home' ? 'active' : ''}}">가정용</a>
                 </li>
                 <li class="submenu">
                     <a href="{{ url('office/')}}" class="{{ Request::segment(1) == 'office' ? 'active' : ''}}">사무용</a>
-                </li>
-                <li class="submenu">
-                    <a href="{{ url('game/')}}" class="{{ Request::segment(1) == 'game' ? 'active' : ''}}">게임용</a>
                 </li>
                 <li class="submenu">
                     <a href="{{ url('graphic/')}}" class="{{ Request::segment(1) == 'graphic' ? 'active' : ''}}">디자인용</a>
