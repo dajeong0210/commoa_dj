@@ -90,6 +90,12 @@ class MyProductController extends Controller
             
         $product->image = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('product',  $image, 'public');
 
+        if($request->input('ssd') == '') { 
+            $product->ssd = null;
+        }
+        if($request->input('hdd') == '') { 
+            $product->hdd = null;
+        }
         if($request->input('monitor') == '') { 
             $product->monitor = null;
         }
@@ -154,9 +160,18 @@ class MyProductController extends Controller
         $product->categories()->sync($categories);
         $image = $request->file('image');
         $monitor = $request->input('monitor');
-        if( $monitor == '' ) { 
-            $request->merge(['monitor' => null]);
+        $ssd = $request->input('ssd');
+        $hdd = $request->input('hdd');
+        if($ssd == '') { 
+            $ssd = null;
         }
+        if($hdd == '') { 
+            $hdd = null;
+        }
+        if( $monitor == '' ) { 
+            $monitor = null;
+        }
+        $request->merge(['monitor' => $monitor,'ssd' => $ssd, 'hdd' => $hdd ]);
         $request = $request->except(['_method', '_token', 'category']);
         $product->update($request);
         

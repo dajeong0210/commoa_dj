@@ -12,6 +12,7 @@ use App\User;
 use App\Apply;
 use App\Product;
 use URL;
+use DB;
 
 class ShopController extends Controller
 {
@@ -24,7 +25,7 @@ class ShopController extends Controller
             $shops = Shop::orderBy('updated_at', 'desc')->paginate(20);
         } else {
             if( $shop_sort == 'all' ) {
-                $shops = Shop::orderBy('updated_at', 'desc')->paginate(20);
+                $shops = Shop::orderBy('updated_at', 'desc')->paginate(20);  
             } elseif ( $shop_sort == 'nameBy' ) {
                 $shops = Shop::orderBy('name', 'asc')->paginate(20);
             }

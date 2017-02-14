@@ -22,10 +22,11 @@ class ProductStoreRequest extends FormRequest
             'price' => 'required|numeric',
             'cpu_id' => 'required',
             'vga_id' => 'required',
+            'ssd' => 'numeric',
+            'hdd' => 'numeric',
             'ram' => 'required|numeric',
-            'ssd' => 'required|numeric',
-            'hdd' => 'required|numeric',
             'power' => 'required|numeric',
+            'monitor' => 'numeric',
         ];
     }
     
