@@ -3012,11 +3012,17 @@ div#app.admin div.category.cpu-vga:first-child {
     width: 80%;
     margin: 1% 10%;
   }
+  div#app.admin div.category.cpu-vga:first-child:after {
+    padding-top: 100%;
+    content: '';
+    clear: both;
+  }
 }
 
 @media (max-width: 480px) {
   div#app.admin div.category.cpu-vga:first-child {
-    width: 98%;
+    width: 90%;
+    margin: 1% 5%;
   }
 }
 
@@ -3031,6 +3037,8 @@ div#app.admin div.category.cpu-vga:last-child {
 
 @media (max-width: 800px) {
   div#app.admin div.category.cpu-vga:last-child {
+    clear: both;
+    float: initial;
     width: 80%;
     margin: 20px 10%;
   }
@@ -3038,7 +3046,8 @@ div#app.admin div.category.cpu-vga:last-child {
 
 @media (max-width: 480px) {
   div#app.admin div.category.cpu-vga:last-child {
-    width: 98%;
+    width: 90%;
+    margin: 20px 5%;
   }
 }
 

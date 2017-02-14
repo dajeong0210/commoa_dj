@@ -309,9 +309,15 @@ div#app.admin{
                 @include respond-to('small'){
                     width:80%;
                     margin:1% 10%;
+                    &:after{
+                        padding-top:100%;
+                        content:'';
+                        clear:both;
+                    }
                 }
                 @include respond-to('too-small'){
-                    width:98%;
+                    width:90%;
+                    margin:1% 5%;
                 }
             }
             &:last-child{
@@ -322,11 +328,14 @@ div#app.admin{
                 margin:1% 1% 50px 1%;
                 box-sizing:border-box;
                 @include respond-to('small'){
+                    clear:both;
+                    float:initial;
                     width:80%;
                     margin:20px 10%;
                 }
                 @include respond-to('too-small'){
-                    width:98%;
+                    width:90%;
+                    margin:20px 5%;
                 }
             }
             h3{
