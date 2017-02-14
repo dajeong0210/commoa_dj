@@ -254,3 +254,30 @@
             $('ul.for_game_check').css('opacity','0.7').find('input[type="checkbox"]').attr('disabled', 'disabled');
         }
     });
+    var originImg = $('div.image-logo img').attr('src');
+    $('input.image').on('change', function(){
+        var image = $(this).val();
+        var imageonly = image.toLowerCase().split(".");
+        if( image != '' ){
+            if( imageonly[1] != 'jpg' && imageonly[1] != 'png' && imageonly[1] != 'jpeg' && imageonly[1] != 'gif' && imageonly[1] != 'bmp'){
+                alert('이미지 파일만 업로드 가능합니다!');
+                $(this).val('');
+            }else{
+                    var reader = new FileReader();
+                    reader.onload = function(e){
+                        if( !$('div.image-logo').children().is('img') ){
+                            $('div.image-logo').append('<img src="'+e.target.result+'" alt="">');
+                        }else{
+                            $('div.image-logo img').attr('src', e.target.result);
+                        }
+                    }
+                    reader.readAsDataURL(this.files[0]);
+            }
+        }else{
+            if( !$('div.image-logo').is('img') ){
+                $('div.image-logo img').remove();
+            }else{
+                $('div.image-logo img').attr('src', originImg);
+            }
+        }
+    });

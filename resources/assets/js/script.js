@@ -42,7 +42,7 @@
             }else{
                     var reader = new FileReader();
                     reader.onload = function(e){
-                        if( !$('div.image-logo').is('img') ){
+                        if( !$('div.image-logo').children().is('img') ){
                             $('div.image-logo').append('<img src="'+e.target.result+'" alt="">');
                         }else{
                             $('div.image-logo img').attr('src', e.target.result);

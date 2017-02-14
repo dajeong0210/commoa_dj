@@ -43,8 +43,20 @@
                 <li><span>cpu</span> {{ $product->cpu->name }}<span></span></li>
                 <li><span>vga</span> {{ $product->vga->name }}<span></span></li>
                 <li><span>ram</span> {{ $product->ram }}<span>GB</span></li>
-                <li><span>ssd</span> {{ $product->ssd }}<span>GB</span></li>
-                <li><span>hdd</span> {{ $product->hdd }}<span>GB</span></li>
+                <li>
+                    @if( $product->ssd == '' )
+                    <span>ssd</span> 별도구매<span></span>
+                    @else
+                    <span>ssd</span> {{ $product->ssd }}<span></span>
+                    @endif
+                </li>
+                <li>
+                    @if( $product->hdd == '' )
+                    <span>hdd</span> 별도구매<span></span>
+                    @else
+                    <span>hdd</span> {{ $product->hdd }}<span></span>
+                    @endif
+                </li>
                 <li><span>power</span> {{ $product->power }}<span>W</span></li>
                 <li>
                     <span>os</span>
@@ -65,7 +77,7 @@
                 <li>
                     <span>monitor</span>
                     @if( $product->monitor == '' )
-                        없음
+                        별도구매
                     @else
                         {{ $product->monitor }}인치
                     @endif
