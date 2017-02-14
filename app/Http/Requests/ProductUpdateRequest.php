@@ -21,10 +21,11 @@ class ProductUpdateRequest extends FormRequest
             'price' => 'required|numeric',
             'cpu_id' => 'required',
             'vga_id' => 'required',
-            'ram' => 'numeric',
             'ssd' => 'numeric',
-            'hdd' => 'required|numeric',
+            'hdd' => 'numeric',
+            'ram' => 'required|numeric',
             'power' => 'required|numeric',
+            'monitor' => 'numeric',
         ];
     }
     

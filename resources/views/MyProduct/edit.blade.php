@@ -84,7 +84,7 @@
                     <div class="form-group semi-layout form-group{{ $errors->has('ssd') ? ' has-error' : '' }}">
                         <h4>SSD</h4>
                         <label for="ssd" class="hidden">SSD</label>
-                        <input type="text" name="ssd" class="input digits required" value="{{ $product->ssd }}"/>
+                        <input type="text" name="ssd" class="input digits" value="{{ $product->ssd }}"/>
                         <span>GB</span>
                         @if( $errors->has('ssd') )
                         <label class="error">{{ $errors->first('ssd') }}</label>
@@ -93,7 +93,7 @@
                     <div class="form-group semi-layout form-group{{ $errors->has('hdd') ? ' has-error' : '' }}">
                         <h4>HDD</h4>
                         <label for="hdd" class="hidden">HDD</label>
-                        <input type="text" name="hdd" class="input digits required" value="{{ $product->hdd }}"/>
+                        <input type="text" name="hdd" class="input digits" value="{{ $product->hdd }}"/>
                         <span>GB</span>
                         @if( $errors->has('hdd') )
                         <label class="error">{{ $errors->first('hdd') }}</label>
