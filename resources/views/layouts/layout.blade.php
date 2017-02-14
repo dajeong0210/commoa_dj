@@ -31,8 +31,6 @@
     </script>
 </head>
 <body>
-    <div class="loading" style="{{ 'background:url(' . url('/') . '/image/loading_icon.gif) center no-repeat #fff;'}}">
-    </div>
     <div id="app">
         <nav class="nav-bar">
             <h1 class="logo">
