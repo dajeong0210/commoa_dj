@@ -246,3 +246,11 @@
     $('a.rcm-submit').click(function(){
         $('form[name="newRecommend"]').submit();
     });
+//MyProduct
+    $('input[name="purpose"]').on('click', function(){
+        if($(this).val() == '게임용'){
+            $('ul.for_game_check').css('opacity','1.0').find('input[type="checkbox"]').removeAttr('disabled');
+        }else{
+            $('ul.for_game_check').css('opacity','0.7').find('input[type="checkbox"]').attr('disabled', 'disabled');
+        }
+    });
