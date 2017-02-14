@@ -113,11 +113,11 @@
                         <ul>
                             <li>
                                 <label for="no-os">없음</label>
-                                <input type="radio" name="os" id="no-os" class="input required" value="0" checked/>
+                                <input type="radio" name="os" id="no-os" class="input required" value="0" {{ $product->os != 1 ? "checked" : ""  }}/>
                             </li>
                             <li>
                                 <label for="yes-os">있음</label>
-                                <input type="radio" name="os" id="yes-os" class="input required" value="1"/>
+                                <input type="radio" name="os" id="yes-os" class="input required" value="1" {{ $product->os == 1 ? "checked" : ""  }}/>
                             </li>
                         </ul>
                         @if( $errors->has('os') )
@@ -129,11 +129,11 @@
                         <ul>
                             <li>
                                 <label for="no-overclock">불가</label>
-                                <input type="radio" name="overclock" id="no-overclock" class="input required" value="0" checked/>
+                                <input type="radio" name="overclock" id="no-overclock" class="input required" value="0" {{ $product->overclock != 1 ? "checked" : ""  }}/>
                             </li>
                             <li>
                                 <label for="yes-overclock">가능</label>
-                                <input type="radio" name="overclock" id="yes-overclock" class="input required" value="1"/>
+                                <input type="radio" name="overclock" id="yes-overclock" class="input required" value="1" {{ $product->overclock == 1 ? "checked" : ""  }}/>
                             </li>
                         </ul>
                         @if( $errors->has('overclock') )
@@ -150,8 +150,19 @@
                     </div>
                     <div class="form-group one-layout">
                         <h4>카테고리</h4>
-                        <ul>
+                        <ul class="purpose">
+                            @foreach($categories as $key=>$category)
+                                @if( in_array( $category->name , ['가정용', '사무용', '디자인용', '게임용'] ) )
+                                <li>
+                                    <label for="purpose{{$key}}">{{ $category->name }}</label>
+                                    <input type="radio" name="purpose" id="purpose{{$key}}" class="input required" value="{{ $category->name }}" {{ in_array($category->id, $selected) ? 'checked' : ''}} />
+                                </li>
+                                @endif
+                            @endforeach
+                        </ul>
+                        <ul class="for_game_check">
                             @foreach( $categories as $category )
+                                @if( !in_array( $category->name, ['가정용', '사무용', '디자인용', '게임용' ]) )
                                 @if( in_array( $category->id, $selected ) )
                                     <li>
                                         <label for="{{ 'category' . $category->id }}">{{ $category->name }}</label>
@@ -162,6 +173,7 @@
                                         <label for="{{ 'category' . $category->id }}">{{ $category->name }}</label>
                                         <input type="checkbox" name="category[]" id="{{ 'category' . $category->id }}" value="{{ $category->id }}">
                                     </li>
+                                @endif
                                 @endif
                             @endforeach
                             <p>※ 중복 선택 가능합니다.</p>
