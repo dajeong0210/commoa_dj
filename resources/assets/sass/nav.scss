@@ -87,9 +87,9 @@
             }
         }
         ul.nav-group{
-            width:430px;
+            width:500px;
             position:absolute;
-            right:8%;
+            right:5%;
             z-index:40;
             display:block;
             @include respond-to('small') {

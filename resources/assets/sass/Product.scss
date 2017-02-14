@@ -99,7 +99,7 @@ div.page{
             clear:both;
             width:100%;
             margin:0 auto;
-            border:1px solid #ddd;
+            box-sizing:border-box;
             position: relative;
             top: -14px;
             @include respond-to('small'){
@@ -112,7 +112,7 @@ div.page{
             }
             &.specification{
                 height:150px;
-                border-bottom:1px solid #333;
+                border:1px solid #ddd;
                 @include respond-to('small'){
                     &:not(.small-layout){
                         height:300px;
@@ -195,6 +195,9 @@ div.page{
                         word-break:break-all;
                     }
                 }
+            }
+            &.purpose{
+                border-top:1px solid #ddd;
             }
             &.small-layout{
                 max-width:400px;

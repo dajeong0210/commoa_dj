@@ -167,8 +167,13 @@ div.mainPage{
     > ul{
         width:85%;
         padding:50px 10% 50px 5%;
+        &:after{
+            content:'';
+            padding-top:100%;
+            padding-left:100%;
+            margin-bottom:80px;
+        }
         @include respond-to('small'){
-            height:1600px;
             background:none;
             padding:0 5%;
             width:90%;
@@ -184,7 +189,7 @@ div.mainPage{
                 position:relative;
                 display:inline-block;
                 &:after{
-                    padding-top:50%;
+                    padding-top:100%;
                     display:block;
                     content:'';
                 }
@@ -194,6 +199,8 @@ div.mainPage{
                 nav.new_product{
                     width:66px;
                     margin:0 auto;
+                    position:relative;
+                    top:-25px;
                     li{
                         float:left;
                         font-size:12px;
@@ -206,6 +213,18 @@ div.mainPage{
                                 color:$point-color;
                             }
                         }
+                    }
+                }
+                div.wrap{
+                    position:absolute;
+                    top:50%;
+                    left:50%;
+                    margin-left:-200px;
+                    margin-top:-233px;
+                    &:after{
+                        content:'';
+                        padding-left:100%;
+                        padding-top:100%;
                     }
                 }
                 div.slider-wrap{
@@ -264,7 +283,6 @@ div.mainPage{
                 font-size: 30px;
                 font-family: 'Exo 2', sans-serif;
                 letter-spacing: 5px;
-                margin-top:200px;
             }
             div.thumbnail{
                 width:100%;

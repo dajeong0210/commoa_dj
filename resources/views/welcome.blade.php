@@ -65,34 +65,36 @@
             @endforeach
         </ul>
     </div>
-    <div class="back" style="background:url({{$banners[2]->image}}); background-attachment:fixed;">
+    <div class="back" style="background:url({{$banners[2]->image}}) center no-repeat; background-size:cover; background-attachment:fixed;">
         <p>test</p>
     </div>
     <div class="mainPage">
         <ul>
             <li class="one-layouts">
-                <h3>New Product</h3>
-                <div class="slider-wrap">
-                    <div class="slider">
-                    @foreach( $new_items as $key=>$new_item )
-                        <div class="item item_0{{$key+1}}">
-                            <div class="thumbnail" style="background:url({{ $new_item->image }}) center no-repeat; background-size:cover;">
-                                <a href="{{ url('product').'/'.$new_item->id }}">
-                                </a>
-                            </div>
-                            <p>{{ $new_item->name }}</p>
-                            <p>{{ $new_item->shop->name }}</p>
-                        </div>
-                    @endforeach
-                    </div>
-                </div>
-                <nav class="new_product">
-                    <ul>
+                <div class="wrap">
+                    <h3>New Product</h3>
+                    <div class="slider-wrap">
+                        <div class="slider">
                         @foreach( $new_items as $key=>$new_item )
-                            <li><a href="#" class="nav_newProduct {{ $key == 0 ? 'active' : '' }}"><i class="fa {{ $key == 0 ? 'fa-circle' : 'fa-circle-o' }}" aria-hidden="true"></i></a></li>
+                            <div class="item item_0{{$key+1}}">
+                                <div class="thumbnail" style="background:url({{ $new_item->image }}) center no-repeat; background-size:cover;">
+                                    <a href="{{ url('product').'/'.$new_item->id }}">
+                                    </a>
+                                </div>
+                                <p>{{ $new_item->name }}</p>
+                                <p>{{ $new_item->shop->name }}</p>
+                            </div>
                         @endforeach
-                    </ul>
-                </nav>
+                        </div>
+                    </div>
+                    <nav class="new_product">
+                        <ul>
+                            @foreach( $new_items as $key=>$new_item )
+                                <li><a href="#" class="nav_newProduct {{ $key == 0 ? 'active' : '' }}"><i class="fa {{ $key == 0 ? 'fa-circle' : 'fa-circle-o' }}" aria-hidden="true"></i></a></li>
+                            @endforeach
+                        </ul>
+                    </nav>
+                </div>
             </li>    
             @foreach($recommends as $recommend)
             <li class="half-layouts">

@@ -107,9 +107,9 @@ nav.nav-bar a.menu_btn:hover, nav.nav-bar a.menu_btn:active {
 }
 
 nav.nav-bar ul.nav-group {
-  width: 430px;
+  width: 500px;
   position: absolute;
-  right: 8%;
+  right: 5%;
   z-index: 40;
   display: block;
 }
@@ -594,9 +594,15 @@ div.mainPage > ul {
   padding: 50px 10% 50px 5%;
 }
 
+div.mainPage > ul:after {
+  content: '';
+  padding-top: 100%;
+  padding-left: 100%;
+  margin-bottom: 80px;
+}
+
 @media (max-width: 800px) {
   div.mainPage > ul {
-    height: 1600px;
     background: none;
     padding: 0 5%;
     width: 90%;
@@ -618,7 +624,7 @@ div.mainPage > ul > li.one-layouts {
 }
 
 div.mainPage > ul > li.one-layouts:after {
-  padding-top: 50%;
+  padding-top: 100%;
   display: block;
   content: '';
 }
@@ -632,6 +638,8 @@ div.mainPage > ul > li.one-layouts:after {
 div.mainPage > ul > li.one-layouts nav.new_product {
   width: 66px;
   margin: 0 auto;
+  position: relative;
+  top: -25px;
 }
 
 div.mainPage > ul > li.one-layouts nav.new_product li {
@@ -648,6 +656,20 @@ div.mainPage > ul > li.one-layouts nav.new_product li a {
 
 div.mainPage > ul > li.one-layouts nav.new_product li a.active {
   color: #2bde73;
+}
+
+div.mainPage > ul > li.one-layouts div.wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -200px;
+  margin-top: -233px;
+}
+
+div.mainPage > ul > li.one-layouts div.wrap:after {
+  content: '';
+  padding-left: 100%;
+  padding-top: 100%;
 }
 
 div.mainPage > ul > li.one-layouts div.slider-wrap {
@@ -722,7 +744,6 @@ div.mainPage > ul > li h3 {
   font-size: 30px;
   font-family: 'Exo 2', sans-serif;
   letter-spacing: 5px;
-  margin-top: 200px;
 }
 
 div.mainPage > ul > li div.thumbnail {
@@ -891,7 +912,7 @@ div.page.list div.filter-wrap {
   clear: both;
   width: 100%;
   margin: 0 auto;
-  border: 1px solid #ddd;
+  box-sizing: border-box;
   position: relative;
   top: -14px;
 }
@@ -912,7 +933,7 @@ div.page.list div.filter-wrap {
 
 div.page.list div.filter-wrap.specification {
   height: 150px;
-  border-bottom: 1px solid #333;
+  border: 1px solid #ddd;
 }
 
 @media (max-width: 800px) {
@@ -1031,6 +1052,10 @@ div.page.list div.filter-wrap.specification div.popup:after {
 div.page.list div.filter-wrap.specification div.popup p {
   width: 100%;
   word-break: break-all;
+}
+
+div.page.list div.filter-wrap.purpose {
+  border-top: 1px solid #ddd;
 }
 
 div.page.list div.filter-wrap.small-layout {
