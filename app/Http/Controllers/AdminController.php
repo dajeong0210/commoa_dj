@@ -62,7 +62,7 @@ class AdminController extends Controller
 		$sort = $request->input('category_sort');
 		$image = $request->file('category_image');
 		if( $sort != null ) {
-			if( $category->sort != 0) {
+			if( $category->sort != '0' ) {
 				$category->sort = 1;
 			}
 		} else {
