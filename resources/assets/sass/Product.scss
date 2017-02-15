@@ -198,6 +198,10 @@ div.page{
             }
             &.purpose{
                 border-top:1px solid #ddd;
+                @include respond-to('small'){
+                    width:100%;
+                    max-width:none;
+                }
             }
             &.small-layout{
                 max-width:400px;
@@ -271,7 +275,7 @@ div.page{
                         width:10%;
                         @include respond-to('small'){
                         width:20%;
-                    }
+                        }
                     }
                 }
                 &.purpose{
@@ -291,6 +295,10 @@ div.page{
                             box-sizing:border-box;
                             margin:0 0.45%;
                             text-align:center;
+                            @include respond-to('too-small'){
+                                width:49%;
+                                margin:0.45%;
+                            }
                             p{
                                 width:100%;
                                 display:inline-block;
