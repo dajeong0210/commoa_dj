@@ -12,13 +12,14 @@
                 <form method="GET" class="filter-form">
                     <div class="filter-group purpose">
                         <h3 class="hidden">용도별</h3>
-                        @foreach( $categories as $key=>$category )
-                            @if( $key <4 )
+                        @foreach( $categories as $category )
+                            @if( $category->sort == 1 )
                                 <label for="{{ 'purpose_' . $category }}" class="major_game {{ isset($_GET['purpose'])? in_array( $category , $_GET['purpose'])? 'active' : '' : '' }}">
                                     <a href="#" ><div class="img-box" style="background:url({{ $category->image }}) center; background-size:cover;"></div></a>
                                     <p>{{ $category->name }}</p>
                                 </label>
                                 <input type="checkbox" id="{{ 'purpose_' . $category }}" name="purpose[]" class="input purpose hidden" value="{{ $category->name }}" @if( isset($_GET['purpose'])) @if( in_array( $category , $_GET['purpose']) ) checked="checked" @endif @endif />
+                            @elseif( $category->sort == '0' )
                             @else
                                 <label for="{{ 'purpose_' . $category }}" class="{{ isset($_GET['purpose'])? in_array( $category , $_GET['purpose'])? 'active' : '' : '' }}">{{ $category->name }}</label>
                                 <input type="checkbox" id="{{ 'purpose_' . $category }}" name="purpose[]" class="input purpose hidden" value="{{ $category->name }}" @if( isset($_GET['purpose'])) @if( in_array( $category , $_GET['purpose']) ) checked="checked" @endif @endif />

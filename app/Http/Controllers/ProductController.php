@@ -24,24 +24,12 @@ class ProductController extends Controller
         $os = $request->input('os');
         $monitor = $request->input('monitor');
         $storage = $request->input('storage');
-        $categories = Category::get();
-        $name_category = array();
-        $game_category = array();
-        foreach($categories as $category) {
-            $name = $category->name;
-            if( $name != '사무용' && $name != '디자인용' && $name != '가정용' && $name != '게임용') {
-                array_push( $name_category, $category->name );
-                array_push( $game_category, $category);
-            }
-        }
+        $categories = Category::orderBy('sort', 'desc')->orderBy('name','asc')->get();
 
         if ( strpos( URL::current() , 'office') ) {
             $products = Category::where('name', '사무용')->first()->products();
         } else if ( strpos( URL::current() , 'game') ) {
 
-            // $products = Product::whereHas('categories', function($products) use ($name_category) {
-            //     $products->whereIn('categories.name', $name_category);
-            // });
             $products = Category::where('name', '게임용')->first()->products();
         } else if ( strpos( URL::current() , 'graphic') ) {
             $products = Category::where('name', '디자인용')->first()->products();
@@ -121,7 +109,7 @@ class ProductController extends Controller
         } 
 
 
-        return view('Product.index')->with('products', $products)->with('categories', $game_category);
+        return view('Product.index')->with('products', $products)->with('categories', $categories);
     }
 
     public function viewCount($product_id, Request $request)

@@ -61,13 +61,15 @@ class AdminController extends Controller
 		$category->name = $request->input('category_name');
 		$sort = $request->input('category_sort');
 		$image = $request->file('category_image');
-		if( $sort != null ) {
-			if( $category->sort != '0' ) {
-				$category->sort = 1;
+		
+		if( $category->sort != '0') {
+			if( $sort != null ) {
+				$category->sort = 1;	
+			} else {
+				$category->sort = null;
 			}
-		} else {
-			$category->sort = null;
 		}
+		
 		if( $image != null ) {
 			$category->image = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('category',  $image, 'public');
 		}
