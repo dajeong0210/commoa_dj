@@ -104,7 +104,7 @@ class MyProductController extends Controller
         $product->save();
         $product->categories()->sync($categories);
         $shop = $product->shop;
-        $shop->product_updated_at = Carbon::now();
+        $shop->product_updated_at = Carbon::now('Asia/Seoul');
         $shop->save();
             
         if( Auth::user()->permission == 2 ){
@@ -184,7 +184,7 @@ class MyProductController extends Controller
         }
         $product->save();
         $shop = $product->shop;
-        $shop->product_updated_at = Carbon::now();
+        $shop->product_updated_at = Carbon::now('Asia/Seoul');
         $shop->save();
         
         if( Auth::user()->permission == 2 ){
