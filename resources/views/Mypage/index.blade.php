@@ -20,7 +20,7 @@
             <div class="fav-list">
                 <h2>
                     <i class="fa fa-heart" aria-hidden="true"></i>
-                    <span>FAVORITE</span>
+                    <span>찜한상품</span>
                     <a href="{{ url('favorite') }}">전체보기</a>
                 </h2>
                 <div class="my-list">
@@ -47,7 +47,7 @@
             <div class="book-list">
                 <h2>
                     <i class="fa fa-star" aria-hidden="true"></i>
-                    <span>BOOKMARK</span>
+                    <span>찜한쇼핑몰</span>
                     <a href="{{ url('bookmark') }}">전체보기</a>
                 </h2>
                 <div class="my-list">

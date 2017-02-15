@@ -134,9 +134,11 @@
                     <a class="prod-title" href="{{ url('/product') . '/' . $product->id }}"> {{ $product->name }} </a>
                     <ul class="prod_category">
                     @foreach( $product->categories as $category )
-                        <li>
-                        <a class="category category_{{ $category->id }}" href="{{ url('type') . '/' . str_replace(' ','_',$category->name) }}">{{ $category->name }}</a>
-                        </li>
+                        @if($category->name != '게임용')
+                            <li>
+                            <a class="category category_{{ $category->id }}" href="{{ url('type') . '/' . str_replace(' ','_',$category->name) }}">{{ $category->name }}</a>
+                            </li>
+                        @endif
                     @endforeach
                     </ul>
                     <p class="prod-shop">{{ $product->shop->name }}</p>
