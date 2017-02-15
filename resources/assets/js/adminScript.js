@@ -119,6 +119,11 @@
                     $('form[name="categoryForm"] h3').html('카테고리 :: '+dataArr.name);
                     $('input[name="category_name"]').val(dataArr.name);
                     $('div.img-box').attr('style', 'background:url('+dataArr.image+') center; background-size:cover;').parent().removeClass('hidden');
+                    if( dataArr.sort == 1 ){
+                        $('input[name="category_sort"]').attr('checked', 'checked');
+                    }else{
+                        $('input[name="category_sort"]').removeAttr('checked');
+                    }
                     $('form[name="categoryForm"]').attr('action' , $url+'/category/'+$targetId).find('input[type="submit"]').val('수정하기');
                     //OriginImg
                     $origin = $('div.img-box').attr('style');

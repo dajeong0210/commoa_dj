@@ -3060,6 +3060,14 @@ div#app.admin div.category input.modify-btn {
   font-weight: bold;
 }
 
+div#app.admin div.category input[type="checkbox"] {
+  display: inline;
+  line-height: 2;
+  position: relative;
+  top: 2px;
+  left: 0;
+}
+
 div#app.admin div.category.cpu-vga:first-child {
   float: left;
   width: 48%;
@@ -3125,6 +3133,10 @@ div#app.admin div.category.cpu-vga label {
   line-height: 2;
 }
 
+div#app.admin div.category.cpu-vga label[for="category_sort"] {
+  display: inline;
+}
+
 div#app.admin div.category.cpu-vga a.active {
   background: #2bde73;
   padding: 0 3px;
@@ -3145,6 +3157,11 @@ div#app.admin div.category.cpu-vga select {
   padding: 10px 7px;
   width: 60%;
   border: 1px solid #ccc;
+}
+
+div#app.admin div.category.cpu-vga p.warning {
+  letter-spacing: -1px;
+  color: #FA5858;
 }
 
 div#app.admin div.adminIndex {
