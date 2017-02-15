@@ -21,7 +21,8 @@
                         <label for="image">상품 이미지</label>
                         <input type="file" name="image" class="input image" value=""/>
                         <div class="image-logo">
-                            <img src="{{ $product->image }}" alt="">
+                            <div class="img-box" style="background:url({{ $product->image }}) center no-repeat; background-size:cover;">
+                            </div>
                         </div>
                     </div>
                     <div class="form-group half-layout form-group{{ $errors->has('url') ? ' has-error' : '' }}">

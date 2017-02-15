@@ -42,22 +42,22 @@
                     <ul>
                         <li><span>cpu</span> {{ $product->cpu->name }}<span></span></li>
                         <li><span>vga</span> {{ $product->vga->name }}<span></span></li>
-                        <li><span>ram</span> {{ $product->ram }}<span></span></li>
+                        <li><span>ram</span> {{ $product->ram }}<span>GB</span></li>
                         <li>
                             @if( $product->ssd == '' )
                             <span>ssd</span> 별도구매<span></span>
                             @else
-                            <span>ssd</span> {{ $product->ssd }}<span></span>
+                            <span>ssd</span> {{ $product->ssd }}<span>GB</span>
                             @endif
                         </li>
                         <li>
                             @if( $product->hdd == '' )
                             <span>hdd</span> 별도구매<span></span>
                             @else
-                            <span>hdd</span> {{ $product->hdd }}<span></span>
+                            <span>hdd</span> {{ $product->hdd }}<span>GB</span>
                             @endif
                         </li>
-                        <li><span>power</span> {{ $product->power }}<span></span></li>
+                        <li><span>power</span> {{ $product->power }}<span>W</span></li>
                         <li>
                             <span>os</span>
                             @if( $product->os == 1 )

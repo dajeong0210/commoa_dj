@@ -119,7 +119,9 @@
                     $('form[name="categoryForm"] h3').html('카테고리 :: '+dataArr.name);
                     $('input[name="category_name"]').val(dataArr.name);
                     $('input[name="category_image"]').prev('div').addClass('img-box').attr('style', 'background:url('+dataArr.image+') center; background-size:cover;');
-                    $('form[name="categoryForm"]').attr('action' , $url+'/category/'+$targetId).find('input[type="submit"]').val('수정하기');;
+                    $('form[name="categoryForm"]').attr('action' , $url+'/category/'+$targetId).find('input[type="submit"]').val('수정하기');
+                    //OriginImg
+                    $origin = $('div.img-box').attr('style');
                 }
             },error:function(){
                 console.log('error');
@@ -194,6 +196,10 @@
         $('div.slider ul li.'+$nth).find('p').html($content.replace(/\n/g, '<br/>'));
         $('div.slider ul li.'+$nth).find('a').attr('href', $url);
     });
+//OriginImg
+    $origin = $('div.img-box').attr('style');
+    
+//ImagePreview
     $('input.image').on('change', function(){
         var image = $(this).val();
         var imageonly = image.toLowerCase().split(".");
@@ -202,25 +208,42 @@
                 alert('이미지 파일만 업로드 가능합니다!');
                 $(this).val('');
             }else{
+                //카테고리
                 if( $(this).attr('name') == 'category_image' ){
                     var reader = new FileReader();
                     reader.onload = function(e){
                         $('div.img-preview').addClass('img-box').attr('style', 'background:url('+e.target.result+') center no-repeat; background-size:cover;');
                     }
-                }else{
+                }else if( $(this).hasClass('main-image') ){
+                    //메인슬라이드
                     $nth = $('div.nth').find('input:checked').attr('id');
+                    $origin = $('div.slider ul li.'+$nth).attr('style');
                     var reader = new FileReader();
                     reader.onload = function(e){
                         $('div.slider ul li.'+$nth).attr('style', 'background:url('+e.target.result+') no-repeat; background-size:cover;');
+                    }
+                }else if( $(this).hasClass('shop_image') ){
+                    //Shop정보수정
+                    var reader = new FileReader();
+                    reader.onload = function(e){
+                        $('div.img-box').attr('style', 'background:url('+e.target.result+') center no-repeat; background-size:auto 100%;;');
+                    }
+                }else{
+                    //상품관리
+                    var reader = new FileReader();
+                    reader.onload = function(e){
+                        $('div.img-box').attr('style', 'background:url('+e.target.result+') center no-repeat; background-size:cover;');
                     }
                 }
                 reader.readAsDataURL(this.files[0]);
             }
         }else{
-            if( !$('div.image-logo').is('img') ){
-                $('div.image-logo img').remove();
+            $('div.img-box').attr('style', $origin);
+            if( $(this).hasClass('main-image') ){
+                $nth = $('div.nth').find('input:checked').attr('id');
+                $('div.slider ul li.'+$nth).attr('style', $origin);
             }else{
-                $('div.image-logo img').attr('src', originImg);
+                $('div.img-box').attr('style', $origin);
             }
         }
     });
@@ -252,32 +275,5 @@
             $('ul.for_game_check').css('opacity','1.0').find('input[type="checkbox"]').removeAttr('disabled');
         }else{
             $('ul.for_game_check').css('opacity','0.7').find('input[type="checkbox"]').attr('disabled', 'disabled');
-        }
-    });
-    var originImg = $('div.image-logo img').attr('src');
-    $('input.image').on('change', function(){
-        var image = $(this).val();
-        var imageonly = image.toLowerCase().split(".");
-        if( image != '' ){
-            if( imageonly[1] != 'jpg' && imageonly[1] != 'png' && imageonly[1] != 'jpeg' && imageonly[1] != 'gif' && imageonly[1] != 'bmp'){
-                alert('이미지 파일만 업로드 가능합니다!');
-                $(this).val('');
-            }else{
-                    var reader = new FileReader();
-                    reader.onload = function(e){
-                        if( !$('div.image-logo').children().is('img') ){
-                            $('div.image-logo').append('<img src="'+e.target.result+'" alt="">');
-                        }else{
-                            $('div.image-logo img').attr('src', e.target.result);
-                        }
-                    }
-                    reader.readAsDataURL(this.files[0]);
-            }
-        }else{
-            if( !$('div.image-logo').is('img') ){
-                $('div.image-logo img').remove();
-            }else{
-                $('div.image-logo img').attr('src', originImg);
-            }
         }
     });
