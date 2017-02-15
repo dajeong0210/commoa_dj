@@ -120,9 +120,12 @@
                     $('input[name="category_name"]').val(dataArr.name);
                     $('div.img-box').attr('style', 'background:url('+dataArr.image+') center; background-size:cover;').parent().removeClass('hidden');
                     if( dataArr.sort == 1 ){
-                        $('input[name="category_sort"]').attr('checked', 'checked');
+                        $('input[name="category_sort"]').removeAttr('disabled').attr('checked', 'checked');
+                    }else if( dataArr.sort == 0 ){
+                        $('input[name="category_sort"]').prop('disabled', true);
+                        $('p.warning').html('이 카테고리는 이미지로 표시할 수 없습니다.');
                     }else{
-                        $('input[name="category_sort"]').removeAttr('checked');
+                        $('input[name="category_sort"]').removeAttr('checked').removeAttr('disabled');
                     }
                     $('form[name="categoryForm"]').attr('action' , $url+'/category/'+$targetId).find('input[type="submit"]').val('수정하기');
                     //OriginImg

@@ -91,7 +91,8 @@ class AdminController extends Controller
 	public function findCategory($id) {
 		$category = Category::find($id);
 		$array = array( 'name' => $category->name, 
-						'image' => $category->image );
+						'image' => $category->image,
+						'sort' => $category->sort );
 		
 		echo json_encode($array);
 	}
