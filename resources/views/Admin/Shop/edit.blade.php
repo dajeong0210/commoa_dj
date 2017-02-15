@@ -36,13 +36,14 @@
                     </div>
                     <div class="form-group half-layout">
                         <label for="image">Shop 로고</label>
-                        <div class="image-logo">
+                        <input type="file" name="image" class="input image shop_image"/>
+                        <div class="image-logo shop">
                         @if( $shop->image == NULL )
+                            <div class="img-box"></div>
                         @else
-                            <img src="{{ $shop->image }}" alt=""/>
+                            <div class="img-box" style="background:url({{ $shop->image }}) center no-repeat; background-size:auto 100%;"></div>
                         @endif
                         </div>
-                        <input type="file" name="image" class="input image shop_image"/>
                     </div>
                 </div>
                 <div class="contact-group group">

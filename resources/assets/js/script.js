@@ -31,7 +31,10 @@
         }
     });
 
+//originImg
     var originImg = $('div.image-logo img').attr('src');
+    
+//ImagePreview
     $('input.image').on('change', function(){
         var image = $(this).val();
         var imageonly = image.toLowerCase().split(".");
@@ -40,14 +43,22 @@
                 alert('이미지 파일만 업로드 가능합니다!');
                 $(this).val('');
             }else{
+                if( $(this).next().hasClass('MyProduct') ){
+                    //상품관리
                     var reader = new FileReader();
                     reader.onload = function(e){
-                        if( !$('div.image-logo').children().is('img') ){
-                            $('div.image-logo').append('<img src="'+e.target.result+'" alt="">');
-                        }else{
-                            $('div.image-logo img').attr('src', e.target.result);
-                        }
+                        $('div.img-box').attr('style', 'background:url('+e.target.result+') center no-repeat; background-size:cover;');
                     }
+                }else{
+                    var reader = new FileReader();
+                    reader.onload = function(e){
+                    if( !$('div.image-logo').children().is('img') ){
+                        $('div.image-logo').append('<img src="'+e.target.result+'" alt="">');
+                    }else{
+                        $('div.image-logo img').attr('src', e.target.result);
+                    }
+                }
+            }
                     reader.readAsDataURL(this.files[0]);
             }
         }else{

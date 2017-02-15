@@ -3567,6 +3567,32 @@ div#app.admin div.main-edit div.align {
   margin: 0 30px;
 }
 
+div#app.admin div.image-logo {
+  width: 80%;
+  height: 0;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 80%;
+}
+
+div#app.admin div.image-logo.shop {
+  width: 100%;
+  padding-bottom: 60%;
+}
+
+div#app.admin div.image-logo.shop div.img-box {
+  border: none;
+}
+
+div#app.admin div.image-logo div.img-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80%;
+  height: 80%;
+  border: 1px solid #ddd;
+}
+
 html, body {
   height: 100%;
 }
