@@ -39,6 +39,13 @@ class AdminController extends Controller
 		$category = new Category; 
 		$category->name = $request->input('category_name');
 		$image = $request->file('category_image');
+		$sort = $request->input('category_sort');
+
+		if( $sort != null ) {
+			$category->sort = 1;
+		} else {
+			$category->sort = null;
+		}
 		if( $image != null ) {
 			$category->image = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('category',  $image, 'public');
 		} else {
@@ -52,10 +59,14 @@ class AdminController extends Controller
 	public function categoryUpdate(Request $request, $id) {
 		$category = Category::find($id);
 		$category->name = $request->input('category_name');
-		$game_img = $request->input('category_sort');
+		$sort = $request->input('category_sort');
 		$image = $request->file('category_image');
-		if( $game_img != '' ) {
-			$category->sort = 1;
+		if( $sort != null ) {
+			if( $category->sort != 0) {
+				$category->sort = 1;
+			}
+		} else {
+			$category->sort = null;
 		}
 		if( $image != null ) {
 			$category->image = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('category',  $image, 'public');
