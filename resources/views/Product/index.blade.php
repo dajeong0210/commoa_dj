@@ -14,15 +14,15 @@
                         <h3 class="hidden">용도별</h3>
                         @foreach( $categories as $category )
                             @if( $category->sort == 1 )
-                                <label for="{{ 'purpose_' . $category }}" class="major_game {{ isset($_GET['purpose'])? in_array( $category , $_GET['purpose'])? 'active' : '' : '' }}">
-                                    <a href="#" ><div class="img-box" style="background:url({{ $category->image }}) center; background-size:cover;"></div></a>
+                                <label for="{{ 'purpose_' . $category->id }}" class="major_game {{ isset($_GET['purpose'])? in_array( $category->name , $_GET['purpose'])? 'active' : '' : '' }}">
+                                    <div class="img-box" style="background:url({{ $category->image }}) center; background-size:cover;"></div>
                                     <p>{{ $category->name }}</p>
                                 </label>
-                                <input type="checkbox" id="{{ 'purpose_' . $category }}" name="purpose[]" class="input purpose hidden" value="{{ $category->name }}" @if( isset($_GET['purpose'])) @if( in_array( $category , $_GET['purpose']) ) checked="checked" @endif @endif />
+                                <input type="checkbox" id="{{ 'purpose_' . $category->id }}" name="purpose[]" class="input purpose hidden" value="{{ $category->name }}" @if( isset($_GET['purpose'])) @if( in_array( $category->name , $_GET['purpose']) ) checked="checked" @endif @endif />
                             @elseif( $category->sort == '0' )
                             @else
-                                <label for="{{ 'purpose_' . $category }}" class="{{ isset($_GET['purpose'])? in_array( $category , $_GET['purpose'])? 'active' : '' : '' }}">{{ $category->name }}</label>
-                                <input type="checkbox" id="{{ 'purpose_' . $category }}" name="purpose[]" class="input purpose hidden" value="{{ $category->name }}" @if( isset($_GET['purpose'])) @if( in_array( $category , $_GET['purpose']) ) checked="checked" @endif @endif />
+                                <label for="{{ 'purpose_' . $category->id }}" class="{{ isset($_GET['purpose'])? in_array( $category->name , $_GET['purpose'])? 'active' : '' : '' }}">{{ $category->name }}</label>
+                                <input type="checkbox" id="{{ 'purpose_' . $category->id }}" name="purpose[]" class="input purpose hidden" value="{{ $category->name }}" @if( isset($_GET['purpose'])) @if( in_array( $category->name , $_GET['purpose']) ) checked="checked" @endif @endif />
                             @endif
                         @endforeach
                     </div>
