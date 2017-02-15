@@ -385,4 +385,47 @@ class AdminController extends Controller
 		}
 		return redirect('/admin/banner');
 	}
+
+//game category
+	public function gameIndex(Request $request) {
+		$games = Category::whereIn('sort', [1, 2, 3, 4])->orderBy('sort', 'asc')->get();
+		$game_arr = array();
+		for( $i=0; $i<$games->count(); $i++ ) {
+			array_push($game_arr, $games[$i]->sort);
+		}
+		return view('Admin.Game.index')->with('games', $games)->with('game_arr', $game_arr);
+	}
+	
+	public function gamePopup(Request $request, $id) {
+		$games = Category::whereNotIn('sort', [0, 1, 2, 3, 4])->get();
+		
+        return view('Admin.Game.popup')->with('games', $games)->with('id', $id);
+	}
+	
+	public function gameUpdate(Request $request) {
+		
+		for( $i=1; $i<=4; $i++ ) {
+			$id = $request->input('gameId'.$i);
+			if( $id != '' ) {
+				$before = Category::where('sort', $i)->first();
+				if( $before != null ) {
+					$before->sort = null;
+					$before->save();
+				}
+				$game = Category::find($id);
+				$game->sort = $i;
+				$game->save();
+			}
+		}
+		
+		return redirect('/admin/game');
+	}
+
+	public function gameDelete($id) {
+		$game = Category::where('sort', $id)->first();
+		$game->sort = null;
+		$game->save();
+
+		return redirect('/admin/game');
+	}
 }
