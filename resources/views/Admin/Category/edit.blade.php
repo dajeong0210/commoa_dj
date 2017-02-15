@@ -18,7 +18,7 @@
                 </li>
                 <li>
                     <ul>
-                        @foreach( $categories->where('sort', 0)->get() as $category )
+                        @foreach( $categories->where('sort', '=', '0') as $category )
                             <li class="category">
                                 <span>└</span>
                                 <span class="hidden">{{ $category->id  }}</span>
@@ -43,28 +43,48 @@
                 </li>
                 <li>
                     <ul>
-                        @foreach( $categories as $category )
-                            <li class="category">
-                                <span>└</span>
-                                <span class="hidden">{{ $category->id  }}</span>
-                                <a href="#" class="name">{{ $category->name }}<span class="count"> ( {{ $category->products()->count() }} )  </span></a>
-                                <input type="text" class="modify hidden" value="{{ $category->name }}">
-                                <a href="#" class="del">
-                                <i class="fa fa-times" aria-hidden="true"></i>
-                                </a>
-                                <form name="delete" class="hidden category{{$category->id}}" method="POST" action="{{ url('/category') . '/' . $category->id }}">
-                                    {{ method_field('delete') }}
-                                    {{ csrf_field() }}
-                                </form>
-                            </li>
+                        @foreach( $categories->where('sort', '<>', '0') as $category )
+                            @if( $category->sort != NULL )
+                                <li class="category">
+                                    <span>└</span>
+                                    <span class="hidden">{{ $category->id  }}</span>
+                                    <a href="#" class="name">
+                                        <i class="fa fa-star major" aria-hidden="true"></i> {{ $category->name }}<span class="count"> ( {{ $category->products()->count() }} )  </span></a>
+                                    <input type="text" class="modify hidden" value="{{ $category->name }}">
+                                    <a href="#" class="del">
+                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                    </a>
+                                    <form name="delete" class="hidden category{{$category->id}}" method="POST" action="{{ url('/category') . '/' . $category->id }}">
+                                        {{ method_field('delete') }}
+                                        {{ csrf_field() }}
+                                    </form>
+                                </li>
+                            @endif
+                        @endforeach
+                        @foreach( $categories->where('sort', '<>', '0') as $category )
+                            @if( $category->sort == NULL )
+                                <li class="category">
+                                    <span>└</span>
+                                    <span class="hidden">{{ $category->id  }}</span>
+                                    <a href="#" class="name">{{ $category->name }}<span class="count"> ( {{ $category->products()->count() }} )  </span></a>
+                                    <input type="text" class="modify hidden" value="{{ $category->name }}">
+                                    <a href="#" class="del">
+                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                    </a>
+                                    <form name="delete" class="hidden category{{$category->id}}" method="POST" action="{{ url('/category') . '/' . $category->id }}">
+                                        {{ method_field('delete') }}
+                                        {{ csrf_field() }}
+                                    </form>
+                                </li>
+                            @endif
                         @endforeach
                     </ul>
                 </li>
                 </ul>
-                <li class="category">
+                <li class="folder">
                     <span>└</span>
                     <a href="#" class="create">
-                        <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+                        <i class="fa fa-plus-square-o" aria-hidden="true"></i> 추가
                     </a>
                     <input type="text" name="create" class="create hidden">
                 </li>

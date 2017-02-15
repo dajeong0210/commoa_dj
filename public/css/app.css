@@ -3011,8 +3011,12 @@ div#app.admin div.category li {
   margin: 10px 0;
 }
 
-div#app.admin div.category li.cpu, div#app.admin div.category li.vga {
+div#app.admin div.category li.cpu, div#app.admin div.category li.vga, div#app.admin div.category li.category {
   margin-left: 20px;
+}
+
+div#app.admin div.category li i.major {
+  color: yellowgreen;
 }
 
 div#app.admin div.category li span {

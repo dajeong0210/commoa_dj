@@ -33,7 +33,7 @@
                                 </form>
                             </li>
                             @endforeach
-                            <li class="cpu"><span>└</span><a href="#" class="create active">추가</a></li>
+                            <li class="cpu"><span>└</span><a href="#" class="create active"><i class="fa fa-plus-square-o" aria-hidden="true"></i> 추가</a></li>
                         </ul>
                     </li>
                     <li>
@@ -59,7 +59,7 @@
                                 </form>
                             </li>
                             @endforeach
-                            <li class="vga"><span>└</span><a href="#" class="create">추가</a></li>
+                            <li class="vga"><span>└</span><a href="#" class="create"><i class="fa fa-plus-square-o" aria-hidden="true"></i> 추가</a></li>
                         </ul>
                     </li>
                 </ul>
