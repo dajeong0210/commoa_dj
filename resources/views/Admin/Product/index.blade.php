@@ -38,7 +38,7 @@
                     <ul>
                         <li><span>cpu</span> {{ $product->cpu->name }}<span></span></li>
                         <li><span>vga</span> {{ $product->vga->name }}<span></span></li>
-                        <li><span>ram</span> {{ $product->ram }}<span></span></li>
+                        <li><span>ram</span> {{ $product->ram }}<span>GB</span></li>
                         <li>
                             @if( $product->ssd == '' )
                             <span>ssd</span> 별도구매<span></span>
