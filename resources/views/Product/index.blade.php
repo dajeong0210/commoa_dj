@@ -18,10 +18,10 @@
                                     <a href="#" ><div class="img-box" style="background:url({{ $category->image }}) center; background-size:cover;"></div></a>
                                     <p>{{ $category->name }}</p>
                                 </label>
-                                <input type="checkbox" id="{{ 'purpose_' . $category }}" name="purpose[]" class="input purpose hidden" value="{{ $category }}" @if( isset($_GET['purpose'])) @if( in_array( $category , $_GET['purpose']) ) checked="checked" @endif @endif />
+                                <input type="checkbox" id="{{ 'purpose_' . $category }}" name="purpose[]" class="input purpose hidden" value="{{ $category->name }}" @if( isset($_GET['purpose'])) @if( in_array( $category , $_GET['purpose']) ) checked="checked" @endif @endif />
                             @else
                                 <label for="{{ 'purpose_' . $category }}" class="{{ isset($_GET['purpose'])? in_array( $category , $_GET['purpose'])? 'active' : '' : '' }}">{{ $category->name }}</label>
-                                <input type="checkbox" id="{{ 'purpose_' . $category }}" name="purpose[]" class="input purpose hidden" value="{{ $category }}" @if( isset($_GET['purpose'])) @if( in_array( $category , $_GET['purpose']) ) checked="checked" @endif @endif />
+                                <input type="checkbox" id="{{ 'purpose_' . $category }}" name="purpose[]" class="input purpose hidden" value="{{ $category->name }}" @if( isset($_GET['purpose'])) @if( in_array( $category , $_GET['purpose']) ) checked="checked" @endif @endif />
                             @endif
                         @endforeach
                     </div>

@@ -58,10 +58,11 @@ class ProductController extends Controller
                         $products->where('categories.name', $category);            
                 });
             }   
+        } 
+        
+        if( $cpu_level != null || $vga_level != null || $os != null || $monitor != null || $storage != null ) {
 
-        } else if( $cpu_level != '' || $vga_level != '' || $os != '' || $monitor != '' || $storage != '' ) {
-
-            if( $cpu_level != '' ) {
+            if( $cpu_level != null ) {
                 $cpus = Cpu::where('level', $cpu_level)->get();
                 $cpu_id = array();
                 foreach ( $cpus as $cpu ) {
@@ -70,7 +71,7 @@ class ProductController extends Controller
                 $products = $products->whereIn('cpu_id', $cpu_id);
             } 
 
-            if( $vga_level != '' ) {
+            if( $vga_level != null ) {
                 $vgas = Vga::where('level', $vga_level)->get();
                 $vga_id = array();
                 foreach ( $vgas as $vga ) {
@@ -79,7 +80,7 @@ class ProductController extends Controller
                 $products = $products->whereIn('vga_id', $vga_id);
             }
 
-            if( $os != '' ) {
+            if( $os != null ) {
                 if( $os == 0 ) { 
                     $products = $products->where('os', 0);
                 } else {
@@ -87,7 +88,7 @@ class ProductController extends Controller
                 }
             }
 
-            if( $storage != '' ) {
+            if( $storage != null ) {
                 if( $storage == 'hdd' ) {
                     $products = $products->whereNotNull('hdd')->whereNull('ssd');
                 } else if( $storage == 'ssd' ) {
@@ -97,7 +98,7 @@ class ProductController extends Controller
                 }
             }
             
-            if( $monitor != '' ) {
+            if( $monitor != null ) {
                 if( $monitor == 0 ) {
                     $products = $products->whereNull('monitor');
                 } else {

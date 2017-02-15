@@ -52,7 +52,11 @@ class AdminController extends Controller
 	public function categoryUpdate(Request $request, $id) {
 		$category = Category::find($id);
 		$category->name = $request->input('category_name');
+		$game_img = $request->input('category_sort');
 		$image = $request->file('category_image');
+		if( $game_img != '' ) {
+			$category->sort = 1;
+		}
 		if( $image != null ) {
 			$category->image = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('category',  $image, 'public');
 		}
@@ -386,46 +390,4 @@ class AdminController extends Controller
 		return redirect('/admin/banner');
 	}
 
-//game category
-	public function gameIndex(Request $request) {
-		$games = Category::whereIn('sort', [1, 2, 3, 4])->orderBy('sort', 'asc')->get();
-		$game_arr = array();
-		for( $i=0; $i<$games->count(); $i++ ) {
-			array_push($game_arr, $games[$i]->sort);
-		}
-		return view('Admin.Game.index')->with('games', $games)->with('game_arr', $game_arr);
-	}
-	
-	public function gamePopup(Request $request, $id) {
-		$games = Category::whereNotIn('sort', [0, 1, 2, 3, 4])->get();
-		
-        return view('Admin.Game.popup')->with('games', $games)->with('id', $id);
-	}
-	
-	public function gameUpdate(Request $request) {
-		
-		for( $i=1; $i<=4; $i++ ) {
-			$id = $request->input('gameId'.$i);
-			if( $id != '' ) {
-				$before = Category::where('sort', $i)->first();
-				if( $before != null ) {
-					$before->sort = null;
-					$before->save();
-				}
-				$game = Category::find($id);
-				$game->sort = $i;
-				$game->save();
-			}
-		}
-		
-		return redirect('/admin/game');
-	}
-
-	public function gameDelete($id) {
-		$game = Category::where('sort', $id)->first();
-		$game->sort = null;
-		$game->save();
-
-		return redirect('/admin/game');
-	}
 }
