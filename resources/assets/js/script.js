@@ -32,7 +32,7 @@
     });
 
 //originImg
-    var originImg = $('div.image-logo img').attr('src');
+    $origin = $('div.img-box').attr('style');
     
 //ImagePreview
     $('input.image').on('change', function(){
@@ -47,25 +47,22 @@
                     //상품관리
                     var reader = new FileReader();
                     reader.onload = function(e){
-                        $('div.img-box').attr('style', 'background:url('+e.target.result+') center no-repeat; background-size:cover;');
+                        $('div.img-box').attr('style', 'background:url('+e.target.result+') center no-repeat; background-size:auto 100%;').parent().removeClass('hidden');
                     }
                 }else{
+                    //Shop정보수정
                     var reader = new FileReader();
                     reader.onload = function(e){
-                    if( !$('div.image-logo').children().is('img') ){
-                        $('div.image-logo').append('<img src="'+e.target.result+'" alt="">');
-                    }else{
-                        $('div.image-logo img').attr('src', e.target.result);
-                    }
+                        $('div.img-box').attr('style', 'background:url('+e.target.result+') center no-repeat; background-size:auto 100%;').parent().removeClass('hidden');
                 }
             }
                     reader.readAsDataURL(this.files[0]);
             }
         }else{
-            if( !$('div.image-logo').is('img') ){
-                $('div.image-logo img').remove();
+            if( !$origin ){
+                $('div.img-box').attr('style', '').parent().addClass('hidden');
             }else{
-                $('div.image-logo img').attr('src', originImg);
+                $('div.img-box').attr('style', $origin);
             }
         }
     });

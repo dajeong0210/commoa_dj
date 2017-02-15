@@ -70,7 +70,7 @@
             $('form[name="cpuForm"]').addClass('hidden');
         }else{
             $('form[name="categoryForm"]').find('input[name="_method"]').remove();
-            $('form[name="categoryForm"] h3').html('CPU :: 추가하기');
+            $('form[name="categoryForm"] h3').html('카테고리 :: 추가하기');
             $('input[name="category_image"]').prev('div').removeClass('img-box').attr('style', '');
             $('form[name="categoryForm"] input').not('[name="_token"]').val('');
             $('form[name="categoryForm"]').attr('action' , $url+'/category').find('input[type="submit"]').val('추가하기');
@@ -118,7 +118,7 @@
                     $('form[name="categoryForm"]').prepend('<input type="hidden" name="_method" value="put">');
                     $('form[name="categoryForm"] h3').html('카테고리 :: '+dataArr.name);
                     $('input[name="category_name"]').val(dataArr.name);
-                    $('input[name="category_image"]').prev('div').addClass('img-box').attr('style', 'background:url('+dataArr.image+') center; background-size:cover;');
+                    $('div.img-box').attr('style', 'background:url('+dataArr.image+') center; background-size:cover;').parent().removeClass('hidden');
                     $('form[name="categoryForm"]').attr('action' , $url+'/category/'+$targetId).find('input[type="submit"]').val('수정하기');
                     //OriginImg
                     $origin = $('div.img-box').attr('style');
@@ -212,7 +212,7 @@
                 if( $(this).attr('name') == 'category_image' ){
                     var reader = new FileReader();
                     reader.onload = function(e){
-                        $('div.img-preview').addClass('img-box').attr('style', 'background:url('+e.target.result+') center no-repeat; background-size:cover;');
+                        $('div.img-box').attr('style', 'background:url('+e.target.result+') center no-repeat; background-size:cover;').parent().removeClass('hidden');
                     }
                 }else if( $(this).hasClass('main-image') ){
                     //메인슬라이드
@@ -226,7 +226,7 @@
                     //Shop정보수정
                     var reader = new FileReader();
                     reader.onload = function(e){
-                        $('div.img-box').attr('style', 'background:url('+e.target.result+') center no-repeat; background-size:auto 100%;;');
+                        $('div.img-box').attr('style', 'background:url('+e.target.result+') center no-repeat; background-size:auto 100%;;').parent().removeClass('hidden');
                     }
                 }else{
                     //상품관리
@@ -238,12 +238,16 @@
                 reader.readAsDataURL(this.files[0]);
             }
         }else{
-            $('div.img-box').attr('style', $origin);
-            if( $(this).hasClass('main-image') ){
-                $nth = $('div.nth').find('input:checked').attr('id');
-                $('div.slider ul li.'+$nth).attr('style', $origin);
+            if( !$origin ){
+                $('div.img-box').attr('style', '').parent().addClass('hidden');
             }else{
                 $('div.img-box').attr('style', $origin);
+                if( $(this).hasClass('main-image') ){
+                    $nth = $('div.nth').find('input:checked').attr('id');
+                    $('div.slider ul li.'+$nth).attr('style', $origin);
+                }else{
+                    $('div.img-box').attr('style', $origin);
+                }
             }
         }
     });

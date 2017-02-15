@@ -21,7 +21,7 @@
                         <label for="image">상품 이미지</label>
                         <input type="file" name="image" class="input image" value=""/>
                         <div class="image-logo MyProduct">
-                            <div class="img-box" style="background:url({{ $product->image }}) center no-repeat; background-size:cover;">
+                            <div class="img-box" style="background:url({{ $product->image }}) center no-repeat; background-size:auto 100%;">
                             </div>
                         </div>
                     </div>

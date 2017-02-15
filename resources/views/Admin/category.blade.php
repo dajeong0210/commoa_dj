@@ -50,8 +50,10 @@
                     <div class="group">
                         <div class="form-group one-layout form-group{{ $errors->has('category_image') ? ' has-error' : '' }}">
                             <label for="category_image">이미지</label>
-                            <div class="img-preview"></div>
                             <input type="file" name="category_image" class="image"/>
+                            <div class="img-preview hidden">
+                                <div class="img-box"></div>
+                            </div>
                             @if($errors->has('category_image'))
                             <label class="error">
                                 <strong>{{ $errors->first('category_image') }}</strong>

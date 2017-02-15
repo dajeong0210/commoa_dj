@@ -361,4 +361,22 @@ div.mypage{
             }
         }
     }
+    div.image-logo{
+        width:80%;
+        height:0;
+        position:relative;
+        overflow:hidden;
+        padding-bottom:80%;
+        &.shop{
+            width:100%;
+            padding-bottom:60%;
+        }
+        div.img-box{
+            position:absolute;
+            top:0;
+            left:0;
+            width:80%;
+            height:80%;
+        }
+    }
 }
