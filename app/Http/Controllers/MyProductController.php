@@ -14,6 +14,7 @@ use App\Product;
 use App\Category;
 use App\Cpu;
 use App\Vga;
+use Carbon\Carbon;
 
 class MyProductController extends Controller
 {
@@ -102,6 +103,9 @@ class MyProductController extends Controller
         $product->shop_id = Auth::user()->shop->id;
         $product->save();
         $product->categories()->sync($categories);
+        $shop = $product->shop;
+        $shop->product_updated_at = Carbon::now('Asia/Seoul');
+        $shop->save();
             
         if( Auth::user()->permission == 2 ){
             return redirect('admin/product');
@@ -179,6 +183,9 @@ class MyProductController extends Controller
             $product->image = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::disk("s3")->put('product', $image, 'public');    
         }
         $product->save();
+        $shop = $product->shop;
+        $shop->product_updated_at = Carbon::now('Asia/Seoul');
+        $shop->save();
         
         if( Auth::user()->permission == 2 ){
             return redirect('admin/product');

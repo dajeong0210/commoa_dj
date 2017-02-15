@@ -22,10 +22,10 @@ class ShopController extends Controller
         $shop_sort = $request->input('shop-sort');
 
         if( $shop_sort == '' ) {
-            $shops = Shop::orderBy('updated_at', 'desc')->paginate(20);
+            $shops = Shop::orderBy('product_updated_at', 'desc')->paginate(20);
         } else {
             if( $shop_sort == 'all' ) {
-                $shops = Shop::orderBy('updated_at', 'desc')->paginate(20);  
+                $shops = Shop::orderBy('product_updated_at', 'desc')->paginate(20);  
             } elseif ( $shop_sort == 'nameBy' ) {
                 $shops = Shop::orderBy('name', 'asc')->paginate(20);
             }

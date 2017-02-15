@@ -23,6 +23,7 @@ class CreateShopsTable extends Migration
             $table->string('contact_phone');
             $table->string('contact_mobile');
             $table->string('contact_email');
+            $table->timestamp('product_updated_at')->nullable();
             $table->timestamps();
 
             $table->integer('user_id')->unsigned();

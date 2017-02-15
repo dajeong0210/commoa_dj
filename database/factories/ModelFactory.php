@@ -38,6 +38,7 @@ $factory->define(App\Shop::class, function (Faker\Generator $faker) {
         'contact_mobile' => $faker->unique()->tollFreePhoneNumber,
         'contact_email' => $faker->unique()->email,
         'user_id' => $faker->randomElement($user_id),
+        'product_updated_at' => null, 
     ];
 });
 
