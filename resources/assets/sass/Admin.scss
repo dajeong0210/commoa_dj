@@ -262,8 +262,11 @@ div#app.admin{
             text-align:left;
             font-size:13px;
             margin:10px 0;
-            &.cpu, &.vga{
+            &.cpu, &.vga, &.category{
                 margin-left:20px;
+            }
+            i.major{
+                color:yellowgreen;
             }
             span{
                 margin:0 5px;

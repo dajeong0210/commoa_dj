@@ -32,7 +32,7 @@ class AdminController extends Controller
 //Category
 	public function category() {	
 		$categories = Category::orderBy('name', 'asc')->get();		
-		return view('Admin.category')->with('categories', $categories);
+		return view('Admin.Category.edit')->with('categories', $categories);
 	}
 	
 	public function categoryCreate(Request $request) {

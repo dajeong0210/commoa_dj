@@ -71,7 +71,7 @@
         }else{
             $('form[name="categoryForm"]').find('input[name="_method"]').remove();
             $('form[name="categoryForm"] h3').html('카테고리 :: 추가하기');
-            $('input[name="category_image"]').prev('div').removeClass('img-box').attr('style', '');
+            $('div.img-box').attr('style', '').parent().addClass('hidden');
             $('form[name="categoryForm"] input').not('[name="_token"]').val('');
             $('form[name="categoryForm"]').attr('action' , $url+'/category').find('input[type="submit"]').val('추가하기');
         }
