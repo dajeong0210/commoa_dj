@@ -17,9 +17,6 @@ class WelcomeController extends Controller
         DB::statement(DB::raw('set @row:=0'));
 
         $recommends = Product::where('recommend', '<>', 0)->orderBy('recommend', 'asc')->limit(4)->get();
-        if( count($recommends) < 4 ) {
-            $recommends = Product::orderBy('recommend', 'desc')->orderBy('views', 'desc')->limit(4);
-        }
         $new_items = Product::orderBy('created_at', 'desc')->limit(4)->get();
         $products1 = Category::where('id', 1)->first()->products()->orderBy('views', 'desc')->limit(4)->get(); 
         $products2 = Category::where('id', 2)->first()->products()->orderBy('views', 'desc')->limit(4)->get(); 
