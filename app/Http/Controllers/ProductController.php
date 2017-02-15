@@ -109,19 +109,16 @@ class ProductController extends Controller
 
         $products = $products->selectRaw('*, @row:=@row+1 as row');
 
-        if( $product_sort == '' ) {
+        if ( $product_sort == 'rankBy' ) {
             $products = $products->orderBy('views', 'desc')->paginate(12);
+        } else if ( $product_sort == 'priceBydesc' ) {
+            $products = $products->orderBy('price', 'desc')->paginate(12);
+        } else if ( $product_sort == 'priceByasc' ) {
+            $products = $products->orderBy('price', 'asc')->paginate(12);
         } else {
-            if ( $product_sort == 'rankBy' ) {
-                $products = $products->orderBy('views', 'desc')->paginate(12);
-            } else if ( $product_sort == 'priceBydesc' ) {
-                $products = $products->orderBy('price', 'desc')->paginate(12);
-            } else if ( $product_sort == 'priceByasc' ) {
-                $products = $products->orderBy('price', 'asc')->paginate(12);
-            } else {
-                $products = $products->orderBy('products.updated_at', 'desc')->paginate(12);
-            } 
+            $products = $products->orderBy('products.updated_at', 'desc')->paginate(12);
         } 
+
 
         return view('Product.index')->with('products', $products)->with('categories', $game_category);
     }

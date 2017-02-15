@@ -14,6 +14,7 @@ class Shop extends Model
         'contact_phone',
         'contact_mobile',
         'contact_email',
+        'product_updated_at',
     ];
 
     protected $guarded= [
