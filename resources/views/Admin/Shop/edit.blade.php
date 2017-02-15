@@ -12,7 +12,7 @@
                     <h3>계정 정보 입력</h3>
                     <div class="form-group one-layout form-group{{ $errors->has('user_email') ? ' has-error' : '' }}">
                         <label for="user_email">이메일(아이디)</label>
-                        <input type="email" name="user_email" class="input user_email" value="{{ Auth::user()->email }}" readonly/>
+                        <input type="email" name="user_email" class="input user_email" value="{{ $shop->user->email }}" readonly/>
                         @if ($errors->has('user_email'))
                             <label class="error">{{ $errors->first('user_email') }}</label>
                         @endif
@@ -37,7 +37,9 @@
                     <div class="form-group half-layout">
                         <label for="image">Shop 로고</label>
                         <input type="file" name="image" class="input image shop_image"/>
-                        <div class="image-logo shop">
+                    </div>
+                    <div class="form-group half-layout">
+                        <div class="image-logo shop {{ $shop->image == NULL ? 'hidden' : '' }}">
                         @if( $shop->image == NULL )
                             <div class="img-box"></div>
                         @else

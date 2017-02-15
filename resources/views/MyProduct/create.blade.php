@@ -19,7 +19,7 @@
                     <div class="form-group half-layout form-group{{ $errors->has('image') ? ' has-error' : '' }}">
                         <label for="image">상품 이미지</label>
                         <input type="file" name="image" class="input image required" value="{{ old('image') }}"/>
-                        <div class="image-logo MyProduct">
+                        <div class="image-logo MyProduct hidden">
                             <div class="img-box"></div>
                         </div>
                         @if( $errors->has('image') )
