@@ -96,7 +96,7 @@
                     <div class="group">
                         <div class="form-group one-layout form-group{{ $errors->has('category_name') ? ' has-error' : '' }}">
                             <label for="category_name">이름</label>
-                            <input type="text" name="category_name" value=""/>
+                            <input type="text" id="category_name" name="category_name" value=""/>
                             @if($errors->has('category_name'))
                             <label class="error">
                                 <strong>{{ $errors->first('category_name') }}</strong>
@@ -107,13 +107,25 @@
                     <div class="group">
                         <div class="form-group one-layout form-group{{ $errors->has('category_image') ? ' has-error' : '' }}">
                             <label for="category_image">이미지</label>
-                            <input type="file" name="category_image" class="image"/>
+                            <input type="file" name="category_image" id="category_image" class="image"/>
                             <div class="img-preview hidden">
                                 <div class="img-box"></div>
                             </div>
                             @if($errors->has('category_image'))
                             <label class="error">
                                 <strong>{{ $errors->first('category_image') }}</strong>
+                            </label>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="group">
+                        <div class="form-group one-layout form-group{{ $errors->has('category_sort') ? ' has-error' : '' }}">
+                            <label for="category_sort">이미지 표시</label>
+                            <input type="checkbox" name="category_sort" class="category_sort"/>
+                            <p class="warning">※상품페이지에 총 4개까지만 보입니다.</p>
+                            @if($errors->has('category_sort'))
+                            <label class="error">
+                                <strong>{{ $errors->first('category_sort') }}</strong>
                             </label>
                             @endif
                         </div>

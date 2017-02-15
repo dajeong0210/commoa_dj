@@ -303,6 +303,13 @@ div#app.admin{
             color:#fff;
             font-weight:bold;
         }
+        input[type="checkbox"]{
+            display:inline;
+            line-height:2;
+            position:relative;
+            top:2px;
+            left:0;
+        }
         &.cpu-vga{
             &:first-child{
                 float:left;
@@ -352,6 +359,9 @@ div#app.admin{
                 font-weight:bold;
                 margin:5px;
                 line-height:2;
+                &[for="category_sort"]{
+                    display:inline;
+                }
             }
             a{
                 &.active{
@@ -373,7 +383,10 @@ div#app.admin{
                 padding:10px 7px;
                 width:60%;
                 border:1px solid #ccc;
-
+            }
+            p.warning{
+                letter-spacing:-1px;
+                color:$point-color2;
             }
         }
     }
