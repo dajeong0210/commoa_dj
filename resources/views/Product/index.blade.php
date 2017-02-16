@@ -26,6 +26,22 @@
                             @endif
                         @endforeach
                     </div>
+                    <div class="group">
+                        <div class="os half-layout">
+                            <strong>OS</strong>
+                            <label for="os_yes">있음</label>
+                            <input type="radio" id="os_yes" name="os" class="input" value="1" @if( isset($_GET['os'])) @if( $_GET['os'] == '1' ) checked="checked" @endif @endif/>
+                            <label for="os_no">없음</label>
+                            <input type="radio" id="os_no" name="os" class="input" value="0" @if( isset($_GET['os'])) @if( $_GET['os'] == '0' ) checked="checked" @endif @endif/>
+                        </div>
+                        <div class="monitor half-layout">
+                            <strong>모니터</strong>
+                            <label for="monitor_yes">있음</label>
+                            <input type="radio" id="monitor_yes" name="monitor" class="input" value="1" @if( isset($_GET['monitor'])) @if( $_GET['monitor'] == '1' ) checked="checked" @endif @endif/>
+                            <label for="monitor_no">없음</label>
+                            <input type="radio" id="monitor_no" name="monitor" class="input" value="0" @if( isset($_GET['monitor'])) @if( $_GET['monitor'] == '0' ) checked="checked" @endif @endif/>
+                        </div>
+                    </div>
                     <div class="filter-group sortBy hidden">
                         @if( isset($_GET['cpu_level']) || isset($_GET['vga_level']) || isset($_GET['os']) || isset($_GET['ssd']) || isset($_GET['monitor']) )
                         @else

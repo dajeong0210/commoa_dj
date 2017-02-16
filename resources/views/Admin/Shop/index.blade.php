@@ -18,7 +18,7 @@
         </div>
         <ul class="list-group">
             @foreach( $shops as $shop )
-            <li class="shop">
+            <li class="shop admin">
                 <div class="img-box shop" style="background:url({{ $shop->image }}) center no-repeat; background-size:auto 100%">
                 </div>
                 <div class="detail-box" id="shop">

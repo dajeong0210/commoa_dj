@@ -86,7 +86,8 @@
                                     </a>
                                 </div>
                                 <p>{{ $new_item->name }}</p>
-                                <p>{{ $new_item->shop->name }}</p>
+                                <p class="shop-name">{{ $new_item->shop->name }}</p>
+                                <p>{{ number_format($new_item->price) }}원</p>
                             </div>
                         @endforeach
                         </div>
@@ -108,7 +109,8 @@
                         </div>
                     </a>
                     <p>{{ $recommend->name }}</p>
-                    <p>{{ $recommend->shop->name }}</p>
+                    <p class="shop-name">{{ $recommend->shop->name }}</p>
+                    <p>{{ number_format($recommend->price) }}원</p>
                 </li>
                 @endforeach   
             @endif

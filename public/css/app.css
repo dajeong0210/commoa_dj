@@ -626,7 +626,7 @@ div.mainPage > ul > li {
 
 div.mainPage > ul > li.one-layouts {
   width: 52.94117647058824%;
-  max-height: 600px;
+  max-height: 650px;
   text-align: center;
   box-sizing: border-box;
   position: relative;
@@ -642,6 +642,8 @@ div.mainPage > ul > li.one-layouts:after {
 @media (max-width: 800px) {
   div.mainPage > ul > li.one-layouts {
     width: 100%;
+    min-height: 650px;
+    max-height: initial;
   }
 }
 
@@ -655,7 +657,7 @@ div.mainPage > ul > li.one-layouts nav.new_product {
   width: 66px;
   margin: 0 auto;
   position: relative;
-  top: -25px;
+  top: 0;
 }
 
 div.mainPage > ul > li.one-layouts nav.new_product li {
@@ -744,7 +746,6 @@ div.mainPage > ul > li.half-layouts p {
 }
 
 div.mainPage > ul > li.half-layouts p:last-child {
-  color: #333;
   padding-bottom: 10px;
 }
 
@@ -802,11 +803,16 @@ div.mainPage > ul > li p {
   white-space: nowrap;
 }
 
-div.mainPage > ul > li p:last-child {
+div.mainPage > ul > li p.shop-name {
   line-height: 1.0;
   color: #aaa;
   font-size: 12px;
   font-weight: normal;
+}
+
+div.mainPage > ul > li p:last-child {
+  font-size: 15px;
+  color: dodgerblue;
 }
 
 div.category_main {
@@ -1086,6 +1092,26 @@ div.page.list div.filter-wrap.purpose {
   }
 }
 
+div.page.list div.filter-wrap.purpose div.group strong {
+  font-size: 13px;
+  padding: 0 10px;
+  border-left: 2px solid #2bde73;
+}
+
+div.page.list div.filter-wrap.purpose div.group .half-layout {
+  width: 50%;
+  height: 40px;
+  line-height: 30px;
+  padding: 5px 20px;
+  font-size: 12px;
+  float: left;
+  box-sizing: border-box;
+}
+
+div.page.list div.filter-wrap.purpose div.group label {
+  border: none;
+}
+
 div.page.list div.filter-wrap.small-layout {
   max-width: 400px;
 }
@@ -1338,8 +1364,22 @@ div.page.list ul.list-group > li.shop {
   text-align: center;
   border: none;
   box-shadow: none;
-  max-width: 185px;
-  margin: 30px 4.6%;
+  width: 17%;
+  margin: 30px 4%;
+}
+
+@media (max-width: 800px) {
+  div.page.list ul.list-group > li.shop {
+    width: 25.33333333333333333333333333%;
+    margin: 30px 4%;
+  }
+}
+
+@media (max-width: 480px) {
+  div.page.list ul.list-group > li.shop {
+    width: 42%;
+    margin: 30px 4%;
+  }
 }
 
 div.page.list ul.list-group > li span.badge {
