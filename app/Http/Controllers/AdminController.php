@@ -22,8 +22,8 @@ use App\Banner;
 class AdminController extends Controller
 {	
 	public function index() {
-		$recommends = Product::where('recommend', '<>', '0')->orderBy('recommend', 'asc')->get();
-		$majorGames = Category::where('sort', '=', '1')->get();
+		$recommends = Product::where('recommend', '<>', 0)->orderBy('recommend', 'asc')->get();
+		$majorGames = Category::where('sort', '=', 1)->get();
 		$products = Product::orderBy('updated_at', 'desc')->limit(5)->get();		
 		$shops = Shop::orderBy('updated_at', 'desc')->limit(5)->get();
 		$applies = Apply::orderBy('updated_at', 'desc')->where('permission', 0)->limit(10)->get();
@@ -63,11 +63,15 @@ class AdminController extends Controller
 		$category->name = $request->input('category_name');
 		$sort = $request->input('category_sort');
 		$image = $request->file('category_image');
-		if( $sort != null ) {
-				$category->sort = 1;
-		} else {
-			$category->sort = null;
+		
+		if( $category->sort != '0') {
+			if( $sort != null ) {
+				$category->sort = 1;	
+			} else {
+				$category->sort = null;
+			}
 		}
+		
 		if( $image != null ) {
 			$category->image = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('category',  $image, 'public');
 		}
