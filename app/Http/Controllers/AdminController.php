@@ -111,7 +111,6 @@ class AdminController extends Controller
 	
     //cpu	
 	public function cpuCreate(CpuCreateRequest $request) {
-		//$cpu->create($request);
 		$cpu = new Cpu;
 		$cpu->name = $request->input('cpu_name');
 		$cpu->brand = $request->input('cpu_brand');
@@ -128,7 +127,6 @@ class AdminController extends Controller
 		$cpu->cores = $request->input('cpu_core');
 		$cpu->level = $request->input('cpu_level');	
 		$cpu->save();
-		//$cpu->update($request->all());
 		return redirect('/admin/cpu-vga');
 	}
 	
@@ -156,7 +154,6 @@ class AdminController extends Controller
 	
     //vga
 	public function vgaCreate(VgaCreateRequest $request) {
-		//$vga->create($request);
 		$vga = new Vga;
 		$vga->name = $request->input('vga_name');
 		$vga->brand = $request->input('vga_brand');
@@ -171,7 +168,6 @@ class AdminController extends Controller
 		$vga->brand = $request->input('vga_brand');
 		$vga->level = $request->input('vga_level');
 		$vga->save();
-		//$vga->update($request->all());
 		return redirect('/admin/cpu-vga');
 	}
 	

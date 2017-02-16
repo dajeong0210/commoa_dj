@@ -48,6 +48,12 @@ class ShopController extends Controller
         $apply_id = $request->input('apply_id');
         $apply = Apply::find($apply_id);
         $apply_email = Apply::find($apply_id)->user_email;
+        $exist_shop = User::where('email', $apply_email);
+
+        if( User::where('email', $apply_email)->first()->shop != null ) {
+            return back();
+        }
+
         if( User::where('email', $apply_email)->count() != 0 ) {
             $shop_admin = User::where('email', $request->input('user_email'))->first();
             $shop_admin->permission = 1;
