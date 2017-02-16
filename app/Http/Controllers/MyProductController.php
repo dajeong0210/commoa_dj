@@ -79,8 +79,8 @@ class MyProductController extends Controller
         if( $purpose != '게임용') {
             $categories = array($id);
         } else {
-
-            if( count($categories) > 5 ) {
+            $count = count($categories);
+            if( $count < 1 || $count > 5 ) {
                 session()->flash('msg', "카테고리는 1~5개 범위로 선택해주세요.");
                 return back();
             } else {
