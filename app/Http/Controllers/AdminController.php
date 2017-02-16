@@ -21,12 +21,14 @@ use App\Banner;
 
 class AdminController extends Controller
 {	
-	public function index() {	
+	public function index() {
+		$recommends = Product::where('recommend', '<>', '0')->orderBy('recommend', 'asc')->get();
+		$majorGames = Category::where('sort', '=', '1')->get();
 		$products = Product::orderBy('updated_at', 'desc')->limit(5)->get();		
 		$shops = Shop::orderBy('updated_at', 'desc')->limit(5)->get();
 		$applies = Apply::orderBy('updated_at', 'desc')->where('permission', 0)->limit(10)->get();
 		
-		return view('Admin.index')->with('products', $products)->with('shops', $shops)->with('applies', $applies);
+		return view('Admin.index')->with('products', $products)->with('shops', $shops)->with('applies', $applies)->with('recommends', $recommends)->with('majorGames', $majorGames);
 	}
 	
 //Category

@@ -401,11 +401,14 @@ div#app.admin{
         &.half-layout{
             margin-right:2%;
         }
-        &:last-child{
+        &.one-layout{
             width:100%;
             @include respond-to('small'){
                 width:96%;
             }
+        }
+        &:last-child{
+            margin-bottom:50px;
         }
         @include respond-to('small'){
             margin-left:2%;
@@ -420,7 +423,7 @@ div#app.admin{
             letter-spacing:-2px;
             font-size:15px;
             padding-left:20px;
-            border-left:2px solid $point-color;
+            border-left:4px solid $point-color;
             position:relative;
             a{
                 font-size:12px;
@@ -439,21 +442,54 @@ div#app.admin{
             width:100%;
             height:25px;
             position:relative;
+            &.warning{
+                color:red;
+                height:30px;
+                font-weight:bold;
+                padding:0 5% 0 0;
+                line-height:25px;
+                font-size:12px;
+                @include respond-to('small'){
+                    height:initial;
+                    line-height:1.0;
+                    padding-bottom:5px;
+                }
+                i{
+                    margin-right:5px;
+                    font-size:18px;
+                    line-height:30px;
+                    position:relative;
+                    top:2px;
+                }
+                p{
+                    margin:0;
+                }
+            }
+            p:not(.warning){
+                display:inline-block;
+                margin:0;
+                width:65%;
+                padding:0 5% 0 0;
+                text-overflow:ellipsis;
+                overflow:hidden;
+                white-space:nowrap;
+                line-height:25px;
+                font-size:12px;
+            }
             a{
-                font-size:13px;
                 color:#333;
                 &:hover{
                     text-decoration:underline;
                 }
             }
             span{
-                line-height:25px;
                 font-size:11px;
+                line-height:25px;
                 color:#666;
                 position:absolute;
                 right:0;
                 display:inline-block;
-                width:100px;
+                width:30%;
                 text-overflow:ellipsis;
                 overflow:hidden;
                 white-space:nowrap;
