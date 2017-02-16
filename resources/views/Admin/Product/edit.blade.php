@@ -153,7 +153,7 @@
                         <h4>카테고리</h4>
                         <ul class="purpose">
                             @foreach($categories as $key=>$category)
-                                @if( in_array( $category->name , ['가정용', '사무용', '디자인용', '게임용'] ) )
+                                @if( $category->sort == '0' )
                                 <li>
                                     <label for="purpose{{$key}}">{{ $category->name }}</label>
                                     <input type="radio" name="purpose" id="purpose{{$key}}" class="input required" value="{{ $category->name }}" {{ in_array($category->id, $selected) ? 'checked' : ''}} />
@@ -163,16 +163,16 @@
                         </ul>
                         <ul class="for_game_check">
                             @foreach( $categories as $category )
-                                @if( !in_array( $category->name, ['가정용', '사무용', '디자인용', '게임용' ]) )
+                                @if( $category->sort != '0' )
                                 @if( in_array( $category->id, $selected ) )
                                     <li>
                                         <label for="{{ 'category' . $category->id }}">{{ $category->name }}</label>
-                                        <input type="checkbox" name="category[]" id="{{ 'category' . $category->id }}" value="{{ $category->id }}" checked="checked">
+                                        <input type="checkbox" name="category[]" id="{{ 'category' . $category->id }}" value="{{ $category->id }}" checked="checked" {{ in_array( '4' ,$selected ) ? '' : 'disabled="disabled"' }}>
                                     </li>                                    
                                 @else
                                     <li>
                                         <label for="{{ 'category' . $category->id }}">{{ $category->name }}</label>
-                                        <input type="checkbox" name="category[]" id="{{ 'category' . $category->id }}" value="{{ $category->id }}">
+                                        <input type="checkbox" name="category[]" id="{{ 'category' . $category->id }}" value="{{ $category->id }}" {{ in_array( '4' ,$selected ) ? '' : 'disabled="disabled"' }}>
                                     </li>
                                 @endif
                                 @endif

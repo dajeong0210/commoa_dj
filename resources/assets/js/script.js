@@ -30,6 +30,12 @@
             $(this).next('span.help-block').remove();
         }
     });
+    $('ul.for_game_check input').on('click',function(){
+        if( $('ul.for_game_check input[type="checkbox"]:checked').length > 5 ){
+            alert('세부 카테고리는 5개까지만 선택이 가능합니다!');
+            $(this).prop('checked', false);
+        };
+    });
 
 //originImg
     $origin = $('div.img-box').attr('style');
