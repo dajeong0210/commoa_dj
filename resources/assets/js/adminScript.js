@@ -191,8 +191,8 @@
         $url = $('ul.slider li.'+$nth).find('a').attr('href');
         $align = $('ul.slider li.'+$nth).find('span.hidden').html();
         $('input[value="'+$type+'"]').prop('checked', true);
-        $('textarea[name="title"]').html($title.replace('<br>',''));
-        $('textarea[name="content"]').html($content.replace('<br>',''));
+        $('textarea[name="title"]').html($title.replace(/<br>/gi,''));
+        $('textarea[name="content"]').html($content.replace(/<br>/gi,''));
         $('input[name="url"]').val($url);
         $('input[value="'+$align+'"]').prop('checked', true);
     });

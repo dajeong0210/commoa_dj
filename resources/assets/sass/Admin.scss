@@ -637,6 +637,14 @@ div#app.admin{
                 left:0;
                 li{
                     color:#fff;
+                    a{
+                        display: inline-block;
+                        color: #fff;
+                        max-width: 100px;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        white-space: nowrap;
+                    }
                 }
                 ul{
                     position:absolute;

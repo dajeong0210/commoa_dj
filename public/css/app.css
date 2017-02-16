@@ -1338,7 +1338,8 @@ div.page.list ul.list-group > li.shop {
   text-align: center;
   border: none;
   box-shadow: none;
-  margin-bottom: 50px;
+  max-width: 185px;
+  margin: 30px 4.6%;
 }
 
 div.page.list ul.list-group > li span.badge {
@@ -3502,6 +3503,15 @@ div#app.admin div.main-edit div.preview nav {
 
 div#app.admin div.main-edit div.preview nav li {
   color: #fff;
+}
+
+div#app.admin div.main-edit div.preview nav li a {
+  display: inline-block;
+  color: #fff;
+  max-width: 100px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 div#app.admin div.main-edit div.preview nav ul {
