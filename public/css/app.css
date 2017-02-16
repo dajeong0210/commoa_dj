@@ -3178,14 +3178,18 @@ div#app.admin div.adminIndex.half-layout {
   margin-right: 2%;
 }
 
-div#app.admin div.adminIndex:last-child {
+div#app.admin div.adminIndex.one-layout {
   width: 100%;
 }
 
 @media (max-width: 800px) {
-  div#app.admin div.adminIndex:last-child {
+  div#app.admin div.adminIndex.one-layout {
     width: 96%;
   }
+}
+
+div#app.admin div.adminIndex:last-child {
+  margin-bottom: 50px;
 }
 
 @media (max-width: 800px) {
@@ -3204,7 +3208,7 @@ div#app.admin div.adminIndex h2 {
   letter-spacing: -2px;
   font-size: 15px;
   padding-left: 20px;
-  border-left: 2px solid #2bde73;
+  border-left: 4px solid #2bde73;
   position: relative;
 }
 
@@ -3228,8 +3232,48 @@ div#app.admin div.adminIndex li {
   position: relative;
 }
 
+div#app.admin div.adminIndex li.warning {
+  color: red;
+  height: 30px;
+  font-weight: bold;
+  padding: 0 5% 0 0;
+  line-height: 25px;
+  font-size: 12px;
+}
+
+@media (max-width: 800px) {
+  div#app.admin div.adminIndex li.warning {
+    height: initial;
+    line-height: 1.0;
+    padding-bottom: 5px;
+  }
+}
+
+div#app.admin div.adminIndex li.warning i {
+  margin-right: 5px;
+  font-size: 18px;
+  line-height: 30px;
+  position: relative;
+  top: 2px;
+}
+
+div#app.admin div.adminIndex li.warning p {
+  margin: 0;
+}
+
+div#app.admin div.adminIndex li p:not(.warning) {
+  display: inline-block;
+  margin: 0;
+  width: 65%;
+  padding: 0 5% 0 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  line-height: 25px;
+  font-size: 12px;
+}
+
 div#app.admin div.adminIndex li a {
-  font-size: 13px;
   color: #333;
 }
 
@@ -3238,13 +3282,13 @@ div#app.admin div.adminIndex li a:hover {
 }
 
 div#app.admin div.adminIndex li span {
-  line-height: 25px;
   font-size: 11px;
+  line-height: 25px;
   color: #666;
   position: absolute;
   right: 0;
   display: inline-block;
-  width: 100px;
+  width: 30%;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
