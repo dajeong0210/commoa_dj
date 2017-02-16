@@ -1336,6 +1336,9 @@ div.page.list ul.list-group > li {
 
 div.page.list ul.list-group > li.shop {
   text-align: center;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 50px;
 }
 
 div.page.list ul.list-group > li span.badge {
@@ -1396,7 +1399,9 @@ div.page.list div.img-box img {
 }
 
 div.page.list div.img-box.shop {
-  height: 130px;
+  height: 70px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
 }
 
 div.page.list div.detail-box {
@@ -1415,9 +1420,14 @@ div.page.list div.detail-box a.prod-title {
   line-height: 30px;
 }
 
-div.page.list div.detail-box a.prod-title.shop {
-  line-height: 50px;
-  padding: 0;
+div.page.list div.detail-box a.shop-url {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  padding: 5px 8px;
+  background: dodgerblue;
+  color: #fff;
 }
 
 div.page.list div.detail-box ul.prod_category {
@@ -1528,22 +1538,34 @@ div.page.list div.detail-box p.prod-price span i.fa-heart-o {
   color: #ccc;
 }
 
+div.page.list div.detail-box p.shop-name {
+  font-weight: bold;
+  font-size: 15px;
+  letter-spacing: -1px;
+}
+
 div.page.list div.bookmark {
   float: left;
   position: absolute;
-  bottom: 30px;
-  left: 50%;
+  top: -17%;
+  left: -3.5%;
   margin-left: -25px;
-  width: 50px;
+  width: 100px;
   height: 50px;
   text-align: center;
-  border-radius: 50px;
+  border: 1px solid #ccc;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
   background: #fff;
 }
 
 div.page.list div.bookmark i {
   font-size: 30px;
-  line-height: 50px;
+  line-height: 60px;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 div.page.list div.bookmark i.fa-star {

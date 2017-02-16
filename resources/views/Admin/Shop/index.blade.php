@@ -19,13 +19,11 @@
         <ul class="list-group">
             @foreach( $shops as $shop )
             <li class="shop">
-                <a href="{{ url('admin/shop') . '/' . $shop->id .'/edit' }}" >
-                <div class="img-box shop">
-                    <img src="{{ $shop->image }}" alt="">
+                <div class="img-box shop" style="background:url({{ $shop->image }}) center no-repeat; background-size:auto 100%">
                 </div>
-                </a>
                 <div class="detail-box" id="shop">
-                    <a class="prod-title shop" href="{{ url('admin/shop').'/'. $shop->id .'/edit' }}"> {{ $shop->name }} </a>
+                    <p class="shop-name"> {{ $shop->name }} </p>
+                    <a href="{{ url('admin/shop').'/'. $shop->id .'/edit' }}" class="shop-url" > 쇼핑몰 정보 수정 </a>
                 </div>
             </li>
             @endforeach

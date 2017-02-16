@@ -403,6 +403,9 @@ div.page{
                 }
                 &.shop{
                     text-align:center;
+                    border:none;
+                    box-shadow:none;
+                    margin-bottom:50px;
                 }
                 span.badge{
                     font-family: 'Exo 2', sans-serif;
@@ -455,7 +458,9 @@ div.page{
                 border-bottom:1px solid #eee;
             }
             &.shop{
-                height:130px;
+                height:70px;
+                border:1px solid #ddd;
+                box-sizing:border-box;
             }
         }
         div.detail-box{
@@ -471,10 +476,15 @@ div.page{
                 letter-spacing:-0.5px;
                 padding:10px;
                 line-height:30px;
-                &.shop{
-                    line-height:50px;
-                    padding:0;
-                }
+            }
+            a.shop-url{
+                display:inline-block;
+                font-size:12px;
+                font-weight:bold;
+                letter-spacing:-1px;
+                padding:5px 8px;
+                background:dodgerblue;
+                color:#fff;
             }
             ul.prod_category{
                 height:100px;
@@ -565,22 +575,29 @@ div.page{
                         }
                     }
                 }  
+                &.shop-name{
+                    font-weight:bold;
+                    font-size:15px;
+                    letter-spacing:-1px;
+                }
             } 
         }
         div.bookmark{
             float:left;
             position:absolute;
-            bottom:30px;
-            left:50%;
+            top:-17%;
+            left:-3.5%;
             margin-left:-25px;
-            width:50px;
+            width:100px;
             height:50px;
             text-align:center;
-            border-radius:50px;
+            border:1px solid #ccc;
+            transform:rotate(-45deg);
             background:#fff;
             i{
                 font-size:30px;
-                line-height:50px;
+                line-height:60px;
+                transform:rotate(45deg);
                 &.fa-star{
                     color:rgb(255, 204, 0);
                 }
