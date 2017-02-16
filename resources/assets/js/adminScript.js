@@ -72,6 +72,7 @@
             $('form[name="categoryForm"]').find('input[name="_method"]').remove();
             $('form[name="categoryForm"] h3').html('카테고리 :: 추가하기');
             $('div.img-box').attr('style', '').parent().addClass('hidden');
+            $('div.group.image').removeClass('hidden');
             $('form[name="categoryForm"] input').not('[name="_token"]').val('');
             $('form[name="categoryForm"]').attr('action' , $url+'/category').find('input[type="submit"]').val('추가하기');
         }
@@ -118,14 +119,17 @@
                     $('form[name="categoryForm"]').prepend('<input type="hidden" name="_method" value="put">');
                     $('form[name="categoryForm"] h3').html('카테고리 :: '+dataArr.name);
                     $('input[name="category_name"]').val(dataArr.name);
-                    $('div.img-box').attr('style', 'background:url('+dataArr.image+') center; background-size:cover;').parent().removeClass('hidden');
                     if( dataArr.sort == 1 ){
                         $('input[name="category_sort"]').removeAttr('disabled').attr('checked', 'checked');
+                        $('div.img-box').attr('style', 'background:url('+dataArr.image+') center; background-size:cover;').parent().removeClass('hidden');
+                        $('div.group.image').removeClass('hidden');
                     }else if( dataArr.sort == 0 ){
                         $('input[name="category_sort"]').prop('disabled', true);
-                        $('p.warning').html('이 카테고리는 이미지로 표시할 수 없습니다.');
+                        $('div.group.image').addClass('hidden');
                     }else{
                         $('input[name="category_sort"]').removeAttr('checked').removeAttr('disabled');
+                        $('div.img-box').attr('style', 'background:url('+dataArr.image+') center; background-size:cover;').parent().removeClass('hidden');
+                        $('div.group.image').removeClass('hidden');
                     }
                     $('form[name="categoryForm"]').attr('action' , $url+'/category/'+$targetId).find('input[type="submit"]').val('수정하기');
                     //OriginImg

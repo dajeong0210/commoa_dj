@@ -104,7 +104,7 @@
                             @endif
                         </div>
                     </div>
-                    <div class="group">
+                    <div class="group image">
                         <div class="form-group one-layout form-group{{ $errors->has('category_image') ? ' has-error' : '' }}">
                             <label for="category_image">이미지</label>
                             <input type="file" name="category_image" id="category_image" class="image"/>
@@ -118,7 +118,7 @@
                             @endif
                         </div>
                     </div>
-                    <div class="group">
+                    <div class="group image">
                         <div class="form-group one-layout form-group{{ $errors->has('category_sort') ? ' has-error' : '' }}">
                             <label for="category_sort">이미지 표시</label>
                             <input type="checkbox" name="category_sort" class="category_sort"/>
