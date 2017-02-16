@@ -10,7 +10,7 @@
                     <input type="text" id="search" name="search" placeholder="Search Products" @if( $search )value="{{ $search }}"@endif/>
                 </div>
                 <div class="sortBy hidden">
-                    <input type="text" id="sortBy_rank" name="product-sort" class="input" value="all"/>
+                    <input type="text" id="sortBy" name="product-sort" class="input" value="all"/>
                 </div>
             </form>
         </div>

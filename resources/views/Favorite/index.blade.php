@@ -12,7 +12,7 @@
             </ul>
             <form method="GET" class="hidden">
                 <div class="sortBy">
-                    <input type="text" id="sortBy_rank" name="product-sort" class="input" value="all"/>
+                    <input type="text" id="sortBy" name="product-sort" class="input" value="all"/>
                 </div>
             </form>
         </div>
