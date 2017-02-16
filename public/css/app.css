@@ -1110,6 +1110,12 @@ div.page.list div.filter-wrap.purpose div.group .half-layout {
   box-sizing: border-box;
 }
 
+@media (max-width: 480px) {
+  div.page.list div.filter-wrap.purpose div.group .half-layout {
+    width: 100%;
+  }
+}
+
 div.page.list div.filter-wrap.purpose div.group label {
   border: none;
 }
@@ -1296,10 +1302,18 @@ div.page.list div.sort-wrap ul.sort-list {
   }
 }
 
+div.page.list div.sort-wrap ul.sort-list.product-sort li {
+  word-break: keep-all;
+}
+
 @media (max-width: 480px) {
   div.page.list div.sort-wrap ul.sort-list.product-sort li {
     width: 22%;
+    height: 34px;
     padding: 10px 2px;
+  }
+  div.page.list div.sort-wrap ul.sort-list.product-sort li:first-child, div.page.list div.sort-wrap ul.sort-list.product-sort li:last-child {
+    line-height: 34px;
   }
 }
 

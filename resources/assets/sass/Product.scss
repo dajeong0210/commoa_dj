@@ -216,6 +216,9 @@ div.page{
                         font-size:12px;
                         float:left;
                         box-sizing:border-box;
+                        @include respond-to('too-small'){
+                            width:100%;
+                        }
                     }
                     label{
                         border:none;
@@ -369,9 +372,14 @@ div.page{
                 }
                 &.product-sort{
                     li{
+                        word-break:keep-all;
                         @include respond-to('too-small'){
                             width:22%;
+                            height:34px;
                             padding:10px 2px;
+                            &:first-child, &:last-child{
+                                line-height:34px;
+                            }
                         }
                     }
                 }

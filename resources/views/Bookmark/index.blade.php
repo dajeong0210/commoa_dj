@@ -18,31 +18,29 @@
         <ul class="list-group">
             @foreach( $shops as $shop )
             <li class="shop">
-                <a href="{{ $shop->url }}" target="_blank">
-                <div class="img-box shop">
-                    <img src="{{ $shop->image }}" alt="">
-                </div>
-                </a>
-                @if( Auth::guest() )
-                <div class="bookmark guest">
-                @else
-                <div class="bookmark">
-                    <span>
-                        <a href="#" class="bookmark" onclick="return false;">
-                            @if( $shop->users()->get()->where('id', Auth::user()->id)->count() == 0 )
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                                <i class="fa fa-star hidden" aria-hidden="true"></i>
-                            @else
-                                <i class="fa fa-star-o hidden" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                            @endif
-                        </a>
-                    </span>    
-                    <span class="hidden">{{ $shop->id }}</span>
-                @endif
+                <div class="img-box shop" style="background:url({{ $shop->image }}) center no-repeat; background-size:auto 100%;">
+                    @if( Auth::guest() )
+                    <div class="bookmark guest">
+                    @else
+                    <div class="bookmark">
+                        <span>
+                            <a href="#" class="bookmark" onclick="return false;">
+                                @if( $shop->users()->get()->where('id', Auth::user()->id)->count() == 0 )
+                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                    <i class="fa fa-star hidden" aria-hidden="true"></i>
+                                @else
+                                    <i class="fa fa-star-o hidden" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                @endif
+                            </a>
+                        </span>    
+                        <span class="hidden">{{ $shop->id }}</span>
+                    @endif
+                    </div>
                 </div>
                 <div class="detail-box" id="shop">
-                    <a class="prod-title shop" href="{{ $shop->url }}" target="_blank"> {{ $shop->name }} </a>
+                    <p class="shop-name"> {{ $shop->name }} </p>
+                    <a href="{{ $shop->url }}" target="_blank" class="shop-url">사이트로 이동</a>
                 </div>
             </li>
             @endforeach
