@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-    <div class="page mypage">
+    <div class="page mypage list">
         @include('layouts.myLayout')   
         <div class="my-wrap">
             <div class="user_profile">
@@ -28,16 +28,14 @@
                         @foreach( $favorites as $fav )
                         <li>
                             <a href="{{ url('product') . '/' . $fav->id }}">
-                                <div class="image-cover"></div>
-                                <img src="{{ $fav->image }}" alt="">
                             </a>
-                            <div class="detail-box">
-                                <p>
-                                    <a href="{{ url('product') . '/' . $fav->id }}">{{ $fav->name }}</a>
-                                </p>
-                                <p>
-                                    <a href="{{ $fav->shop->url }}" target="_blank">{{ $fav->shop->name }}</a>
-                                </p>
+                            <div class="image-cover">
+                                <div class="img-box" style="background:url({{ $fav->image }}) center no-repeat; background-size:cover">
+                                </div>
+                                <div class="detail-box">
+                                    <p>{{ $fav->name }}</p>
+                                    <p>{{ $fav->shop->name }}</p>
+                                </div>
                             </div>
                         </li>
                         @endforeach
@@ -52,15 +50,15 @@
                 </h2>
                 <div class="my-list">
                     <ul>
-                        @foreach( $bookmarks as $bookmark )
-                        <li>
-                            <div class="thumbnail">
-                                <a href="{{ $bookmark->url }}" target="_blank">
-                                    <img src="{{ $bookmark->image }}" alt="">
-                                </a>
-                            </div>
-                            <a href="{{ $bookmark->url }}">{{ $bookmark->name }}</a>
-                        </li>
+                        @foreach( $bookmarks as $shop )
+                            <li class="shop">
+                                <div class="img-box shop" style="background:url({{ $shop->image }}) center no-repeat; background-size:auto 100%">
+                                </div>
+                                <div class="detail-box">
+                                    <p class="shop-name"> {{ $shop->name }} </p>
+                                    <a href="{{ $shop->url }}" target="_blank" class="shop-url">사이트로 이동</a>
+                                </div>
+                            </li>
                         @endforeach
                     </ul>
                 </div>

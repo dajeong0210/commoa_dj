@@ -18,8 +18,7 @@
             <div class="sort-wrap">
                 <ul class="sort-list">
                     <li name="all" class="all {{ isset($_GET['product-sort'])? $_GET['product-sort'] == 'all' ? 'active' : '' : 'active' }}">최신순</li>
-                    <li name="priceBydesc" class="priceBydesc {{ isset($_GET['product-sort'])? $_GET['product-sort'] == 'priceBydesc'? 'active' : '' : '' }}">높은가격순</li>
-                    <li name="priceByasc" class="priceByasc {{ isset($_GET['product-sort'])? $_GET['product-sort'] == 'priceByasc'? 'active' : '' : '' }}">낮은가격순</li>
+                    <li name="nameBy" class="nameBy {{ isset($_GET['product-sort'])? $_GET['product-sort'] == 'nameBy' ? 'active' : '' : '' }}">이름순</li>
                     <li name="rankBy" class="rankBy {{ isset($_GET['product-sort'])? $_GET['product-sort'] == 'rankBy'? 'active' : '' : '' }}">인기순</li>
                 </ul>
             </div>

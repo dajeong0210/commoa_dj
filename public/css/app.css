@@ -2574,7 +2574,7 @@ div.page.mypage div.my-wrap > div {
 div.page.mypage div.my-wrap > div.user_profile {
   width: 28%;
   margin: 0 1%;
-  height: 350px;
+  height: 330px;
 }
 
 @media (max-width: 800px) {
@@ -2608,7 +2608,7 @@ div.page.mypage div.my-wrap > div.user_profile p.name {
 div.page.mypage div.my-wrap > div.fav-list {
   width: 68%;
   margin: 0 1%;
-  height: 350px;
+  height: 330px;
   overflow: hidden;
 }
 
@@ -2661,23 +2661,26 @@ div.page.mypage div.my-wrap > div.fav-list ul li img {
   clear: both;
 }
 
-div.page.mypage div.my-wrap > div.fav-list ul li:hover div.image-cover {
-  background: rgba(0, 0, 0, 0.4);
-}
-
-div.page.mypage div.my-wrap > div.fav-list ul li div.image-cover {
-  position: absolute;
+div.page.mypage div.my-wrap > div.fav-list ul li a {
+  color: #333;
+  display: block;
   width: 100%;
   height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 30;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
-  background: transparent;
+}
+
+div.page.mypage div.my-wrap > div.fav-list ul li a:hover {
+  background: rgba(0, 0, 0, 0.6);
 }
 
 div.page.mypage div.my-wrap > div.fav-list ul li div.detail-box {
   width: 100%;
   height: 90px;
-  background: rgba(255, 255, 255, 0.8);
   position: absolute;
   bottom: 0;
   font-size: 13px;
@@ -2686,20 +2689,17 @@ div.page.mypage div.my-wrap > div.fav-list ul li div.detail-box {
 }
 
 div.page.mypage div.my-wrap > div.fav-list ul li div.detail-box p {
-  height: 20px;
-  line-height: 20px;
+  height: 25px;
+  line-height: 25px;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  background: #fff;
 }
 
 div.page.mypage div.my-wrap > div.fav-list ul li div.detail-box p:first-child {
   font-size: 1.05em;
   font-weight: bold;
-}
-
-div.page.mypage div.my-wrap > div.fav-list ul li div.detail-box p a {
-  color: #333;
 }
 
 div.page.mypage div.my-wrap > div.book-list {
@@ -2709,30 +2709,22 @@ div.page.mypage div.my-wrap > div.book-list {
 }
 
 div.page.mypage div.my-wrap > div.book-list li {
-  width: 100px;
+  width: 185px;
+  text-align: center;
   float: left;
   padding: 10px;
 }
 
-div.page.mypage div.my-wrap > div.book-list li div.thumbnail {
+div.page.mypage div.my-wrap > div.book-list li div.img-box {
   margin: 0 auto;
-  width: 80px;
-  height: 80px;
   overflow: hidden;
-  border-radius: 50px;
-}
-
-div.page.mypage div.my-wrap > div.book-list li div.thumbnail img {
-  width: auto;
-  height: 100px;
 }
 
 div.page.mypage div.my-wrap > div.book-list li a {
-  display: inline-block;
-  width: 100%;
+  padding: 5px 10px;
   text-align: center;
   font-size: 12px;
-  color: #333;
+  color: #fff;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
