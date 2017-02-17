@@ -561,6 +561,23 @@ div.page.list.hot-items ul.list-group > li:last-child {
   margin-bottom: 100px;
 }
 
+div.page.list.hot-items div.detail-box.main p {
+  text-align: center;
+}
+
+div.page.list.hot-items div.detail-box.main p.prod-title {
+  font-weight: bold;
+  font-size: 18px;
+  height: 30px;
+  line-height: 30px;
+}
+
+div.page.list.hot-items div.detail-box.main p.prod-shop {
+  border: none;
+  height: 25px;
+  line-height: 20px;
+}
+
 div.back {
   clear: both;
   width: 100%;
@@ -605,8 +622,8 @@ div.mainPage > ul {
 
 div.mainPage > ul:after {
   content: '';
-  padding-top: 100%;
-  padding-left: 100%;
+  clear: both;
+  float: left;
   margin-bottom: 80px;
 }
 

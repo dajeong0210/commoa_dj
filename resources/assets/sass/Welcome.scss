@@ -144,6 +144,22 @@ div.page.list.hot-items{
             }
         }
     }
+    div.detail-box.main{
+        p{
+            &.prod-title{
+                font-weight:bold;
+                font-size:18px;
+                height:30px;
+                line-height:30px;
+            }
+            &.prod-shop{
+                border:none;
+                height:25px;
+                line-height:20px;
+            }
+            text-align:center;
+        }
+    }
 }
 div.back{
     clear:both;
@@ -177,8 +193,8 @@ div.mainPage{
         padding:50px 10% 50px 5%;
         &:after{
             content:'';
-            padding-top:100%;
-            padding-left:100%;
+            clear:both;
+            float:left;
             margin-bottom:80px;
         }
         @include respond-to('small'){
