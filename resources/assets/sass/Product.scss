@@ -316,7 +316,7 @@ div.page{
                             float:left;
                             width:24%;
                             box-sizing:border-box;
-                            margin:0 0.45%;
+                            margin:0.45%;
                             text-align:center;
                             @include respond-to('too-small'){
                                 width:49%;
