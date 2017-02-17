@@ -484,6 +484,9 @@ div.page{
             position:relative;
             background:#fff;
             overflow:hidden;
+            &.bdbt{
+                border-bottom:1px solid #ddd;
+            }
             &:after{
                 padding-top:100%;
                 display:block;

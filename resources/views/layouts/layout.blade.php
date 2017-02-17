@@ -105,7 +105,7 @@
                 </div>
                 <div>
                     <h2>CONTACT</h2>
-                    <p>Email : <a href="#" class="contact_mail">ivly@platformstory.com</a></p>
+                    <p>Email : <a href="mailto:commoamoa@gmail.com" class="contact_mail">commoamoa@gmail.com</a></p>
                     <p>문의사항은 메일 부탁드립니다.</p>
                 </div>
                 <div class="site-link">

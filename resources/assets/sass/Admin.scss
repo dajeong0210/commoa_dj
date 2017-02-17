@@ -729,6 +729,7 @@ div#app.admin{
                     width:auto;
                     height:75%;
                     overflow:hidden;
+                    border-bottom:1px solid #ddd;
                     @include respond-to('small'){
                         width:100%;
                         height:75%;
