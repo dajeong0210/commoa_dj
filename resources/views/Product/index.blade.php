@@ -12,8 +12,8 @@
                 <form method="GET" class="filter-form">
                     <div class="filter-group purpose">
                         <h3 class="hidden">용도별</h3>
-                        @foreach( $categories as $category )
-                            @if( $category->sort == 1 )
+                        @foreach( $categories as $key=>$category )
+                            @if( $category->sort == 1 && $key<4 )
                                 <label for="{{ 'purpose_' . $category->id }}" class="major_game {{ isset($_GET['purpose'])? in_array( $category->name , $_GET['purpose'])? 'active' : '' : '' }}">
                                     <div class="img-box" style="background:url({{ $category->image }}) center; background-size:cover;"></div>
                                     <p>{{ $category->name }}</p>
