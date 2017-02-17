@@ -344,8 +344,7 @@ class AdminController extends Controller
 		}
 		if( $user->permission == 0 ) {
 			$user->delete();
-		}
-		else if ( $user->permission == 1 ) {
+		} else if ( $user->permission == 1 ) {
 			//shop_user delete 
 			$shop = $user->shop;
 			if( $shop != null ) {
@@ -375,7 +374,13 @@ class AdminController extends Controller
 			//user delete
 			$user->delete();
 		}
-		return redirect('/admin/user');
+
+		if( Auth::user()->permission == 2 ) {
+			return redirect('/admin/user');
+		} else {
+			return redirect('/');
+		}
+		
 	}
 	
 	public function userShow($id) {
