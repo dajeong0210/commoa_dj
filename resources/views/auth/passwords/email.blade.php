@@ -14,17 +14,16 @@
 
                 <form class="forgot-form validate" role="form" method="POST" action="{{ url('/password/email') }}">
                     {{ csrf_field() }}
-
-                    <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                        <label for="email" class="col-md-4 control-label">가입 이메일(ID)</label>
-                        <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-                        @if ($errors->has('email'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('email') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-                    <div class="form-group">
+                    <div class="user-group group">
+                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                            <label for="email" class="col-md-4 control-label">가입 이메일(ID)</label>
+                            <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                            @if ($errors->has('email'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
+                            @endif
+                        </div>
                         <input type="submit" value="임시 비밀번호 전송"/>
                     </div>
                 </form>
