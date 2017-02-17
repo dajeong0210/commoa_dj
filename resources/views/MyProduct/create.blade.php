@@ -163,7 +163,7 @@
                         </ul>
                         <ul class="for_game_check">
                             @foreach( $categories as $category )
-                            @if( $category->sort != '0' ) )
+                            @if( $category->sort != '0' )
                             <li>
                                 <label for="{{ 'category' . $category->id }}">{{ $category->name }}</label>
                                 <input type="checkbox" name="category[]" id="{{ 'category' . $category->id }}" value="{{ $category->id }}" disabled="disabled">

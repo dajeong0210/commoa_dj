@@ -86,8 +86,9 @@ class ApplyController extends Controller
             $store_sale = Storage::put('apply',  $sale_docu, 'public');
             $apply->sale_docu = 'https://s3.ap-northeast-2.amazonaws.com/commoa/' . $store_sale;
             $store_sale = explode("/", $store_sale);
-            $this->thumbnail($business_docu, $store_business[1]);
-            $this->thumbnail($sale_docu, $store_sale[1]);
+            //save thumbnail 
+            // $this->thumbnail($business_docu, $store_business[1]);
+            // $this->thumbnail($sale_docu, $store_sale[1]);
             $apply->save();
             return redirect('/');
         } 
