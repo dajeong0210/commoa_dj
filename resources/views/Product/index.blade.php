@@ -44,10 +44,7 @@
                         </div>
                     </div>
                     <div class="filter-group sortBy hidden">
-                        @if( isset($_GET['cpu_level']) || isset($_GET['vga_level']) || isset($_GET['os']) || isset($_GET['ssd']) || isset($_GET['monitor']) )
-                        @else
-                            <input type="text" id="sortBy" name="product-sort" class="input" value="all"/>
-                        @endif
+                        <input type="text" id="sortBy" name="product-sort" class="input" {{ isset($_GET['product-sort']) ? 'value=' . $_GET['product-sort'] : 'disabled' }} />
                     </div>
                     <div class="filter-group purpose">
                         <input type="submit" class="submit filter-group" value="Go">
@@ -117,9 +114,7 @@
                         <input type="radio" id="monitor_no" name="monitor" class="input hidden" value="0" @if( isset($_GET['monitor'])) @if( $_GET['monitor'] == '0' ) checked="checked" @endif @endif/>
                     </div>
                     <div class="filter-group sortBy hidden">
-                        @if( isset($_GET['cpu_level']) || isset($_GET['vga_level']) || isset($_GET['os']) || isset($_GET['ssd']) || isset($_GET['monitor']) )
-                            <input type="text" id="sortBy" name="product-sort" class="input" value="all"/>
-                        @endif
+                        <input type="text" id="sortBy" name="product-sort" class="input" {{ isset($_GET['product-sort']) ? 'value=' . $_GET['product-sort'] : 'disabled' }} />
                     </div>
                     <div class="filter-group one-layout purpose">
                         <input type="submit" class="submit filter-group" value="Go">

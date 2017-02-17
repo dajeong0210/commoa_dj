@@ -233,7 +233,8 @@
     $('ul.sort-list li').on('click', function(e){
         $(this).parent().find('li').removeClass('active');
         $(this).addClass('active');
-        $('input#sortBy').val( $(this).attr('name') );
+        console.log('눌렸다');
+        $('input#sortBy').val( $(this).attr('name') ).removeAttr('disabled');
         $('input#sortBy').parent().parent().submit();
     });
 

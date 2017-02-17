@@ -797,7 +797,7 @@ div.mainPage > ul > li div.thumbnail a {
 }
 
 div.mainPage > ul > li p {
-  margin: 10px auto;
+  margin: 10px 0;
   line-height: 1.5;
   font-weight: bold;
   text-overflow: ellipsis;
