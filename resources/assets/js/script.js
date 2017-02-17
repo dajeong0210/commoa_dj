@@ -249,16 +249,6 @@
             }
         };
     });
-    
-//radio Uncheck
-    // $('button.uncheck').on('click', function(e){
-    //     e.preventDefault();
-    //     var name = $(this).parent().parent().children('input[type="radio"]').attr('name');
-    //     for( var i=0; i<$('input[name="'+name+'"]').length; i++ ){
-    //         document.getElementsByName(name)[i].disabled = true;
-    //     }
-    //     $(this).parent().parent().children('label').removeClass('active');
-    // });
 
 //Search
     $('input[name=search]').on('keypress', function(e){

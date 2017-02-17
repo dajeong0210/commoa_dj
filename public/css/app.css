@@ -2055,6 +2055,10 @@ div.mypage div.form.login {
   }
 }
 
+div.mypage div.form.myinfo {
+  position: relative;
+}
+
 @media (max-width: 800px) {
   div.mypage div.form {
     width: 95%;
@@ -2474,6 +2478,22 @@ div.mypage div.form div.link-group a i {
 
 div.mypage div.form div.link-group a:hover {
   text-decoration: underline;
+}
+
+div.mypage div.form a.user-delete {
+  position: absolute;
+  bottom: 60px;
+  right: 20px;
+  text-align: right;
+  font-size: 12px;
+  text-decoration: underline;
+  color: #666;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+div.mypage div.form a.user-delete:hover {
+  color: #2bde73;
 }
 
 div.mypage div.image-logo {

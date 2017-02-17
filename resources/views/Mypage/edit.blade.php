@@ -3,7 +3,7 @@
 @section('content')
     <div class="page mypage">
         @include('layouts.myLayout') 
-        <div class="form">
+        <div class="form myinfo">
             <h2>회원정보수정</h2>
             <form class="user_edit validate" method="POST" action="{{ url('/myinfo') . '/' . Auth::user()->id }}">
             {{ method_field('put') }}
@@ -45,6 +45,11 @@
                 </div>
                 <input type="submit" value="수정하기" class="submit"/>
             </div>
+            </form>
+            <a href="#" class="user-delete">회원탈퇴하기</a>
+            <form name="user-del" method="POST" action="{{ url('myinfo') . '/' . Auth::user()->id }}">
+            {{ method_field('delete') }}
+            {{ csrf_field() }}
             </form>
         </div>
     </div>
