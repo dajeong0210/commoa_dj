@@ -1490,12 +1490,18 @@ div.page.list div.detail-box {
 }
 
 div.page.list div.detail-box a.prod-title {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
   color: #222;
   font-size: 15px;
   font-weight: bold;
   letter-spacing: -0.5px;
-  padding: 10px;
+  padding: 0 10px;
   line-height: 30px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 div.page.list div.detail-box a.shop-url {
@@ -1509,7 +1515,7 @@ div.page.list div.detail-box a.shop-url {
 }
 
 div.page.list div.detail-box ul.prod_category {
-  height: 100px;
+  height: 70px;
   line-height: 1.2;
   margin: 0;
   padding: 0 10px;
@@ -1575,10 +1581,14 @@ div.page.list div.detail-box ul.prod_category li a.category_10 {
 
 div.page.list div.detail-box p {
   display: block;
-  width: 2300/24%;
+  width: 100%;
+  box-sizing: border-box;
   margin: 0;
   padding: 0 10px;
   clear: both;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 div.page.list div.detail-box p:not(.prod_category) {

@@ -510,12 +510,18 @@ div.page{
             overflow:hidden;
             white-space:nowrap;
             a.prod-title{
+                display:block;
+                width:100%;
+                box-sizing:border-box;
                 color:#222;
                 font-size:15px;
                 font-weight:bold;
                 letter-spacing:-0.5px;
-                padding:10px;
+                padding:0 10px;
                 line-height:30px;
+                text-overflow:ellipsis;
+                overflow:hidden;
+                white-space:nowrap;
             }
             a.shop-url{
                 display:inline-block;
@@ -527,7 +533,7 @@ div.page{
                 color:#fff;
             }
             ul.prod_category{
-                height:100px;
+                height:70px;
                 line-height:1.2;
                 margin:0;
                 padding:0 10px;
@@ -580,10 +586,14 @@ div.page{
             }            
             p{
                 display:block;
-                width:2300/24%;
+                width:100%;
+                box-sizing:border-box;
                 margin:0;
                 padding:0 10px;
                 clear:both;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
                 &:not(.prod_category){
                     height:40px;
                     line-height:40px;
