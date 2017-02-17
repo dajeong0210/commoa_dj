@@ -23,7 +23,7 @@ class AdminController extends Controller
 {	
 	public function index() {
 		$recommends = Product::where('recommend', '<>', 0)->orderBy('recommend', 'asc')->get();
-		$majorGames = Category::where('sort', '=', 1)->get();
+		$majorGames = Category::where('sort', '=', 1)->limit(4)->get();
 		$products = Product::orderBy('updated_at', 'desc')->limit(5)->get();		
 		$shops = Shop::orderBy('updated_at', 'desc')->limit(5)->get();
 		$applies = Apply::orderBy('updated_at', 'desc')->where('permission', 0)->limit(10)->get();
