@@ -8,8 +8,13 @@
         $(this).next().toggleClass('hidden');
     });
 //confirm
-    $('a.rcm-delete, input.del-submit').click(function(){
-        if(confirm('정말 삭제하시겠습니까?') == true){
+    $('a.rcm-delete, a.user-delete , input.del-submit').click(function(e){
+        e.preventDefault();
+        var confirmMent = '정말 삭제하시겠습니까?';
+        if( $(this).hasClass('user-delete') ){
+            confirmMent = '정말 탈퇴하시겠습니까?\n회원님의 정보는 전부 사라집니다.';
+        }
+        if(confirm(confirmMent) == true){
             $(this).next().submit();
         }else{
             return;
@@ -237,17 +242,18 @@
             $(this).toggleClass('active');
         }else{
             if( $(this).attr('class')=='active' ){
-                //radio버튼풀기
-                //$(this).removeClass('active');
+                var id = $(this).next('input').attr('id');
+                document.getElementById(id).disabled = true;
+                $(this).removeClass('active');
             }
             else{
+                var id = $(this).next('input').attr('id');
+                document.getElementById(id).disabled = false;
                 $(this).parent().find('label').removeClass('active');
                 $(this).addClass('active');
             }
         };
     });
-    
-
 
 //Search
     $('input[name=search]').on('keypress', function(e){

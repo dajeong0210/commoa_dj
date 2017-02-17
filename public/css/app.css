@@ -1236,7 +1236,7 @@ div.page.list div.filter-wrap div.filter-group.purpose label.major_game {
   float: left;
   width: 24%;
   box-sizing: border-box;
-  margin: 0 0.45%;
+  margin: 0.45%;
   text-align: center;
 }
 
@@ -1441,6 +1441,10 @@ div.page.list div.img-box {
   position: relative;
   background: #fff;
   overflow: hidden;
+}
+
+div.page.list div.img-box.bdbt {
+  border-bottom: 1px solid #ddd;
 }
 
 div.page.list div.img-box:after {
@@ -2051,6 +2055,10 @@ div.mypage div.form.login {
   }
 }
 
+div.mypage div.form.myinfo {
+  position: relative;
+}
+
 @media (max-width: 800px) {
   div.mypage div.form {
     width: 95%;
@@ -2470,6 +2478,22 @@ div.mypage div.form div.link-group a i {
 
 div.mypage div.form div.link-group a:hover {
   text-decoration: underline;
+}
+
+div.mypage div.form a.user-delete {
+  position: absolute;
+  bottom: 60px;
+  right: 20px;
+  text-align: right;
+  font-size: 12px;
+  text-decoration: underline;
+  color: #666;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+div.mypage div.form a.user-delete:hover {
+  color: #2bde73;
 }
 
 div.mypage div.image-logo {
@@ -3662,6 +3686,7 @@ div#app.admin div.main-edit div.preview div.recommend-list div.thumbnail {
   width: auto;
   height: 75%;
   overflow: hidden;
+  border-bottom: 1px solid #ddd;
 }
 
 @media (max-width: 800px) {

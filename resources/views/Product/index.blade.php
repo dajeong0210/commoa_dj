@@ -8,7 +8,8 @@
                     <li class="active"><a href="#">FILTER</a></li>
                 </ul>
             </nav>
-            <div class="filter-wrap purpose {{ Request::segment(1)=='game' ? '' : 'hidden' }}">
+            @if( Request::segment(1)=='game' )
+            <div class="filter-wrap purpose">
                 <form method="GET" class="filter-form">
                     <div class="filter-group purpose">
                         <h3 class="hidden">용도별</h3>
@@ -53,6 +54,7 @@
                     </div>
                 </form>
             </div>
+            @else
             <div class="filter-wrap specification {{ Request::segment(1)=='home' || Request::segment(1) == 'office' || Request::segment(1) == 'graphic' ||Request::segment(1)=='product' && !Request::segment(2) ? '' : 'hidden' }} {{ Request::segment(1)=='home' || Request::segment(1)=='office' || Request::segment(1) == 'graphic' ? 'small-layout' : '' }}">
                 <form method="GET" class="filter-form">
                     <div class="filter-group {{ Request::segment(1)=='product' && !Request::segment(2) ? 'quatro-layout' : 'hidden' }}">
@@ -124,6 +126,7 @@
                     </div>
                 </form>
             </div>
+            @endif
         </div>
         <div class="sort-wrap">
             <ul class="sort-list product-sort">
@@ -144,7 +147,7 @@
                     @endif
                 @endif
                 <a href="{{ url('/product') . '/' . $product->id }}">
-                    <div class="img-box prod" style="background:url({{ $product->image }}); background-size:cover;">
+                    <div class="img-box prod bdbt" style="background:url({{ $product->image }}); background-size:cover;">
                     </div>
                 </a> 
                 <div class="detail-box">
