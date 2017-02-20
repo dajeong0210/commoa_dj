@@ -45,6 +45,16 @@ class ProductController extends Controller
                 $products = $products->whereHas('categories', function($products) use ($category) {  
                         $products->where('categories.name', $category);            
                 });
+            }
+
+            if( $product->count() == 0 ) {
+                $or_products = Category::where('name', '게임용')->first()->products();
+                
+                foreach( $filter_categories as $category ) {
+                    $or_products = $or_products->whereHas('categories', function($or_products) use ($category) {  
+                            $or_products->whereIn('categories.name', $category);            
+                    });
+                }
             }   
         } 
         
@@ -109,7 +119,7 @@ class ProductController extends Controller
         } 
 
 
-        return view('Product.index')->with('products', $products)->with('categories', $categories);
+        return view('Product.index')->with('products', $products)->with('categories', $categories)->with('or_products', $or_products);
     }
 
     public function viewCount($product_id, Request $request)

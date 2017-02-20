@@ -80,8 +80,8 @@ class MyProductController extends Controller
             $categories = array($id);
         } else {
             $count = count($categories);
-            if( $count < 1 || $count > 5 ) {
-                session()->flash('msg', "카테고리는 1~5개 범위로 선택해주세요.");
+            if( $count < 1 || $count > 7 ) {
+                session()->flash('msg', "카테고리는 1~7개 범위로 선택해주세요.");
                 return back();
             } else {
                 array_push($categories, $id);
@@ -152,8 +152,8 @@ class MyProductController extends Controller
             $categories = array($id);
         } else {
 
-            if( count($categories) > 5 ) {
-                session()->flash('msg', "카테고리는 1~5개 범위로 선택해주세요.");
+            if( count($categories) > 7 ) {
+                session()->flash('msg', "카테고리는 1~7개 범위로 선택해주세요.");
                 return back();
             } else {
                 array_push($categories, $id);
