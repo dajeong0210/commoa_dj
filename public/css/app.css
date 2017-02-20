@@ -1137,6 +1137,20 @@ div.page.list div.filter-wrap.purpose div.group label {
   border: none;
 }
 
+div.page.list div.filter-wrap.purpose div.group label.uncheck {
+  border: 1px solid #ddd;
+  padding: 2px 4px;
+  color: #333;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+div.page.list div.filter-wrap.purpose div.group label.uncheck:hover {
+  color: #fff;
+  background: #2bde73;
+}
+
 div.page.list div.filter-wrap.small-layout {
   max-width: 400px;
 }
@@ -1515,7 +1529,7 @@ div.page.list div.detail-box a.shop-url {
 }
 
 div.page.list div.detail-box ul.prod_category {
-  height: 70px;
+  height: 100px;
   line-height: 1.2;
   margin: 0;
   padding: 0 10px;
@@ -2619,6 +2633,12 @@ div.page.mypage nav ul li a {
   color: #333;
 }
 
+@media (max-width: 480px) {
+  div.page.mypage nav ul li a {
+    font-size: 12px;
+  }
+}
+
 div.page.mypage nav ul li.active {
   border-bottom: 3px solid #2bde73;
 }
@@ -2685,14 +2705,14 @@ div.page.mypage div.my-wrap > div.fav-list {
   div.page.mypage div.my-wrap > div.fav-list {
     clear: both;
     width: 98%;
-    height: 650px;
+    height: 600px;
     margin: 1%;
   }
 }
 
 @media (max-width: 480px) {
   div.page.mypage div.my-wrap > div.fav-list {
-    height: 1250px;
+    height: 1140px;
   }
 }
 
@@ -2704,7 +2724,7 @@ div.page.mypage div.my-wrap > div.fav-list ul {
 div.page.mypage div.my-wrap > div.fav-list ul li {
   position: relative;
   width: 25%;
-  height: 300px;
+  height: 270px;
   float: left;
   border-right: 1px solid #eee;
   box-sizing: border-box;
@@ -2720,14 +2740,13 @@ div.page.mypage div.my-wrap > div.fav-list ul li {
 @media (max-width: 480px) {
   div.page.mypage div.my-wrap > div.fav-list ul li {
     width: 100%;
+    clear: both;
+    float: initial;
   }
 }
 
-div.page.mypage div.my-wrap > div.fav-list ul li img {
-  left: 50%;
-  height: 100%;
-  width: auto;
-  clear: both;
+div.page.mypage div.my-wrap > div.fav-list ul li div.img-box {
+  height: 200px;
 }
 
 div.page.mypage div.my-wrap > div.fav-list ul li a {
@@ -2749,12 +2768,13 @@ div.page.mypage div.my-wrap > div.fav-list ul li a:hover {
 
 div.page.mypage div.my-wrap > div.fav-list ul li div.detail-box {
   width: 100%;
-  height: 90px;
+  height: 60px;
   position: absolute;
   bottom: 0;
   font-size: 13px;
   line-height: 1.0;
   text-align: center;
+  background: #fff;
 }
 
 div.page.mypage div.my-wrap > div.fav-list ul li div.detail-box p {
@@ -2763,7 +2783,6 @@ div.page.mypage div.my-wrap > div.fav-list ul li div.detail-box p {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-  background: #fff;
 }
 
 div.page.mypage div.my-wrap > div.fav-list ul li div.detail-box p:first-child {
@@ -2778,10 +2797,27 @@ div.page.mypage div.my-wrap > div.book-list {
 }
 
 div.page.mypage div.my-wrap > div.book-list li {
-  width: 185px;
+  width: 25%;
   text-align: center;
   float: left;
   padding: 10px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 800px) {
+  div.page.mypage div.my-wrap > div.book-list li {
+    width: 33.33333333333333333%;
+  }
+}
+
+@media (max-width: 480px) {
+  div.page.mypage div.my-wrap > div.book-list li {
+    width: 250px;
+    clear: both;
+    position: relative;
+    left: 50%;
+    margin-left: -125px;
+  }
 }
 
 div.page.mypage div.my-wrap > div.book-list li div.img-box {

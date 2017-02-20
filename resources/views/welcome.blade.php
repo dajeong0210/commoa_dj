@@ -18,7 +18,7 @@
                             <span>{{ $banner->type }}</span>
                             <h2 style="{{ $banner->align == 1 ? 'text-align:right;' : 'text-align:left;' }}">{!! nl2br( e($banner->title) ) !!}</h2>
                             <p>{!! nl2br( e($banner->content) ) !!}</p>
-                            <a href="{{ $banner->url }}" class="btn" onclick="return false;">바로가기</a>
+                            <a href="{{ $banner->url }}" class="btn">바로가기</a>
                         </div>
                     </li>
                 @endforeach

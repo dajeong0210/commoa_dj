@@ -256,6 +256,12 @@
         };
     });
 
+    $('label.uncheck').on('click',function(){
+        var id = $(this).next('input').attr('id');
+        document.getElementById(id).checked = true;
+        document.getElementById(id).disabled = true;
+    });
+
 //Search
     $('input[name=search]').on('keypress', function(e){
         if( e.keyCode == 13 ){

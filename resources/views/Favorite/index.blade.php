@@ -16,7 +16,7 @@
                 </div>
             </form>
         </div>
-        <ul class="list-group grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 0 }'>
+        <ul class="list-group">
             @foreach( $products as $product )
             <li class="grid-item">
                 @if( Request::get('sort') == 'rankBy' )

@@ -36,6 +36,8 @@
                             <input type="radio" id="os_yes" name="os" class="input" value="1" @if( isset($_GET['os'])) @if( $_GET['os'] == '1' ) checked="checked" @endif @endif/>
                             <label for="os_no">없음</label>
                             <input type="radio" id="os_no" name="os" class="input" value="0" @if( isset($_GET['os'])) @if( $_GET['os'] == '0' ) checked="checked" @endif @endif/>
+                            <label for="os_uncheck" class="uncheck">선택해제</label>
+                            <input type="radio" id="os_uncheck" name="os" class="hidden">
                         </div>
                         <div class="monitor half-layout">
                             <strong>모니터</strong>
@@ -43,6 +45,8 @@
                             <input type="radio" id="monitor_yes" name="monitor" class="input" value="1" @if( isset($_GET['monitor'])) @if( $_GET['monitor'] == '1' ) checked="checked" @endif @endif/>
                             <label for="monitor_no">없음</label>
                             <input type="radio" id="monitor_no" name="monitor" class="input" value="0" @if( isset($_GET['monitor'])) @if( $_GET['monitor'] == '0' ) checked="checked" @endif @endif/>
+                            <label for="monitor_uncheck" class="uncheck">선택해제</label>
+                            <input type="radio" id="monitor_uncheck" name="monitor" class="hidden">
                         </div>
                     </div>
                     <div class="filter-group sortBy hidden">
