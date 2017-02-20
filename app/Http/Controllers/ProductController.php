@@ -52,7 +52,7 @@ class ProductController extends Controller
                 //OR type filter 
                 $or_products = $or_products->whereHas('categories', function($or_products) use ($filter_categories) {  
                         $or_products->whereIn('categories.name', $filter_categories);            
-                })->paginate(8);
+                })->paginate(4);
             }   
         } 
         
