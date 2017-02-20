@@ -40,21 +40,19 @@ class ProductController extends Controller
         }
 
         if( $filter_categories != null ) {
-            // AND type filter
+            //AND type filter
             foreach( $filter_categories as $category ) {
                 $products = $products->whereHas('categories', function($products) use ($category) {  
-                        $products->where('categories.name', $category);            
+                        $products->whereIn('categories.name', $category);            
                 });
             }
-
+                
             if( $product->count() == 0 ) {
                 $or_products = Category::where('name', '게임용')->first()->products();
-                
-                foreach( $filter_categories as $category ) {
-                    $or_products = $or_products->whereHas('categories', function($or_products) use ($category) {  
-                            $or_products->whereIn('categories.name', $category);            
-                    });
-                }
+                //OR type filter 
+                $or_products = $or_products->whereHas('categories', function($or_products) use ($filter_categories) {  
+                        $or_products->whereIn('categories.name', $filter_categories);            
+                });
             }   
         } 
         
