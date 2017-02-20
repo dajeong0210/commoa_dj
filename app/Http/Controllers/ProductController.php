@@ -30,8 +30,8 @@ class ProductController extends Controller
         if ( strpos( URL::current() , 'office') ) {
             $products = Category::where('name', '사무용')->first()->products();
         } else if ( strpos( URL::current() , 'game') ) {
-
             $products = Category::where('name', '게임용')->first()->products();
+            $or_products = $products;
         } else if ( strpos( URL::current() , 'graphic') ) {
             $products = Category::where('name', '디자인용')->first()->products();
         } else if ( strpos( URL::current() , 'home') ) {
@@ -44,16 +44,15 @@ class ProductController extends Controller
             //AND type filter
             foreach( $filter_categories as $category ) {
                 $products = $products->whereHas('categories', function($products) use ($category) {  
-                        $products->whereIn('categories.name', $category);            
+                        $products->where('categories.name', $category);            
                 });
             }
                 
-            if( $product->count() == 0 ) {
-                $or_products = Category::where('name', '게임용')->first()->products();
+            if( $products->count() == 0 ) {
                 //OR type filter 
                 $or_products = $or_products->whereHas('categories', function($or_products) use ($filter_categories) {  
                         $or_products->whereIn('categories.name', $filter_categories);            
-                });
+                })->paginate(8);
             }   
         } 
         
