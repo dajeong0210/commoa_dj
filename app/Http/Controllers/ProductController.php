@@ -30,8 +30,8 @@ class ProductController extends Controller
         if ( strpos( URL::current() , 'office') ) {
             $products = Category::where('name', '사무용')->first()->products();
         } else if ( strpos( URL::current() , 'game') ) {
-
             $products = Category::where('name', '게임용')->first()->products();
+            $or_products = $products;
         } else if ( strpos( URL::current() , 'graphic') ) {
             $products = Category::where('name', '디자인용')->first()->products();
         } else if ( strpos( URL::current() , 'home') ) {
@@ -49,12 +49,15 @@ class ProductController extends Controller
             }
                 
             if( $products->count() == 0 ) {
-                $or_products = Category::where('name', '게임용')->first()->products();
                 //OR type filter 
                 $or_products = $or_products->whereHas('categories', function($or_products) use ($filter_categories) {  
                         $or_products->whereIn('categories.name', $filter_categories);            
-                });
+                })->paginate(8);
             }   
+
+                // $products = $products->whereHas('categories', function($products) use ($filter_categories) {  
+                //         $products->whereIn('categories.name', $filter_categories);            
+                // });
         } 
         
         if( $cpu_level != null || $vga_level != null || $os != null || $monitor != null || $storage != null ) {
