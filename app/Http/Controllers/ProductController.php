@@ -25,6 +25,7 @@ class ProductController extends Controller
         $monitor = $request->input('monitor');
         $storage = $request->input('storage');
         $categories = Category::orderBy('sort', 'desc')->orderBy('name','asc')->get();
+        $or_products = NULL;
 
         if ( strpos( URL::current() , 'office') ) {
             $products = Category::where('name', '사무용')->first()->products();
