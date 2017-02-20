@@ -44,11 +44,11 @@ class ProductController extends Controller
             //AND type filter
             foreach( $filter_categories as $category ) {
                 $products = $products->whereHas('categories', function($products) use ($category) {  
-                        $products->whereIn('categories.name', $category);            
+                        $products->where('categories.name', $category);            
                 });
             }
                 
-            if( $product->count() == 0 ) {
+            if( $products->count() == 0 ) {
                 $or_products = Category::where('name', '게임용')->first()->products();
                 //OR type filter 
                 $or_products = $or_products->whereHas('categories', function($or_products) use ($filter_categories) {  
