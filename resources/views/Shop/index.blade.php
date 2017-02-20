@@ -20,7 +20,6 @@
             <li class="shop">
                 <div class="img-box shop" style="background:url({{ $shop->image }}) center no-repeat; background-size:auto 100%">
                     @if( Auth::guest() )
-                    <div class="bookmark guest">
                     @else
                     <div class="bookmark">
                         <span>
@@ -35,8 +34,8 @@
                             </a>
                         </span>    
                         <span class="hidden">{{ $shop->id }}</span>
-                    @endif
                     </div>
+                    @endif
                 </div>
                 <div class="detail-box" id="shop">
                     <p class="shop-name"> {{ $shop->name }} </p>
