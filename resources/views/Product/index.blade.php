@@ -22,8 +22,10 @@
                                 <input type="checkbox" id="{{ 'purpose_' . $category->id }}" name="purpose[]" class="input purpose hidden" value="{{ $category->name }}" @if( isset($_GET['purpose'])) @if( in_array( $category->name , $_GET['purpose']) ) checked="checked" @endif @endif />
                             @elseif( $category->sort == '0' )
                             @else
+                                @if( $category->products()->count() != 0 )
                                 <label for="{{ 'purpose_' . $category->id }}" class="{{ isset($_GET['purpose'])? in_array( $category->name , $_GET['purpose'])? 'active' : '' : '' }}">{{ $category->name }}</label>
                                 <input type="checkbox" id="{{ 'purpose_' . $category->id }}" name="purpose[]" class="input purpose hidden" value="{{ $category->name }}" @if( isset($_GET['purpose'])) @if( in_array( $category->name , $_GET['purpose']) ) checked="checked" @endif @endif />
+                                @endif
                             @endif
                         @endforeach
                     </div>
@@ -188,7 +190,7 @@
             </div>
             @if( Request::segment(1) == 'game' )
             <div class="non-item-recommend">
-                <h4>이런 상품은 어떠세요?</h4>
+                <h4>이런 상품을 찾으셨나요?</h4>
                 <ul class="list-group grid">
                     @foreach( $or_products as $product )
                     <li class="grid-item">
