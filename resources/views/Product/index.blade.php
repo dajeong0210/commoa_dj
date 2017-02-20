@@ -131,6 +131,7 @@
                 <li name="rankBy" class="rankBy {{ isset($_GET['product-sort'])? $_GET['product-sort'] == 'rankBy'? 'active' : '' : '' }}">인기순</li>
             </ul>
         </div>
+        @if()
         <ul class="list-group grid">
             @foreach( $products as $product )
             <li class="grid-item">
@@ -181,5 +182,7 @@
         <div class="pagination">
             {{ $products->appends(request()->except('page'))->links() }}
         </div>
+        @else
+        @endif
     </div>
 @endsection
