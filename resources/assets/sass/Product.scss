@@ -224,6 +224,17 @@ div.page{
                         border:none;
 
                     }
+                    label.uncheck{
+                        border:1px solid #ddd;
+                        padding:2px 4px;
+                        color:#333;
+                        transition:all 0.2s;
+                        cursor:pointer;
+                        &:hover{
+                            color:#fff;
+                            background:$point-color;
+                        }
+                    }
                 }
             }
             &.small-layout{
@@ -533,7 +544,7 @@ div.page{
                 color:#fff;
             }
             ul.prod_category{
-                height:70px;
+                height:100px;
                 line-height:1.2;
                 margin:0;
                 padding:0 10px;
