@@ -183,56 +183,64 @@
                 {{ $products->appends(request()->except('page'))->links() }}
             </div>
         @else
-            <ul class="list-group grid">
-                @foreach( $or_products as $product )
-                <li class="grid-item">
-                    @if( Request::get('sort') == 'rankBy' )
-                        @if( $product->row == 1 )
-                        <span class="badge medal">1</span>
-                        @else
-                        <span class="badge">{{ $product->row }}</span>
-                        @endif
-                    @endif
-                    <a href="{{ url('/product') . '/' . $product->id }}">
-                        <div class="img-box prod bdbt" style="background:url({{ $product->image }}); background-size:cover;">
-                        </div>
-                    </a> 
-                    <div class="detail-box">
-                        <a class="prod-title" href="{{ url('/product') . '/' . $product->id }}"> {{ $product->name }} </a>
-                        <ul class="prod_category">
-                        @foreach( $product->categories as $category )
-                            @if($category->name != '게임용')
-                                <li>
-                                <a class="category category_{{ $category->id }}" href="{{ url('type') . '/' . str_replace(' ','_',$category->name) }}">{{ $category->name }}</a>
-                                </li>
-                            @endif
-                        @endforeach
-                        </ul>
-                        <p class="prod-shop">{{ $product->shop->name }}</p>
-                        <p class="prod-price">{{ number_format($product->price) }}원
-                            @if( Auth::guest() )
-                            @else
-                            <span>
-                                <a href="#" class="fav" onclick="return false;">
-                                    @if( $product->users()->get()->where('id', Auth::user()->id)->count() == 0 )
-                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                        <i class="fa fa-heart hidden" aria-hidden="true"></i>
-                                    @else
-                                        <i class="fa fa-heart-o hidden" aria-hidden="true"></i>
-                                        <i class="fa fa-heart" aria-hidden="true"></i>
-                                    @endif
-                                </a>
-                            </span>
-                            @endif
-                            <span class="hidden">{{ $product->id }}</span>
-                        </p>
-                    </div>
-                </li>
-                @endforeach
-            </ul>
-            <div class="pagination">
-                {{ $or_products->appends(request()->except('page'))->links() }}
+            <div class="non-item">
+                <strong>조건을 모두 만족하는 상품이 없습니다!</strong>
             </div>
+            @if( Request::segment(1) == 'game' )
+            <div class="non-item-recommend">
+                <h4>이런 상품은 어떠세요?</h4>
+                <ul class="list-group grid">
+                    @foreach( $or_products as $product )
+                    <li class="grid-item">
+                        @if( Request::get('sort') == 'rankBy' )
+                            @if( $product->row == 1 )
+                            <span class="badge medal">1</span>
+                            @else
+                            <span class="badge">{{ $product->row }}</span>
+                            @endif
+                        @endif
+                        <a href="{{ url('/product') . '/' . $product->id }}">
+                            <div class="img-box prod bdbt" style="background:url({{ $product->image }}); background-size:cover;">
+                            </div>
+                        </a> 
+                        <div class="detail-box">
+                            <a class="prod-title" href="{{ url('/product') . '/' . $product->id }}"> {{ $product->name }} </a>
+                            <ul class="prod_category">
+                            @foreach( $product->categories as $category )
+                                @if($category->name != '게임용')
+                                    <li>
+                                    <a class="category category_{{ $category->id }}" href="{{ url('type') . '/' . str_replace(' ','_',$category->name) }}">{{ $category->name }}</a>
+                                    </li>
+                                @endif
+                            @endforeach
+                            </ul>
+                            <p class="prod-shop">{{ $product->shop->name }}</p>
+                            <p class="prod-price">{{ number_format($product->price) }}원
+                                @if( Auth::guest() )
+                                @else
+                                <span>
+                                    <a href="#" class="fav" onclick="return false;">
+                                        @if( $product->users()->get()->where('id', Auth::user()->id)->count() == 0 )
+                                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                            <i class="fa fa-heart hidden" aria-hidden="true"></i>
+                                        @else
+                                            <i class="fa fa-heart-o hidden" aria-hidden="true"></i>
+                                            <i class="fa fa-heart" aria-hidden="true"></i>
+                                        @endif
+                                    </a>
+                                </span>
+                                @endif
+                                <span class="hidden">{{ $product->id }}</span>
+                            </p>
+                        </div>
+                    </li>
+                    @endforeach
+                </ul>
+                <div class="pagination">
+                    {{ $or_products->appends(request()->except('page'))->links() }}
+                </div>
+            </div>
+            @endif
         @endif
     </div>
 @endsection
