@@ -43,7 +43,7 @@
                 </a>         
                 <a class="link" href="{{ url('/password/reset') }}">
                     <i class="fa fa-question" aria-hidden="true"></i>
-                    Forgot Your Password?
+                    비밀번호를 잊으셨나요?
                 </a>
             </div>
         </div>
