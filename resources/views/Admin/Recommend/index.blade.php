@@ -15,7 +15,7 @@
                     <ul class="nav-group">
                         <li>상품</li>
                         <li>쇼핑몰</li>
-                        <li>{{ Auth::user()->name }} ▼ </li>
+                        <li>관리자 ▼ </li>
                     </ul>
                 </nav>
                 <div class="recommend-list">

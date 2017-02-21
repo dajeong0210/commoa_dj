@@ -43,7 +43,7 @@
                     <label for="password-confirm">비밀번호 재입력</label>
                     <input id="password-confirm" type="password" name="password_confirmation" class="input password-confirm" value=""/>
                 </div>
-                <input type="submit" value="수정하기" class="submit"/>
+                <input type="submit" value="수정하기" class="submit modify"/>
             </div>
             </form>
             <a href="#" class="user-delete">회원탈퇴하기</a>
