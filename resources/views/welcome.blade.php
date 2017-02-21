@@ -66,7 +66,7 @@
         <p>test</p>
     </div>
     <div class="mainPage">
-        <ul>
+        <ul class="list-group">
             <li class="one-layouts">
                 <div class="wrap">
                     <h3>New Product</h3>
@@ -93,20 +93,28 @@
                         </ul>
                     </nav>
                 </div>
-            </li>    
-            @if( $recommends )
-                @foreach($recommends as $recommend)
-                <li class="half-layouts">
-                    <a href="{{ url('product').'/'.$recommend->id }}">
-                        <div class="thumbnail" style="background:url({{ $recommend->image }}) center no-repeat; background-size:cover;">
-                        </div>
-                    </a>
-                    <p>{{ $recommend->name }}</p>
-                    <p class="shop-name">{{ $recommend->shop->name }}</p>
-                    <p>{{ number_format($recommend->price) }}원</p>
-                </li>
-                @endforeach   
-            @endif
+            </li>
+            <li class="half-layouts">
+                <div class="page list hot-items recommend">
+                    <ul class="list-group">
+                    @if( $recommends )
+                        @foreach($recommends as $recommend)
+                        <li class="quarter-layouts">
+                            <a href="{{ url('product').'/'.$recommend->id }}">
+                                <div class="thumbnail" style="background:url({{ $recommend->image }}) center no-repeat; background-size:cover;">
+                                </div>
+                            </a>
+                            <div class="detail-box main">
+                                <p class="prod-title">{{ $recommend->name }}</p>
+                                <p class="prod-shop">{{ $recommend->shop->name }}</p>
+                                <p class="prod-price">{{ number_format($recommend->price) }}원</p>
+                            </div>
+                        </li>
+                         @endforeach   
+                    @endif
+                    </ul>
+                </div>
+            </li>
         </ul>
     </div>
 @endsection
