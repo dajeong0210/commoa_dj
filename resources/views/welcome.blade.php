@@ -62,8 +62,14 @@
             @endif
         </ul>
     </div>
-    <div class="back" style="background:url({{$banners[2]->image}}) center no-repeat; background-size:cover; background-attachment:fixed;">
-        <p>test</p>
+    <div class="back">
+        <div class="wrap" style="background:url({{$banners[2]->image}}) center no-repeat; background-size:cover; background-attachment:fixed;">
+            <p>
+            컴모아는<br/>
+            {{ $products_cnt }}개의 상품<br/>
+            {{ $shops_cnt }}개의 샵<br/>
+            </p>
+        </div>
     </div>
     <div class="mainPage">
         <ul class="list-group">

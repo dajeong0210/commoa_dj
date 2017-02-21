@@ -19,12 +19,11 @@ class WelcomeController extends Controller
         $recommends = Product::where('recommend', '<>', 0)->orderBy('recommend', 'asc')->limit(4)->get();
         $new_items = Product::orderBy('created_at', 'desc')->limit(4)->get();
         $products1 = Category::where('id', 1)->first()->products()->orderBy('views', 'desc')->limit(4)->get(); 
-        $products2 = Category::where('id', 2)->first()->products()->orderBy('views', 'desc')->limit(4)->get(); 
-        $products3 = Category::where('id', 3)->first()->products()->orderBy('views', 'desc')->limit(4)->get(); 
-        $shops = Shop::orderBy('id', 'asc')->selectRaw('*, @row:=@row+1 as row')->limit(8)->get();
+        $products_cnt = Product::count();
+        $shops_cnt = Shop::count();
         $banners = Banner::get();
 
-        return view('welcome')->with('new_items', $new_items)->with('products1', $products1)->with('products2', $products2)->with('products3', $products3)->with('shops', $shops)->with('banners', $banners)->with('recommends', $recommends);
+        return view('welcome')->with('new_items', $new_items)->with('products1', $products1)->with('products_cnt', $products_cnt)->with('shops_cnt', $shops_cnt)->with('banners', $banners)->with('recommends', $recommends);
     }
 
     public function privacy() {
