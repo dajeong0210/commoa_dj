@@ -24,7 +24,7 @@ class VgaRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|unique:vgas,name',
+            'name' => 'required|unique:vgas,name',
             'vga_name' => 'required',
             'vga_brand' => 'required',
             'vga_level' => 'required',

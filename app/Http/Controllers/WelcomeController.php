@@ -26,4 +26,12 @@ class WelcomeController extends Controller
 
         return view('welcome')->with('new_items', $new_items)->with('products1', $products1)->with('products2', $products2)->with('products3', $products3)->with('shops', $shops)->with('banners', $banners)->with('recommends', $recommends);
     }
+
+    public function privacy() {
+        return view('privacy');
+    }
+
+    public function service() {
+        return view('service');
+    }
 }
