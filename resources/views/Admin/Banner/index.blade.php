@@ -98,7 +98,7 @@
                 </div>
                 <div class="group">
                     <a href="#" class="preview">미리보기</a>
-                    <input type="submit" class="submit" value="수정">
+                    <input type="submit" class="submit modify" value="수정">
                 </div>
             </form>
         </div>

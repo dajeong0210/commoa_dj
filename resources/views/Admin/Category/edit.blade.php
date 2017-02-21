@@ -131,7 +131,7 @@
                         </div>
                     </div>
                     <div class="group">
-                        <input type="submit" class="btn submit category-edit" value="추가하기"/>
+                        <input type="submit" class="btn submit category-edit modify" value="추가하기"/>
                     </div>
                 </form>
             </div>

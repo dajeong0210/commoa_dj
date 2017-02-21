@@ -81,7 +81,7 @@
                 </div>
                 <div class="form-group">
                     <input type="hidden" name="apply_id" value="{{ $apply->id }}" readonly/>
-                    <input type="submit" value="승인하기" class="submit"/>
+                    <input type="submit" value="승인하기" class="submit modify"/>
                 </div>
             </form>
         </div>

@@ -85,7 +85,7 @@
                 </div>
                 <div class="group">
                     <div class="form-group one-layout button">
-                        <input type="submit" value="수정" class="submit"/>
+                        <input type="submit" value="수정" class="submit modify"/>
                     </div>
                 </div>
             </form>

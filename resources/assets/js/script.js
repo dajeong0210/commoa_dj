@@ -41,6 +41,12 @@
             $(this).prop('checked', false);
         };
     });
+    $('input[type="submit"].modify').click(function(){
+        $type = $(this).val().substr(0,2);
+        if(confirm($type+'하시겠습니까?') == false){
+            return false;
+        }
+    });
 
 //originImg
     $origin = $('div.img-box').attr('style');

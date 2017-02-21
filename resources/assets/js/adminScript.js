@@ -9,6 +9,12 @@
     })
 
 //confirm
+    $('input[type="submit"].modify').click(function(){
+        $type = $(this).val().substr(0,2);
+        if(confirm($type+'하시겠습니까?') == false){
+            return false;
+        }
+    });
     $('a.rcm-delete, input.del-submit').click(function(){
         if(confirm('정말 삭제하시겠습니까?') == true){
             $(this).next().submit();
