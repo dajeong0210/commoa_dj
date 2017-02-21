@@ -175,7 +175,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="등록하기" class="submit"/>
+                    <input type="submit" value="등록하기" class="submit modify"/>
                 </div>
             </form>
         </div>

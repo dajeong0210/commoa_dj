@@ -1,0 +1,77 @@
+div.notice{
+    padding:20px 5%;
+    box-sizing:border-box;
+}
+
+ol{
+    padding:0;
+    margin:0;
+}
+ul#document-service, ul#document-private{
+    li{
+        float:initial;
+        border:none;
+        clear:both;
+        height:initial;
+        margin-left:10px;
+        line-height:1.5;
+        ul li{
+            font-size:12px;
+            list-style:square;
+        }
+    }
+    ol li{
+        list-style:upper-roman;
+        font-size:13px;
+        font-weight:normal;
+        margin-top:5px;
+        ul li{
+            font-size:12px;
+            list-style:square;
+        }
+    }
+    > li{
+        list-style:circle;
+        font-size:16px;
+        font-weight:bold;
+        margin-bottom:20px;
+        p{
+            font-size:13px;
+            font-weight:normal; 
+        }
+    }
+    table{
+        font-weight:normal;
+        font-size:12px;
+        text-align:center;
+        border:1px solid #ddd;
+        margin:10px auto;
+        th{
+            background:#eee;
+        }
+        th, td{
+            width:25%;
+            padding:10px;
+            border:1px solid #ddd;
+            margin:-1px;
+        }
+    }
+}
+
+div.form.service{
+    ul#document-service, ul#document-private{
+        li, p{
+            font-size:15px;
+            margin-left:20px;
+            line-height:1.8;
+            letter-spacing:-1px;
+        }
+        >li{
+            font-size:18px;
+            margin-top:30px;
+        }
+        table{
+            font-size:13px;
+        }
+    }
+}

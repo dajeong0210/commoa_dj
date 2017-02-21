@@ -122,7 +122,9 @@
                             @endif
                         </li>
                             <div class="slide">
-                                <div class="notice notice_01"></div>
+                                <div class="notice notice_01">
+                                    @include('layouts.document.document1')
+                                </div>
                                 <div class="form-group agree">
                                     <label for="agree_01" class="agree">서비스 이용약관에 동의합니다</label>
                                     <input type="checkbox" name="agree_01" class="agree"/>
@@ -135,7 +137,9 @@
                             @endif
                         </li>
                             <div class="slide">     
-                                <div class="notice notice_02"></div>
+                                <div class="notice notice_02">
+                                    @include('layouts.document.document2')
+                                </div>
                                 <div class="form-group agree">
                                     <label for="agree_02" class="agree">개인정보 취급방침에 동의합니다</label>
                                     <input type="checkbox" name="agree_02" class="agree"/> 
@@ -156,7 +160,7 @@
                     </ul>
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="신청하기" class="submit"/>
+                    <input type="submit" value="신청하기" class="submit modify"/>
                 </div>
             </form>
         </div>

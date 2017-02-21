@@ -15,6 +15,51 @@ div.mypage{
             @include respond-to('small') {
                 width:95%;
             }
+            &.half-layout{
+                width:40%;
+                height:662px;
+                box-sizing:border-box;
+                margin:50px 5%;
+                float:left;
+                clear:initial;
+                &:first-child h2{
+                    font-size:25px;
+                    width:320px;
+                    padding-top:5px;
+                }
+                @include respond-to('small') {
+                    width:95%;
+                }
+                h3{
+                    font-size:16px;
+                }
+                a{
+                    color:#333;
+                    &.active{
+                        color:$point-color;
+                    }
+                }
+                input[type="submit"]:disabled{
+                    background:$point-color2;
+                    color:#fff;
+                }
+                div.notice-group div.slide.fadein{
+                    height:350px;
+                    div.notice{
+                        height:320px;
+                    }
+                }
+                div.agree{
+                    height:30px;
+                    line-height:30px;
+                }
+            }
+        }
+        &.service{
+            width:70%;
+            h2{
+                width:250px;
+            }
         }
         width:50%;
         clear:both;

@@ -47,6 +47,21 @@
             return false;
         }
     });
+//Agree in registerForm
+    $('form.agree-form input.agree').on('click',function(){
+        if( $(this).is(':checked') == true ){
+            $('form.register-form').find('[name="'+ $(this).attr('name') +'"]').prop('checked', true);
+        }else{
+            $('form.register-form').find('[name="'+ $(this).attr('name') +'"]').prop('checked', false);
+        }
+        if( $('input.agree').eq(0).is(':checked') == true && $('input.agree').eq(1).is(':checked') == true ){
+            $('form.register-form input[type="submit"]').removeAttr('disabled');
+            $('form.register-form input[type="submit"]').attr('value','가입하기');
+        }else{
+            $('form.register-form input[type="submit"]').attr('disabled', 'disabled');
+            $('form.register-form input[type="submit"]').attr('value','이용약관 및 개인정보 취급방침에 동의해주세요.');
+        }
+    });
 
 //originImg
     $origin = $('div.img-box').attr('style');
