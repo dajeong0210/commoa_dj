@@ -31,13 +31,11 @@
     $point-color2:#FA5858;
 
 /// Loading
-    div.loading{
-        position:fixed;
-        width:100%;
-        height:100%;
-        z-index:49;
-        left:0;
-        top:0;
+    div.alert.alert-success{
+        color:#31B404;
+        margin-bottom:10px;
+        font-size:11.5px;
+        font-weight:bold;
     }
 
 /// Nav Css

@@ -38,13 +38,11 @@ html {
   -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.1);
 }
 
-div.loading {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: 49;
-  left: 0;
-  top: 0;
+div.alert.alert-success {
+  color: #31B404;
+  margin-bottom: 10px;
+  font-size: 11.5px;
+  font-weight: bold;
 }
 
 .hidden {
@@ -542,6 +540,14 @@ div.slider ul.slider > li div.slider-cover a.btn:hover {
   background: #2bde73;
 }
 
+div.page.list.hot-items.recommend {
+  max-width: initial;
+  min-width: initial;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
 div.page.list.hot-items h3 {
   font-size: 20px;
   letter-spacing: 0;
@@ -615,12 +621,12 @@ div.mainPage {
   margin: 0;
 }
 
-div.mainPage > ul {
-  width: 85%;
-  padding: 50px 10% 50px 5%;
+div.mainPage ul.list-group {
+  width: 90%;
+  padding: 50px 5% 50px 5%;
 }
 
-div.mainPage > ul:after {
+div.mainPage ul.list-group.recommend:after {
   content: '';
   clear: both;
   float: left;
@@ -628,192 +634,37 @@ div.mainPage > ul:after {
 }
 
 @media (max-width: 800px) {
-  div.mainPage > ul {
+  div.mainPage ul.list-group {
     background: none;
     padding: 0 5%;
     width: 90%;
   }
 }
 
-div.mainPage > ul > li {
+div.mainPage ul.list-group > li {
   float: left;
   margin: 0;
   background: #fff;
 }
 
-div.mainPage > ul > li.one-layouts {
-  width: 52.94117647058824%;
-  max-height: 650px;
+div.mainPage ul.list-group > li.one-layouts {
+  width: 50%;
+  max-height: 968px;
+  padding: 50px 20px;
+  box-sizing: border-box;
   text-align: center;
   box-sizing: border-box;
   position: relative;
   display: inline-block;
 }
 
-div.mainPage > ul > li.one-layouts:after {
+div.mainPage ul.list-group > li.one-layouts:after {
   padding-top: 100%;
   display: block;
   content: '';
 }
 
-@media (max-width: 800px) {
-  div.mainPage > ul > li.one-layouts {
-    width: 100%;
-    min-height: 650px;
-    max-height: initial;
-  }
-}
-
-@media (max-width: 480px) {
-  div.mainPage > ul > li.one-layouts {
-    height: 600px;
-  }
-}
-
-div.mainPage > ul > li.one-layouts nav.new_product {
-  width: 66px;
-  margin: 0 auto;
-  position: relative;
-  top: 0;
-}
-
-div.mainPage > ul > li.one-layouts nav.new_product li {
-  float: left;
-  font-size: 12px;
-  opacity: 0.5;
-  filter: Alpha(50%);
-  margin: 3px;
-}
-
-div.mainPage > ul > li.one-layouts nav.new_product li a {
-  color: #666;
-}
-
-div.mainPage > ul > li.one-layouts nav.new_product li a.active {
-  color: #2bde73;
-}
-
-div.mainPage > ul > li.one-layouts div.wrap {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-left: -200px;
-  margin-top: -233px;
-}
-
-div.mainPage > ul > li.one-layouts div.wrap:after {
-  content: '';
-  padding-left: 100%;
-  padding-top: 100%;
-}
-
-div.mainPage > ul > li.one-layouts div.slider-wrap {
-  max-width: 400px;
-  width: 100%;
-  margin: 0 auto;
-  overflow: hidden;
-}
-
-div.mainPage > ul > li.one-layouts div.slider-wrap div.slider {
-  width: 400%;
-  overflow: hidden;
-  -webkit-transition: all 1s;
-  transition: all 1s;
-  position: relative;
-  left: 0;
-}
-
-div.mainPage > ul > li.one-layouts div.slider-wrap div.slider div.item {
-  width: 25%;
-  float: left;
-  background: #fff;
-}
-
-div.mainPage > ul > li.one-layouts div.thumbnail {
-  width: 300px;
-  height: 300px;
-  margin: 0 auto;
-}
-
-div.mainPage > ul > li.half-layouts {
-  width: 23.52941176470588%;
-  margin: 0;
-}
-
-@media (max-width: 800px) {
-  div.mainPage > ul > li.half-layouts {
-    width: 50%;
-  }
-}
-
-@media (max-width: 480px) {
-  div.mainPage > ul > li.half-layouts {
-    width: 80%;
-    border: none;
-    clear: both;
-    margin: 10px 10%;
-  }
-}
-
-div.mainPage > ul > li.half-layouts p {
-  width: 80%;
-  padding-left: 20px;
-  font-size: 20px;
-  letter-spacing: -1px;
-  color: #000;
-  text-shadow: 0 0 10px #fff;
-}
-
-div.mainPage > ul > li.half-layouts p:last-child {
-  padding-bottom: 10px;
-}
-
-@media (max-width: 800px) {
-  div.mainPage > ul > li.half-layouts p {
-    padding-left: 10px;
-    font-size: 15px;
-  }
-}
-
-div.mainPage > ul > li.half-layouts div.thumbnail {
-  max-width: 300px;
-  max-height: 300px;
-}
-
-div.mainPage > ul > li h3 {
-  text-align: center;
-  font-size: 30px;
-  font-family: 'Exo 2', sans-serif;
-  letter-spacing: 5px;
-}
-
-div.mainPage > ul > li div.thumbnail {
-  width: 100%;
-  overflow: hidden;
-  display: inline-block;
-  position: relative;
-}
-
-div.mainPage > ul > li div.thumbnail:after {
-  padding-top: 100%;
-  display: block;
-  content: '';
-}
-
-@media (max-width: 800px) {
-  div.mainPage > ul > li div.thumbnail {
-    width: 100%;
-    height: 75%;
-  }
-}
-
-div.mainPage > ul > li div.thumbnail a {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-div.mainPage > ul > li p {
+div.mainPage ul.list-group > li.one-layouts p {
   margin: 10px 0;
   line-height: 1.5;
   font-weight: bold;
@@ -822,16 +673,165 @@ div.mainPage > ul > li p {
   white-space: nowrap;
 }
 
-div.mainPage > ul > li p.shop-name {
+div.mainPage ul.list-group > li.one-layouts p.shop-name {
   line-height: 1.0;
   color: #aaa;
   font-size: 12px;
   font-weight: normal;
 }
 
-div.mainPage > ul > li p:last-child {
+div.mainPage ul.list-group > li.one-layouts p:last-child {
   font-size: 15px;
   color: dodgerblue;
+}
+
+@media (max-width: 800px) {
+  div.mainPage ul.list-group > li.one-layouts {
+    width: 100%;
+    padding: 30px auto;
+    min-height: 650px;
+    max-height: initial;
+  }
+}
+
+@media (max-width: 480px) {
+  div.mainPage ul.list-group > li.one-layouts {
+    height: 600px;
+  }
+}
+
+div.mainPage ul.list-group > li.one-layouts nav.new_product {
+  width: 66px;
+  margin: 0 auto;
+  position: relative;
+  top: 0;
+}
+
+div.mainPage ul.list-group > li.one-layouts nav.new_product li {
+  float: left;
+  font-size: 12px;
+  opacity: 0.5;
+  filter: Alpha(50%);
+  margin: 3px;
+}
+
+div.mainPage ul.list-group > li.one-layouts nav.new_product li a {
+  color: #666;
+}
+
+div.mainPage ul.list-group > li.one-layouts nav.new_product li a.active {
+  color: #2bde73;
+}
+
+div.mainPage ul.list-group > li.one-layouts div.wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -200px;
+  margin-top: -233px;
+}
+
+div.mainPage ul.list-group > li.one-layouts div.wrap:after {
+  content: '';
+  padding-left: 100%;
+  padding-top: 100%;
+}
+
+div.mainPage ul.list-group > li.one-layouts div.slider-wrap {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+div.mainPage ul.list-group > li.one-layouts div.slider-wrap div.slider {
+  width: 400%;
+  overflow: hidden;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  position: relative;
+  left: 0;
+}
+
+div.mainPage ul.list-group > li.one-layouts div.slider-wrap div.slider div.item {
+  width: 25%;
+  float: left;
+  background: #fff;
+}
+
+div.mainPage ul.list-group > li.one-layouts div.thumbnail {
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+}
+
+div.mainPage ul.list-group > li.half-layouts {
+  width: 50%;
+  margin: 0;
+}
+
+@media (max-width: 800px) {
+  div.mainPage ul.list-group > li.half-layouts {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  div.mainPage ul.list-group > li.half-layouts {
+    width: 80%;
+    border: none;
+    clear: both;
+    margin: 10px 10%;
+  }
+}
+
+div.mainPage ul.list-group > li.half-layouts li.quarter-layouts {
+  width: 48%;
+  max-width: 300px;
+}
+
+@media (max-width: 480px) {
+  div.mainPage ul.list-group > li.half-layouts li.quarter-layouts {
+    width: 100%;
+  }
+}
+
+div.mainPage ul.list-group > li.half-layouts div.thumbnail {
+  max-width: 300px;
+  max-height: 300px;
+}
+
+div.mainPage ul.list-group > li h3 {
+  text-align: center;
+  font-size: 30px;
+  font-family: 'Exo 2', sans-serif;
+  letter-spacing: 5px;
+}
+
+div.mainPage ul.list-group > li div.thumbnail {
+  width: 100%;
+  overflow: hidden;
+  display: inline-block;
+  position: relative;
+}
+
+div.mainPage ul.list-group > li div.thumbnail:after {
+  padding-top: 100%;
+  display: block;
+  content: '';
+}
+
+@media (max-width: 800px) {
+  div.mainPage ul.list-group > li div.thumbnail {
+    width: 100%;
+    height: 75%;
+  }
+}
+
+div.mainPage ul.list-group > li div.thumbnail a {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 div.category_main {

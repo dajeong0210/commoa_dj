@@ -128,6 +128,13 @@ div.slider{
     }
 }
 div.page.list.hot-items{
+    &.recommend{
+        max-width:initial;
+        min-width:initial;
+        margin:0;
+        padding:0;
+        width:100%;
+    }
     h3{
         font-size:20px;
         letter-spacing:0;
@@ -188,10 +195,10 @@ div.back{
 div.mainPage{
     clear:both;
     margin:0;
-    > ul{
-        width:85%;
-        padding:50px 10% 50px 5%;
-        &:after{
+    ul.list-group{
+        width:90%;
+        padding:50px 5% 50px 5%;
+        &.recommend:after{
             content:'';
             clear:both;
             float:left;
@@ -207,8 +214,10 @@ div.mainPage{
             margin:0;
             background:#fff;
             &.one-layouts{
-                width:52.94117647058824%;
-                max-height:650px;
+                width:50%;
+                max-height:968px;
+                padding:50px 20px;
+                box-sizing:border-box;
                 text-align:center;
                 box-sizing:border-box;
                 position:relative;
@@ -218,8 +227,27 @@ div.mainPage{
                     display:block;
                     content:'';
                 }
+                p{
+                    margin:10px 0;
+                    line-height:1.5;
+                    font-weight:bold;
+                    text-overflow:ellipsis;
+                    overflow:hidden;
+                    white-space:nowrap;
+                    &.shop-name{
+                        line-height:1.0;
+                        color:#aaa;
+                        font-size:12px;
+                        font-weight:normal;
+                    }
+                    &:last-child{
+                        font-size:15px;
+                        color:dodgerblue;
+                    }
+                }
                 @include respond-to('small'){
                     width:100%;
+                    padding:30px auto;
                     min-height:650px;
                     max-height:initial;
                 }
@@ -282,10 +310,10 @@ div.mainPage{
                 }
             }
             &.half-layouts{
-                width:23.52941176470588%;
+                width:50%;
                 margin:0;
                 @include respond-to('small'){
-                    width:50%;
+                    width:100%;
                 }
                 @include respond-to('too-small'){
                     width:80%;
@@ -293,19 +321,11 @@ div.mainPage{
                     clear:both;
                     margin:10px 10%;
                 }
-                p{
-                    width:80%;
-                    padding-left:20px;
-                    font-size:20px;
-                    letter-spacing:-1px;
-                    color:#000;
-                    text-shadow:0 0 10px #fff;
-                    &:last-child{
-                        padding-bottom:10px;
-                    }
-                    @include respond-to('small'){
-                        padding-left:10px;
-                        font-size:15px;
+                li.quarter-layouts{
+                    width:48%;
+                    max-width:300px;
+                    @include respond-to('too-small'){
+                        width:100%;
                     }
                 }
                 div.thumbnail{
@@ -339,24 +359,7 @@ div.mainPage{
                     height:100%;
                 }
             }
-            p{
-                margin:10px 0;
-                line-height:1.5;
-                font-weight:bold;
-                text-overflow:ellipsis;
-                overflow:hidden;
-                white-space:nowrap;
-                &.shop-name{
-                    line-height:1.0;
-                    color:#aaa;
-                    font-size:12px;
-                    font-weight:normal;
-                }
-                &:last-child{
-                    font-size:15px;
-                    color:dodgerblue;
-                }
-            }
+            
         }
     }
 }
