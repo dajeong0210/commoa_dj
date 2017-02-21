@@ -37,7 +37,7 @@ return [
     'dimensions'           => 'The :attribute has invalid image dimensions.',
     'distinct'             => 'The :attribute field has a duplicate value.',
     'email'                => '유효하지 않은 E-Mail주소입니다.',
-    'exists'               => 'The selected :attribute is invalid.',
+    'exists'               => '선택된 :attribute는 유효하지 않습니다.',
     'file'                 => 'The :attribute must be a file.',
     'filled'               => 'The :attribute field is required.',
     'image'                => '이미지 형식만 업로드 가능합니다!',

@@ -182,7 +182,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="수정하기" class="submit"/>
+                    <input type="submit" value="수정하기" class="submit modify"/>
                 </div>
             </form>
         </div>
