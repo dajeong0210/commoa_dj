@@ -238,8 +238,26 @@
             }
             div{
                 float:left;
-                width:21%;
+                width:25%;
                 padding:2%;
+                box-sizing:border-box;
+                &.one-layout{
+                    width:100%;
+                    padding:0;
+                }
+                &.document{
+                    margin-top:85px;
+                    a{
+                        color:#333;
+                        font-weight:bold;
+                        &:hover{
+                            color:$point-color;
+                        }
+                    }
+                    @include respond-to('small'){
+                        margin-top:0;
+                    }
+                }
                 img{
                     width:90px;
                 }
@@ -252,10 +270,15 @@
                     font-size:12px;
                     line-height:1.0;
                     letter-spacing:-0.7px;
-                    color:#aaa;
+                    color:#999;
+                    &.company{
+                        font-size:13px;
+                        color:#333;
+                        font-weight:bold;
+                    }
                 }
                 a{
-                    color:#aaa;
+                    color:#999;
                     &.contact_mail{
                         color:$point-color;
                     }

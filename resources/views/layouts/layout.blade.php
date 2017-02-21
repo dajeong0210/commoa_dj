@@ -105,26 +105,24 @@
                 </div>
                 <div>
                     <h2>CONTACT</h2>
-                    <p>Email : <a href="mailto:commoamoa@gmail.com" class="contact_mail">commoamoa@gmail.com</a></p>
+                    <p>이메일 : <a href="mailto:commoamoa@gmail.com" class="contact_mail">commoamoa@gmail.com</a></p>
+                    <p>전화 : 070-4070-3728</p>
                     <p>문의사항은 메일 부탁드립니다.</p>
                 </div>
-                <div class="site-link">
-                    <h2>SITE LINK</h2>
-                    <p><a href="#">www</a></p>
-                    <p><a href="#">www</a></p>
-                    <p><a href="#">www</a></p>
-                    <p><a href="#">www</a></p>
-                    <p><a href="#">www</a></p>
+                <div>
+                    <h2>COMPANY</h2>
+                    <p class="company">(주)이비엔테크</p>
+                    <p>대표이사 : 정혜진</p>
+                    <p>사업자 등록번호 : 106-86-88012</p>
+                    <p>주소 : 서울시 성동구 성수이로 89 2층</p>
                 </div>
-                <div class="site-link">
-                    <h2>SITE LINK</h2>
-                    <p><a href="#">www</a></p>
-                    <p><a href="#">www</a></p>
-                    <p><a href="#">www</a></p>
-                    <p><a href="#">www</a></p>
-                    <p><a href="#">www</a></p>
+                <div class="document">
+                    <p><a href="{{ url('service') }}">서비스이용약관</a></p>
+                    <p><a href="{{ url('privacy') }}">개인정보취급방침</a></p>
                 </div>
-                <em class="footer-copy"><a href="{{url('')}}">ⓒCommoa</a> 2017 All rights reserved</em>
+                <div class="one-layout">
+                    <em class="footer-copy"><a href="{{url('')}}">ⓒCommoa</a> 2017 All rights reserved</em>
+                </div>
             </div>
         </div>
     </div>

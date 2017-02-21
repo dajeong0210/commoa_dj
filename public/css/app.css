@@ -293,8 +293,33 @@ div.footer div.wrap-footer {
 
 div.footer div.wrap-footer div {
   float: left;
-  width: 21%;
+  width: 25%;
   padding: 2%;
+  box-sizing: border-box;
+}
+
+div.footer div.wrap-footer div.one-layout {
+  width: 100%;
+  padding: 0;
+}
+
+div.footer div.wrap-footer div.document {
+  margin-top: 85px;
+}
+
+div.footer div.wrap-footer div.document a {
+  color: #333;
+  font-weight: bold;
+}
+
+div.footer div.wrap-footer div.document a:hover {
+  color: #2bde73;
+}
+
+@media (max-width: 800px) {
+  div.footer div.wrap-footer div.document {
+    margin-top: 0;
+  }
 }
 
 div.footer div.wrap-footer div img {
@@ -311,11 +336,17 @@ div.footer div.wrap-footer div p {
   font-size: 12px;
   line-height: 1.0;
   letter-spacing: -0.7px;
-  color: #aaa;
+  color: #999;
+}
+
+div.footer div.wrap-footer div p.company {
+  font-size: 13px;
+  color: #333;
+  font-weight: bold;
 }
 
 div.footer div.wrap-footer div a {
-  color: #aaa;
+  color: #999;
 }
 
 div.footer div.wrap-footer div a.contact_mail {
@@ -419,6 +450,7 @@ ul#document-service > li p, ul#document-private > li p {
 }
 
 ul#document-service table, ul#document-private table {
+  width: 100%;
   font-weight: normal;
   font-size: 12px;
   text-align: center;
