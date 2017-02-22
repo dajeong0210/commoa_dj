@@ -254,13 +254,12 @@
     $('ul.sort-list li').on('click', function(e){
         $(this).parent().find('li').removeClass('active');
         $(this).addClass('active');
-        console.log('눌렸다');
         $('input#sortBy').val( $(this).attr('name') ).removeAttr('disabled');
         $('input#sortBy').parent().parent().submit();
     });
 
     $('div.filter-group label').on('click', function(){
-        if( $(this).next().hasClass('purpose') ){
+        if( $(this).next().hasClass('purpose') || $(this).next().is('input[type="checkbox"]') ){
             $(this).toggleClass('active');
         }else{
             if( $(this).attr('class')=='active' ){
