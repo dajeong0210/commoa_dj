@@ -19,11 +19,11 @@ class ProductController extends Controller
         DB::statement(DB::raw('set @row:=0'));
         $filter_categories = $request->input('purpose');
         $product_sort = $request->input('product-sort');
-        $cpu_level = $request->input('cpu_level');
-        $vga_level = $request->input('vga_level');
+        $cpu_level = $request->input('cpu_level'); // 배열
+        $vga_level = $request->input('vga_level'); // 배열 
         $os = $request->input('os');
         $monitor = $request->input('monitor');
-        $storage = $request->input('storage');
+        $storage = $request->input('storage'); // 배열 
         $categories = Category::orderBy('sort', 'desc')->orderBy('name','asc')->get();
         $or_products = NULL;
 
@@ -58,8 +58,8 @@ class ProductController extends Controller
         
         if( $cpu_level != null || $vga_level != null || $os != null || $monitor != null || $storage != null ) {
 
-            if( $cpu_level != null ) {
-                $cpus = Cpu::where('level', $cpu_level)->get();
+            if( $cpu_level != null ) {               
+                $cpus = Cpu::whereIn('level', $cpu_level)->get();
                 $cpu_id = array();
                 foreach ( $cpus as $cpu ) {
                     array_push($cpu_id, $cpu->id);
@@ -68,7 +68,7 @@ class ProductController extends Controller
             } 
 
             if( $vga_level != null ) {
-                $vgas = Vga::where('level', $vga_level)->get();
+                $vgas = Vga::whereIn('level', $vga_level)->get();
                 $vga_id = array();
                 foreach ( $vgas as $vga ) {
                     array_push($vga_id, $vga->id);
@@ -85,13 +85,26 @@ class ProductController extends Controller
             }
 
             if( $storage != null ) {
-                if( $storage == 'hdd' ) {
-                    $products = $products->whereNotNull('hdd')->whereNull('ssd');
-                } else if( $storage == 'ssd' ) {
-                    $products = $products->whereNotNull('ssd')->whereNull('hdd');
+                if( count($storage) == 3 ) {
+                    $products = $products->where(function ($products){
+                        $products = $products->whereNotNull('hdd')->whereNull('ssd');
+                    })->orWhere(function ($products){
+                        $products = $products->whereNotNull('ssd')->whereNull('hdd');
+                    })->orWhere(function ($products){
+                        $products = $products->whereNotNull('hdd')->whereNotNull('ssd');
+                    });
+                } else if( count($storage) == 2 ) {
+
                 } else {
-                    $products = $products->whereNotNull('hdd')->whereNotNull('ssd');
+                    if( $storage == 'hdd' ) {
+                        $products = $products->whereNotNull('hdd')->whereNull('ssd');
+                    } else if( $storage == 'ssd' ) {
+                        $products = $products->whereNotNull('ssd')->whereNull('hdd');
+                    } else {
+                        $products = $products->whereNotNull('hdd')->whereNotNull('ssd');
+                    }
                 }
+                
             }
             
             if( $monitor != null ) {
