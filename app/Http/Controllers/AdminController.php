@@ -41,6 +41,7 @@ class AdminController extends Controller
 	public function categoryCreate(CategoryRequest $request) {
 		$category = new Category; 
 		$category->name = $request->input('category_name');
+		$category->color = $request->input('category_color');
 		$image = $request->file('category_image');
 		$sort = $request->input('category_sort');
 
@@ -62,6 +63,7 @@ class AdminController extends Controller
 	public function categoryUpdate(CategoryRequest $request, $id) {
 		$category = Category::find($id);
 		$category->name = $request->input('category_name');
+		$category->color = $request->input('category_color');
 		$sort = $request->input('category_sort');
 		$image = $request->file('category_image');
 		

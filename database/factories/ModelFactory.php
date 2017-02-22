@@ -63,6 +63,7 @@ $factory->define(App\Category::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'image' => $faker->imageUrl($width = 300, $height = 300),
+        'color' => null, 
         'sort' => 0, 
     ];
 });
