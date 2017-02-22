@@ -65,13 +65,13 @@
                 </ul>
             </div>
             <div class="cpu-vga category form">
-                <form method="POST" name="cpuForm" action="{{ url('cpu') }}" class="{{ $errors->has('vga_name') || $errors->has('vga_brand') || $errors->has('vga_level') ? 'hidden' : '' }}">
+                <form method="POST" name="cpuForm" action="{{ url('cpu') }}" class="{{ $errors->has('vga_name') || $errors->has('vga_brand') || $errors->has('vga_level') ? 'hidden' : '' }} validate">
                 {{ csrf_field() }}
                     <h3>CPU :: 추가하기 </h3>
                     <div class="group">
                         <div class="form-group one-layout form-group{{ $errors->has('cpu_name') ? ' has-error' : '' }}">
                             <label for="cpu_name">이름</label>
-                            <input type="text" name="cpu_name" value=""/>
+                            <input type="text" name="cpu_name" value="" required/>
                             @if($errors->has('cpu_name'))
                             <label class="error">
                                 <strong>{{ $errors->first('cpu_name') }}</strong>
@@ -82,7 +82,7 @@
                     <div class="group">
                         <div class="form-group one-layout form-group{{ $errors->has('cpu_brand') ? ' has-error' : '' }}">
                             <label for="cpu_brand">브랜드</label>
-                            <input type="text" name="cpu_brand" value=""/>
+                            <input type="text" name="cpu_brand" value="" required/>
                             @if($errors->has('cpu_brand'))
                             <label class="error">
                                 <strong>{{ $errors->first('cpu_brand') }}</strong>
@@ -93,7 +93,7 @@
                     <div class="group">
                         <div class="form-group one-layout form-group{{ $errors->has('cpu_core') ? ' has-error' : '' }}">
                             <label for="cpu_core">코어</label>
-                            <input type="text" name="cpu_core" value=""/>
+                            <input type="text" name="cpu_core" value="" required/>
                             @if($errors->has('cpu_core'))
                             <label class="error">
                                 <strong>{{ $errors->first('cpu_core') }}</strong>
@@ -104,7 +104,7 @@
                     <div class="group">
                         <div class="form-group one-layout form-group{{ $errors->has('cpu_level') ? ' has-error' : '' }}">
                             <label for="cpu_level">사양</label>
-                            <select name="cpu_level">
+                            <select name="cpu_level" required>
                                 <option selected disabled>선택해주세요</option>
                                 <option value="3">상</option>
                                 <option value="2">중</option>
@@ -121,13 +121,13 @@
                         <input type="submit" class="btn submit cpu-edit modify" value="추가하기"/>
                     </div>
                 </form>
-                <form method="POST" name="vgaForm" class="{{ $errors->has('vga_name') || $errors->has('vga_brand') || $errors->has('vga_level') ? '' : 'hidden' }}">
+                <form method="POST" name="vgaForm" class="{{ $errors->has('vga_name') || $errors->has('vga_brand') || $errors->has('vga_level') ? '' : 'hidden' }} validate">
                 {{ csrf_field() }}
                     <h3>VGA</h3>
                     <div class="group">
                         <div class="form-group one-layout">
                             <label for="vga_name">이름</label>
-                            <input type="text" name="vga_name" value=""/>
+                            <input type="text" name="vga_name" value="" required/>
                             @if ($errors->has('vga_name'))
                                 <label class="error">
                                     <strong>{{ $errors->first('vga_name') }}</strong>
@@ -138,7 +138,7 @@
                     <div class="group">
                         <div class="form-group one-layout">
                             <label for="vga_brand">브랜드</label>
-                            <input type="text" name="vga_brand" value=""/>
+                            <input type="text" name="vga_brand" value="" required/>
                             @if ($errors->has('vga_brand'))
                                 <label class="error">
                                     <strong>{{ $errors->first('vga_brand') }}</strong>
@@ -149,7 +149,7 @@
                     <div class="group">
                         <div class="form-group one-layout">
                             <label for="vga_level">사양</label>
-                            <select name="vga_level">
+                            <select name="vga_level" required>
                                 <option selected disabled>선택해주세요</option>
                                 <option value="3">상</option>
                                 <option value="2">중</option>

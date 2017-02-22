@@ -90,13 +90,13 @@
                 </li>
             </div>
             <div class="cpu-vga category form">
-                <form method="POST" name="categoryForm" action="{{ url('category') }}" enctype="multipart/form-data">
+                <form method="POST" class="validate" name="categoryForm" action="{{ url('category') }}" enctype="multipart/form-data">
                 {{ csrf_field() }}
                     <h3>카테고리 :: 추가하기 </h3>
                     <div class="group">
                         <div class="form-group one-layout form-group{{ $errors->has('category_name') ? ' has-error' : '' }}">
                             <label for="category_name">이름</label>
-                            <input type="text" id="category_name" name="category_name" value=""/>
+                            <input type="text" id="category_name" name="category_name" value="{{ old('category_name') }}" required/>
                             @if($errors->has('category_name'))
                             <label class="error">
                                 <strong>{{ $errors->first('category_name') }}</strong>

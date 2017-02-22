@@ -30,6 +30,7 @@
         }
     });
 //Validation
+    $("form.validate").validate();
     $('ul.for_game_check input').on('click',function(){
         if( $('ul.for_game_check input[type="checkbox"]:checked').length > 7 ){
             alert('세부 카테고리는 7개까지만 선택이 가능합니다!');
@@ -112,6 +113,7 @@
             success:function(data){
                 var dataArr = JSON.parse(data);
                 if( $type == 'cpu' ){
+                    $('label.error').remove();
                     $('form[name="cpuForm"]').prepend('<input type="hidden" name="_method" value="put">');
                     $('form[name="cpuForm"] h3').html('CPU :: '+dataArr.name);
                     $('input[name="cpu_name"]').val(dataArr.name);
@@ -121,6 +123,7 @@
                     $('form[name="cpuForm"]').removeClass('hidden').attr('action' , $url+'/cpu-edit/'+$targetId).find('input[type="submit"]').val('수정하기');
                     $('form[name="vgaForm"]').addClass('hidden');
                 }else if( $type == 'vga' ){
+                    $('label.error').remove();
                     $('form[name="vgaForm"]').prepend('<input type="hidden" name="_method" value="put">');
                     $('form[name="vgaForm"] h3').html('VGA :: '+dataArr.name);
                     $('input[name="vga_name"]').val(dataArr.name);
@@ -129,6 +132,7 @@
                     $('form[name="vgaForm"]').removeClass('hidden').attr('action' , $url+'/vga-edit/'+$targetId);
                     $('form[name="cpuForm"]').addClass('hidden');
                 }else{
+                    $('label.error').remove();
                     $('form[name="categoryForm"]').prepend('<input type="hidden" name="_method" value="put">');
                     $('form[name="categoryForm"] h3').html('카테고리 :: '+dataArr.name);
                     $('input[name="category_name"]').val(dataArr.name);
