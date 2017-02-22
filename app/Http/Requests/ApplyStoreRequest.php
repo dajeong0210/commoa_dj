@@ -26,7 +26,6 @@ class ApplyStoreRequest extends FormRequest
             'sale_docu' => 'required',
             'contact_name' => 'required',
             'contact_email' => 'required|email',
-            'contact_mobile' => 'required',
             'contact_phone' => 'required',
             'agree_01' => 'accepted',
             'agree_02' => 'accepted',

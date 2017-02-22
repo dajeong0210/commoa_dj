@@ -19,11 +19,11 @@ class ProductController extends Controller
         DB::statement(DB::raw('set @row:=0'));
         $filter_categories = $request->input('purpose');
         $product_sort = $request->input('product-sort');
-        $cpu_level = $request->input('cpu_level'); // 배열
-        $vga_level = $request->input('vga_level'); // 배열 
+        $cpu_level = $request->input('cpu_level'); 
+        $vga_level = $request->input('vga_level'); 
         $os = $request->input('os');
         $monitor = $request->input('monitor');
-        $storage = $request->input('storage'); // 배열 
+        $storage = $request->input('storage'); 
         $categories = Category::orderBy('sort', 'desc')->orderBy('name','asc')->get();
         $or_products = NULL;
 

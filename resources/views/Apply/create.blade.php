@@ -101,16 +101,16 @@
                         <label class="error">{{ $errors->first('contact_email') }}</label>
                         @endif
                     </div>
-                    <div class="form-group half-layout form-group{{ $errors->has('contact_mobile') ? ' has-error' : '' }}">
+                    <div class="form-group half-layout">
                         <label for="contact_mobile">핸드폰</label>
                         <input type="phone" name="contact_mobile" class="input contact_mobile required" placeholder="'-'를 제외한 숫자만 입력해주세요." value="{{ old('contact_mobile') }}"/>
-                        @if( $errors->has('contact_mobile') )
-                        <label class="error">{{ $errors->first('contact_mobile') }}</label>
-                        @endif
                     </div>
-                    <div class="form-group half-layout">
+                    <div class="form-group half-layout form-group{{ $errors->has('contact_phone') ? ' has-error' : '' }}">
                         <label for="contact_phone">전화</label>
                         <input type="phone" name="contact_phone" class="input contact_phone" placeholder="'-'를 제외한 숫자만 입력해주세요." value="{{ old('contact_phone') }}"/>
+                        @if( $errors->has('contact_phone') )
+                        <label class="error">{{ $errors->first('contact_phone') }}</label>
+                        @endif
                     </div>
                 </div>
                 <div class="notice-group group form-group{{ $errors->has('agree_01') || $errors->has('agree_02') ? ' has-error' : '' }}">
