@@ -18,7 +18,7 @@ class WelcomeController extends Controller
 
         $recommends = Product::where('recommend', '<>', 0)->orderBy('recommend', 'asc')->limit(4)->get();
         $new_items = Product::orderBy('created_at', 'desc')->limit(4)->get();
-        $products1 = Category::where('id', 1)->first()->products()->orderBy('views', 'desc')->limit(4)->get(); 
+        $products1 = Product::orderBy('views', 'desc')->limit(4)->get(); 
         $products_cnt = Product::count();
         $shops_cnt = Shop::count();
         $banners = Banner::get();
