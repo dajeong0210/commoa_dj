@@ -62,12 +62,12 @@
                 <form method="GET" class="filter-form">
                     <div class="filter-group {{ Request::segment(1)=='product' && !Request::segment(2) ? 'quatro-layout' : 'hidden' }}">
                         <h3>CPU</h3>
-                        <label for="cpu_level_high" @if( isset($_GET['cpu_level'])) @if( $_GET['cpu_level'] == '3' ) class="active" @endif @endif>상</label>
-                        <input type="radio" id="cpu_level_high" name="cpu_level" class="input specification hidden" value="3" @if( isset($_GET['cpu_level'])) @if( $_GET['cpu_level'] == '3' ) checked="checked" @endif @endif/>
-                        <label for="cpu_level_mid" @if( isset($_GET['cpu_level'])) @if( $_GET['cpu_level'] == '2' ) class="active" @endif @endif>중</label>
-                        <input type="radio" id="cpu_level_mid" name="cpu_level" class="input specification hidden" value="2" @if( isset($_GET['cpu_level'])) @if( $_GET['cpu_level'] == '2' ) checked="checked" @endif @endif/>
-                        <label for="cpu_level_low" @if( isset($_GET['cpu_level'])) @if( $_GET['cpu_level'] == '1' ) class="active" @endif @endif>하</label>
-                        <input type="radio" id="cpu_level_low" name="cpu_level" class="input specification hidden" value="1" @if( isset($_GET['cpu_level'])) @if( $_GET['cpu_level']== '1' ) checked="checked" @endif @endif/>
+                        <label for="cpu_level_high" @if( isset($_GET['cpu_level'])) @if( in_array('3' , $_GET['cpu_level']) ) class="active" @endif @endif>상</label>
+                        <input type="checkbox" id="cpu_level_high" name="cpu_level[]" class="input specification hidden" value="3" @if( isset($_GET['cpu_level'])) @if( in_array('3' , $_GET['cpu_level']) ) checked="checked" @endif @endif/>
+                        <label for="cpu_level_mid" @if( isset($_GET['cpu_level'])) @if( in_array('2' , $_GET['cpu_level']) ) class="active" @endif @endif>중</label>
+                        <input type="checkbox" id="cpu_level_mid" name="cpu_level[]" class="input specification hidden" value="2" @if( isset($_GET['cpu_level'])) @if( in_array('2' , $_GET['cpu_level']) ) checked="checked" @endif @endif/>
+                        <label for="cpu_level_low" @if( isset($_GET['cpu_level'])) @if( in_array('1' , $_GET['cpu_level']) ) class="active" @endif @endif>하</label>
+                        <input type="checkbox" id="cpu_level_low" name="cpu_level[]" class="input specification hidden" value="1" @if( isset($_GET['cpu_level'])) @if( in_array('1' , $_GET['cpu_level']) ) checked="checked" @endif @endif/>
                         <div class="info_group">
                             <a href="#" class="cpu_info"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
                         </div>
@@ -80,12 +80,12 @@
                     </div>
                     <div class="filter-group {{ Request::segment(1)=='product' && !Request::segment(2) ? 'quatro-layout' : 'hidden' }}">
                         <h3>VGA</h3>
-                        <label for="vga_level_high" @if( isset($_GET['vga_level'])) @if( $_GET['vga_level'] == '3' ) class="active" @endif @endif>상</label>
-                        <input type="radio" id="vga_level_high" name="vga_level" class="input specification hidden" value="3" @if( isset($_GET['vga_level'])) @if( $_GET['vga_level'] == '3' ) checked="checked" @endif @endif/>
-                        <label for="vga_level_mid" @if( isset($_GET['vga_level'])) @if( $_GET['vga_level'] == '2' ) class="active" @endif @endif>중</label>
-                        <input type="radio" id="vga_level_mid" name="vga_level" class="input specification hidden" value="2" @if( isset($_GET['vga_level'])) @if( $_GET['vga_level'] == '2' ) checked="checked" @endif @endif/>
-                        <label for="vga_level_low" @if( isset($_GET['vga_level'])) @if( $_GET['vga_level'] == '1' ) class="active" @endif @endif>하</label>
-                        <input type="radio" id="vga_level_low" name="vga_level" class="input specification hidden" value="1" @if( isset($_GET['vga_level'])) @if( $_GET['vga_level'] == '1' ) checked="checked" @endif @endif/>
+                        <label for="vga_level_high" @if( isset($_GET['vga_level'])) @if( in_array('3' , $_GET['vga_level']) ) class="active" @endif @endif>상</label>
+                        <input type="checkbox" id="vga_level_high" name="vga_level[]" class="input specification hidden" value="3" @if( isset($_GET['vga_level'])) @if( in_array('3' , $_GET['vga_level']) ) checked="checked" @endif @endif/>
+                        <label for="vga_level_mid" @if( isset($_GET['vga_level'])) @if( in_array('2' , $_GET['vga_level']) ) class="active" @endif @endif>중</label>
+                        <input type="checkbox" id="vga_level_mid" name="vga_level[]" class="input specification hidden" value="2" @if( isset($_GET['vga_level'])) @if( in_array('2' , $_GET['vga_level']) ) checked="checked" @endif @endif/>
+                        <label for="vga_level_low" @if( isset($_GET['vga_level'])) @if( in_array('1' , $_GET['vga_level']) ) class="active" @endif @endif>하</label>
+                        <input type="checkbox" id="vga_level_low" name="vga_level[]" class="input specification hidden" value="1" @if( isset($_GET['vga_level'])) @if( in_array('1' , $_GET['vga_level']) ) checked="checked" @endif @endif/>
                         <div class="info_group">
                             <a href="#" class="vga_info"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
                         </div>
@@ -98,12 +98,12 @@
                     </div>
                     <div class="filter-group {{ Request::segment(1)=='product' && !Request::segment(2) ? 'quatro-layout' : 'hidden' }}">
                         <h3>저장장치</h3>
-                        <label for="hdd" @if( isset($_GET['storage'])) @if( $_GET['storage'] == 'hdd' ) class="active" @endif @endif>HDD</label>
-                        <input type="radio" id="hdd" name="storage" class="input hidden" value="hdd" @if( isset($_GET['storage'])) @if( $_GET['storage'] == 'hdd' ) checked="checked" @endif @endif/>
-                        <label for="ssd" @if( isset($_GET['storage'])) @if( $_GET['storage'] == 'ssd' ) class="active" @endif @endif>SSD</label>
-                        <input type="radio" id="ssd" name="storage" class="input hidden" value="ssd" @if( isset($_GET['storage'])) @if( $_GET['storage'] == 'ssd' ) checked="checked" @endif @endif/>
-                        <label for="hdd+ssd" @if( isset($_GET['storage'])) @if( $_GET['storage'] == 'hdd+ssd' ) class="active" @endif @endif>HDD+SSD</label>
-                        <input type="radio" id="hdd+ssd" name="storage" class="input hidden" value="hdd+ssd" @if( isset($_GET['storage'])) @if( $_GET['storage'] == 'hdd+ssd' ) checked="checked" @endif @endif/>
+                        <label for="hdd" @if( isset($_GET['storage'])) @if( in_array('hdd' , $_GET['storage']) ) class="active" @endif @endif>HDD</label>
+                        <input type="checkbox" id="hdd" name="storage[]" class="input hidden" value="hdd" @if( isset($_GET['storage'])) @if( in_array('hdd' , $_GET['storage']) ) checked="checked" @endif @endif/>
+                        <label for="ssd" @if( isset($_GET['storage'])) @if( in_array('ssd' , $_GET['storage']) ) class="active" @endif @endif>SSD</label>
+                        <input type="checkbox" id="ssd" name="storage[]" class="input hidden" value="ssd" @if( isset($_GET['storage'])) @if( in_array('ssd' , $_GET['storage']) ) checked="checked" @endif @endif/>
+                        <label for="hdd+ssd" @if( isset($_GET['storage'])) @if( in_array('hdd+ssd' , $_GET['storage'])) class="active" @endif @endif>HDD+SSD</label>
+                        <input type="checkbox" id="hdd+ssd" name="storage[]" class="input hidden" value="hdd+ssd" @if( isset($_GET['storage'])) @if( in_array('hdd+ssd' , $_GET['storage']) ) checked="checked" @endif @endif/>
                     </div>
                     <div class="filter-group os {{ Request::segment(1)=='product' && !Request::segment(2) ? 'quatro-layout' : 'half-layout' }}">
                         <h3>OS</h3>
