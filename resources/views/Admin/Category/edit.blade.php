@@ -130,6 +130,17 @@
                             @endif
                         </div>
                     </div>
+                    <div class="group color">
+                        <div class="form-group one-layout form-group{{ $errors->has('category_color') ? ' has-error' : '' }}">
+                            <label for="category_color">색상코드</label>
+                            <input type="text" name="category_color" id="category_color" placeholder="6자리 색상코드를 입력해주세요. (ex.#000000)"/>
+                            @if($errors->has('category_color'))
+                            <label class="error">
+                                <strong>{{ $errors->first('category_color') }}</strong>
+                            </label>
+                            @endif
+                        </div>
+                    </div>
                     <div class="group">
                         <input type="submit" class="btn submit category-edit modify" value="추가하기"/>
                     </div>

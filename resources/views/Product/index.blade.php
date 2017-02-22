@@ -158,7 +158,7 @@
                         @foreach( $product->categories as $category )
                             @if($category->name != '게임용')
                                 <li>
-                                <a class="category category_{{ $category->id }}" href="{{ url('type') . '/' . str_replace(' ','_',$category->name) }}">{{ $category->name }}</a>
+                                <a class="category" style="background:{{ $category->color }}" href="{{ url('type') . '/' . str_replace(' ','_',$category->name) }}">{{ $category->name }}</a>
                                 </li>
                             @endif
                         @endforeach
@@ -215,7 +215,7 @@
                             @foreach( $product->categories as $category )
                                 @if($category->name != '게임용')
                                     <li>
-                                    <a class="category category_{{ $category->id }}" href="{{ url('type') . '/' . str_replace(' ','_',$category->name) }}">{{ $category->name }}</a>
+                                    <a class="category" style="background:{{ $category->color }}" href="{{ url('type') . '/' . str_replace(' ','_',$category->name) }}">{{ $category->name }}</a>
                                     </li>
                                 @endif
                             @endforeach

@@ -136,6 +136,7 @@
                     $('form[name="categoryForm"]').prepend('<input type="hidden" name="_method" value="put">');
                     $('form[name="categoryForm"] h3').html('카테고리 :: '+dataArr.name);
                     $('input[name="category_name"]').val(dataArr.name);
+                    $('input[name="category_color"]').val(dataArr.color);
                     if( dataArr.sort == 1 ){
                         $('input[name="category_sort"]').removeAttr('disabled').attr('checked', 'checked');
                         $('div.img-box').attr('style', 'background:url('+dataArr.image+') center; background-size:cover;').parent().removeClass('hidden');
