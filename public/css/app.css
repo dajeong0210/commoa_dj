@@ -424,7 +424,7 @@ div.notice {
 }
 
 p.notice {
-  font-size: 15px;
+  font-size: 13px;
   font-weight: bold;
   color: #FA5858;
 }
@@ -434,45 +434,52 @@ ol {
   margin: 0;
 }
 
-ul#document-service li, ul#document-private li, ol#document-service li {
+ul#document-service.no-list-style > li, ul#document-private.no-list-style > li {
+  list-style: none;
+  padding-left: -20px;
+}
+
+ul#document-service li, ul#document-private li {
   float: initial;
   border: none;
   clear: both;
   height: initial;
   margin-left: 10px;
+  padding: 2px 0;
   line-height: 1.5;
 }
 
-ul#document-service li ul li, ul#document-private li ul li, ol#document-service li ul li {
+ul#document-service li ul li, ul#document-private li ul li {
   font-size: 12px;
   list-style: square;
+  font-weight: normal;
 }
 
-ul#document-service ol li, ul#document-private ol li, ol#document-service ol li {
+ul#document-service ol li, ul#document-private ol li {
   list-style: upper-roman;
   font-size: 13px;
   font-weight: normal;
   margin-top: 5px;
 }
 
-ul#document-service ol li ul li, ul#document-private ol li ul li, ol#document-service ol li ul li {
+ul#document-service ol li ul li, ul#document-private ol li ul li {
   font-size: 12px;
   list-style: square;
 }
 
-ul#document-service > li, ul#document-private > li, ol#document-service > li {
+ul#document-service > li, ul#document-private > li {
   list-style: circle;
   font-size: 16px;
   font-weight: bold;
   margin-bottom: 20px;
 }
 
-ul#document-service > li p, ul#document-private > li p, ol#document-service > li p {
+ul#document-service > li p, ul#document-private > li p {
   font-size: 13px;
   font-weight: normal;
 }
 
-ul#document-service table, ul#document-private table, ol#document-service table {
+ul#document-service table, ul#document-private table {
   width: 100%;
   font-weight: normal;
   font-size: 12px;
@@ -481,11 +488,11 @@ ul#document-service table, ul#document-private table, ol#document-service table 
   margin: 10px auto;
 }
 
-ul#document-service table th, ul#document-private table th, ol#document-service table th {
+ul#document-service table th, ul#document-private table th {
   background: #eee;
 }
 
-ul#document-service table th, ul#document-service table td, ul#document-private table th, ul#document-private table td, ol#document-service table th, ol#document-service table td {
+ul#document-service table th, ul#document-service table td, ul#document-private table th, ul#document-private table td {
   width: 25%;
   padding: 10px;
   border: 1px solid #ddd;

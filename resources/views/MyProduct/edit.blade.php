@@ -63,7 +63,7 @@
                         <select name="vga_id" required>
                             @foreach( $vgas as $vga )
                                 @if( $product->vga_id == $vga->id )
-                                    <option value="{{ $vga->id }}">{{ $vga->name }}</option>
+                                    <option value="{{ $vga->id }}" selected>{{ $vga->name }}</option>
                                 @else
                                     <option value="{{ $vga->id }}">{{ $vga->name }}</option>
                                 @endif
