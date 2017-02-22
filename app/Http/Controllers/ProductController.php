@@ -121,9 +121,9 @@ class ProductController extends Controller
                     }
 
                 } else {
-                    if( $storage == 'hdd' ) {
+                    if( in_array('hdd', $storage) ) {
                         $products = $products->whereNotNull('hdd')->whereNull('ssd');
-                    } else if( $storage == 'ssd' ) {
+                    } else if( in_array('ssd', $storage) ) {
                         $products = $products->whereNotNull('ssd')->whereNull('hdd');
                     } else {
                         $products = $products->whereNotNull('hdd')->whereNotNull('ssd');
