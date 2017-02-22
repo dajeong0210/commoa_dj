@@ -116,21 +116,6 @@
                 <div class="notice-group group form-group{{ $errors->has('agree_01') || $errors->has('agree_02') ? ' has-error' : '' }}">
                     <ul>
                         <li>
-                            <h3>서비스 이용약관<a href="#" onclick="return false;">∨</a></h3>
-                            @if( $errors->has('agree_01') )
-                            <label class="error">약관에 동의하셔야 합니다!</label>
-                            @endif
-                        </li>
-                            <div class="slide">
-                                <div class="notice notice_01">
-                                    @include('layouts.document.document1')
-                                </div>
-                                <div class="form-group agree">
-                                    <label for="agree_01" class="agree">서비스 이용약관에 동의합니다</label>
-                                    <input type="checkbox" name="agree_01" class="agree"/>
-                                </div>
-                            </div>
-                        <li>
                             <h3>개인정보취급방침<a href="#" onclick="return false;">∨</a></h3>
                             @if( $errors->has('agree_02') )
                             <label class="error">약관에 동의하셔야 합니다!</label>
@@ -138,7 +123,7 @@
                         </li>
                             <div class="slide">     
                                 <div class="notice notice_02">
-                                    @include('layouts.document.document2')
+                                    @include('layouts.document.document3')
                                 </div>
                                 <div class="form-group agree">
                                     <label for="agree_02" class="agree">개인정보 취급방침에 동의합니다</label>

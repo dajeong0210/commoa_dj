@@ -74,9 +74,9 @@
                     </div>
                     <div class="cpu_info popup hidden">
                         <strong>CPU 사양 기준</strong>
-                        <p>상 : elnangagnawgkawgawgawgwangkangkanwnawkngkwanknngn</p>
-                        <p>중 : elnangagnawgkawgawgawgwangkangkanwnawkngkwanknngn</p>
-                        <p>하 : elnangagnawgkawgawgawgwangkangkanwnawkngkwanknngn</p>
+                        <p>상 : 인텔 코어 i5, 인텔 코어 i7</p>
+                        <p>중 : 인텔 팬티엄, 인텔 코어 i3</p>
+                        <p>하 : 인텔 셀러론</p>
                     </div>
                     <div class="filter-group {{ Request::segment(1)=='product' && !Request::segment(2) ? 'quatro-layout' : 'hidden' }}">
                         <h3>VGA</h3>
@@ -92,9 +92,9 @@
                     </div>
                     <div class="vga_info popup hidden">
                         <strong>VGA 사양 기준</strong>
-                        <p>상 : elnangagnawgkawgawgawgwangkangkanwnawkngkwanknngn</p>
-                        <p>중 : elnangagnawgkawgawgawgwangkangkanwnawkngkwanknngn</p>
-                        <p>하 : elnangagnawgkawgawgawgwangkangkanwnawkngkwanknngn</p>
+                        <p>상 : <u>[GeForce]</u> GTX 770, GTX 780, GTX 780 Ti, GTX 970, GTX 980, GTX 980 Ti, GTX 1060, GTX 1070, GTX 1080<br/><u>[Radeon™]</u> RX470, RX480</p>
+                        <p>중 :  <u>[GeForce]</u> GTX 750, GTX 750 Ti, GTX 760, GTX 950, GTX 960, GTX 1050, GTX 1050 Ti<br/><u>[Radeon™]</u> RX460</p>
+                        <p>하 : GeForce GT 740, 내장그래픽</p>
                     </div>
                     <div class="filter-group {{ Request::segment(1)=='product' && !Request::segment(2) ? 'quatro-layout' : 'hidden' }}">
                         <h3>저장장치</h3>

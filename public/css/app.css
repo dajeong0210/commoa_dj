@@ -45,7 +45,7 @@ div.alert.alert-success {
   font-weight: bold;
 }
 
-a.btn {
+a.error.btn {
   letter-spacing: -2px;
   font-weight: bold;
   background: #333;
@@ -58,7 +58,7 @@ a.btn {
   transition: all 0.5s;
 }
 
-a.btn:hover {
+a.error.btn:hover {
   color: #2bde73;
 }
 
@@ -423,12 +423,18 @@ div.notice {
   box-sizing: border-box;
 }
 
+p.notice {
+  font-size: 15px;
+  font-weight: bold;
+  color: #FA5858;
+}
+
 ol {
   padding: 0;
   margin: 0;
 }
 
-ul#document-service li, ul#document-private li {
+ul#document-service li, ul#document-private li, ol#document-service li {
   float: initial;
   border: none;
   clear: both;
@@ -437,36 +443,36 @@ ul#document-service li, ul#document-private li {
   line-height: 1.5;
 }
 
-ul#document-service li ul li, ul#document-private li ul li {
+ul#document-service li ul li, ul#document-private li ul li, ol#document-service li ul li {
   font-size: 12px;
   list-style: square;
 }
 
-ul#document-service ol li, ul#document-private ol li {
+ul#document-service ol li, ul#document-private ol li, ol#document-service ol li {
   list-style: upper-roman;
   font-size: 13px;
   font-weight: normal;
   margin-top: 5px;
 }
 
-ul#document-service ol li ul li, ul#document-private ol li ul li {
+ul#document-service ol li ul li, ul#document-private ol li ul li, ol#document-service ol li ul li {
   font-size: 12px;
   list-style: square;
 }
 
-ul#document-service > li, ul#document-private > li {
+ul#document-service > li, ul#document-private > li, ol#document-service > li {
   list-style: circle;
   font-size: 16px;
   font-weight: bold;
   margin-bottom: 20px;
 }
 
-ul#document-service > li p, ul#document-private > li p {
+ul#document-service > li p, ul#document-private > li p, ol#document-service > li p {
   font-size: 13px;
   font-weight: normal;
 }
 
-ul#document-service table, ul#document-private table {
+ul#document-service table, ul#document-private table, ol#document-service table {
   width: 100%;
   font-weight: normal;
   font-size: 12px;
@@ -475,11 +481,11 @@ ul#document-service table, ul#document-private table {
   margin: 10px auto;
 }
 
-ul#document-service table th, ul#document-private table th {
+ul#document-service table th, ul#document-private table th, ol#document-service table th {
   background: #eee;
 }
 
-ul#document-service table th, ul#document-service table td, ul#document-private table th, ul#document-private table td {
+ul#document-service table th, ul#document-service table td, ul#document-private table th, ul#document-private table td, ol#document-service table th, ol#document-service table td {
   width: 25%;
   padding: 10px;
   border: 1px solid #ddd;
@@ -661,7 +667,8 @@ div.slider ul.slider > li div.slider-cover a.btn {
   color: #fff;
   font-weight: bold;
   font-size: 12px;
-  padding: 8px 15px;
+  padding: 8px 12px;
+  letter-spacing: -1px;
   border: 1px solid #2bde73;
   border-radius: 5px;
   -webkit-transition: all 0.5s;
@@ -1232,6 +1239,9 @@ div.page.list div.filter-wrap.specification div.popup:after {
 div.page.list div.filter-wrap.specification div.popup p {
   width: 100%;
   word-break: break-all;
+  padding-left: 23px;
+  text-indent: -23px;
+  box-sizing: border-box;
 }
 
 div.page.list div.filter-wrap.purpose {
@@ -2367,6 +2377,7 @@ div.mypage div.form label:not(.agree):not(.error) {
 
 div.mypage div.form label.agree {
   width: 90%;
+  line-height: 30px;
 }
 
 div.mypage div.form label.error, div.mypage div.form span.help-block strong {
