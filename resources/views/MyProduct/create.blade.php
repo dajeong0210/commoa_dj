@@ -46,7 +46,7 @@
                         <h4>CPU</h4>
                         <label for="cpu_id" class="hidden">CPU</label>
                         <select name="cpu_id" required>
-                            <option>선택</option>
+                            <option selected disabled>선택해주세요</option>
                             @foreach( $cpus as $cpu )
                                 <option value="{{ $cpu->id }}">{{ $cpu->name }}</option>
                             @endforeach
@@ -59,7 +59,7 @@
                         <h4>VGA</h4>
                         <label for="vga_id" class="hidden">VGA</label>
                         <select name="vga_id" required>
-                            <option>선택</option>
+                            <option selected disabled>선택해주세요</option>
                             @foreach( $vgas as $vga )
                                 <option value="{{ $vga->id }}">{{ $vga->name }}</option>
                             @endforeach
