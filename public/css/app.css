@@ -45,6 +45,23 @@ div.alert.alert-success {
   font-weight: bold;
 }
 
+a.btn {
+  letter-spacing: -2px;
+  font-weight: bold;
+  background: #333;
+  font-size: 13px;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 0 5px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+a.btn:hover {
+  color: #2bde73;
+}
+
 .hidden {
   display: none;
 }

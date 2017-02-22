@@ -37,7 +37,21 @@
         font-size:11.5px;
         font-weight:bold;
     }
-
+/// Error Page
+    a.btn{
+        letter-spacing:-2px;
+        font-weight:bold;
+        background:#333;
+        font-size:13px;
+        color:#fff;
+        padding:5px 10px;
+        border-radius:5px;
+        margin:0 5px;
+        transition:all 0.5s;
+        &:hover{
+            color:$point-color;
+        }
+    }
 /// Nav Css
     .hidden{
         display:none;
