@@ -23,7 +23,9 @@ class WelcomeController extends Controller
         $shops_cnt = Shop::count();
         $banners = Banner::get();
 
-        return view('welcome')->with('new_items', $new_items)->with('products1', $products1)->with('products_cnt', $products_cnt)->with('shops_cnt', $shops_cnt)->with('banners', $banners)->with('recommends', $recommends);
+        return view('welcome')->with('new_items', $new_items)->with('products1', $products1)
+                ->with('products_cnt', $products_cnt)->with('shops_cnt', $shops_cnt)
+                ->with('banners', $banners)->with('recommends', $recommends);
     }
 
     public function privacy() {
