@@ -112,7 +112,7 @@
                         <label for="contact_phone">전화</label>
                         <input type="phone" name="contact_phone" class="input contact_phone" placeholder="'-'를 제외한 숫자만 입력해주세요." value="{{ $apply->contact_phone }}"/>
                         @if( $errors->has('contact_phone') )
-                        <label class="error">{{ $errors->first('contact_phone) }}</label>
+                        <label class="error">{{ $errors->first('contact_phone') }}</label>
                         @endif
                     </div>
                 </div>

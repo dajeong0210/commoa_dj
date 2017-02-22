@@ -20,7 +20,7 @@ class ShopUpdateRequest extends FormRequest
             'url' => 'required',
             'contact_name' => 'required',
             'contact_email' => 'required|email',
-            'contact_mobile' => 'required',
+            'contact_phone' => 'required',
             'contact_address' => 'required',
             'image' => 'image',
         ];
