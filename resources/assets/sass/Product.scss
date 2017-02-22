@@ -193,6 +193,9 @@ div.page{
                     p{
                         width:100%;
                         word-break:break-all;
+                        padding-left:23px;
+                        text-indent:-23px;
+                        box-sizing:border-box;
                     }
                 }
             }

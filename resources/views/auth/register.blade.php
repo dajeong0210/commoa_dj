@@ -20,7 +20,7 @@
                             </div>
                             <div class="form-group agree">
                                 <label for="agree_01" class="agree">서비스 이용약관에 동의합니다</label>
-                                <input type="checkbox" name="agree_01" class="agree"/>
+                                <input type="checkbox" id="agree_01" name="agree_01" class="agree"/>
                             </div>
                         </div>
                     <li>
@@ -35,7 +35,7 @@
                             </div>
                             <div class="form-group agree">
                                 <label for="agree_02" class="agree">개인정보 취급방침에 동의합니다</label>
-                                <input type="checkbox" name="agree_02" class="agree"/> 
+                                <input type="checkbox" id="agree_02" name="agree_02" class="agree"/> 
                             </div>
                         </div>
                 </ul>

@@ -116,18 +116,15 @@
                 <div class="notice-group group form-group{{ $errors->has('agree_01') || $errors->has('agree_02') ? ' has-error' : '' }}">
                     <ul>
                         <li>
-                            <h3>서비스 이용약관<a href="#" onclick="return false;">∨</a></h3>
-                            @if( $errors->has('agree_01') )
-                            <label class="error">약관에 동의하셔야 합니다!</label>
-                            @endif
+                            <h3>컴모아 입점 약관<a href="#" onclick="return false;">∨</a></h3>
                         </li>
-                            <div class="slide">
+                            <div class="slide fadein">
                                 <div class="notice notice_01">
-                                    @include('layouts.document.document1')
+                                    @include('layouts.document.document4')
                                 </div>
                                 <div class="form-group agree">
-                                    <label for="agree_01" class="agree">서비스 이용약관에 동의합니다</label>
-                                    <input type="checkbox" name="agree_01" class="agree"/>
+                                    <label for="agree_01" class="agree">컴모아 입점 약관에 동의합니다</label>
+                                    <input type="checkbox" id="agree_01" name="agree_01" class="agree"/> 
                                 </div>
                             </div>
                         <li>
@@ -138,24 +135,12 @@
                         </li>
                             <div class="slide">     
                                 <div class="notice notice_02">
-                                    @include('layouts.document.document2')
+                                    @include('layouts.document.document3')
                                 </div>
                                 <div class="form-group agree">
                                     <label for="agree_02" class="agree">개인정보 취급방침에 동의합니다</label>
-                                    <input type="checkbox" name="agree_02" class="agree"/> 
+                                    <input type="checkbox" id="agree_02" name="agree_02" class="agree"/> 
                                 </div>
-                            </div>
-                        <li>
-                            <h3>컴모아 입점 정책<a href="#" onclick="return false;">∨</a></h3>
-                        </li>
-                            <div class="slide">
-                                <div class="notice policy"></div>
-                            </div>
-                        <li>
-                            <h3>컴모아 입점 심사 기준<a href="#" onclick="return false;">∨</a></h3>
-                        </li>
-                            <div class="slide">
-                                <div class="notice policy"></div>
                             </div>
                     </ul>
                 </div>

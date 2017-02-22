@@ -45,7 +45,7 @@ div.alert.alert-success {
   font-weight: bold;
 }
 
-a.btn {
+a.error.btn {
   letter-spacing: -2px;
   font-weight: bold;
   background: #333;
@@ -58,7 +58,7 @@ a.btn {
   transition: all 0.5s;
 }
 
-a.btn:hover {
+a.error.btn:hover {
   color: #2bde73;
 }
 
@@ -423,9 +423,20 @@ div.notice {
   box-sizing: border-box;
 }
 
+p.notice {
+  font-size: 13px;
+  font-weight: bold;
+  color: #FA5858;
+}
+
 ol {
   padding: 0;
   margin: 0;
+}
+
+ul#document-service.no-list-style > li, ul#document-private.no-list-style > li {
+  list-style: none;
+  padding-left: -20px;
 }
 
 ul#document-service li, ul#document-private li {
@@ -434,12 +445,14 @@ ul#document-service li, ul#document-private li {
   clear: both;
   height: initial;
   margin-left: 10px;
+  padding: 2px 0;
   line-height: 1.5;
 }
 
 ul#document-service li ul li, ul#document-private li ul li {
   font-size: 12px;
   list-style: square;
+  font-weight: normal;
 }
 
 ul#document-service ol li, ul#document-private ol li {
@@ -661,7 +674,8 @@ div.slider ul.slider > li div.slider-cover a.btn {
   color: #fff;
   font-weight: bold;
   font-size: 12px;
-  padding: 8px 15px;
+  padding: 8px 12px;
+  letter-spacing: -1px;
   border: 1px solid #2bde73;
   border-radius: 5px;
   -webkit-transition: all 0.5s;
@@ -1232,6 +1246,9 @@ div.page.list div.filter-wrap.specification div.popup:after {
 div.page.list div.filter-wrap.specification div.popup p {
   width: 100%;
   word-break: break-all;
+  padding-left: 23px;
+  text-indent: -23px;
+  box-sizing: border-box;
 }
 
 div.page.list div.filter-wrap.purpose {
@@ -2367,6 +2384,7 @@ div.mypage div.form label:not(.agree):not(.error) {
 
 div.mypage div.form label.agree {
   width: 90%;
+  line-height: 30px;
 }
 
 div.mypage div.form label.error, div.mypage div.form span.help-block strong {
