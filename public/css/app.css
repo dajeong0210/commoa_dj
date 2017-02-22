@@ -2646,6 +2646,7 @@ div.mypage div.form div.group div.form-group:not(.agree) div.image-logo img {
 div.mypage div.form div.group.notice-group {
   clear: both;
   margin: 20px 0;
+  padding-top: 30px;
 }
 
 div.mypage div.form div.group.notice-group li {
