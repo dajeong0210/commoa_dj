@@ -85,7 +85,9 @@ class ProductController extends Controller
             }
 
             if( $storage != null ) {
+
                 if( count($storage) == 3 ) {
+
                     $products = $products->where(function ($products){
                         $products = $products->whereNotNull('hdd')->whereNull('ssd');
                     })->orWhere(function ($products){
@@ -93,7 +95,30 @@ class ProductController extends Controller
                     })->orWhere(function ($products){
                         $products = $products->whereNotNull('hdd')->whereNotNull('ssd');
                     });
+
                 } else if( count($storage) == 2 ) {
+
+                    if( in_array('hdd', $storage) ) {
+                        if( in_array('ssd', $storage) ) {
+                            $products = $products->where(function ($products){
+                                $products = $products->whereNotNull('hdd')->whereNull('ssd');
+                            })->orWhere(function ($products){
+                                $products = $products->whereNotNull('ssd')->whereNull('hdd');
+                            });
+                        } else {
+                            $products = $products->where(function ($products){
+                                $products = $products->whereNotNull('hdd')->whereNull('ssd');
+                            })->orWhere(function ($products){
+                                $products = $products->whereNotNull('hdd')->whereNotNull('ssd');
+                            }); 
+                        }
+                    } else {
+                        $products = $products->where(function ($products){
+                            $products = $products->whereNotNull('ssd')->whereNull('hdd');
+                        })->orWhere(function ($products){
+                            $products = $products->whereNotNull('hdd')->whereNotNull('ssd');
+                        }); 
+                    }
 
                 } else {
                     if( $storage == 'hdd' ) {
