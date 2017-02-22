@@ -99,7 +99,8 @@ class AdminController extends Controller
 		$category = Category::find($id);
 		$array = array( 'name' => $category->name, 
 						'image' => $category->image,
-						'sort' => $category->sort );
+						'sort' => $category->sort,
+						'color' => $category->color );
 		
 		echo json_encode($array);
 	}
