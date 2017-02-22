@@ -7,6 +7,7 @@ use App\Http\Requests\CpuRequest;
 use App\Http\Requests\VgaRequest;
 use App\Http\Requests\VgaCreateRequest;
 use App\Http\Requests\CpuCreateRequest;
+use App\Http\Requests\CategoryRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Category;
@@ -37,7 +38,7 @@ class AdminController extends Controller
 		return view('Admin.Category.edit')->with('categories', $categories);
 	}
 	
-	public function categoryCreate(Request $request) {
+	public function categoryCreate(CategoryRequest $request) {
 		$category = new Category; 
 		$category->name = $request->input('category_name');
 		$image = $request->file('category_image');
@@ -58,7 +59,7 @@ class AdminController extends Controller
 		return redirect('/admin/category');
 	}
 
-	public function categoryUpdate(Request $request, $id) {
+	public function categoryUpdate(CategoryRequest $request, $id) {
 		$category = Category::find($id);
 		$category->name = $request->input('category_name');
 		$sort = $request->input('category_sort');
