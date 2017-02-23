@@ -36,7 +36,9 @@ class AdminController extends Controller
 //Category
 	public function category() {	
 		$categories = Category::orderBy('name', 'asc')->get();		
-		return view('Admin.Category.edit')->with('categories', $categories);
+		$cpus = Cpu::get();
+		$vgas = Vga::get();
+		return view('Admin.Category.edit')->with('categories', $categories)->with('cpus', $cpus)->with('vgas', $vgas);
 	}
 	
 	public function categoryCreate(CategoryRequest $request) {
@@ -410,13 +412,6 @@ class AdminController extends Controller
 			$banner->save();
 		}
 		return redirect('/admin/banner');
-	}
-
-	public function specIndex() {
-		$categories = Category::where('sort', '<>', 0)->get();
-		$cpus = Cpu::get();
-		$Vgas = Vga::get();
-		return view('Admin.Spec.index')->with('categories', $categories)->with('cpus', $cpus)->with('vgas', $vgas);
 	}
 
 }
