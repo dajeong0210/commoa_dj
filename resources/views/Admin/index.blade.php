@@ -25,7 +25,11 @@
                 </li>
             @endforeach
             @if( $majorGames->count() !=4 )
-                <li class="warning"><p class="warning"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>상품페이지에서 추천게임은 4개까지만 나타납니다. 추천게임을 4개로 조정해주세요.</p></li>
+                <li class="warning">
+                    <p class="warning"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>상품페이지에서 카테고리의 이미지는 4개까지만 나타납니다. 이미지 표시된 카테고리를 4개로 조정해주세요. 
+                    <a href="{{ url('admin/category') }}">[자세히보기]</a>
+                    </p>
+                </li>
             @endif
             </ul>
         </div>

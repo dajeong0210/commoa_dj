@@ -205,8 +205,8 @@ nav.nav-bar ul.nav-group > li a {
     display: block;
     height: 100%;
     width: 100%;
-    height: 70px;
-    line-height: 70px;
+    height: 50px;
+    line-height: 50px;
     background: #333;
   }
   nav.nav-bar ul.nav-group > li a:hover {
@@ -286,6 +286,55 @@ nav.nav-bar ul.nav-group > li div.sub_menu li a {
     box-sizing: border-box;
     border-top: 1px solid #282828;
   }
+}
+
+nav.tabmenu {
+  width: 70px;
+  border: 1px solid #ccc;
+  background: #fff;
+  overflow: hidden;
+  position: fixed;
+  top: 35%;
+  right: 20px;
+  z-index: 300;
+}
+
+nav.tabmenu ul > li {
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: -1px;
+  font-weight: bold;
+  padding: 3px 0;
+  color: #444;
+}
+
+nav.tabmenu ul > li a {
+  color: #444;
+}
+
+nav.tabmenu ul > li ul {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  width: 70px;
+  margin: 0 auto;
+}
+
+nav.tabmenu ul > li ul li {
+  width: 45px;
+  height: 45px;
+  margin: 10px auto;
+  padding: 0;
+  border: 1px solid #ddd;
+}
+
+nav.tabmenu ul > li ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+nav.tabmenu ul > li ul li a:hover {
+  background: rgba(0, 0, 0, 0.2);
 }
 
 div.footer {
@@ -3612,8 +3661,20 @@ div#app.admin div.category.cpu-vga input:not([type="submit"]) {
 div#app.admin div.category.cpu-vga select {
   clear: both;
   padding: 10px 7px;
-  width: 60%;
+  width: 100%;
   border: 1px solid #ccc;
+}
+
+div#app.admin div.category.cpu-vga select option {
+  padding: 5px;
+}
+
+div#app.admin div.category.cpu-vga select.small {
+  width: 60%;
+}
+
+div#app.admin div.category.cpu-vga span {
+  top: 47px;
 }
 
 div#app.admin div.category.cpu-vga p.warning {
@@ -3693,7 +3754,7 @@ div#app.admin div.adminIndex li.warning {
   color: red;
   height: 30px;
   font-weight: bold;
-  padding: 0 5% 0 0;
+  padding: 5px 5% 5px 0;
   line-height: 25px;
   font-size: 12px;
 }
@@ -3701,7 +3762,7 @@ div#app.admin div.adminIndex li.warning {
 @media (max-width: 800px) {
   div#app.admin div.adminIndex li.warning {
     height: initial;
-    line-height: 1.0;
+    line-height: 1.5;
     padding-bottom: 5px;
   }
 }
@@ -3709,7 +3770,6 @@ div#app.admin div.adminIndex li.warning {
 div#app.admin div.adminIndex li.warning i {
   margin-right: 5px;
   font-size: 18px;
-  line-height: 30px;
   position: relative;
   top: 2px;
 }
