@@ -29,7 +29,8 @@ class AdminController extends Controller
 		$shops = Shop::orderBy('updated_at', 'desc')->limit(5)->get();
 		$applies = Apply::orderBy('updated_at', 'desc')->where('permission', 0)->limit(10)->get();
 		
-		return view('Admin.index')->with('products', $products)->with('shops', $shops)->with('applies', $applies)->with('recommends', $recommends)->with('majorGames', $majorGames);
+		return view('Admin.index')->with('products', $products)->with('shops', $shops)
+			->with('applies', $applies)->with('recommends', $recommends)->with('majorGames', $majorGames);
 	}
 	
 //Category
@@ -409,6 +410,13 @@ class AdminController extends Controller
 			$banner->save();
 		}
 		return redirect('/admin/banner');
+	}
+
+	public function specIndex() {
+		$categories = Category::where('sort', '<>', 0)->get();
+		$cpus = Cpu::get();
+		$Vgas = Vga::get();
+		return view('Admin.Spec.index')->with('categories', $categories)->with('cpus', $cpus)->with('vgas', $vgas);
 	}
 
 }

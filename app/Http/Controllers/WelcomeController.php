@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Product;
 use App\Shop;
 use App\Category;
@@ -23,6 +24,12 @@ class WelcomeController extends Controller
         $shops_cnt = Shop::count();
         $banners = Banner::get();
 
+        if( !Auth::guest() ) {
+            $favorites = Auth::user()->products()->orderBy('pivot_product_user.created_at', 'desc')->limit(3)->get();
+        } else {
+            $favorites = null;
+        }
+
         return view('welcome')->with('new_items', $new_items)->with('products1', $products1)
                 ->with('products_cnt', $products_cnt)->with('shops_cnt', $shops_cnt)
                 ->with('banners', $banners)->with('recommends', $recommends);
@@ -34,5 +41,9 @@ class WelcomeController extends Controller
 
     public function service() {
         return view('service');
+    }
+
+    public function spec_game() {
+        return view('spec');
     }
 }
