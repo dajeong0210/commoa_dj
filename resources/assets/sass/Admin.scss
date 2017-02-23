@@ -498,6 +498,9 @@ div#app.admin{
     }
     div.form{
         width:100%;
+        @include respond-to('small'){
+            width:90%;
+        }
     }
     div.user-list{
         clear:both;

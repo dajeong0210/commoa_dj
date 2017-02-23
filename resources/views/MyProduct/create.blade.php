@@ -136,10 +136,21 @@
                         <label class="error">{{ $errors->first('overclock') }}</label>
                         @endif
                     </div>
-                    <div class="form-group triple-layout">
+                    <div class="form-group monitor triple-layout form-group{{ $errors->has('monitor') ? ' has-error' : '' }}">
                         <h4>모니터</h4>
-                        <input type="text" name="monitor" class="input digits" value="{{ old('monitor') }}"/>
-                        <span>inch</span>
+                        <ul>
+                            <li>
+                                <label for="no-monitor">없음</label>
+                                <input type="checkbox" id="no-monitor" class="input"/>
+                            </li>
+                            <li>
+                                <input type="text" name="monitor" class="input digits required" value="{{ old('monitor') }}" placeholder="크기"/>
+                                <span>inch</span>
+                            </li>
+                        </ul>
+                        @if( $errors->has('monitor') )
+                        <label class="error">{{ $errors->first('monitor') }}</label>
+                        @endif
                     </div>
                     <div class="form-group one-layout">
                         <h4>카테고리</h4>

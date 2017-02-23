@@ -195,7 +195,9 @@ div.mypage{
                     ul{
                         width:100%;
                         &.purpose{
-                            height:50px;
+                            li{
+                                height:40px;
+                            }
                         }
                         &.for_game_check{
                             clear:both;
@@ -272,12 +274,48 @@ div.mypage{
                 }
                 &.triple-layout{
                     float:left;
-                    width:28.3333333333333333333333333333%;
+                    width:25%;
                     margin:10px 2.5%;
+                    @include respond-to('too-small'){
+                        width:45%;
+                    }
+                    &.monitor{
+                        width:35%;
+                        li{
+                            &:first-child{
+                                width:35%;
+                                margin-right:5%;
+                                @include respond-to('small'){
+                                    width:45%;
+                                }
+                                @include respond-to('too-small'){
+                                    width:30%;
+                                    margin-right:5%;
+                                    float:left;
+                                }
+                            }
+                            &:last-child{
+                                width:60%;
+                                @include respond-to('small'){
+                                    width:50%;
+                                }
+                                @include respond-to('too-small'){
+                                    float:left;
+                                    width:65%;
+                                }
+                            }
+                        }
+                        @include respond-to('too-small'){
+                            width:95%;
+                        }
+                    }
                     input:not([type="radio"]){
                         width:90%;
+                        &:disabled{
+                            background:#eee;
+                        }
                     }
-                    input[type="radio"]{
+                    input[type="radio"], input[type="checkbox"]{
                         width:15px;
                         margin:0;
                         padding:0;

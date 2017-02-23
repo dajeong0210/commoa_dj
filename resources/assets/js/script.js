@@ -321,3 +321,10 @@
             $('ul.for_game_check').css('opacity','0.7').find('input[type="checkbox"]').attr('disabled', 'disabled');
         }
     });
+    $('input#no-monitor').on('click', function(){
+        if( $(this).is(':checked') ){
+            $('input[name="monitor"]').attr('disabled', 'disabled').val('');
+        }else{
+            $('input[name="monitor"]').removeAttr('disabled');
+        }
+    });

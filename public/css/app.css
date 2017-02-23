@@ -2497,8 +2497,8 @@ div.mypage div.form div.group div.form-group:not(.agree).one-layout ul {
   width: 100%;
 }
 
-div.mypage div.form div.group div.form-group:not(.agree).one-layout ul.purpose {
-  height: 50px;
+div.mypage div.form div.group div.form-group:not(.agree).one-layout ul.purpose li {
+  height: 40px;
 }
 
 div.mypage div.form div.group div.form-group:not(.agree).one-layout ul.for_game_check {
@@ -2594,15 +2594,71 @@ div.mypage div.form div.group div.form-group:not(.agree).semi-layout span {
 
 div.mypage div.form div.group div.form-group:not(.agree).triple-layout {
   float: left;
-  width: 28.3333333333333333333333333333%;
+  width: 25%;
   margin: 10px 2.5%;
+}
+
+@media (max-width: 480px) {
+  div.mypage div.form div.group div.form-group:not(.agree).triple-layout {
+    width: 45%;
+  }
+}
+
+div.mypage div.form div.group div.form-group:not(.agree).triple-layout.monitor {
+  width: 35%;
+}
+
+div.mypage div.form div.group div.form-group:not(.agree).triple-layout.monitor li:first-child {
+  width: 35%;
+  margin-right: 5%;
+}
+
+@media (max-width: 800px) {
+  div.mypage div.form div.group div.form-group:not(.agree).triple-layout.monitor li:first-child {
+    width: 45%;
+  }
+}
+
+@media (max-width: 480px) {
+  div.mypage div.form div.group div.form-group:not(.agree).triple-layout.monitor li:first-child {
+    width: 30%;
+    margin-right: 5%;
+    float: left;
+  }
+}
+
+div.mypage div.form div.group div.form-group:not(.agree).triple-layout.monitor li:last-child {
+  width: 60%;
+}
+
+@media (max-width: 800px) {
+  div.mypage div.form div.group div.form-group:not(.agree).triple-layout.monitor li:last-child {
+    width: 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  div.mypage div.form div.group div.form-group:not(.agree).triple-layout.monitor li:last-child {
+    float: left;
+    width: 65%;
+  }
+}
+
+@media (max-width: 480px) {
+  div.mypage div.form div.group div.form-group:not(.agree).triple-layout.monitor {
+    width: 95%;
+  }
 }
 
 div.mypage div.form div.group div.form-group:not(.agree).triple-layout input:not([type="radio"]) {
   width: 90%;
 }
 
-div.mypage div.form div.group div.form-group:not(.agree).triple-layout input[type="radio"] {
+div.mypage div.form div.group div.form-group:not(.agree).triple-layout input:not([type="radio"]):disabled {
+  background: #eee;
+}
+
+div.mypage div.form div.group div.form-group:not(.agree).triple-layout input[type="radio"], div.mypage div.form div.group div.form-group:not(.agree).triple-layout input[type="checkbox"] {
   width: 15px;
   margin: 0;
   padding: 0;
@@ -3697,6 +3753,12 @@ div#app.admin div.adminIndex li span {
 
 div#app.admin div.form {
   width: 100%;
+}
+
+@media (max-width: 800px) {
+  div#app.admin div.form {
+    width: 90%;
+  }
 }
 
 div#app.admin div.user-list {
