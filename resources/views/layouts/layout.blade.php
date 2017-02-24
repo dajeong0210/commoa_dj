@@ -93,6 +93,37 @@
             </ul>
             
         </nav>
+        <nav class="tabmenu">
+            <ul>
+                <li>
+                    <p>컴모아</p>
+                </li>
+                <li>
+                    <a href="#">조립PC가이드</a>
+                </li>
+                <li>
+                    <a href="#">게임별 사양</a>
+                </li>
+                <li>
+                    <p>최근 본 상품()</p>
+                    <ul class="recent-product">
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+                        <li>
+                            <a href="#"></a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li>
+                    <p></p>
+                </li>
+            </ul>
+        </nav>
         @yield('content')
     
         <div class="footer">

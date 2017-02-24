@@ -104,7 +104,7 @@
                     <div class="group">
                         <div class="form-group one-layout form-group{{ $errors->has('cpu_level') ? ' has-error' : '' }}">
                             <label for="cpu_level">사양</label>
-                            <select name="cpu_level" required>
+                            <select name="cpu_level" class="small required" required>
                                 <option selected disabled>선택해주세요</option>
                                 <option value="3">상</option>
                                 <option value="2">중</option>
