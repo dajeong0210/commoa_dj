@@ -1,0 +1,125 @@
+div.page.list{
+    div.tab{
+        clear:both;
+        > div{
+            padding:50px 5%;
+        }
+        h3{
+            text-align:left;
+            letter-spacing:-3px;
+            text-indent:20px;
+        }
+        ul.game-list{
+            border-top:2px solid #ddd;
+            padding:20px 10px;
+            > li{
+                float:left;
+                font-size:12px;
+                line-height:1.5;
+                padding:3px 8px;
+                box-sizing:border-box;
+                margin:5px 3px;
+                border-radius:3px;
+                border:1px solid #ddd;
+                &:last-child{
+                    margin-bottom:50px;
+                }
+                a{
+                    color:#333;
+                }
+            }
+        }
+        ul.specification{
+            >li{
+                clear:both;
+                padding:20px 0;
+                &:last-child li:last-child{
+                    margin-bottom:100px;
+                }
+                h4{
+                    font-size:20px;
+                    border-left:4px solid $point-color;
+                    padding-left:20px;
+                    letter-spacing:-2px;
+                }
+                div.wrap{
+                    position:relative;
+                    width:25%;
+                    margin-right:3%;
+                    float:left;
+                    @include respond-to('small'){
+                        width:80%;
+                        margin:0 10% 20px 10%;
+                    }
+                    &:before{
+                        content:"";
+                        display:block;
+                        padding-top:100%;
+                    }
+                    div.image-box{
+                        width:100%;
+                        height:100%;
+                        position:absolute;
+                        top:0;
+                        left:0;
+                        margin:0;
+                    }
+                }
+                ul{
+                    width:70%;
+                    margin-right:2%;
+                    box-sizing:border-box;
+                    margin:0;
+                    float:left;
+                    @include respond-to('small'){
+                        float:initial;
+                        clear:both;
+                        width:100%;
+                    }
+                    li{
+                        display:block;
+                        float:left;
+                        width:25%;
+                        height:50%;
+                        margin-left:-1px;
+                        @include respond-to('small'){
+                            width:50%;
+                            &.triple-layout{
+                                width:33.3333333333333333333333333333333333333%;
+                            }
+                            &:last-child{
+                                display:none;
+                            }
+                        }
+                        @include respond-to('too-small'){
+                            width:50%;
+                        }
+                        p{
+                            display:block;
+                            width:100%;
+                            padding:10px;
+                            box-sizing:border-box;
+                            font-size:12px;
+                            border:1px solid #ddd;
+                            margin:0;
+                            &.title{
+                                margin:-1px auto;
+                                text-align:center;
+                                font-weight:bold;
+                                font-size:13px;
+                                letter-spacing:-1px;
+                                background:#eee;
+                            }
+                            &.not-multi{
+                                line-height:80px;
+                            }
+                            &:not(.title){
+                                height:100px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

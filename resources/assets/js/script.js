@@ -28,6 +28,12 @@
         $('nav.new_product a').removeClass('active').find('i').removeClass('fa-circle').addClass('fa-circle-o')
         $(this).addClass('active').find('i').removeClass('fa-circle-o').addClass('fa-circle');
     });
+
+//Guide
+    $('ul.guide li').on('click', function(){
+        $name = $(this).attr('name'); 
+        $('div[name="'+ $name +'"]').removeClass('hidden').siblings('div').addClass('hidden');
+});
 //Validation
     $("form.validate").validate();
     $("form.validate input").on('keypress', function(){
