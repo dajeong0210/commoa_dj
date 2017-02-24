@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-    <div class="page list detail" >
+    <div class="page list detail">        
         <div class="product-name">
             <p class="myprod-title"> {{ $product->name }} </p>
         </div>
