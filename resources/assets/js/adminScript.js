@@ -321,3 +321,10 @@
             $('input[name="monitor"]').removeAttr('disabled');
         }
     });
+
+//Multiple Selectbox
+    $('select.multiple option').on('mousedown', function(e){
+        e.preventDefault();
+        $(this).prop('selected', !$(this).prop('selected'));
+        return false;
+    });
