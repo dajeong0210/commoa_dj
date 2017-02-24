@@ -151,6 +151,10 @@
                         $('input[name="min_memory"]').val(dataArr.min_memory);
                         $('input[name="storage"]').val(dataArr.storage);
                         $('input[name="recommend_memory"]').val(dataArr.recommend_memory);
+                        $('select[name="min_cpu[]"]').val(dataArr.min_cpu).attr('selected', 'selected');
+                        $('select[name="min_vga[]"]').val(dataArr.min_vga).attr('selected', 'selected');
+                        $('select[name="recommend_cpu[]"]').val(dataArr.recommend_cpu).attr('selected', 'selected');
+                        $('select[name="recommend_vga[]"]').val(dataArr.recommend_vga).attr('selected', 'selected');
                     }
                     $('form[name="categoryForm"]').attr('action' , $url+'/category/'+$targetId).find('input[type="submit"]').val('수정하기');
                     //OriginImg
