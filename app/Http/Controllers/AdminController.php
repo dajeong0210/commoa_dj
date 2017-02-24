@@ -146,10 +146,22 @@ class AdminController extends Controller
 
 	public function findCategory($id) {
 		$category = Category::find($id);
+		$min_cpu = explode("<br>", $category->min_cpu);
+		$min_vga = explode("<br>", $category->min_vga);
+		$recommend_cpu = explode("<br>", $category->recommend_cpu);
+		$recommend_vga = explode("<br>", $category->recommend_vga);
+		 
 		$array = array( 'name' => $category->name, 
 						'image' => $category->image,
 						'sort' => $category->sort,
-						'color' => $category->color );
+						'color' => $category->color,
+						'min_cpu' => $min_cpu,
+						'min_vga' => $min_vga,
+						'min_memory' => $category->min_memory,
+						'storage' => $category->storage,
+						'recommend_cpu' => $recommend_cpu,
+						'recommend_vga' => $recommend_vga,
+						'recommend_memory' => $category->recommend_memory );
 		
 		echo json_encode($array);
 	}
