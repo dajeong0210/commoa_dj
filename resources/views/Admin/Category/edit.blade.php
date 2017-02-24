@@ -145,7 +145,7 @@
                     <div class="group game">
                         <div class="form-group one-layout form-group{{ $errors->has('min_cpu') ? ' has-error' : '' }}">
                             <label for="min_cpu">최소 프로세서</label>
-                            <select name="min_cpu" id="min_cpu" class="required" multiple/>
+                            <select name="min_cpu" id="min_cpu" class="required multiple" multiple/>
                                 @foreach($cpus as $cpu)
                                     <option value="{{ $cpu->name }}">{{ $cpu->name }}</option>
                                 @endforeach
@@ -158,7 +158,7 @@
                         </div>
                         <div class="form-group one-layout form-group{{ $errors->has('min_vga') ? ' has-error' : '' }}">
                             <label for="min_vga">최소 그래픽카드</label>
-                            <select name="min_vga" id="min_vga" class="required" multiple/>
+                            <select name="min_vga" id="min_vga" class="required multiple" multiple/>
                                 @foreach($vgas as $vga)
                                     <option value="{{ $vga->name }}">{{ $vga->name }}</option>
                                 @endforeach
@@ -171,7 +171,7 @@
                         </div>
                         <div class="form-group one-layout form-group{{ $errors->has('min_memory') ? ' has-error' : '' }}">
                             <label for="min_memory">최소 메모리</label>
-                            <input type="text" name="min_memory" id="min_memory" class="required digit" placeholder="숫자만 입력해주세요."/>
+                            <input type="text" name="min_memory" id="min_memory" class="required digits" placeholder="숫자만 입력해주세요."/>
                             <span>GB</span>
                             @if($errors->has('min_memory'))
                             <label class="error">
@@ -181,7 +181,7 @@
                         </div>
                         <div class="form-group one-layout form-group{{ $errors->has('storage') ? ' has-error' : '' }}">
                             <label for="storage">여유 저장 공간</label>
-                            <input type="text" name="storage" id="storage" class="required digit" placeholder="숫자만 입력해주세요."/>
+                            <input type="text" name="storage" id="storage" class="required digits" placeholder="숫자만 입력해주세요."/>
                             <span>GB</span>
                             @if($errors->has('storage'))
                             <label class="error">
@@ -191,7 +191,7 @@
                         </div>
                         <div class="form-group one-layout form-group{{ $errors->has('recommend_cpu') ? ' has-error' : '' }}">
                             <label for="recommend_cpu">권장 프로세서</label>
-                            <select name="recommend_cpu" id="recommend_cpu" class="required" multiple/>
+                            <select name="recommend_cpu" id="recommend_cpu" class="required multiple" multiple/>
                                 @foreach($cpus as $cpu)
                                     <option value="{{ $cpu->name }}">{{ $cpu->name }}</option>
                                 @endforeach
@@ -204,7 +204,7 @@
                         </div>
                         <div class="form-group one-layout form-group{{ $errors->has('recommend_vga') ? ' has-error' : '' }}">
                             <label for="recommend_vga">권장 그래픽카드</label>
-                            <select name="recommend_vga" id="recommend_vga" class="required" multiple/>
+                            <select name="recommend_vga" id="recommend_vga" class="required multiple" multiple/>
                                 @foreach($vgas as $vga)
                                     <option value="{{ $vga->name }}">{{ $vga->name }}</option>
                                 @endforeach
@@ -217,7 +217,7 @@
                         </div>
                         <div class="form-group one-layout form-group{{ $errors->has('recommend_memory') ? ' has-error' : '' }}">
                             <label for="recommend_memory">권장 메모리</label>
-                            <input type="text" name="recommend_memory" id="recommend_memory" class="required digit" placeholder="숫자만 입력해주세요."/>
+                            <input type="text" name="recommend_memory" id="recommend_memory" class="required digits" placeholder="숫자만 입력해주세요."/>
                             <span>GB</span>
                             @if($errors->has('recommend_memory'))
                             <label class="error">
