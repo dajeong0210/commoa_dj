@@ -65,6 +65,13 @@ $factory->define(App\Category::class, function (Faker\Generator $faker) {
         'image' => $faker->imageUrl($width = 300, $height = 300),
         'color' => null, 
         'sort' => 0, 
+        'min_cpu' => null,
+        'min_vga' => null,
+        'min_memory' => null,
+        'storage' => null,
+        'recommend_cpu' => null,
+        'recommend_vga' => null,
+        'recommend_memory' => null,
     ];
 });
 

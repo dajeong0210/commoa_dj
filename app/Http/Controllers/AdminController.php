@@ -45,9 +45,29 @@ class AdminController extends Controller
 		$category = new Category; 
 		$category->name = $request->input('category_name');
 		$category->color = $request->input('category_color');
+		$category->min_memory = $request->input('min_memory');
+		$category->storage = $request->input('storage');
+		$category->recommend_memory = $request->input('recommend_memory');
 		$image = $request->file('category_image');
 		$sort = $request->input('category_sort');
+		$min_cpus = $request->input('min_cpu'); //배열
+		$min_vgas = $request->input('min_vga'); //배열
+		$recommend_cpus = $request->input('recommend_cpu'); //배열
+		$recommend_vgas = $request->input('recommend_vga'); //배열
 
+		foreach ( $min_cpus as $min_cpu ) {
+
+		}
+		foreach ( $min_vgas as $min_vga ) {
+			
+		}
+		foreach ( $recommend_cpus as $recommend_cpu ) {
+			
+		}
+		foreach ( $recommend_vgas as $recommend_vga ) {
+			
+		}
+		
 		if( $sort != null ) {
 			$category->sort = 1;
 		} else {

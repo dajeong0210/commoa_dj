@@ -19,6 +19,13 @@ class CreateCategoriesTable extends Migration
             $table->string('image')->nullable();
             $table->tinyInteger('sort')->unsigned()->nullable();
             $table->string('color')->nullable();
+            $table->string('min_cpu')->nullable();
+            $table->string('min_vga')->nullable();
+            $table->integer('min_memory')->unsigned()->nullable();
+            $table->integer('storage')->unsigned()->nullable();
+            $table->string('recommend_cpu')->nullable();
+            $table->string('recommend_vga')->nullable();
+            $table->integer('recommend_memory')->unsigned()->nullable();
             $table->timestamps();
         });
     }
