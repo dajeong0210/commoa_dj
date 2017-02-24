@@ -18,6 +18,7 @@ Route::get('/', 'WelcomeController@index');
 
 Auth::routes();
 
+Route::get('/guide', 'WelcomeController@guide');
 Route::get('/service', 'WelcomeController@service');
 Route::get('/privacy', 'WelcomeController@privacy');
 Route::get('/shop', 'ShopController@index');

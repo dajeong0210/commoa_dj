@@ -46,4 +46,9 @@ class WelcomeController extends Controller
     public function spec_game() {
         return view('spec');
     }
+    
+    public function guide() {
+        $games = Category::where('sort', '<>', 0)->orWhere('sort', null)->get();
+		return view('guide')->with('games', $games);
+	}
 }
