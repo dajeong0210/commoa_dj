@@ -50,22 +50,43 @@ class AdminController extends Controller
 		$category->recommend_memory = $request->input('recommend_memory');
 		$image = $request->file('category_image');
 		$sort = $request->input('category_sort');
-		$min_cpus = $request->input('min_cpu'); //배열
-		$min_vgas = $request->input('min_vga'); //배열
-		$recommend_cpus = $request->input('recommend_cpu'); //배열
-		$recommend_vgas = $request->input('recommend_vga'); //배열
+		$min_cpus = $request->input('min_cpu'); 
+		$min_vgas = $request->input('min_vga'); 
+		$recommend_cpus = $request->input('recommend_cpu'); 
+		$recommend_vgas = $request->input('recommend_vga'); 
+		
+		$min_cpus_string ="";
+		$min_vgas_string =""; 
+		$recommend_cpus_string =""; 
+		$recommend_vgas_string =""; 
 
 		foreach ( $min_cpus as $min_cpu ) {
-
+			if( strcmp($min_cpus_string, "") ) {
+				$min_cpus_string = $min_cpu;
+			} else {
+				$min_cpus_string = $min_cpus_string + "<br>" + $min_cpu;
+			}
 		}
 		foreach ( $min_vgas as $min_vga ) {
-			
+			if( strcmp($min_vgas_string, "") ) {
+				$min_vgas_string = $min_vga;
+			} else {
+				$min_vgas_string = $min_vgas_string + "<br>" + $min_vga;
+			}
 		}
 		foreach ( $recommend_cpus as $recommend_cpu ) {
-			
+			if( strcmp($recommend_cpus_string, "") ) {
+				$recommend_cpus_string = $recommend_cpu;
+			} else {
+				$recommend_cpus_string = $recommend_cpus_string + "<br>" + $recommend_cpu;
+			}
 		}
 		foreach ( $recommend_vgas as $recommend_vga ) {
-			
+			if( strcmp($recommend_vgas_string, "") ) {
+				$recommend_vgas_string = $recommend_vga;
+			} else {
+				$recommend_vgas_string = $recommend_vgas_string + "<br>" + $recommend_vga;
+			}
 		}
 		
 		if( $sort != null ) {
