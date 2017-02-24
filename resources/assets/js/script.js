@@ -314,6 +314,7 @@
         });
     });
 //MyProduct
+
     $('input[name="purpose"]').on('click', function(){
         if($(this).val() == '게임용'){
             $('ul.for_game_check').css('opacity','1.0').find('input[type="checkbox"]').removeAttr('disabled');
@@ -328,3 +329,5 @@
             $('input[name="monitor"]').removeAttr('disabled');
         }
     });
+
+

@@ -64,28 +64,28 @@ class AdminController extends Controller
 			if( $min_cpus_string == "" ) {
 				$min_cpus_string = $min_cpu;
 			} else {
-				$min_cpus_string = $min_cpus_string . "<br>" . $min_cpu;
+				$min_cpus_string = $min_cpus_string . "\n" . $min_cpu;
 			}
 		}
 		foreach ( $min_vgas as $min_vga ) {
 			if( $min_vgas_string == "" ) {
 				$min_vgas_string = $min_vga;
 			} else {
-				$min_vgas_string = $min_vgas_string . "<br>" . $min_vga;
+				$min_vgas_string = $min_vgas_string . "\n" . $min_vga;
 			}
 		}
 		foreach ( $recommend_cpus as $recommend_cpu ) {
 			if( $recommend_cpus_string == "" ) {
 				$recommend_cpus_string = $recommend_cpu;
 			} else {
-				$recommend_cpus_string = $recommend_cpus_string . "<br>" . $recommend_cpu;
+				$recommend_cpus_string = $recommend_cpus_string . "\n" . $recommend_cpu;
 			}
 		}
 		foreach ( $recommend_vgas as $recommend_vga ) {
 			if( $recommend_vgas_string == "" ) {
 				$recommend_vgas_string = $recommend_vga;
 			} else {
-				$recommend_vgas_string = $recommend_vgas_string . "<br>" . $recommend_vga;
+				$recommend_vgas_string = $recommend_vgas_string . "\n" . $recommend_vga;
 			}
 		}
 		$category->min_cpu = $min_cpus_string;
@@ -132,28 +132,28 @@ class AdminController extends Controller
 			if( $min_cpus_string == "" ) {
 				$min_cpus_string = $min_cpu;
 			} else {
-				$min_cpus_string = $min_cpus_string . "<br>" . $min_cpu;
+				$min_cpus_string = $min_cpus_string . "\n" . $min_cpu;
 			}
 		}
 		foreach ( $min_vgas as $min_vga ) {
 			if( $min_vgas_string == "" ) {
 				$min_vgas_string = $min_vga;
 			} else {
-				$min_vgas_string = $min_vgas_string . "<br>" . $min_vga;
+				$min_vgas_string = $min_vgas_string . "\n" . $min_vga;
 			}
 		}
 		foreach ( $recommend_cpus as $recommend_cpu ) {
 			if( $recommend_cpus_string == "" ) {
 				$recommend_cpus_string = $recommend_cpu;
 			} else {
-				$recommend_cpus_string = $recommend_cpus_string . "<br>" . $recommend_cpu;
+				$recommend_cpus_string = $recommend_cpus_string . "\n" . $recommend_cpu;
 			}
 		}
 		foreach ( $recommend_vgas as $recommend_vga ) {
 			if( $recommend_vgas_string == "" ) {
 				$recommend_vgas_string = $recommend_vga;
 			} else {
-				$recommend_vgas_string = $recommend_vgas_string . "<br>" . $recommend_vga;
+				$recommend_vgas_string = $recommend_vgas_string . "\n" . $recommend_vga;
 			}
 		}
 		$category->min_cpu = $min_cpus_string;
@@ -191,10 +191,11 @@ class AdminController extends Controller
 
 	public function findCategory($id) {
 		$category = Category::find($id);
-		$min_cpu = explode("<br>", $category->min_cpu);
-		$min_vga = explode("<br>", $category->min_vga);
-		$recommend_cpu = explode("<br>", $category->recommend_cpu);
-		$recommend_vga = explode("<br>", $category->recommend_vga);
+		nl2br($category->min_cpu);
+		$min_cpu = explode("\n", $category->min_cpu);
+		$min_vga = explode("\n", $category->min_vga);
+		$recommend_cpu = explode("\n", nl2br($category->recommend_cpu));
+		$recommend_vga = explode("\n", nl2br($category->recommend_vga));
 		 
 		$array = array( 'name' => $category->name, 
 						'image' => $category->image,

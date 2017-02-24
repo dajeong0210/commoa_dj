@@ -89,5 +89,6 @@
     <script type="text/javascript" src="/js/additional-methods.js"></script>
     <script type="text/javascript" src="/js/messages_ko.min.js"></script>
     <script type="text/javascript" src="/js/script.js"></script>
+    <script type="text/javascript" src="/js/jquery.cookie.js"></script>
 </body>
 </html>
