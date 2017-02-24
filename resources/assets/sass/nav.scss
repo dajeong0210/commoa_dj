@@ -252,8 +252,17 @@
             font-weight:bold;
             padding:3px 0;
             color:#444;
+            img{
+                width:60%;
+                height:auto;
+                margin-top:10px;
+            }
+            p.no-mrg{
+                margin:0 0 10px 0;
+            }
             a{
                 color:#444;
+                text-align:center;
             }
             ul{
                 border-top:1px solid #ddd;

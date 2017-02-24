@@ -96,7 +96,10 @@
         <nav class="tabmenu">
             <ul>
                 <li>
-                    <p>컴모아</p>
+                    <a href="{{ url('') }}"> 
+                        <img src="{{ url('/image/commoa_logo_image.png') }}">
+                    </a>
+                    <p class="no-mrg">컴모아</p>
                 </li>
                 <li>
                     <a href="#">조립PC가이드</a>

@@ -308,8 +308,19 @@ nav.tabmenu ul > li {
   color: #444;
 }
 
+nav.tabmenu ul > li img {
+  width: 60%;
+  height: auto;
+  margin-top: 10px;
+}
+
+nav.tabmenu ul > li p.no-mrg {
+  margin: 0 0 10px 0;
+}
+
 nav.tabmenu ul > li a {
   color: #444;
+  text-align: center;
 }
 
 nav.tabmenu ul > li ul {
