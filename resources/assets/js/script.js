@@ -336,4 +336,10 @@
         }
     });
 
-
+//Cookie 
+    function setCookie(value) {
+        $.cookie('recent-product', value);
+        var recent_products = $.cookie('recent-product');
+        console.log("..");
+    }
+        
