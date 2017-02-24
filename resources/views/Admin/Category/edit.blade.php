@@ -171,7 +171,7 @@
                         </div>
                         <div class="form-group one-layout form-group{{ $errors->has('min_memory') ? ' has-error' : '' }}">
                             <label for="min_memory">최소 메모리</label>
-                            <input type="text" name="min_memory" id="min_memory" class="required digit" placeholder="숫자만 입력해주세요."/>
+                            <input type="text" name="min_memory" id="min_memory" class="required digits" placeholder="숫자만 입력해주세요."/>
                             <span>GB</span>
                             @if($errors->has('min_memory'))
                             <label class="error">
@@ -181,7 +181,7 @@
                         </div>
                         <div class="form-group one-layout form-group{{ $errors->has('storage') ? ' has-error' : '' }}">
                             <label for="storage">여유 저장 공간</label>
-                            <input type="text" name="storage" id="storage" class="required digit" placeholder="숫자만 입력해주세요."/>
+                            <input type="text" name="storage" id="storage" class="required digits" placeholder="숫자만 입력해주세요."/>
                             <span>GB</span>
                             @if($errors->has('storage'))
                             <label class="error">
@@ -217,7 +217,7 @@
                         </div>
                         <div class="form-group one-layout form-group{{ $errors->has('recommend_memory') ? ' has-error' : '' }}">
                             <label for="recommend_memory">권장 메모리</label>
-                            <input type="text" name="recommend_memory" id="recommend_memory" class="required digit" placeholder="숫자만 입력해주세요."/>
+                            <input type="text" name="recommend_memory" id="recommend_memory" class="required digits" placeholder="숫자만 입력해주세요."/>
                             <span>GB</span>
                             @if($errors->has('recommend_memory'))
                             <label class="error">
