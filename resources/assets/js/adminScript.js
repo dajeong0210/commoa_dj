@@ -137,20 +137,20 @@
                     $('form[name="categoryForm"] h3').html('카테고리 :: '+dataArr.name);
                     $('input[name="category_name"]').val(dataArr.name);
                     $('input[name="category_color"]').val(dataArr.color);
-                    $('input[name="min_memory"]').val(dataArr.min_memory);
-                    $('input[name="storage"]').val(dataArr.storage);
-                    $('input[name="recommend_memory"]').val(dataArr.recommend_memory);
                     if( dataArr.sort == 1 ){
                         $('input[name="category_sort"]').removeAttr('disabled').attr('checked', 'checked');
                         $('div.img-box').attr('style', 'background:url('+dataArr.image+') center; background-size:cover;').parent().removeClass('hidden');
-                        $('div.group.image').removeClass('hidden');
+                        $('div.group.image, div.group.game').removeClass('hidden');
                     }else if( dataArr.sort == 0 ){
                         $('input[name="category_sort"]').prop('disabled', true);
-                        $('div.group.image').addClass('hidden');
+                        $('div.group.image, div.group.game').addClass('hidden');
                     }else{
                         $('input[name="category_sort"]').removeAttr('checked').removeAttr('disabled');
                         $('div.img-box').attr('style', 'background:url('+dataArr.image+') center; background-size:cover;').parent().removeClass('hidden');
-                        $('div.group.image').removeClass('hidden');
+                        $('div.group.image, div.group.game').removeClass('hidden');
+                        $('input[name="min_memory"]').val(dataArr.min_memory);
+                        $('input[name="storage"]').val(dataArr.storage);
+                        $('input[name="recommend_memory"]').val(dataArr.recommend_memory);
                     }
                     $('form[name="categoryForm"]').attr('action' , $url+'/category/'+$targetId).find('input[type="submit"]').val('수정하기');
                     //OriginImg

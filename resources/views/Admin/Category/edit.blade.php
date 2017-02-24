@@ -141,7 +141,7 @@
                             @endif
                         </div>
                     </div>
-                    <a href="#">게임최소사양(필수)</a>
+                    <a href="#" onclick="return false;">게임최소사양</a>
                     <div class="group game">
                         <div class="form-group one-layout form-group{{ $errors->has('min_cpu') ? ' has-error' : '' }}">
                             <label for="min_cpu">최소 프로세서</label>

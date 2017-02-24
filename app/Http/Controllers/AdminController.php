@@ -61,33 +61,38 @@ class AdminController extends Controller
 		$recommend_vgas_string =""; 
 
 		foreach ( $min_cpus as $min_cpu ) {
-			if( strcmp($min_cpus_string, "") ) {
+			if( $min_cpus_string == "" ) {
 				$min_cpus_string = $min_cpu;
 			} else {
-				$min_cpus_string = $min_cpus_string + "<br>" + $min_cpu;
+				$min_cpus_string = $min_cpus_string . "<br>" . $min_cpu;
 			}
 		}
 		foreach ( $min_vgas as $min_vga ) {
-			if( strcmp($min_vgas_string, "") ) {
+			if( $min_vgas_string == "" ) {
 				$min_vgas_string = $min_vga;
 			} else {
-				$min_vgas_string = $min_vgas_string + "<br>" + $min_vga;
+				$min_vgas_string = $min_vgas_string . "<br>" . $min_vga;
 			}
 		}
 		foreach ( $recommend_cpus as $recommend_cpu ) {
-			if( strcmp($recommend_cpus_string, "") ) {
+			if( $recommend_cpus_string == "" ) {
 				$recommend_cpus_string = $recommend_cpu;
 			} else {
-				$recommend_cpus_string = $recommend_cpus_string + "<br>" + $recommend_cpu;
+				$recommend_cpus_string = $recommend_cpus_string . "<br>" . $recommend_cpu;
 			}
 		}
 		foreach ( $recommend_vgas as $recommend_vga ) {
-			if( strcmp($recommend_vgas_string, "") ) {
+			if( $recommend_vgas_string == "" ) {
 				$recommend_vgas_string = $recommend_vga;
 			} else {
-				$recommend_vgas_string = $recommend_vgas_string + "<br>" + $recommend_vga;
+				$recommend_vgas_string = $recommend_vgas_string . "<br>" . $recommend_vga;
 			}
 		}
+		$category->min_cpu = $min_cpus_string;
+		$category->min_vga = $min_vgas_string;
+		$category->recommend_cpu = $recommend_cpus_string;
+		$category->recommend_vga = $recommend_vgas_string;
+
 		
 		if( $sort != null ) {
 			$category->sort = 1;
