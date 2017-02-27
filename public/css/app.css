@@ -288,18 +288,42 @@ nav.nav-bar ul.nav-group > li div.sub_menu li a {
   }
 }
 
-nav.tabmenu {
-  width: 70px;
-  border: 1px solid #ccc;
-  background: #fff;
-  overflow: hidden;
+nav.tabmenu-wrap {
   position: fixed;
   top: 35%;
-  right: 20px;
+  right: -75px;
   z-index: 300;
 }
 
-nav.tabmenu ul > li {
+nav.tabmenu-wrap a.button {
+  display: block;
+  float: left;
+  width: 20px;
+  height: 90px;
+  padding-left: 5px;
+  background: #fff;
+  border-left: 1px #ddd solid;
+  border-right: 1px #fff solid;
+  border-bottom: 1px #ddd solid;
+  border-top: 1px #ddd solid;
+  border-radius: 5px 0 0 5px;
+}
+
+nav.tabmenu-wrap a.button i {
+  font-size: 20px;
+  line-height: 90px;
+  color: #2bde73;
+}
+
+nav.tabmenu-wrap div.tabmenu {
+  width: 70px;
+  border: 1px solid #ccc;
+  background: #fff;
+  float: left;
+  overflow: hidden;
+}
+
+nav.tabmenu-wrap div.tabmenu ul > li {
   text-align: center;
   font-size: 11px;
   letter-spacing: -1px;
@@ -308,29 +332,29 @@ nav.tabmenu ul > li {
   color: #444;
 }
 
-nav.tabmenu ul > li img {
+nav.tabmenu-wrap div.tabmenu ul > li img {
   width: 60%;
   height: auto;
   margin-top: 10px;
 }
 
-nav.tabmenu ul > li p.no-mrg {
+nav.tabmenu-wrap div.tabmenu ul > li p.no-mrg {
   margin: 0 0 10px 0;
 }
 
-nav.tabmenu ul > li a {
+nav.tabmenu-wrap div.tabmenu ul > li a {
   color: #444;
   text-align: center;
 }
 
-nav.tabmenu ul > li ul {
+nav.tabmenu-wrap div.tabmenu ul > li ul {
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
   width: 70px;
   margin: 0 auto;
 }
 
-nav.tabmenu ul > li ul li {
+nav.tabmenu-wrap div.tabmenu ul > li ul li {
   width: 45px;
   height: 45px;
   margin: 10px auto;
@@ -338,13 +362,13 @@ nav.tabmenu ul > li ul li {
   border: 1px solid #ddd;
 }
 
-nav.tabmenu ul > li ul li a {
+nav.tabmenu-wrap div.tabmenu ul > li ul li a {
   display: block;
   width: 100%;
   height: 100%;
 }
 
-nav.tabmenu ul > li ul li a:hover {
+nav.tabmenu-wrap div.tabmenu ul > li ul li a:hover {
   background: rgba(0, 0, 0, 0.2);
 }
 
@@ -1050,6 +1074,10 @@ div.page.list div.tab > div {
   padding: 50px 5%;
 }
 
+div.page.list div.tab > div.no-pd {
+  padding: 0;
+}
+
 div.page.list div.tab h3 {
   text-align: left;
   letter-spacing: -3px;
@@ -1087,13 +1115,6 @@ div.page.list div.tab ul.specification > li {
 
 div.page.list div.tab ul.specification > li:last-child li:last-child {
   margin-bottom: 100px;
-}
-
-div.page.list div.tab ul.specification > li h4 {
-  font-size: 20px;
-  border-left: 4px solid #2bde73;
-  padding-left: 20px;
-  letter-spacing: -2px;
 }
 
 div.page.list div.tab ul.specification > li div.wrap {
@@ -1192,6 +1213,13 @@ div.page.list div.tab ul.specification > li ul li p.not-multi {
 
 div.page.list div.tab ul.specification > li ul li p:not(.title) {
   height: 100px;
+}
+
+div.page.list h4 {
+  font-size: 20px;
+  border-left: 4px solid #2bde73;
+  padding-left: 20px;
+  letter-spacing: -2px;
 }
 
 div.category_main {
@@ -1827,6 +1855,10 @@ div.page.list ul.list-group > li span.badge.recommend {
   -ms-transform: rotate(-45deg);
   transform: rotate(-45deg);
   box-shadow: 5px 5px 20px #222;
+}
+
+div.page.list ul.list-group.game-product {
+  padding-top: 60px;
 }
 
 div.page.list div.img-box {

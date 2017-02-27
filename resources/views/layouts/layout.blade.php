@@ -93,39 +93,44 @@
             </ul>
             
         </nav>
-        <nav class="tabmenu">
-            <ul>
-                <li>
-                    <a href="{{ url('') }}"> 
-                        <img src="{{ url('/image/commoa_logo_image.png') }}">
-                    </a>
-                    <p class="no-mrg">컴모아</p>
-                </li>
-                <li>
-                    <a href="#">조립PC가이드</a>
-                </li>
-                <li>
-                    <a href="#">게임별 사양</a>
-                </li>
-                <li>
-                    <p>최근 본 상품()</p>
-                    <ul class="recent-product">
-                        <li>
-                            <a href="#"></a>
-                        </li>
-                        <li>
-                            <a href="#"></a>
-                        </li>
-                        <li>
-                            <a href="#"></a>
-                        </li>
+        <nav class="tabmenu-wrap">
+            <a href="#" class="button">
+                <i class="fa fa-angle-left" aria-hidden="true"></i>
+            </a>
+            <div class="tabmenu">
+                <ul>
+                    <li>
+                        <a href="{{ url('') }}"> 
+                            <img src="{{ url('/image/commoa_logo_image.png') }}">
+                        </a>
+                        <p class="no-mrg">컴모아</p>
+                    </li>
+                    <li>
+                        <a href="#">조립PC가이드</a>
+                    </li>
+                    <li>
+                        <a href="#">게임별 사양</a>
+                    </li>
+                    <li>
+                        <p>최근 본 상품()</p>
+                        <ul class="recent-product">
+                            <li>
+                                <a href="#"></a>
+                            </li>
+                            <li>
+                                <a href="#"></a>
+                            </li>
+                            <li>
+                                <a href="#"></a>
+                            </li>
 
-                    </ul>
-                </li>
-                <li>
-                    <p></p>
-                </li>
-            </ul>
+                        </ul>
+                    </li>
+                    <li>
+                        <p></p>
+                    </li>
+                </ul>
+            </div>
         </nav>
         @yield('content')
     
