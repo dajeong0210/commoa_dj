@@ -24,16 +24,6 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
-    <script src="/js/jquery.cookie.js"></script>
-    <script type="text/javascript">
-        function setCookie($product) {
-            Cookies.set('name', $product.name);
-            Cookies.set('url', $product.url);
-            Cookies.set('image', $product.image);
-            $cookies = Cookies.get('name');
-            console.log($cookies);
-        }
-    </script>
 </head>
 <body>
     <div id="app">
@@ -114,7 +104,7 @@
                         <a href="{{ url('guide') }}">조립PC가이드</a>
                     </li>
                     <li>
-                        <a href="{{ url('guide') }}">게임별 사양</a>
+                        <a href="{{ url('guide?') }}">게임별 사양</a>
                     </li>
                     <li>
                         <p>최근 본 상품()</p>
@@ -180,7 +170,6 @@
     <script type="text/javascript" src="/js/jquery.validate.js"></script>
     <script type="text/javascript" src="/js/additional-methods.js"></script>
     <script type="text/javascript" src="/js/messages_ko.min.js"></script>
-    <script src="/js/masonry.pkgd.min.js"></script>
     <script type="text/javascript" src="/js/script.js"></script>
 </body>
 </html>

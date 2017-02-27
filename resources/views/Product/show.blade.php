@@ -10,7 +10,7 @@
         </div>
         <div class="image-box detail">
             <a href="{{ $product->url }}">
-                <img src="{{ $product->image }}" alt="" onload="setCookie({{$product}})">
+                <img src="{{ $product->image }}" alt="">
             </a>
         </div>
         @if( Auth::guest() )
@@ -90,4 +90,11 @@
             </div>
         </div>
     </div>
+    <script src="/js/jquery.cookie.js"></script>
+    <script type="text/javascript">
+        Cookies.set('recent', '{{ $product }}');
+        
+        var cookie_array = Cookies.get('recent');
+        console.log(cookie_array);
+    </script>
 @endsection

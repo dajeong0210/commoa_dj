@@ -9,10 +9,10 @@
             </ul>
         </div>
         <div class="tab">
-            <div name="pc-guide">
+            <div name="pc-guide" class="{{ Request::segment(1) == 'guide' ? '' : 'hidden' }}">
                 <h3>조립 PC 가이드</h3>
             </div>
-            <div name="game-guide" class="hidden">
+            <div name="game-guide" class="{{ Request::segment(1) == 'guide' ? 'hidden' : '' }}">
                 <h3>게임별 사양 가이드</h3>
                 <ul class="game-list">
                     @foreach($games as $game)
