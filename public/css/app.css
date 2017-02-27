@@ -290,22 +290,30 @@ nav.nav-bar ul.nav-group > li div.sub_menu li a {
 
 nav.tabmenu-wrap {
   position: fixed;
-  top: 35%;
-  right: -75px;
+  top: 25%;
+  right: -95px;
   z-index: 300;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+nav.tabmenu-wrap.active {
+  right: 0;
 }
 
 nav.tabmenu-wrap a.button {
   display: block;
   float: left;
-  width: 20px;
+  width: 25px;
   height: 90px;
-  padding-left: 5px;
+  position: relative;
+  top: 200px;
+  text-align: center;
   background: #fff;
-  border-left: 1px #ddd solid;
+  border-left: 1px #ccc solid;
   border-right: 1px #fff solid;
-  border-bottom: 1px #ddd solid;
-  border-top: 1px #ddd solid;
+  border-bottom: 1px #ccc solid;
+  border-top: 1px #ccc solid;
   border-radius: 5px 0 0 5px;
 }
 
@@ -316,7 +324,7 @@ nav.tabmenu-wrap a.button i {
 }
 
 nav.tabmenu-wrap div.tabmenu {
-  width: 70px;
+  width: 90px;
   border: 1px solid #ccc;
   background: #fff;
   float: left;
@@ -325,7 +333,7 @@ nav.tabmenu-wrap div.tabmenu {
 
 nav.tabmenu-wrap div.tabmenu ul > li {
   text-align: center;
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: -1px;
   font-weight: bold;
   padding: 3px 0;
@@ -350,13 +358,13 @@ nav.tabmenu-wrap div.tabmenu ul > li a {
 nav.tabmenu-wrap div.tabmenu ul > li ul {
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
-  width: 70px;
+  width: 80px;
   margin: 0 auto;
 }
 
 nav.tabmenu-wrap div.tabmenu ul > li ul li {
-  width: 45px;
-  height: 45px;
+  width: 55px;
+  height: 55px;
   margin: 10px auto;
   padding: 0;
   border: 1px solid #ddd;

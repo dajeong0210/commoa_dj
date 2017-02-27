@@ -24,9 +24,14 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
-    <script>
-        window.onload = function(){
-            $('div.loading').fadeOut('slow');
+    <script src="/js/jquery.cookie.js"></script>
+    <script type="text/javascript">
+        function setCookie($product) {
+            Cookies.set('name', $product.name);
+            Cookies.set('url', $product.url);
+            Cookies.set('image', $product.image);
+            $cookies = Cookies.get('name');
+            console.log($cookies);
         }
     </script>
 </head>
@@ -106,24 +111,29 @@
                         <p class="no-mrg">컴모아</p>
                     </li>
                     <li>
-                        <a href="#">조립PC가이드</a>
+                        <a href="{{ url('guide') }}">조립PC가이드</a>
                     </li>
                     <li>
-                        <a href="#">게임별 사양</a>
+                        <a href="{{ url('guide') }}">게임별 사양</a>
                     </li>
                     <li>
                         <p>최근 본 상품()</p>
                         <ul class="recent-product">
                             <li>
-                                <a href="#"></a>
+                                <a href="#" title="" style="background:url() center no-repeat;background-size:cover;"></a>
                             </li>
                             <li>
-                                <a href="#"></a>
+                                <a href="#" title="" style="background:url() center no-repeat;background-size:cover;"></a>
                             </li>
                             <li>
-                                <a href="#"></a>
+                                <a href="#" title="" style="background:url() center no-repeat;background-size:cover;"></a>
                             </li>
-
+                            <li>
+                                <a href="#" title="" style="background:url() center no-repeat;background-size:cover;"></a>
+                            </li>
+                            <li>
+                                <a href="#" title="" style="background:url() center no-repeat;background-size:cover;"></a>
+                            </li>
                         </ul>
                     </li>
                     <li>

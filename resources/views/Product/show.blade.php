@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-    <div class="page list detail" >
+    <div class="page list detail">        
         <div class="product-name">
             <p class="myprod-title"> {{ $product->name }} </p>
         </div>
@@ -10,7 +10,7 @@
         </div>
         <div class="image-box detail">
             <a href="{{ $product->url }}">
-                <img src="{{ $product->image }}" alt="">
+                <img src="{{ $product->image }}" alt="" onload="setCookie({{$product}})">
             </a>
         </div>
         @if( Auth::guest() )

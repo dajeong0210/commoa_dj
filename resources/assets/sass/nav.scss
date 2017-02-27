@@ -238,20 +238,26 @@
     }
     nav.tabmenu-wrap{
         position:fixed;
-        top:35%;
-        right:-75px;
+        top:25%;
+        right:-95px;
         z-index:300;
+        transition:all 1s;
+        &.active{
+            right:0;
+        }
         a.button{
             display:block;
             float:left;
-            width:20px;
+            width:25px;
             height:90px;
-            padding-left:5px;
+            position:relative;
+            top:200px;
+            text-align:center;
             background:#fff;
-            border-left:1px #ddd solid;
+            border-left:1px #ccc solid;
             border-right:1px #fff solid;
-            border-bottom:1px #ddd solid;
-            border-top:1px #ddd solid;
+            border-bottom:1px #ccc solid;
+            border-top:1px #ccc solid;
             border-radius:5px 0 0 5px;
             i{
                 font-size:20px;
@@ -260,14 +266,14 @@
             }
         }
         div.tabmenu{
-            width:70px;
+            width:90px;
             border:1px solid #ccc;
             background:#fff;
             float:left;
             overflow:hidden;
             ul >li {
                 text-align:center;
-                font-size:11px;
+                font-size:12px;
                 letter-spacing:-1px;
                 font-weight:bold;
                 padding:3px 0;
@@ -287,11 +293,11 @@
                 ul{
                     border-top:1px solid #ddd;
                     border-bottom:1px solid #ddd;
-                    width:70px;
+                    width:80px;
                     margin:0 auto;
                     li{
-                        width:45px;
-                        height:45px;
+                        width:55px;
+                        height:55px;
                         margin:10px auto;
                         padding:0;
                         border:1px solid #ddd;
