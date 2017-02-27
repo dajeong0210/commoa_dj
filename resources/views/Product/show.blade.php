@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-    <div class="page list detail" onload="setCookie({{$product}})">        
+    <div class="page list detail">        
         <div class="product-name">
             <p class="myprod-title"> {{ $product->name }} </p>
         </div>
@@ -25,7 +25,7 @@
                         <em><br/>좋아요</em>
                         <i class="fa fa-heart hidden" aria-hidden="true"></i>
                         <em class="hidden"><br/>좋아요취소</em>
-                    @else
+                    @else`
                         <i class="fa fa-heart-o hidden" aria-hidden="true"></i>
                         <em class="hidden"><br/>좋아요</em>
                         <i class="fa fa-heart" aria-hidden="true"></i>

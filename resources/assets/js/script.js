@@ -334,15 +334,4 @@
         }else{
             $('input[name="monitor"]').removeAttr('disabled');
         }
-    });
-
-//Cookie 
-    function setCookie(product) {
-        alert("..");
-        $.cookie('recent-product[]', product);
-    }
-
-    function getCookie() { 
-        $.cookie('recent-product[]');
-    }
-        
+    });        
