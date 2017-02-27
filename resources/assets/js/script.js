@@ -337,9 +337,12 @@
     });
 
 //Cookie 
-    function setCookie(value) {
-        $.cookie('recent-product', value);
-        var recent_products = $.cookie('recent-product');
-        console.log("..");
+    function setCookie(product) {
+        alert("..");
+        $.cookie('recent-product[]', product);
+    }
+
+    function getCookie() { 
+        $.cookie('recent-product[]');
     }
         
