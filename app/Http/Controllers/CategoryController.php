@@ -10,7 +10,7 @@ class CategoryController extends Controller
     public function show($category_name, Request $request)
     {
         $category_name = str_replace('_', ' ', $category_name);
-        $category_id = Category::where('name', $category_name)->first()->id;
+        $category = Category::where('name', $category_name)->first();
         $products = Category::where('name', $category_name)->first()->products();
         $product_sort = $request->input('product-sort');
         
@@ -23,8 +23,8 @@ class CategoryController extends Controller
         } else {
             $products = $products->orderBy('products.updated_at', 'desc')->paginate(12);
         } 
-        //add filter
 
-        return view('Category.show')->with('products', $products)->with('category_name', $category_name);
+
+        return view('Category.show')->with('products', $products)->with('category_name', $category_name)->with('game', $category);
     }
 }

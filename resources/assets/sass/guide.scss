@@ -3,6 +3,9 @@ div.page.list{
         clear:both;
         > div{
             padding:50px 5%;
+            &.no-pd{
+                padding:0;
+            }
         }
         h3{
             text-align:left;
@@ -35,12 +38,6 @@ div.page.list{
                 padding:20px 0;
                 &:last-child li:last-child{
                     margin-bottom:100px;
-                }
-                h4{
-                    font-size:20px;
-                    border-left:4px solid $point-color;
-                    padding-left:20px;
-                    letter-spacing:-2px;
                 }
                 div.wrap{
                     position:relative;
@@ -121,5 +118,11 @@ div.page.list{
                 }
             }
         }
+    }
+    h4{
+        font-size:20px;
+        border-left:4px solid $point-color;
+        padding-left:20px;
+        letter-spacing:-2px;
     }
 }

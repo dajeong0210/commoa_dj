@@ -7,6 +7,15 @@
     $('a.mypage').on('click', function(){
         $(this).next().toggleClass('hidden');
     });
+    $('nav.tabmenu-wrap a.button').on('click',function(e){
+        e.preventDefault();
+        $(this).parent('nav').toggleClass('active');
+        if( $(this).parent('nav').hasClass('active') ){
+            $(this).children('i').removeClass('fa-angle-left').addClass('fa-angle-right');
+        }else{
+            $(this).children('i').removeClass('fa-angle-right').addClass('fa-angle-left');
+        };
+    });
 //confirm
     $('a.rcm-delete, a.user-delete , input.del-submit').click(function(e){
         e.preventDefault();
@@ -334,4 +343,7 @@
         }else{
             $('input[name="monitor"]').removeAttr('disabled');
         }
-    });        
+    });
+
+
+

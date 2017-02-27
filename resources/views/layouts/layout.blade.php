@@ -24,9 +24,13 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
-    <script>
-        window.onload = function(){
-            $('div.loading').fadeOut('slow');
+    <script src="/js/jquery.cookie.js"></script>
+    <script type="text/javascript">
+        function setCookie($product) {
+            Cookies.set('name', [$product.name, 'wow']);
+            Cookies.set('url', $product.url);
+            Cookies.set('image', $product.image);
+            console.log(Cookies.get('name'));
         }
     </script>
 </head>
@@ -93,39 +97,49 @@
             </ul>
             
         </nav>
-        <nav class="tabmenu">
-            <ul>
-                <li>
-                    <a href="{{ url('') }}"> 
-                        <img src="{{ url('/image/commoa_logo_image.png') }}">
-                    </a>
-                    <p class="no-mrg">컴모아</p>
-                </li>
-                <li>
-                    <a href="#">조립PC가이드</a>
-                </li>
-                <li>
-                    <a href="#">게임별 사양</a>
-                </li>
-                <li>
-                    <p>최근 본 상품()</p>
-                    <ul class="recent-product">
-                        <li>
-                            <a href="#"></a>
-                        </li>
-                        <li>
-                            <a href="#"></a>
-                        </li>
-                        <li>
-                            <a href="#"></a>
-                        </li>
-
-                    </ul>
-                </li>
-                <li>
-                    <p></p>
-                </li>
-            </ul>
+        <nav class="tabmenu-wrap">
+            <a href="#" class="button">
+                <i class="fa fa-angle-left" aria-hidden="true"></i>
+            </a>
+            <div class="tabmenu">
+                <ul>
+                    <li>
+                        <a href="{{ url('') }}"> 
+                            <img src="{{ url('/image/commoa_logo_image.png') }}">
+                        </a>
+                        <p class="no-mrg">컴모아</p>
+                    </li>
+                    <li>
+                        <a href="{{ url('guide') }}">조립PC가이드</a>
+                    </li>
+                    <li>
+                        <a href="{{ url('guide') }}">게임별 사양</a>
+                    </li>
+                    <li>
+                        <p>최근 본 상품()</p>
+                        <ul class="recent-product">
+                            <li>
+                                <a href="#" title="" style="background:url() center no-repeat;background-size:cover;"></a>
+                            </li>
+                            <li>
+                                <a href="#" title="" style="background:url() center no-repeat;background-size:cover;"></a>
+                            </li>
+                            <li>
+                                <a href="#" title="" style="background:url() center no-repeat;background-size:cover;"></a>
+                            </li>
+                            <li>
+                                <a href="#" title="" style="background:url() center no-repeat;background-size:cover;"></a>
+                            </li>
+                            <li>
+                                <a href="#" title="" style="background:url() center no-repeat;background-size:cover;"></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p></p>
+                    </li>
+                </ul>
+            </div>
         </nav>
         @yield('content')
     
@@ -167,5 +181,6 @@
     <script type="text/javascript" src="/js/messages_ko.min.js"></script>
     <script src="/js/masonry.pkgd.min.js"></script>
     <script type="text/javascript" src="/js/script.js"></script>
+    <script type="text/javascript" src="/js/cookie.js"></script>
 </body>
 </html>
