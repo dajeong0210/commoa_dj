@@ -25,7 +25,7 @@
                         <em><br/>좋아요</em>
                         <i class="fa fa-heart hidden" aria-hidden="true"></i>
                         <em class="hidden"><br/>좋아요취소</em>
-                    @else
+                    @else`
                         <i class="fa fa-heart-o hidden" aria-hidden="true"></i>
                         <em class="hidden"><br/>좋아요</em>
                         <i class="fa fa-heart" aria-hidden="true"></i>
