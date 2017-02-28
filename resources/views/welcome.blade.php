@@ -126,7 +126,8 @@
     <script>
         $(window).on('scroll', function(){
             var scrollTop = $(document).scrollTop();
-            if( scrollTop == 180 ){
+            console.log(scrollTop);
+            if( 160 < scrollTop && scrollTop< 200 ){
                 if( $('nav.tabmenu-wrap').hasClass('active') ){
                     $('nav.tabmenu-wrap').removeClass('active');
                     $('nav.tabmenu-wrap').find('i').removeClass('fa-angle-right').addClass('fa-angle-left');
@@ -134,6 +135,9 @@
                     $('nav.tabmenu-wrap').addClass('active');
                     $('nav.tabmenu-wrap').find('i').removeClass('fa-angle-left').addClass('fa-angle-right');
                 }
+            }else if( scrollTop < 160 ){
+                $('nav.tabmenu-wrap').removeClass('active');
+                $('nav.tabmenu-wrap').find('i').removeClass('fa-angle-right').addClass('fa-angle-left');
             }
         });
     </script>

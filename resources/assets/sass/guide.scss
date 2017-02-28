@@ -12,7 +12,7 @@ div.page.list{
             letter-spacing:-3px;
             text-indent:20px;
         }
-        ul.game-list{
+        ul.btn-list{
             border-top:2px solid #ddd;
             padding:20px 10px;
             > li{
@@ -107,12 +107,50 @@ div.page.list{
                                 letter-spacing:-1px;
                                 background:#eee;
                             }
-                            &.not-multi{
-                                line-height:80px;
-                            }
                             &:not(.title){
                                 height:100px;
+                                padding: 35px 10px;
                             }
+                        }
+                    }
+                }
+            }
+            &.pc-guide{
+                max-width:700px;
+                p{
+                    text-align:justify;
+                    text-indent:15px;
+                    line-height:1.8;
+                    letter-spacing:-1px;
+                }
+                h5{
+                    font-size:15px;
+                    letter-spacing:-1px;
+                    text-indent:10px;
+                    border-left:3px solid $point-color2;
+                    margin-left:20px;
+                }
+                table{
+                    th{
+                        background:#eee;
+                    }
+                    th, td{
+                        &:first-child, &:last-child{
+                            width:10%;
+                            min-width:30px;
+                        }
+                        width:80%;
+                        box-sizing:border-box;
+                        padding:10px 10px;
+                        font-size:12px;
+                        border:1px solid #ccc;
+                        line-height:2.0;
+                    }
+                }
+                li#vga{
+                    th, td{
+                        &:first-child{
+                            width:80%;
                         }
                     }
                 }
