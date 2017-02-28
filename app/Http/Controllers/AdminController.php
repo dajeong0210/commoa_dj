@@ -44,7 +44,7 @@ class AdminController extends Controller
 	public function categoryCreate(CategoryRequest $request) {
 		$category = new Category; 
 		$category->name = $request->input('category_name');
-		$category->color = $request->input('category_color');
+		$color = $request->input('category_color');
 		$image = $request->file('category_image');
 		$sort = $request->input('category_sort');
 		$min_cpus = $request->input('min_cpu'); 
@@ -55,6 +55,11 @@ class AdminController extends Controller
 		$storage = $request->input('storage');
 		$recommend_memory = $request->input('recommend_memory');
 
+		if( $color != null ) {
+			$category->color = $color;
+		} else {
+			$category->color = null; 
+		}
 		if( $min_memory != null ) {
 			$category->min_memory = $min_memory;
 		} else {
@@ -115,10 +120,9 @@ class AdminController extends Controller
 	public function categoryUpdate(CategoryRequest $request, $id) {
 		$category = Category::find($id);
 		$category->name = $request->input('category_name');
-		$category->color = $request->input('category_color');
+		$color = $request->input('category_color');
 		$sort = $request->input('category_sort');
 		$image = $request->file('category_image');
-		$category->color = $request->input('category_color');
 		$min_cpus = $request->input('min_cpu'); 
 		$min_vgas = $request->input('min_vga'); 
 		$recommend_cpus = $request->input('recommend_cpu'); 
@@ -126,6 +130,12 @@ class AdminController extends Controller
 		$min_memory = $request->input('min_memory');
 		$storage = $request->input('storage');
 		$recommend_memory = $request->input('recommend_memory');
+
+		if( $color != null ) {
+			$category->color = $color;
+		} else {
+			$category->color = null; 
+		}
 
 		if( $min_memory != null ) {
 			$category->min_memory = $min_memory;
@@ -199,22 +209,17 @@ class AdminController extends Controller
 
 	public function findCategory($id) {
 		$category = Category::find($id);
-		nl2br($category->min_cpu);
-		$min_cpu = explode("\n", $category->min_cpu);
-		$min_vga = explode("\n", $category->min_vga);
-		$recommend_cpu = explode("\n", nl2br($category->recommend_cpu));
-		$recommend_vga = explode("\n", nl2br($category->recommend_vga));
-		 
+	 
 		$array = array( 'name' => $category->name, 
 						'image' => $category->image,
 						'sort' => $category->sort,
 						'color' => $category->color,
-						'min_cpu' => $min_cpu,
-						'min_vga' => $min_vga,
+						'min_cpu' => $category->min_cpu,
+						'min_vga' => $category->min_vga,
 						'min_memory' => $category->min_memory,
 						'storage' => $category->storage,
-						'recommend_cpu' => $recommend_cpu,
-						'recommend_vga' => $recommend_vga,
+						'recommend_cpu' => $category->recommend_cpu,
+						'recommend_vga' => $category->recommend_vga,
 						'recommend_memory' => $category->recommend_memory );
 		
 		echo json_encode($array);
