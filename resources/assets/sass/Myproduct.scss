@@ -145,10 +145,16 @@ div.page.list{
             }
         }
         a.myprod-title{
+            display:inline-block;
+            width:420px;
             margin:10px;
             font-size:20px;
+            letter-spacing:-1px;
             font-weight:bold;
             color:#333;
+            text-overflow:ellipsis;
+            overflow:hidden;
+            white-space:nowrap;
             &:hover{
                 text-decoration:underline;
             }
