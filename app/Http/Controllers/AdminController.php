@@ -45,54 +45,90 @@ class AdminController extends Controller
 		$category = new Category; 
 		$category->name = $request->input('category_name');
 		$category->color = $request->input('category_color');
-		$category->min_memory = $request->input('min_memory');
-		$category->storage = $request->input('storage');
-		$category->recommend_memory = $request->input('recommend_memory');
 		$image = $request->file('category_image');
 		$sort = $request->input('category_sort');
 		$min_cpus = $request->input('min_cpu'); 
 		$min_vgas = $request->input('min_vga'); 
 		$recommend_cpus = $request->input('recommend_cpu'); 
 		$recommend_vgas = $request->input('recommend_vga'); 
+		$min_memory = $request->input('min_memory');
+		$storage = $request->input('storage');
+		$recommend_memory = $request->input('recommend_memory');
+
+		if( $min_memory != null ) {
+			$category->min_memory = $min_memory;
+		} else {
+			$category->min_memory = null; 
+		}
+
+		if( $storage != null ) {
+			$category->storage = $storage;
+		} else {
+			$category->storage = null; 
+		}
+
+		if( $recommend_memory != null ) {
+			$category->recommend_memory = $recommend_memory;
+		} else {
+			$category->recommend_memory = null; 
+		}
 		
 		$min_cpus_string ="";
 		$min_vgas_string =""; 
 		$recommend_cpus_string =""; 
 		$recommend_vgas_string =""; 
+		if( $min_cpus != null ) {
+			foreach ( $min_cpus as $min_cpu ) {
+				if( $min_cpus_string == "" ) {
+					$min_cpus_string = $min_cpu;
+				} else {
+					$min_cpus_string = $min_cpus_string . "\n" . $min_cpu;
+				}
+			}
+			$category->min_cpu = $min_cpus_string;
+		} else {
+			$category->min_cpu = null;
+		}
 
-		foreach ( $min_cpus as $min_cpu ) {
-			if( $min_cpus_string == "" ) {
-				$min_cpus_string = $min_cpu;
-			} else {
-				$min_cpus_string = $min_cpus_string . "\n" . $min_cpu;
+		if( $min_vgas != null ) {
+			foreach ( $min_vgas as $min_vga ) {
+				if( $min_vgas_string == "" ) {
+					$min_vgas_string = $min_vga;
+				} else {
+					$min_vgas_string = $min_vgas_string . "\n" . $min_vga;
+				}
 			}
+			$category->min_vga = $min_vgas_string;
+		} else {
+			$category->min_vga = null;
 		}
-		foreach ( $min_vgas as $min_vga ) {
-			if( $min_vgas_string == "" ) {
-				$min_vgas_string = $min_vga;
-			} else {
-				$min_vgas_string = $min_vgas_string . "\n" . $min_vga;
-			}
-		}
-		foreach ( $recommend_cpus as $recommend_cpu ) {
-			if( $recommend_cpus_string == "" ) {
-				$recommend_cpus_string = $recommend_cpu;
-			} else {
-				$recommend_cpus_string = $recommend_cpus_string . "\n" . $recommend_cpu;
-			}
-		}
-		foreach ( $recommend_vgas as $recommend_vga ) {
-			if( $recommend_vgas_string == "" ) {
-				$recommend_vgas_string = $recommend_vga;
-			} else {
-				$recommend_vgas_string = $recommend_vgas_string . "\n" . $recommend_vga;
-			}
-		}
-		$category->min_cpu = $min_cpus_string;
-		$category->min_vga = $min_vgas_string;
-		$category->recommend_cpu = $recommend_cpus_string;
-		$category->recommend_vga = $recommend_vgas_string;
 
+		if( $recommend_cpus != null ) {
+			foreach ( $recommend_cpus as $recommend_cpu ) {
+				if( $recommend_cpus_string == "" ) {
+					$recommend_cpus_string = $recommend_cpu;
+				} else {
+					$recommend_cpus_string = $recommend_cpus_string . "\n" . $recommend_cpu;
+				}
+			}
+			$category->recommend_cpu = $recommend_cpus_string;
+		} else {
+			$category->recommend_cpu = null;
+		}
+
+		if( $recommend_vgas != null ) {
+			foreach ( $recommend_vgas as $recommend_vga ) {
+				if( $recommend_vgas_string == "" ) {
+					$recommend_vgas_string = $recommend_vga;
+				} else {
+					$recommend_vgas_string = $recommend_vgas_string . "\n" . $recommend_vga;
+				}
+			}
+			$category->recommend_vga = $recommend_vgas_string;
+		} else {
+			$category->recommend_vga = null;
+		}
+	
 		
 		if( $sort != null ) {
 			$category->sort = 1;
