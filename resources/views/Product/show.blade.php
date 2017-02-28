@@ -90,11 +90,13 @@
             </div>
         </div>
     </div>
-    <script src="/js/jquery.cookie.js"></script>
     <script type="text/javascript">
-        Cookies.set('recent', '{{ $product }}');
-        
-        var cookie_array = Cookies.get('recent');
-        console.log(cookie_array);
+        var cookieList = $.fn.cookieList("recent");
+        var obj = new Object();
+        obj.idx = '{{ $product->id }}';
+        obj.name = '{{ $product->name }}';
+        obj.url = '{{ $product->url }}';
+	    obj.img = '{{ $product->image }}';
+        cookieList.add(obj);
     </script>
 @endsection

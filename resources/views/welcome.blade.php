@@ -123,4 +123,14 @@
             </li>
         </ul>
     </div>
+    <script>
+        $(window).scroll(function(){
+            var scrollTop = $(document).scrollTop();
+            if( scrollTop > 180 ){
+                $('nav.tabmenu-wrap').addClass('active');
+            }else{
+                $('nav.tabmenu-wrap').removeClass('active');
+            }
+        });
+    </script>
 @endsection
