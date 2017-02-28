@@ -19,6 +19,12 @@
     
     <!-- Scripts -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="/js/jquery.cookie.js"></script>
+    <script src="/js/cookie.js"></script>
+    <script>
+    //Recent Items
+        var cookieList = $.fn.cookieList("recent");
+    </script>
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
@@ -88,7 +94,7 @@
             </ul>
             
         </nav>
-        <nav class="tabmenu-wrap">
+        <nav class="tabmenu-wrap {{ !Request::segment(1) ? '' : 'active' }}">
             <a href="#" class="button">
                 <i class="fa fa-angle-left" aria-hidden="true"></i>
             </a>
@@ -107,23 +113,13 @@
                         <a href="{{ url('guide?') }}">게임별 사양</a>
                     </li>
                     <li>
-                        <p>최근 본 상품()</p>
+                        <p>최근 본 상품</p>
                         <ul class="recent-product">
-                            <li>
-                                <a href="#" title="" style="background:url() center no-repeat;background-size:cover;"></a>
-                            </li>
-                            <li>
-                                <a href="#" title="" style="background:url() center no-repeat;background-size:cover;"></a>
-                            </li>
-                            <li>
-                                <a href="#" title="" style="background:url() center no-repeat;background-size:cover;"></a>
-                            </li>
-                            <li>
-                                <a href="#" title="" style="background:url() center no-repeat;background-size:cover;"></a>
-                            </li>
-                            <li>
-                                <a href="#" title="" style="background:url() center no-repeat;background-size:cover;"></a>
-                            </li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
                         </ul>
                     </li>
                     <li>
@@ -171,6 +167,5 @@
     <script type="text/javascript" src="/js/additional-methods.js"></script>
     <script type="text/javascript" src="/js/messages_ko.min.js"></script>
     <script type="text/javascript" src="/js/script.js"></script>
-    <script type="text/javascript" src="/js/cookie.js"></script>
 </body>
 </html>

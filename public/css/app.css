@@ -292,9 +292,15 @@ nav.tabmenu-wrap {
   position: fixed;
   top: 25%;
   right: -95px;
-  z-index: 300;
+  z-index: 39;
   -webkit-transition: all 1s;
   transition: all 1s;
+}
+
+@media (max-width: 480px) {
+  nav.tabmenu-wrap {
+    top: 0;
+  }
 }
 
 nav.tabmenu-wrap.active {
@@ -350,6 +356,16 @@ nav.tabmenu-wrap div.tabmenu ul > li p.no-mrg {
   margin: 0 0 10px 0;
 }
 
+nav.tabmenu-wrap div.tabmenu ul > li span.new {
+  position: absolute;
+  right: 3px;
+  font-size: 11px;
+  background: #FA5858;
+  color: #fff;
+  padding: 1px 6px;
+  border-radius: 10px;
+}
+
 nav.tabmenu-wrap div.tabmenu ul > li a {
   color: #444;
   text-align: center;
@@ -359,6 +375,7 @@ nav.tabmenu-wrap div.tabmenu ul > li ul {
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
   width: 80px;
+  height: 347px;
   margin: 0 auto;
 }
 
@@ -367,17 +384,26 @@ nav.tabmenu-wrap div.tabmenu ul > li ul li {
   height: 55px;
   margin: 10px auto;
   padding: 0;
+  position: relative;
   border: 1px solid #ddd;
+  overflow: hidden;
 }
 
 nav.tabmenu-wrap div.tabmenu ul > li ul li a {
   display: block;
   width: 100%;
   height: 100%;
+  position: absolute;
+  top: 0;
 }
 
 nav.tabmenu-wrap div.tabmenu ul > li ul li a:hover {
   background: rgba(0, 0, 0, 0.2);
+}
+
+nav.tabmenu-wrap div.tabmenu ul > li ul li a div {
+  width: 100%;
+  height: 100%;
 }
 
 div.footer {
