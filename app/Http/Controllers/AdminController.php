@@ -118,7 +118,6 @@ class AdminController extends Controller
 		$category->color = $request->input('category_color');
 		$sort = $request->input('category_sort');
 		$image = $request->file('category_image');
-		$category->color = $request->input('category_color');
 		$min_cpus = $request->input('min_cpu'); 
 		$min_vgas = $request->input('min_vga'); 
 		$recommend_cpus = $request->input('recommend_cpu'); 

@@ -29,6 +29,7 @@ class CategoryRequest extends FormRequest
             'min_memory' => 'numeric',
             'storage' => 'numeric',
             'recommend_memory' => 'numeric',
+            'category_image' => 'image',
         ];
     }
 
