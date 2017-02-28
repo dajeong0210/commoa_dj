@@ -124,12 +124,16 @@
         </ul>
     </div>
     <script>
-        $(window).scroll(function(){
+        $(window).on('scroll', function(){
             var scrollTop = $(document).scrollTop();
-            if( scrollTop > 180 ){
-                $('nav.tabmenu-wrap').addClass('active');
-            }else{
-                $('nav.tabmenu-wrap').removeClass('active');
+            if( scrollTop == 180 ){
+                if( $('nav.tabmenu-wrap').hasClass('active') ){
+                    $('nav.tabmenu-wrap').removeClass('active');
+                    $('nav.tabmenu-wrap').find('i').removeClass('fa-angle-right').addClass('fa-angle-left');
+                }else{
+                    $('nav.tabmenu-wrap').addClass('active');
+                    $('nav.tabmenu-wrap').find('i').removeClass('fa-angle-left').addClass('fa-angle-right');
+                }
             }
         });
     </script>
