@@ -144,7 +144,7 @@
                     <div class="group game">
                         <div class="form-group one-layout form-group{{ $errors->has('min_cpu') ? ' has-error' : '' }}">
                             <label for="min_cpu">최소 프로세서</label>
-                            <input type="text" name="min_cpu[]" id="min_cpu" class="multiple" value=""/>
+                            <input type="text" name="min_cpu" id="min_cpu" class="multiple" value=""/>
                                 @if($errors->has('min_cpu'))
                             <label class="error">
                                 <strong>{{ $errors->first('min_cpu') }}</strong>
@@ -153,7 +153,7 @@
                         </div>
                         <div class="form-group one-layout form-group{{ $errors->has('min_vga') ? ' has-error' : '' }}">
                             <label for="min_vga">최소 그래픽카드</label>
-                            <textarea name="min_vga[]" id="min_vga" class="multiple" rows="2"/>
+                            <textarea name="min_vga" id="min_vga" class="multiple" rows="2"/>
                             </textarea>
                             @if($errors->has('min_vga'))
                             <label class="error">
@@ -183,7 +183,7 @@
                         </div>
                         <div class="form-group one-layout form-group{{ $errors->has('recommend_cpu') ? ' has-error' : '' }}">
                             <label for="recommend_cpu">권장 프로세서</label>
-                            <input type="text" name="recommend_cpu[]" id="recommend_cpu" class="multiple"/>
+                            <input type="text" name="recommend_cpu" id="recommend_cpu" class="multiple"/>
                             @if($errors->has('recommend_cpu'))
                             <label class="error">
                                 <strong>{{ $errors->first('recommend_cpu') }}</strong>
@@ -192,7 +192,7 @@
                         </div>
                         <div class="form-group one-layout form-group{{ $errors->has('recommend_vga') ? ' has-error' : '' }}">
                             <label for="recommend_vga">권장 그래픽카드</label>
-                            <textarea name="recommend_vga[]" id="recommend_vga" class="multiple" rows="2"/>
+                            <textarea name="recommend_vga" id="recommend_vga" class="multiple" rows="2"/>
                             </textarea>
                             @if($errors->has('recommend_vga'))
                             <label class="error">

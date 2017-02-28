@@ -151,10 +151,10 @@
                         $('input[name="min_memory"]').val(dataArr.min_memory);
                         $('input[name="storage"]').val(dataArr.storage);
                         $('input[name="recommend_memory"]').val(dataArr.recommend_memory);
-                        $('input[name="min_cpu[]"]').val(dataArr.min_cpu);
-                        $('textarea[name="min_vga[]"]').html(dataArr.min_vga.replace(/<br>/gi,''));
-                        $('input[name="recommend_cpu[]"]').val(dataArr.recommend_cpu);
-                        $('textarea[name="recommend_vga[]"]').html(dataArr.recommend_vga.replace(/<br>/gi,''));
+                        $('input[name="min_cpu"]').val(dataArr.min_cpu);
+                        $('textarea[name="min_vga"]').html(dataArr.min_vga);
+                        $('input[name="recommend_cpu"]').val(dataArr.recommend_cpu);
+                        $('textarea[name="recommend_vga"]').html(dataArr.recommend_vga);
                     }
                     $('form[name="categoryForm"]').attr('action' , $url+'/category/'+$targetId).find('input[type="submit"]').val('수정하기');
                     //OriginImg
