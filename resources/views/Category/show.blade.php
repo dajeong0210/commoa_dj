@@ -9,7 +9,7 @@
     </div>
     <div class="page list">
         <div class="tab">
-            <div name="game-guide" class="no-pd">
+            <div name="game-guide" class="no-pd {{ $game->sort == '0' ? 'hidden' : '' }}">
                 <ul class="specification">
                     <li id="{{ 'game' . $game->id }}">
                         <h4>{{ $game->name }} 사양정보</h4>
