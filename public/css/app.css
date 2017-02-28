@@ -3743,11 +3743,12 @@ div#app.admin div.category li a.delete, div#app.admin div.category li a.del {
   color: #FA5858;
 }
 
-div#app.admin div.category input[type="text"] {
+div#app.admin div.category input[type="text"], div#app.admin div.category textarea {
   padding: 0;
   margin: 0;
   font-size: 13px;
   height: 13px;
+  width: 100%;
 }
 
 div#app.admin div.category input.modify-btn {
@@ -3846,7 +3847,7 @@ div#app.admin div.category.cpu-vga a.active {
   font-weight: bold;
 }
 
-div#app.admin div.category.cpu-vga input:not([type="submit"]) {
+div#app.admin div.category.cpu-vga input:not([type="submit"]), div#app.admin div.category.cpu-vga textarea {
   padding: 10px 7px;
   height: initial;
   border: 1px solid #ccc;

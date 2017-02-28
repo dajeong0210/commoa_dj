@@ -96,7 +96,7 @@
         </nav>
         <nav class="tabmenu-wrap {{ !Request::segment(1) ? '' : 'active' }}">
             <a href="#" class="button">
-                <i class="fa fa-angle-left" aria-hidden="true"></i>
+                <i class="fa {{ !Request::segment(1) ? 'fa-angle-left' : 'fa-angle-right' }}" aria-hidden="true"></i>
             </a>
             <div class="tabmenu">
                 <ul>
