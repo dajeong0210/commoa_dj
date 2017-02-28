@@ -26,6 +26,9 @@ class CategoryRequest extends FormRequest
         return [
             'category_name' => 'required',
             'color' => 'unique:categories,color',
+            'min_memory' => 'numeric',
+            'storage' => 'numeric',
+            'recommend_memory' => 'numeric',
         ];
     }
 
