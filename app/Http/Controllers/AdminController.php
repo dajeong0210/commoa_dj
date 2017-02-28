@@ -44,7 +44,7 @@ class AdminController extends Controller
 	public function categoryCreate(CategoryRequest $request) {
 		$category = new Category; 
 		$category->name = $request->input('category_name');
-		$category->color = $request->input('category_color');
+		$color = $request->input('category_color');
 		$image = $request->file('category_image');
 		$sort = $request->input('category_sort');
 		$min_cpus = $request->input('min_cpu'); 
@@ -55,43 +55,48 @@ class AdminController extends Controller
 		$storage = $request->input('storage');
 		$recommend_memory = $request->input('recommend_memory');
 
-		if( $min_memory != null ) {
+		if( $color != "" ) {
+			$category->color = $color;
+		} else {
+			$category->color = null; 
+		}
+		if( $min_memory != "" ) {
 			$category->min_memory = $min_memory;
 		} else {
 			$category->min_memory = null; 
 		}
 
-		if( $storage != null ) {
+		if( $storage != "" ) {
 			$category->storage = $storage;
 		} else {
 			$category->storage = null; 
 		}
 
-		if( $recommend_memory != null ) {
+		if( $recommend_memory != "" ) {
 			$category->recommend_memory = $recommend_memory;
 		} else {
 			$category->recommend_memory = null; 
 		}
 		
-		if( $min_cpus != null ) {
+		if( $min_cpus != "" ) {
 			$category->min_cpu = $min_cpus;
 		} else {
 			$category->min_cpu = null;
 		}
 
-		if( $min_vgas != null ) {
+		if( $min_vgas != "" ) {
 			$category->min_vga = $min_vgas;
 		} else {
 			$category->min_vga = null;
 		}
 
-		if( $recommend_cpus != null ) {
+		if( $recommend_cpus != "" ) {
 			$category->recommend_cpu = $recommend_cpus;
 		} else {
 			$category->recommend_cpu = null;
 		}
 
-		if( $recommend_vgas != null ) {
+		if( $recommend_vgas != "" ) {
 			$category->recommend_vga = $recommend_vgas;
 		} else {
 			$category->recommend_vga = null;
@@ -115,7 +120,7 @@ class AdminController extends Controller
 	public function categoryUpdate(CategoryRequest $request, $id) {
 		$category = Category::find($id);
 		$category->name = $request->input('category_name');
-		$category->color = $request->input('category_color');
+		$color = $request->input('category_color');
 		$sort = $request->input('category_sort');
 		$image = $request->file('category_image');
 		$min_cpus = $request->input('min_cpu'); 
@@ -125,6 +130,12 @@ class AdminController extends Controller
 		$min_memory = $request->input('min_memory');
 		$storage = $request->input('storage');
 		$recommend_memory = $request->input('recommend_memory');
+
+		if( $color != null ) {
+			$category->color = $color;
+		} else {
+			$category->color = null; 
+		}
 
 		if( $min_memory != null ) {
 			$category->min_memory = $min_memory;
