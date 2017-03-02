@@ -214,11 +214,17 @@
         $title = $('ul.slider li.'+$nth).find('h3').html();
         $content = $('ul.slider li.'+$nth).find('p').html();
         $url = $('ul.slider li.'+$nth).find('a').attr('href');
-        $align = $('ul.slider li.'+$nth).find('span.hidden').html();
+        $show = $('ul.slider li.'+$nth).find('span.btn_show').html();
+        $align = $('ul.slider li.'+$nth).find('span.align').html();
         $('input[value="'+$type+'"]').prop('checked', true);
         $('textarea[name="title"]').html($title.replace(/<br>/gi,''));
         $('textarea[name="content"]').html($content.replace(/<br>/gi,''));
         $('input[name="url"]').val($url);
+        if( $show == '1' ){
+            $('input[name="btn_check"]').prop('checked', true);
+        }else{
+            $('input[name="btn_check"]').prop('checked', false);
+        };
         $('input[value="'+$align+'"]').prop('checked', true);
     });
     $('a.preview').on('click', function(e){
@@ -228,14 +234,31 @@
         $title = $('textarea[name="title"]').val();
         $content = $('textarea[name="content"]').val();
         $url = $('input[name="url"]').val();
-        if( $type =="없음" ){
+        $show = $('input[name="btn_check"]:checked').val();
+        $style = $('div.slider ul li.'+$nth).attr('style').replace('cursor:pointer', '');
+
+        if( $('input[name="align"]:checked').val() == 1 ){
+            $align = 'right';
+        }else{
+            $align = 'left';
+        };
+        
+        if( $type == "없음" ){
             $('div.slider ul li.'+$nth).find('span:first-child').addClass('hidden');
         }else{
             $('div.slider ul li.'+$nth).find('span:first-child').html($type).removeClass('hidden');
         }
         $('div.slider ul li.'+$nth).find('h3').html($title.replace(/\n/g, '<br/>'));
         $('div.slider ul li.'+$nth).find('p').html($content.replace(/\n/g, '<br/>'));
-        $('div.slider ul li.'+$nth).find('a').attr('href', $url);
+        if( $show == '1' ){
+            $('div.slider ul li.'+$nth).find('a.btn').addClass('hidden');
+            $('div.slider ul li.'+$nth).attr('style' , $style+'cursor:pointer;');
+        }else{
+            $('div.slider ul li.'+$nth).find('a.btn').removeClass('hidden');
+            $('div.slider ul li.'+$nth).attr('style' , $style);
+        };
+        $('div.slider ul li.'+$nth).find('div.slider-cover').attr('style', 'text-align:'+$align+';');
+        $('div.slider ul li.'+$nth).find('h3').attr('style', 'text-align:'+$align+';');
     });
 //OriginImg
     $origin = $('div.img-box').attr('style');
