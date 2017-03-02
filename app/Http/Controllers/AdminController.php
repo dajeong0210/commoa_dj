@@ -521,6 +521,8 @@ class AdminController extends Controller
 	public function bannerUpdate(Request $request, $id) {
 		$banner = Banner::find($id);
 		$banner_img = $request->file('image');
+		$banner->show = $request->input('btn_check');
+
 		$request = $request->except(['_method', '_token']);
 		$banner->update($request);
 		
