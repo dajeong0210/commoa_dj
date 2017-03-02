@@ -25,7 +25,7 @@ class ProductController extends Controller
         $monitor = $request->input('monitor');
         $storage = $request->input('storage'); 
         $categories = Category::orderBy('sort', 'desc')->orderBy('name','asc')->get();
-        $or_products = NULL;
+        $or_products = null;
 
         if ( strpos( URL::current() , 'office') ) {
             $products = Category::where('name', '사무용')->first()->products();
@@ -39,33 +39,7 @@ class ProductController extends Controller
             $products = new Product;
         }
         
-        if( $cpu_level != null || $vga_level != null || $os != null || $monitor != null || $storage != null ) {
-
-            if( $cpu_level != null ) {               
-                $cpus = Cpu::whereIn('level', $cpu_level)->get();
-                $cpu_id = array();
-                foreach ( $cpus as $cpu ) {
-                    array_push($cpu_id, $cpu->id);
-                }
-                $products = $products->whereIn('cpu_id', $cpu_id);
-            } 
-
-            if( $vga_level != null ) {
-                $vgas = Vga::whereIn('level', $vga_level)->get();
-                $vga_id = array();
-                foreach ( $vgas as $vga ) {
-                    array_push($vga_id, $vga->id);
-                }
-                $products = $products->whereIn('vga_id', $vga_id);
-            }
-
-            if( $os != null ) {
-                if( $os == 0 ) { 
-                    $products = $products->where('os', 0);
-                } else {
-                    $products = $products->where('os', 1);
-                }
-            }
+        if( $cpu_level != null || $vga_level != null || $os != null || $monitor != null || $storage != null || $filter_categories != null ) {
 
             if( $storage != null ) {
 
@@ -114,7 +88,33 @@ class ProductController extends Controller
                 }
                 
             }
+
+            if( $cpu_level != null ) {               
+                $cpus = Cpu::whereIn('level', $cpu_level)->get();
+                $cpu_id = array();
+                foreach ( $cpus as $cpu ) {
+                    array_push($cpu_id, $cpu->id);
+                }
+                $products = $products->whereIn('cpu_id', $cpu_id);
+            } 
+
+            if( $vga_level != null ) {
+                $vgas = Vga::whereIn('level', $vga_level)->get();
+                $vga_id = array();
+                foreach ( $vgas as $vga ) {
+                    array_push($vga_id, $vga->id);
+                }
+                $products = $products->whereIn('vga_id', $vga_id);
+            }
             
+            if( $os != null ) {
+                if( $os == 0 ) { 
+                    $products = $products->where('os', 0);
+                } else {
+                    $products = $products->where('os', 1);
+                }
+            }
+
             if( $monitor != null ) {
                 if( $monitor == 0 ) {
                     $products = $products->whereNull('monitor');
@@ -122,25 +122,25 @@ class ProductController extends Controller
                     $products = $products->whereNotNull('monitor');
                 }
             }
-
-        }
-
-        if( $filter_categories != null ) {
-            //AND type filter
-            foreach( $filter_categories as $category ) {
-                $products = $products->whereHas('categories', function($products) use ($category) {  
-                        $products->where('categories.name', $category);            
-                });
+            
+            if( $filter_categories != null ) {
+                //AND type filter
+                foreach( $filter_categories as $category ) {
+                    $products = $products->whereHas('categories', function($products) use ($category) {  
+                            $products->where('categories.name', $category);            
+                    });
+                }
+                    
+                if( $products->count() == 0 ) {
+                    $or_products = Category::where('name', '게임용')->first()->products();
+                    //OR type filter 
+                    $or_products = $or_products->whereHas('categories', function($or_products) use ($filter_categories) {  
+                            $or_products->whereIn('categories.name', $filter_categories);            
+                    })->paginate(4);
+                }
             }
-                
-            if( $products->count() == 0 ) {
-                $or_products = Category::where('name', '게임용')->first()->products();
-                //OR type filter 
-                $or_products = $or_products->whereHas('categories', function($or_products) use ($filter_categories) {  
-                        $or_products->whereIn('categories.name', $filter_categories);            
-                })->paginate(4);
-            }   
-        } 
+             
+        }      
 
         $products = $products->selectRaw('*, @row:=@row+1 as row');
 
@@ -153,7 +153,6 @@ class ProductController extends Controller
         } else {
             $products = $products->orderBy('products.updated_at', 'desc')->paginate(12);
         } 
-
 
         return view('Product.index')->with('products', $products)->with('categories', $categories)->with('or_products', $or_products);
     }
