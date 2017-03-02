@@ -9,7 +9,7 @@
             if(array.length > 5)
               array = array.splice(1,5);
             var inStr = JSON.stringify(array);
-            $.cookie(cookieName, inStr, { expires: 7, path: '/' });
+            $.cookie(cookieName, inStr, { expires: 1, path: '/' });
           }else{
           }
         },
@@ -18,7 +18,7 @@
           var index = items.indexOf(idx);
           if (index != -1) {
             items.splice(index, 1);
-            $.cookie(cookieName, items.join(','), { expires: 7, path: '/' });
+            $.cookie(cookieName, items.join(','), { expires: 1, path: '/' });
           }
         },
         indexOf: function (idx) {
@@ -28,7 +28,7 @@
           }
         },
         clear: function () {
-          $.cookie(cookieName, "", { expires: 7, path: '/' });
+          $.cookie(cookieName, "", { expires: 1, path: '/' });
         },
         items: function () {
           var cookie = $.cookie(cookieName);

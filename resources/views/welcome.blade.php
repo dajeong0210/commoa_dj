@@ -2,10 +2,12 @@
 
 @section('content')
     <div class="slider">
-        <nav class="nav-slider">
+        <nav class="nav-slider left">
             <a href="#" class="left" onclick="return false;">
                 <i class="fa fa-arrow-left" aria-hidden="true"></i>
             </a>
+        </nav>
+        <nav class="nav-slider right">
             <a href="#" class="right" onclick="return false;">
                 <i class="fa fa-arrow-right" aria-hidden="true"></i>
             </a>
@@ -13,12 +15,12 @@
         <ul class="slider auto">
             @if( $banners )
                 @foreach( $banners as $banner )
-                    <li class="{{ 'game_0' . $banner->order .' main' . $banner->order }}" style="{{ 'background:url(' . $banner->image . ') no-repeat center 0; background-size:cover;' }}">
+                    <li class="{{ 'game_0' . $banner->order .' main' . $banner->order }}" style="{{ 'background:url(' . $banner->image . ') no-repeat center 0; background-size:cover;' }} {{ $banner->show == 1 ? 'cursor:pointer;' : '' }}" {{ $banner->show == 1 ? 'onclick=location.href=\'' . $banner->url . '\'' : '' }} >
                         <div class="slider-cover" style="{{ $banner->align == 1 ? 'text-align:right;' : 'text-align:left;' }}">
-                            <span>{{ $banner->type }}</span>
+                            <span class="{{ $banner->type == '없음' ? 'hidden' : ''  }}">{{ $banner->type }}</span>
                             <h2 style="{{ $banner->align == 1 ? 'text-align:right;' : 'text-align:left;' }}">{!! nl2br( e($banner->title) ) !!}</h2>
                             <p>{!! nl2br( e($banner->content) ) !!}</p>
-                            <a href="{{ $banner->url }}" class="btn">바로가기</a>
+                            <a href="{{ $banner->url }}" class="btn {{ $banner->show == 1 ? 'hidden' : '' }}">바로가기</a>
                         </div>
                     </li>
                 @endforeach

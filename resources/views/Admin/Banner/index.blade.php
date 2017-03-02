@@ -39,7 +39,7 @@
                         @foreach( $banners as $banner )
                         <li class="{{ 'game_0' . $banner->order .' main' . $banner->order }}" style="{{ 'background:url(' . $banner->image . ') no-repeat; background-size:cover;' }}">
                             <div class="slider-cover" style="{{ $banner->align == 1 ? 'text-align:right;' : 'text-align:left;' }}">
-                                <span>{{ $banner->type }}</span>
+                                <span class="{{ $banner->type == '없음' ? 'hidden' : ''  }}">{{ $banner->type }}</span>
                                 <h3 style="{{ $banner->align == 1 ? 'text-align:right;' : 'text-align:left;' }}">{!! nl2br( e($banner->title) ) !!}</h3>
                                 <p>{!! nl2br( e($banner->content) ) !!}</p>
                                 <a href="{{ $banner->url }}" class="btn" onclick="return false;">바로가기</a>
@@ -56,6 +56,8 @@
                 <div class="group">
                     <label>종류</label>
                     <div class="select type">
+                        <label for="type0">없음</label>
+                        <input type="radio" id="type0" name="type" value="없음" {{ $banners->first()->type == '없음' ? 'checked' : '' }}>
                         <label for="type1">인기상품</label>
                         <input type="radio" id="type1" name="type" value="인기상품" {{ $banners->first()->type == '인기상품' ? 'checked' : '' }}>
                         <label for="type2">이벤트</label>
@@ -84,8 +86,9 @@
                 </div>
                 <div class="group">
                     <div class="form-group one-layout">
-                        <label for="url" class="top-align">URL</label>
+                        <label for="url" class="top-align">바로가기</label>
                         <input type="text" name="url" value="{{ $banners->first()->url }}"/>
+                        <input type="checkbox" name="btn_check"/><span>버튼숨기기</span>
                     </div>
                 </div>
                 <div class="align">

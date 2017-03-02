@@ -96,14 +96,22 @@
                         <p>중 :  <u>[GeForce]</u> GTX 750, GTX 750 Ti, GTX 760, GTX 950, GTX 960, GTX 1050, GTX 1050 Ti<br/><u>[Radeon™]</u> RX460</p>
                         <p>하 : GeForce GT 740, 내장그래픽</p>
                     </div>
-                    <div class="filter-group {{ Request::segment(1)=='product' && !Request::segment(2) ? 'quatro-layout' : 'hidden' }}">
+                    <div class="filter-group storage {{ Request::segment(1)=='product' && !Request::segment(2) ? 'quatro-layout' : 'hidden' }}">
                         <h3>저장장치</h3>
-                        <label for="hdd" @if( isset($_GET['storage'])) @if( in_array('hdd' , $_GET['storage']) ) class="active" @endif @endif>HDD</label>
-                        <input type="checkbox" id="hdd" name="storage[]" class="input hidden" value="hdd" @if( isset($_GET['storage'])) @if( in_array('hdd' , $_GET['storage']) ) checked="checked" @endif @endif/>
-                        <label for="ssd" @if( isset($_GET['storage'])) @if( in_array('ssd' , $_GET['storage']) ) class="active" @endif @endif>SSD</label>
-                        <input type="checkbox" id="ssd" name="storage[]" class="input hidden" value="ssd" @if( isset($_GET['storage'])) @if( in_array('ssd' , $_GET['storage']) ) checked="checked" @endif @endif/>
-                        <label for="hdd+ssd" @if( isset($_GET['storage'])) @if( in_array('hdd+ssd' , $_GET['storage'])) class="active" @endif @endif>HDD+SSD</label>
-                        <input type="checkbox" id="hdd+ssd" name="storage[]" class="input hidden" value="hdd+ssd" @if( isset($_GET['storage'])) @if( in_array('hdd+ssd' , $_GET['storage']) ) checked="checked" @endif @endif/>
+                        <div class="wrap">
+                            <span>HDD</span>
+                            <label for="hdd_yes" @if( isset($_GET['hdd'])) @if( $_GET['hdd'] == '1' ) class="active" @endif @endif>있음</label>
+                            <input type="radio" id="hdd_yes" name="hdd" class="input hidden" value="1" @if( isset($_GET['hdd'])) @if( $_GET['hdd'] == '1' ) checked="checked" @endif @endif/>
+                            <label for="hdd_no" @if( isset($_GET['hdd'])) @if( $_GET['hdd'] == '0' ) class="active" @endif @endif>없음</label>
+                            <input type="radio" id="hdd_no" name="hdd" class="input hidden" value="0" @if( isset($_GET['hdd'])) @if( $_GET['hdd'] == '0' ) checked="checked" @endif @endif/>
+                        </div>
+                        <div class="wrap">
+                            <span>SSD</span>
+                            <label for="ssd_yes" @if( isset($_GET['ssd'])) @if( $_GET['ssd'] == '1' ) class="active" @endif @endif>있음</label>
+                            <input type="radio" id="ssd_yes" name="ssd" class="input hidden" value="1" @if( isset($_GET['ssd'])) @if( $_GET['ssd'] == '1' ) checked="checked" @endif @endif/>
+                            <label for="ssd_no" @if( isset($_GET['ssd'])) @if( $_GET['ssd'] == '0' ) class="active" @endif @endif>없음</label>
+                            <input type="radio" id="ssd_no" name="ssd" class="input hidden" value="0" @if( isset($_GET['ssd'])) @if( $_GET['ssd'] == '0' ) checked="checked" @endif @endif/>
+                        </div>
                     </div>
                     <div class="filter-group os {{ Request::segment(1)=='product' && !Request::segment(2) ? 'quatro-layout' : 'half-layout' }}">
                         <h3>OS</h3>
@@ -192,7 +200,7 @@
             <div class="non-item">
                 <strong>조건을 모두 만족하는 상품이 없습니다!</strong>
             </div>
-            @if( Request::segment(1) == 'game' )
+            @if( Request::segment(1) == 'game' && $or_products != NULL )
             <div class="non-item-recommend">
                 <h4>이런 상품을 찾으셨나요?</h4>
                 <ul class="list-group grid">

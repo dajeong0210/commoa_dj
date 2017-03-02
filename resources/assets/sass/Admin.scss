@@ -562,7 +562,7 @@ div#app.admin{
                         font-weight:bold;
                     }
                     &.admin{
-                        color:$point-color2
+                        color:$point-color2;
                     }
                     a{
                         color:#333;
@@ -803,9 +803,19 @@ div#app.admin{
                 width:80%;
                 border:1px solid #ccc;
                 border-radius:10px;
+                &[name="url"]{
+                    width:60%;
+                }
                 @include respond-to('small'){
                     width:75%;
                 }
+            }
+            span{
+                font-size:12px;
+                font-weight:bold;
+                padding-left:5px;
+                position:relative;
+                top:-2px; 
             }
             &:last-child{
                 padding-top:20px;

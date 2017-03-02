@@ -15,12 +15,20 @@ div.slider{
             }
         }
     }
-    nav{
+    nav.nav-slider{
         position:absolute;
+        position:absolute;
+        display:inline;
         top:170px;
-        width:100%;
+        width:30px;
         height:30px;
         z-index:3;
+        &.left{
+            left:0;
+        }
+        &.right{
+            right:0;
+        }
         &.recommend{
             top:50%;
             a{
@@ -123,6 +131,13 @@ div.slider{
                     &:hover{
                         background:$point-color;
                     }
+                } 
+            }
+            a.no-btn{
+                position:absolute;
+                top:0;
+                &.hidden{
+                    display:none;
                 }
             }
         }

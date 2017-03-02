@@ -228,7 +228,11 @@
         $title = $('textarea[name="title"]').val();
         $content = $('textarea[name="content"]').val();
         $url = $('input[name="url"]').val();
-        $('div.slider ul li.'+$nth).find('span').html($type);
+        if( $type =="없음" ){
+            $('div.slider ul li.'+$nth).find('span:first-child').addClass('hidden');
+        }else{
+            $('div.slider ul li.'+$nth).find('span:first-child').html($type).removeClass('hidden');
+        }
         $('div.slider ul li.'+$nth).find('h3').html($title.replace(/\n/g, '<br/>'));
         $('div.slider ul li.'+$nth).find('p').html($content.replace(/\n/g, '<br/>'));
         $('div.slider ul li.'+$nth).find('a').attr('href', $url);
