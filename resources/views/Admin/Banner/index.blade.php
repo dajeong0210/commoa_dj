@@ -88,7 +88,7 @@
                     <div class="form-group one-layout">
                         <label for="url" class="top-align">바로가기</label>
                         <input type="text" name="url" value="{{ $banners->first()->url }}"/>
-                        <input type="checkbox" name="btn_check"/><span>버튼숨기기</span>
+                        <input type="checkbox" name="btn_check" value="1"/><span>버튼숨기기</span>
                     </div>
                 </div>
                 <div class="align">
