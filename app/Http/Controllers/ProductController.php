@@ -38,23 +38,6 @@ class ProductController extends Controller
         } else {
             $products = new Product;
         }
-
-        if( $filter_categories != null ) {
-            //AND type filter
-            foreach( $filter_categories as $category ) {
-                $products = $products->whereHas('categories', function($products) use ($category) {  
-                        $products->where('categories.name', $category);            
-                });
-            }
-                
-            if( $products->count() == 0 ) {
-                $or_products = Category::where('name', '게임용')->first()->products();
-                //OR type filter 
-                $or_products = $or_products->whereHas('categories', function($or_products) use ($filter_categories) {  
-                        $or_products->whereIn('categories.name', $filter_categories);            
-                })->paginate(4);
-            }   
-        } 
         
         if( $cpu_level != null || $vga_level != null || $os != null || $monitor != null || $storage != null ) {
 
@@ -141,6 +124,23 @@ class ProductController extends Controller
             }
 
         }
+
+        if( $filter_categories != null ) {
+            //AND type filter
+            foreach( $filter_categories as $category ) {
+                $products = $products->whereHas('categories', function($products) use ($category) {  
+                        $products->where('categories.name', $category);            
+                });
+            }
+                
+            if( $products->count() == 0 ) {
+                $or_products = Category::where('name', '게임용')->first()->products();
+                //OR type filter 
+                $or_products = $or_products->whereHas('categories', function($or_products) use ($filter_categories) {  
+                        $or_products->whereIn('categories.name', $filter_categories);            
+                })->paginate(4);
+            }   
+        } 
 
         $products = $products->selectRaw('*, @row:=@row+1 as row');
 
