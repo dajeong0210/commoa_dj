@@ -1694,13 +1694,13 @@ div.page.list div.filter-wrap div.filter-group.storage label {
   display: inline;
   background: none;
   margin: 2px -3.5px;
-  padding: 2px;
+  padding: 2px 4px;
 }
 
 div.page.list div.filter-wrap div.filter-group.storage span {
   display: inline-block;
   width: 30px;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: bold;
   margin-right: 2px;
 }
