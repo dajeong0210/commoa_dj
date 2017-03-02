@@ -23,7 +23,9 @@ class ProductController extends Controller
         $vga_level = $request->input('vga_level'); 
         $os = $request->input('os');
         $monitor = $request->input('monitor');
-        $storage = $request->input('storage'); 
+        // $storage = $request->input('storage'); 
+        $ssd = $request->input('ssd');
+        $hdd = $request->input('hdd');
         $categories = Category::orderBy('sort', 'desc')->orderBy('name','asc')->get();
         $or_products = null;
 
@@ -39,55 +41,7 @@ class ProductController extends Controller
             $products = new Product;
         }
         
-        if( $cpu_level != null || $vga_level != null || $os != null || $monitor != null || $storage != null || $filter_categories != null ) {
-
-            if( $storage != null ) {
-
-                if( count($storage) == 3 ) {
-
-                    $products = $products->where(function ($products){
-                        $products = $products->whereNotNull('hdd')->whereNull('ssd');
-                    })->orWhere(function ($products){
-                        $products = $products->whereNotNull('ssd')->whereNull('hdd');
-                    })->orWhere(function ($products){
-                        $products = $products->whereNotNull('hdd')->whereNotNull('ssd');
-                    });
-
-                } else if( count($storage) == 2 ) {
-
-                    if( in_array('hdd', $storage) ) {
-                        if( in_array('ssd', $storage) ) {
-                            $products = $products->where(function ($products){
-                                $products = $products->whereNotNull('hdd')->whereNull('ssd');
-                            })->orWhere(function ($products){
-                                $products = $products->whereNotNull('ssd')->whereNull('hdd');
-                            });
-                        } else {
-                            $products = $products->where(function ($products){
-                                $products = $products->whereNotNull('hdd')->whereNull('ssd');
-                            })->orWhere(function ($products){
-                                $products = $products->whereNotNull('hdd')->whereNotNull('ssd');
-                            }); 
-                        }
-                    } else {
-                        $products = $products->where(function ($products){
-                            $products = $products->whereNotNull('ssd')->whereNull('hdd');
-                        })->orWhere(function ($products){
-                            $products = $products->whereNotNull('hdd')->whereNotNull('ssd');
-                        }); 
-                    }
-
-                } else {
-                    if( in_array('hdd', $storage) ) {
-                        $products = $products->whereNotNull('hdd')->whereNull('ssd');
-                    } else if( in_array('ssd', $storage) ) {
-                        $products = $products->whereNotNull('ssd')->whereNull('hdd');
-                    } else {
-                        $products = $products->whereNotNull('hdd')->whereNotNull('ssd');
-                    }
-                }
-                
-            }
+        if( $cpu_level != null || $vga_level != null || $os != null || $monitor != null || $ssd != null || $hdd != null || $filter_categories != null ) {
 
             if( $cpu_level != null ) {               
                 $cpus = Cpu::whereIn('level', $cpu_level)->get();
@@ -122,7 +76,66 @@ class ProductController extends Controller
                     $products = $products->whereNotNull('monitor');
                 }
             }
+
+            if( $ssd != null ) {
+                if( $ssd == 0 ) {
+                    $products = $products->whereNull('ssd');
+                } else {
+                    $products = $products->whereNotNull('ssd');
+                }
+            }
+
+            if( $hdd != null ) {
+                if( $hdd == 0 ) {
+                    $products = $products->whereNull('hdd');
+                } else {
+                    $products = $products->whereNotNull('hdd');
+                }
+            }
             
+            // if( $storage != null ) {
+            //     if( count($storage) == 3 ) {
+            //         $products = $products->Where(function ($products){
+            //             $products = $products->whereNotNull('hdd')->whereNull('ssd');
+            //         })->orWhere(function ($products){
+            //             $products = $products->whereNotNull('ssd')->whereNull('hdd');
+            //         })->orWhere(function ($products){
+            //             $products = $products->whereNotNull('hdd')->whereNotNull('ssd');
+            //         });
+            //     } else if( count($storage) == 2 ) {
+            //         if( in_array('hdd', $storage) ) {
+            //             if( in_array('ssd', $storage) ) {
+            //                 $products = $products->Where(function ($products){
+            //                     $products = $products->whereNotNull('hdd')->whereNull('ssd');
+            //                 })->orWhere(function ($products){
+            //                     $products = $products->whereNotNull('ssd')->whereNull('hdd');
+            //                 });
+            //             } else {
+            //                 $products = $products->where(function ($products){
+            //                     $products = $products->whereNotNull('hdd')->whereNull('ssd');
+            //                 })->orWhere(function ($products){
+            //                     $products = $products->whereNotNull('hdd')->whereNotNull('ssd');
+            //                 }); 
+            //             }
+            //         } else {
+            //             $products = $products->where(function ($products){
+            //                 $products = $products->whereNotNull('ssd')->whereNull('hdd');
+            //             })->orWhere(function ($products){
+            //                 $products = $products->whereNotNull('hdd')->whereNotNull('ssd');
+            //             }); 
+            //         }
+            //     } else {
+            //         if( in_array('hdd', $storage) ) {
+            //             $products = $products->whereNotNull('hdd')->whereNull('ssd');
+            //         } else if( in_array('ssd', $storage) ) {
+            //             $products = $products->whereNotNull('ssd')->whereNull('hdd');
+            //         } else {
+            //             $products = $products->whereNotNull('hdd')->whereNotNull('ssd');
+            //         }
+            //     }            
+            // }
+            
+            // 게임용PC filter 
             if( $filter_categories != null ) {
                 //AND type filter
                 foreach( $filter_categories as $category ) {
