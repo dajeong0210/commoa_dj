@@ -1,10 +1,19 @@
 //RecentItems
+    $url = window.location.protocol+'//'+window.location.host;
     for(var $i=0; $i<cookieList.items().length; $i++){
-        $('ul.recent-product').prepend('<li><a href="'+ cookieList.items()[$i].url +'" title="'+ cookieList.items()[$i].name +'"><div style="background:url('+ cookieList.items()[$i].img +') center no-repeat;background-size:cover;"></div></a></li>');
+        $('ul.recent-product').prepend('<li><a href="'+$url+'/product/'+ cookieList.items()[$i].idx +'" title="'+ cookieList.items()[$i].name +'"><div style="background:url('+ cookieList.items()[$i].img +') center no-repeat;background-size:cover;"></div></a></li>');
         $('ul.recent-product').find('li:last-child').remove();
     };
     $('ul.recent-product').prev('p').before('<span class="new">'+cookieList.items().length+'</span>');
 //Nav
+    $('a.tab_shop').on('click', function(e){
+        e.preventDefault();
+        $('a.tab_shop').removeClass('active');
+        $(this).addClass('active');
+        var name = $(this).attr('name');
+        $('div.tab_show').addClass('hidden');
+        $('div.tab_show.'+name).removeClass('hidden');
+    });
     $('a.menu_btn').on('click', function(){
         $('ul.nav-group').toggleClass('show');
         $(this).parent().addClass('active');
@@ -39,8 +48,15 @@
     $('nav.new_product a').on('click', function(e){
         e.preventDefault();
         var index = $('nav.new_product a').index(this);
-        $('div.mainPage div.slider').css('left', -100*index+'%');
+        $('div.mainPage div.slider.new').css('left', -100*index+'%');
         $('nav.new_product a').removeClass('active').find('i').removeClass('fa-circle').addClass('fa-circle-o')
+        $(this).addClass('active').find('i').removeClass('fa-circle-o').addClass('fa-circle');
+    });
+    $('nav.hot_product a').on('click', function(e){
+        e.preventDefault();
+        var index = $('nav.hot_product a').index(this);
+        $('div.mainPage div.slider.hot').css('left', -100*index+'%');
+        $('nav.hot_product a').removeClass('active').find('i').removeClass('fa-circle').addClass('fa-circle-o')
         $(this).addClass('active').find('i').removeClass('fa-circle-o').addClass('fa-circle');
     });
 
@@ -186,11 +202,24 @@
         if( index == 4 ){
             index = 0;
         }
-        $('div.mainPage div.slider').css('left', -100*index+'%');
+        $('div.mainPage div.slider.new').css('left', -100*index+'%');
         $('nav.new_product a').removeClass('active').find('i').removeClass('fa-circle').addClass('fa-circle-o')
         $('nav.new_product a').eq(index).addClass('active').find('i').removeClass('fa-circle-o').addClass('fa-circle');
     }
+
     var timer2 = setInterval( NewProduct , 6000 );
+
+    function HotProduct(){
+        var index = $('nav.hot_product a.active').parent('li').index()+1;
+        if( index == 4 ){
+            index = 0;
+        }
+        $('div.mainPage div.slider.hot').css('left', -100*index+'%');
+        $('nav.hot_product a').removeClass('active').find('i').removeClass('fa-circle').addClass('fa-circle-o')
+        $('nav.hot_product a').eq(index).addClass('active').find('i').removeClass('fa-circle-o').addClass('fa-circle');
+    }
+
+    var timer3 = setInterval( HotProduct , 6000 );
     
     function SetTimer( $target1, $target2, $function, $timer, $time ){
         $($target1).on( {
@@ -211,7 +240,8 @@
         });
     }
     SetTimer( 'ul.slider.auto', 'nav.nav-slider', AutoSlide, timer1, 6000 );
-    SetTimer( 'div.item', 'nav.new_product', NewProduct , timer2, 6000 );
+    SetTimer( 'div.item.new', 'nav.new_product', NewProduct , timer2, 6000 );
+    SetTimer( 'div.item.hot', 'nav.hot_product', HotProduct , timer3, 6000 );
     
 
 //ShopApply

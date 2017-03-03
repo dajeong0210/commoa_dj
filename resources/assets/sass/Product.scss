@@ -467,9 +467,6 @@ div.page{
                 @include respond-to('small'){
                     width:48%;
                 }
-                @include respond-to('too-small'){
-                    width:98%;
-                }
                 &.shop{
                     text-align:center;
                     border:none;

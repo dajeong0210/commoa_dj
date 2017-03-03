@@ -833,8 +833,8 @@ div.page.list.hot-items.recommend {
 
 div.page.list.hot-items h3 {
   font-size: 20px;
-  letter-spacing: 0;
-  margin-top: 50px;
+  letter-spacing: -1px;
+  margin: 50px 0 30px 0;
 }
 
 div.page.list.hot-items ul.list-group {
@@ -872,7 +872,6 @@ div.back {
   width: 100%;
   height: 230px;
   overflow: hidden;
-  box-shadow: 0 0 15px red inset;
   padding: 0;
   margin: 0;
 }
@@ -883,22 +882,8 @@ div.back {
   }
 }
 
-div.back p {
-  display: block;
-  width: 100%;
+div.back div.wrap {
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  padding: 100px;
-  margin: 0;
-  box-sizing: border-box;
-  text-align: center;
-}
-
-@media (max-width: 800px) {
-  div.back p {
-    padding: 180px;
-  }
 }
 
 div.mainPage {
@@ -906,9 +891,39 @@ div.mainPage {
   margin: 0;
 }
 
+div.mainPage h3 {
+  font-size: 20px;
+  letter-spacing: -1px;
+  margin: 50px 0 30px 0;
+}
+
 div.mainPage ul.list-group {
-  width: 90%;
-  padding: 50px 5% 50px 5%;
+  clear: both;
+}
+
+div.mainPage ul.list-group:first-child {
+  padding: 50px 0 20px 15%;
+}
+
+div.mainPage ul.list-group:last-child {
+  padding: 50px 15% 20px 0;
+}
+
+div.mainPage ul.list-group.half-layouts {
+  width: 35%;
+  float: left;
+  clear: none;
+}
+
+div.mainPage ul.list-group.half-layouts > li {
+  float: initial;
+}
+
+@media (max-width: 800px) {
+  div.mainPage ul.list-group.half-layouts {
+    width: 100%;
+    padding: 50px 0;
+  }
 }
 
 div.mainPage ul.list-group.recommend:after {
@@ -933,20 +948,13 @@ div.mainPage ul.list-group > li {
 }
 
 div.mainPage ul.list-group > li.one-layouts {
-  width: 50%;
-  max-height: 968px;
-  padding: 50px 20px;
+  width: 100%;
+  padding: 20px 20px;
   box-sizing: border-box;
   text-align: center;
   box-sizing: border-box;
   position: relative;
   display: inline-block;
-}
-
-div.mainPage ul.list-group > li.one-layouts:after {
-  padding-top: 100%;
-  display: block;
-  content: '';
 }
 
 div.mainPage ul.list-group > li.one-layouts p {
@@ -970,29 +978,12 @@ div.mainPage ul.list-group > li.one-layouts p:last-child {
   color: dodgerblue;
 }
 
-@media (max-width: 800px) {
-  div.mainPage ul.list-group > li.one-layouts {
-    width: 100%;
-    padding: 30px auto;
-    min-height: 650px;
-    max-height: initial;
-  }
-}
-
-@media (max-width: 480px) {
-  div.mainPage ul.list-group > li.one-layouts {
-    height: 600px;
-  }
-}
-
-div.mainPage ul.list-group > li.one-layouts nav.new_product {
+div.mainPage ul.list-group > li.one-layouts nav.new_product, div.mainPage ul.list-group > li.one-layouts nav.hot_product {
   width: 66px;
-  margin: 0 auto;
-  position: relative;
-  top: 0;
+  margin: 20px auto;
 }
 
-div.mainPage ul.list-group > li.one-layouts nav.new_product li {
+div.mainPage ul.list-group > li.one-layouts nav.new_product li, div.mainPage ul.list-group > li.one-layouts nav.hot_product li {
   float: left;
   font-size: 12px;
   opacity: 0.5;
@@ -1000,30 +991,64 @@ div.mainPage ul.list-group > li.one-layouts nav.new_product li {
   margin: 3px;
 }
 
-div.mainPage ul.list-group > li.one-layouts nav.new_product li a {
+div.mainPage ul.list-group > li.one-layouts nav.new_product li a, div.mainPage ul.list-group > li.one-layouts nav.hot_product li a {
   color: #666;
 }
 
-div.mainPage ul.list-group > li.one-layouts nav.new_product li a.active {
+div.mainPage ul.list-group > li.one-layouts nav.new_product li a.active, div.mainPage ul.list-group > li.one-layouts nav.hot_product li a.active {
   color: #2bde73;
 }
 
 div.mainPage ul.list-group > li.one-layouts div.wrap {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-left: -200px;
-  margin-top: -233px;
+  width: 100%;
 }
 
-div.mainPage ul.list-group > li.one-layouts div.wrap:after {
-  content: '';
-  padding-left: 100%;
-  padding-top: 100%;
+@media (max-width: 800px) {
+  div.mainPage ul.list-group > li.one-layouts div.wrap {
+    left: 0;
+    margin-left: 0;
+  }
+}
+
+div.mainPage ul.list-group > li.one-layouts div.advertisement ul.list-group {
+  margin: 40px 0;
+}
+
+@media (max-width: 800px) {
+  div.mainPage ul.list-group > li.one-layouts div.advertisement ul.list-group {
+    background: none;
+    padding: 0 5%;
+    width: 90%;
+  }
+}
+
+div.mainPage ul.list-group > li.one-layouts div.advertisement ul.list-group li {
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  position: relative;
+  height: 0;
+  overflow: hidden;
+}
+
+div.mainPage ul.list-group > li.one-layouts div.advertisement ul.list-group li.triple {
+  width: 33.3333333333333333333333333333333333%;
+  padding-bottom: 50%;
+}
+
+div.mainPage ul.list-group > li.one-layouts div.advertisement ul.list-group li.half {
+  width: 50%;
+  padding-bottom: 30%;
+}
+
+div.mainPage ul.list-group > li.one-layouts div.advertisement ul.list-group li div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 div.mainPage ul.list-group > li.one-layouts div.slider-wrap {
-  max-width: 400px;
   width: 100%;
   margin: 0 auto;
   overflow: hidden;
@@ -1036,61 +1061,19 @@ div.mainPage ul.list-group > li.one-layouts div.slider-wrap div.slider {
   transition: all 1s;
   position: relative;
   left: 0;
+  height: initial;
 }
 
 div.mainPage ul.list-group > li.one-layouts div.slider-wrap div.slider div.item {
-  width: 25%;
+  width: 12.5%;
   float: left;
   background: #fff;
 }
 
 div.mainPage ul.list-group > li.one-layouts div.thumbnail {
-  width: 300px;
-  height: 300px;
+  width: 90%;
+  height: 90%;
   margin: 0 auto;
-}
-
-div.mainPage ul.list-group > li.half-layouts {
-  width: 50%;
-  margin: 0;
-}
-
-@media (max-width: 800px) {
-  div.mainPage ul.list-group > li.half-layouts {
-    width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  div.mainPage ul.list-group > li.half-layouts {
-    width: 80%;
-    border: none;
-    clear: both;
-    margin: 10px 10%;
-  }
-}
-
-div.mainPage ul.list-group > li.half-layouts li.quarter-layouts {
-  width: 48%;
-  max-width: 300px;
-}
-
-@media (max-width: 480px) {
-  div.mainPage ul.list-group > li.half-layouts li.quarter-layouts {
-    width: 100%;
-  }
-}
-
-div.mainPage ul.list-group > li.half-layouts div.thumbnail {
-  max-width: 300px;
-  max-height: 300px;
-}
-
-div.mainPage ul.list-group > li h3 {
-  text-align: center;
-  font-size: 30px;
-  font-family: 'Exo 2', sans-serif;
-  letter-spacing: 5px;
 }
 
 div.mainPage ul.list-group > li div.thumbnail {
@@ -1117,6 +1100,149 @@ div.mainPage ul.list-group > li div.thumbnail a {
   display: block;
   width: 100%;
   height: 100%;
+}
+
+div.shop-item {
+  clear: both;
+  padding: 50px 15%;
+  width: 70%;
+}
+
+@media (max-width: 800px) {
+  div.shop-item {
+    padding: 0 5%;
+    width: 90%;
+  }
+}
+
+div.shop-item h3 {
+  font-size: 20px;
+  letter-spacing: -1px;
+  margin: 50px 0 30px 0;
+  text-align: center;
+}
+
+div.shop-item ul.list-group {
+  padding: 0 5%;
+  width: 90%;
+}
+
+div.shop-item ul.list-group > li {
+  float: left;
+  margin: 5px;
+}
+
+div.shop-item ul.list-group > li a {
+  display: inline-block;
+  font-size: 13px;
+  letter-spacing: -1px;
+  padding: 5px 13px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  color: #333;
+}
+
+div.shop-item ul.list-group > li a.active {
+  background: #333;
+  color: #fff;
+}
+
+div.shop-item div.tab_show {
+  padding-top: 50px;
+  clear: both;
+  background: #fff;
+  width: 100%;
+  position: relative;
+}
+
+div.shop-item div.tab_show li {
+  width: 18%;
+  float: left;
+  margin: 0 0.5%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+  div.shop-item div.tab_show li {
+    margin: 0 1%;
+    width: 48%;
+  }
+}
+
+div.shop-item div.tab_show li:last-child p:last-child {
+  margin-bottom: 80px;
+}
+
+div.shop-item div.tab_show li div.wrap {
+  position: relative;
+  height: 0;
+  width: 100%;
+  padding-bottom: 100%;
+}
+
+div.shop-item div.tab_show li div.img-box {
+  width: 100%;
+  overflow: hidden;
+  display: inline-block;
+  position: relative;
+}
+
+div.shop-item div.tab_show li div.img-box:after {
+  padding-top: 100%;
+  display: block;
+  content: '';
+}
+
+div.shop-item div.tab_show li div.detail-box {
+  padding: 10px 0;
+  width: 100%;
+  text-align: center;
+}
+
+div.shop-item div.tab_show li div.detail-box p {
+  font-weight: bold;
+  font-size: 13px;
+  padding: 3px 0;
+  margin: 0;
+}
+
+div.shop-item div.tab_show li div.detail-box p.prod-shop {
+  color: #666;
+  font-size: 12px;
+  clear: both;
+}
+
+div.shop-item div.tab_show li div.detail-box p.prod-price {
+  color: dodgerblue;
+  font-size: 14px;
+  font-weight: bold;
+  display: block;
+}
+
+div.shop-item div.tab_show li.shop_brand {
+  width: 23%;
+}
+
+div.shop-item div.tab_show li.shop_brand img {
+  width: 60%;
+  margin: 20% 20% 0 20%;
+  height: auto;
+}
+
+div.shop-item div.tab_show li.shop_brand a.shop-url {
+  color: #fff;
+  font-weight: bold;
+  padding: 5px 15px;
+  font-size: 13px;
+  letter-spacing: -2px;
+  background: dodgerblue;
+}
+
+@media (max-width: 800px) {
+  div.shop-item div.tab_show li.shop_brand {
+    display: none;
+  }
 }
 
 div.page.list div.tab {
@@ -1912,12 +2038,6 @@ div.page.list ul.list-group > li {
 @media (max-width: 800px) {
   div.page.list ul.list-group > li {
     width: 48%;
-  }
-}
-
-@media (max-width: 480px) {
-  div.page.list ul.list-group > li {
-    width: 98%;
   }
 }
 
