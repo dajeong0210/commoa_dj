@@ -27,23 +27,26 @@
                     </ul>
                 </nav>
                 <div class="slider">
-                    <nav class="nav-slider">
+                    <nav class="nav-slider left">
                         <a href="#" class="left" onclick="return false;">
                             <i class="fa fa-arrow-left" aria-hidden="true"></i>
                         </a>
+                    </nav>
+                    <nav class="nav-slider right">
                         <a href="#" class="right" onclick="return false;">
                             <i class="fa fa-arrow-right" aria-hidden="true"></i>
                         </a>
                     </nav>
                     <ul class="slider auto">
                         @foreach( $banners as $banner )
-                        <li class="{{ 'game_0' . $banner->order .' main' . $banner->order }}" style="{{ 'background:url(' . $banner->image . ') no-repeat; background-size:cover;' }}">
+                        <li class="{{ 'game_0' . $banner->order .' main' . $banner->order }}" style="{{ 'background:url(' . $banner->image . ') no-repeat center 0; background-size:cover;' }} {{ $banner->show == 1 ? 'cursor:pointer;' : '' }}">
                             <div class="slider-cover" style="{{ $banner->align == 1 ? 'text-align:right;' : 'text-align:left;' }}">
                                 <span class="{{ $banner->type == '없음' ? 'hidden' : ''  }}">{{ $banner->type }}</span>
                                 <h3 style="{{ $banner->align == 1 ? 'text-align:right;' : 'text-align:left;' }}">{!! nl2br( e($banner->title) ) !!}</h3>
                                 <p>{!! nl2br( e($banner->content) ) !!}</p>
-                                <a href="{{ $banner->url }}" class="btn" onclick="return false;">바로가기</a>
-                                <span class="hidden">{{ $banner->align }}</span>
+                                <a href="#" class="btn {{ $banner->show == 1 ? 'hidden' : '' }}" onclick="return false;">바로가기</a>
+                                <span class="hidden btn_show">{{ $banner->show }}</span>
+                                <span class="hidden align">{{ $banner->align }}</span>
                             </div>
                         </li>
                         @endforeach
@@ -88,7 +91,7 @@
                     <div class="form-group one-layout">
                         <label for="url" class="top-align">바로가기</label>
                         <input type="text" name="url" value="{{ $banners->first()->url }}"/>
-                        <input type="checkbox" name="btn_check" value="1"/><span>버튼숨기기</span>
+                        <input type="checkbox" name="btn_check" value="1" {{ $banners->first()->show == '1' ? 'checked' : '' }}/><span>버튼숨기기</span>
                     </div>
                 </div>
                 <div class="align">
