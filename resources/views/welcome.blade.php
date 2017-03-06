@@ -28,10 +28,10 @@
         </ul>
     </div>
     <div class="page list hot-items">
-        <h3><span>HOT PRODUCT</span></h3>
+        <h3><span>오늘의 추천 PC</span></h3>
         <ul class="list-group slider recommend">
-            @if( $products1 )
-                @foreach( $products1 as $product )
+            @if( $recommends )
+                @foreach( $recommends as $product )
                     <li>
                         <span class="badge recommend">추천!!</span>
                         <a href="{{ url('/product') . '/' . $product->id }}">
@@ -67,68 +67,140 @@
     <div class="back">
         <div class="wrap" style="background:url({{$banners[2]->image}}) center no-repeat; background-size:cover; background-attachment:fixed;">
             <p>
-            컴모아는<br/>
-            {{ $products_cnt }}개의 상품<br/>
-            {{ $shops_cnt }}개의 샵<br/>
             </p>
         </div>
     </div>
     <div class="mainPage">
-        <ul class="list-group">
+        <ul class="list-group half-layouts">
             <li class="one-layouts">
                 <div class="wrap">
-                    <h3>New Product</h3>
+                    <h3>핫한 상품</h3>
                     <div class="slider-wrap">
-                        <div class="slider">
+                        <div class="slider hot">
                         @foreach( $new_items as $key=>$new_item )
-                            <div class="item item_0{{$key+1}}">
+                            <div class="item hot item_0{{$key+1}}">
                                 <div class="thumbnail" style="background:url({{ $new_item->image }}) center no-repeat; background-size:cover;">
                                     <a href="{{ url('product').'/'.$new_item->id }}">
                                     </a>
                                 </div>
-                                <p>{{ $new_item->name }}</p>
-                                <p class="shop-name">{{ $new_item->shop->name }}</p>
-                                <p>{{ number_format($new_item->price) }}원</p>
+                                <div class="detail">
+                                    <p>{{ $new_item->name }}</p>
+                                    <p class="shop-name">{{ $new_item->shop->name }}</p>
+                                    <p>{{ number_format($new_item->price) }}원</p>
+                                </div>
+                            </div>
+                        @endforeach
+                        </div>
+                    </div>
+                    <nav class="hot_product">
+                        <ul>
+                            @foreach( $new_items as $key=>$new_item )
+                                @if( $key<4 )
+                                <li><a href="#" class="nav_newProduct {{ $key == 0 ? 'active' : '' }}"><i class="fa {{ $key == 0 ? 'fa-circle' : 'fa-circle-o' }}" aria-hidden="true"></i></a></li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    </nav>
+                </div>
+            </li>
+            <li class="one-layouts">
+                <div class="wrap">
+                    <h3>신상 조립PC</h3>
+                    <div class="slider-wrap">
+                        <div class="slider new">
+                        @foreach( $hot_items as $key=>$item )
+                            <div class="item new item_0{{$key+1}}">
+                                <div class="thumbnail" style="background:url({{ $item->image }}) center no-repeat; background-size:cover;">
+                                    <a href="{{ url('product').'/'.$item->id }}">
+                                    </a>
+                                </div>
+                                <div class="detail">
+                                    <p>{{ $item->name }}</p>
+                                    <p class="shop-name">{{ $item->shop->name }}</p>
+                                    <p>{{ number_format($item->price) }}원</p>
+                                </div>
                             </div>
                         @endforeach
                         </div>
                     </div>
                     <nav class="new_product">
                         <ul>
-                            @foreach( $new_items as $key=>$new_item )
+                            @foreach( $hot_items as $key=>$item )
+                                @if( $key<4 )
                                 <li><a href="#" class="nav_newProduct {{ $key == 0 ? 'active' : '' }}"><i class="fa {{ $key == 0 ? 'fa-circle' : 'fa-circle-o' }}" aria-hidden="true"></i></a></li>
+                                @endif
                             @endforeach
                         </ul>
                     </nav>
                 </div>
             </li>
-            <li class="half-layouts">
-                <div class="page list hot-items recommend">
+        </ul>
+        <ul class="list-group half-layouts">
+            <li class="one-layouts">
+                <div class="advertisement">
                     <ul class="list-group">
-                    @if( $recommends )
-                        @foreach($recommends as $recommend)
-                        <li class="quarter-layouts">
-                            <a href="{{ url('product').'/'.$recommend->id }}">
-                                <div class="thumbnail" style="background:url({{ $recommend->image }}) center no-repeat; background-size:cover;">
-                                </div>
-                            </a>
-                            <div class="detail-box main">
-                                <p class="prod-title">{{ $recommend->name }}</p>
-                                <p class="prod-shop">{{ $recommend->shop->name }}</p>
-                                <p class="prod-price">{{ number_format($recommend->price) }}원</p>
-                            </div>
-                        </li>
-                         @endforeach   
-                    @endif
+                        <li class="half"><div></div></li>
+                        <li class="half"><div></div></li>
+                        <li class="triple"></li>
+                        <li class="triple"></li>
+                        <li class="triple"></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="one-layouts">
+                <div class="advertisement">
+                    <ul class="list-group">
+                        <li class="half"><div></div></li>
+                        <li class="half"><div></div></li>
+                        <li class="half"><div></div></li>
+                        <li class="half"><div></div></li>
                     </ul>
                 </div>
             </li>
         </ul>
     </div>
+    <div class="shop-item">
+        <h3>업체별 조립PC</h3>
+        <ul class="list-group">
+            @foreach( $shops as $key => $shop )
+            <li><a href="#"  class="tab_shop {{ $key == '0' ? 'active' : '' }}" name="{{ 'tab_' . $shop->id }}">{{ $shop->name }}</a></li>
+            @endforeach
+        </ul>
+        @foreach( $shops as $key => $shop )
+        <div class="tab_show {{ 'tab_' . $shop->id }} {{ $key == '0' ? '' : 'hidden' }}">
+            <ul>
+                <li class="shop_brand">
+                    <img src="{{ $shop->image }}" alt="{{ $shop->name }}"/>
+                    <div class="detail-box" id="shop">
+                        <p class="shop-name"> {{ $shop->name }} </p>
+                        <a href="{{ $shop->url }}" target="_blank" class="shop-url">사이트로 이동</a>
+                    </div>
+                </li>
+                @foreach( $shop->products()->limit(4)->get() as $product )
+                    <li>
+                    <a href="{{ url('/product') . '/' . $product->id }}">
+                        <div class="wrap">
+                            <div class="img-box prod bdbt" style="background:url({{ $product->image }}); background-size:cover;">
+                            </div>
+                        </div>
+                    </a> 
+                    <div class="detail-box main">
+                        <p class="prod-title" href="{{ url('/product') . '/' . $product->id }}"> {{ $product->name }} </a>
+                        <p class="prod-shop">{{ $product->shop->name }}</p>
+                        <p class="prod-price">{{ number_format($product->price) }}원
+                        
+                            <span class="hidden">{{ $product->id }}</span>
+                        </p>
+                    </div>
+                </li>
+                @endforeach
+            </ul>
+        </div>
+        @endforeach
+    </div>
     <script>
         $(window).on('scroll', function(){
             var scrollTop = $(document).scrollTop();
-            console.log(scrollTop);
             if( 160 < scrollTop && scrollTop< 200 ){
                 if( $('nav.tabmenu-wrap').hasClass('active') ){
                     $('nav.tabmenu-wrap').removeClass('active');
