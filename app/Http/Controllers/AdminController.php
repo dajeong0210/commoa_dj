@@ -528,7 +528,7 @@ class AdminController extends Controller
 		} else {
 			$banner->show = 0;
 		}
-		
+
 		$request = $request->except(['_method', '_token']);
 		$banner->update($request);
 		
@@ -539,4 +539,10 @@ class AdminController extends Controller
 		return redirect('/admin/banner');
 	}
 
+//메인 광고 
+	public function advertisementUpdate(Request $request, $id){
+		for( $i=1; $i<10; $i++ ) {
+
+		}
+	}
 }
