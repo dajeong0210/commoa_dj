@@ -123,8 +123,8 @@
                     var reader = new FileReader();
                     reader.onload = function(e){
                         $('div.img-box').attr('style', 'background:url('+e.target.result+') center no-repeat; background-size:auto 100%;').parent().removeClass('hidden');
+                    }
                 }
-            }
                     reader.readAsDataURL(this.files[0]);
             }
         }else{

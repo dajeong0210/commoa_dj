@@ -27,7 +27,7 @@
 </head>
 <body>
     <div id="app" class="admin">
-    <div class="page list">
+    <div class="page list" id="popup">
         <div class="main-edit">
             <div class="search-wrap">
                 <form method="GET" name="searchForm">

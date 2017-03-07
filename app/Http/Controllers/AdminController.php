@@ -545,4 +545,9 @@ class AdminController extends Controller
 
 		return view('Admin.Advertisement.index')->with('advertisements', $advertisements);
 	}
+
+	public function advertisementPopup($i) {
+
+		return view('Admin.Advertisement.popup')->with('index', $i);
+	}
 }

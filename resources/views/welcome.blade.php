@@ -176,8 +176,21 @@
                         <a href="{{ $shop->url }}" target="_blank" class="shop-url">사이트로 이동</a>
                     </div>
                 </li>
+                @if( $shop->products()->count() == 0 )
+                <li>
+                    <div class="wrap">
+                        <div class="img-box prod bdbt">
+                        </div>
+                    </div>
+                    <div class="detail-box main">
+                        <p class="prod-title">&nbsp;</p>
+                        <p class="prod-shop">&nbsp;</p>
+                        <p class="prod-price">&nbsp;</p>
+                    </div>
+                </li>
+                @endif
                 @foreach( $shop->products()->limit(4)->get() as $product )
-                    <li>
+                <li>
                     <a href="{{ url('/product') . '/' . $product->id }}">
                         <div class="wrap">
                             <div class="img-box prod bdbt" style="background:url({{ $product->image }}); background-size:cover;">
@@ -185,7 +198,7 @@
                         </div>
                     </a> 
                     <div class="detail-box main">
-                        <p class="prod-title" href="{{ url('/product') . '/' . $product->id }}"> {{ $product->name }} </a>
+                        <p class="prod-title" href="{{ url('/product') . '/' . $product->id }}"> {{ $product->name }} </p>
                         <p class="prod-shop">{{ $product->shop->name }}</p>
                         <p class="prod-price">{{ number_format($product->price) }}원
                         

@@ -261,8 +261,11 @@
         $('div.slider ul li.'+$nth).find('h3').attr('style', 'text-align:'+$align+';');
     });
 //OriginImg
-    $origin = $('div.img-box').attr('style');
-    
+    $origin = $('div.img-box').attr('style'); 
+    $originArr = Array();
+    for($i=0; $i<9; $i++){
+        $originArr[$i] = $('div#ad'+$i).attr('style');
+    }
 //ImagePreview
     $('input.image').on('change', function(){
         var image = $(this).val();
@@ -315,6 +318,44 @@
             }
         }
     });
+
+//Advertisement
+    $('div.advertisement a').on('click', function(e){
+        e.preventDefault();
+        $(this).parent().find('input[type="file"]').click();
+    });
+    $('div.advertisement input[type="file"]').on('change', function(){
+        var id = $(this).attr('id').replace('image', 'ad');
+        var image = $(this).val();
+        var imageonly = image.toLowerCase().split(".");
+        if( image != '' ){
+            if( imageonly[1] != 'jpg' && imageonly[1] != 'png' && imageonly[1] != 'jpeg' && imageonly[1] != 'gif' && imageonly[1] != 'bmp'){
+                alert('이미지 파일만 업로드 가능합니다!');
+                $(this).val('');
+            }else{
+                var reader = new FileReader();
+                reader.onload = function(e){
+                    $('div#'+id).attr('style', 'background:url("'+e.target.result+'") center no-repeat; background-size:cover;');
+                };
+                reader.readAsDataURL(this.files[0]);
+            }
+        }else{
+            if( !$origin ){
+                $('div#'+id).attr('style', '');
+            }else{
+                $('div#'+id).attr('style', $originArr[$i]);
+            }
+        }
+    });
+    // $('form[name="advertisement"] input[type="submit"]').on('click',function(e){
+    //     e.preventDefault();
+    //     var id = $(this).parent().parent().find('input[name="id"]').val();
+    //     var image = $(this).parent().parent().find('input[name="image"]').val();
+    //     var imgSrc = $(this).parent().parent().find('input[type="file"]').val();
+    //     opener.document.getElementById('ad'+id).style="background:url("+image+") center no-repeat; background-size:cover;";
+    //     opener.document.getElementById('image'+id).value=imgSrc;
+    //     self.close();
+    // });
 //Recommend
     function Recommend($target, $inputname, $product, $shop){
         $('a.'+$target).on('click', function(e){
