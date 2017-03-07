@@ -545,9 +545,28 @@ class AdminController extends Controller
 
 		return view('Admin.Advertisement.index')->with('advertisements', $advertisements);
 	}
+	
+	public function advertisementUpdate(Request $request) {
+		for($i=1; $i<10; $i++) {
+			$advertisement = Advertisement::find($i);
+			$advertisement_img = $request->file('image'.$i);
+			if( $advertisement_img != null ) {
+				$advertisement->image = 'https://s3.ap-northeast-2.amazonaws.com/commoa/'.Storage::put('advertisement',  $advertisement_img, 'public');
+			} else {
+				$advertisement->image = null;
+			}
+			$advertisement->url = $request->input('url'.$i);
+			$advertisement->save();	
+		}
+		return redirect('/admin/advertisement');
+	}
 
-	public function advertisementPopup($i) {
+	public function advertisementDelete(Request $request, $id) {
+		$advertisement = Advertisement::find($id);
+		$advertisement->image = null;
+		$advertisement->url = null;
+		$advertisement->save();
 
-		return view('Admin.Advertisement.popup')->with('index', $i);
+		return redirect('/admin/advertisement');
 	}
 }
