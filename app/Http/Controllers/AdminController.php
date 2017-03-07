@@ -18,7 +18,7 @@ use App\Shop;
 use App\Cpu;
 use App\Vga;
 use App\Banner;
-
+use App\Advertisement;
 
 class AdminController extends Controller
 {	
@@ -317,7 +317,7 @@ class AdminController extends Controller
 	}
 	
 //Recommend
-	public function recommendIndex(Request $request) {
+	public function recommendIndex() {
 		$recommends = Product::whereIn('recommend', [1, 2, 3, 4])->orderBy('recommend', 'asc')->get();
 		$recommend_arr = array();
 		for( $i=0; $i<$recommends->count(); $i++ ) {
@@ -539,10 +539,10 @@ class AdminController extends Controller
 		return redirect('/admin/banner');
 	}
 
-//메인 광고 
-	public function advertisementUpdate(Request $request, $id){
-		for( $i=1; $i<10; $i++ ) {
+//Advertisement
+	public function advertisementIndex() {
+		$advertisements = Advertisement::orderBy('id', 'asc')->limit(9)->get();
 
-		}
+		return view('Admin.Advertisement.index')->with('advertisements', $advertisements);
 	}
 }

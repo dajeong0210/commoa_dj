@@ -17,8 +17,6 @@ class CreateAdvertisementsTable extends Migration
             $table->increments('id');
             $table->string('image')->nullable();
             $table->string('url');
-            $table->string('content')->nullable();
-            $table->tinyInteger('sort')->unsigned();
             $table->timestamps();
         });
     }

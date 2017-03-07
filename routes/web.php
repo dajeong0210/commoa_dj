@@ -90,6 +90,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::put('/admin/recommend/{id}', 'AdminController@recommendUpdate');
         Route::delete('/admin/recommend/{id}', 'AdminController@recommendDelete');
         Route::get('/admin/popup/{id}', 'AdminController@recommendPopup');
+        Route::get('/admin/advertisement', 'AdminController@advertisementIndex');
     });
     
 });
