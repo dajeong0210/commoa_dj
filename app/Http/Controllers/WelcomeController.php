@@ -8,6 +8,7 @@ use App\Product;
 use App\Shop;
 use App\Category;
 use App\Banner;
+use App\Advertisement;
 use Illuminate\Support\Facades\DB;
 
 class WelcomeController extends Controller
@@ -24,9 +25,10 @@ class WelcomeController extends Controller
         $shops_cnt = Shop::count();
         $banners = Banner::get();
         $shops = Shop::get();
+        $advertisements = Advertisement::get();
 
         return view('welcome')->with('new_items', $new_items)->with('hot_items', $hot_items)
-                ->with('products_cnt', $products_cnt)->with('shops_cnt', $shops_cnt)
+                ->with('products_cnt', $products_cnt)->with('shops_cnt', $shops_cnt)->with('advertisements', $advertisements)
                 ->with('banners', $banners)->with('recommends', $recommends)->with('shops', $shops);
     }
 
