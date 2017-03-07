@@ -264,7 +264,11 @@
     $origin = $('div.img-box').attr('style'); 
     $originArr = Array();
     for($i=0; $i<9; $i++){
-        $originArr[$i] = $('div#ad'+$i).attr('style');
+        if( !$('div#ad'+$i).attr('style') ){
+            $originArr[$i] = '';
+        }else{
+            $originArr[$i] = $('div#ad'+$i).attr('style');
+        }
     }
 //ImagePreview
     $('input.image').on('change', function(){
