@@ -139,21 +139,30 @@
             <li class="one-layouts">
                 <div class="advertisement">
                     <ul class="list-group">
-                        <li class="half"><div></div></li>
-                        <li class="half"><div></div></li>
-                        <li class="triple"></li>
-                        <li class="triple"></li>
-                        <li class="triple"></li>
+                        @foreach( $advertisements as $key=>$ad )
+                            @if( $key<5 )
+                            <li class="{{ $key == 0 || $key == 1 ? 'half' : 'triple' }}">
+                                <div class="thumbnail img-box" style="background:url({{ $ad->image }}) center no-repeat; background-size:cover;">
+                                <a href="{{ $ad->url }}"></a>
+                                </div>
+                            </li>
+                            @endif
+                        @endforeach
                     </ul>
                 </div>
             </li>
             <li class="one-layouts">
                 <div class="advertisement">
                     <ul class="list-group">
-                        <li class="half"><div></div></li>
-                        <li class="half"><div></div></li>
-                        <li class="half"><div></div></li>
-                        <li class="half"><div></div></li>
+                        @foreach( $advertisements as $key=>$ad )
+                            @if( $key>=5 )
+                            <li class="half">
+                                <div class="thumbnail img-box" style="background:url({{ $ad->image }}) center no-repeat; background-size:cover;">
+                                <a href="{{ $ad->url }}"></a>
+                                </div>
+                            </li>
+                            @endif
+                        @endforeach
                     </ul>
                 </div>
             </li>
