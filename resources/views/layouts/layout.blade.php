@@ -94,14 +94,14 @@
             </ul>
             
         </nav>
-        <nav class="tabmenu-wrap {{ !Request::segment(1) ? '' : 'active' }}">
+        <nav class="tabmenu-wrap">
             <a href="#" class="button">
-                <i class="fa {{ !Request::segment(1) ? 'fa-angle-left' : 'fa-angle-right' }}" aria-hidden="true"></i>
+                <i class="fa fa-angle-left" aria-hidden="true"></i>
             </a>
             <div class="tabmenu">
                 <ul>
                     <li>
-                        <a href="{{ url('') }}"> 
+                        <a href="{{ url('') }}" class="logo"> 
                             <img src="{{ url('/image/commoa_logo_image.png') }}">
                         </a>
                         <p class="no-mrg">컴모아</p>

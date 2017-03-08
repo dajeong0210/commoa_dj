@@ -313,7 +313,7 @@ nav.tabmenu-wrap a.button {
   width: 25px;
   height: 90px;
   position: relative;
-  top: 200px;
+  top: 420px;
   text-align: center;
   background: #fff;
   border-left: 1px #ccc solid;
@@ -346,10 +346,16 @@ nav.tabmenu-wrap div.tabmenu ul > li {
   color: #444;
 }
 
-nav.tabmenu-wrap div.tabmenu ul > li img {
+nav.tabmenu-wrap div.tabmenu ul > li a.logo {
+  display: block;
   width: 60%;
+  height: 30.98px;
+  margin: 10px auto;
+}
+
+nav.tabmenu-wrap div.tabmenu ul > li img {
+  width: 100%;
   height: auto;
-  margin-top: 10px;
 }
 
 nav.tabmenu-wrap div.tabmenu ul > li p.no-mrg {
@@ -2469,7 +2475,7 @@ div.page.list ul.myProduct > li {
 
 @media (max-width: 800px) {
   div.page.list ul.myProduct > li {
-    height: 480px;
+    height: 500px;
   }
 }
 

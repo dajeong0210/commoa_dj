@@ -1,4 +1,10 @@
 //RecentItems
+    var winWidth = $(window).width();
+    if( $(location).attr('pathname')!='/' && winWidth>480 ){
+        $('nav.tabmenu-wrap').addClass('active');
+        $('nav.tabmenu-wrap a.button i').addClass('fa-angle-right').removeClass('fa-angle-left');
+    } 
+
     $url = window.location.protocol+'//'+window.location.host;
     for(var $i=0; $i<cookieList.items().length; $i++){
         $('ul.recent-product').prepend('<li><a href="'+$url+'/product/'+ cookieList.items()[$i].idx +'" title="'+ cookieList.items()[$i].name +'"><div style="background:url('+ cookieList.items()[$i].img +') center no-repeat;background-size:cover;"></div></a></li>');

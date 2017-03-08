@@ -69,7 +69,7 @@ div.page.list{
             margin-top:-1px;
             clear:both;
             @include respond-to('small'){
-                height:480px;
+                height:500px;
             }
             &.detail{
                 border:none;
