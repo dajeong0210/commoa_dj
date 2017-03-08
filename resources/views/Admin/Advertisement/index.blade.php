@@ -34,7 +34,7 @@
                                         </a>
                                         <div id="ad{{$i}}" class="thumbnail img-box" style="background:url({{ $ad->image }}) center no-repeat; background-size:cover;">
                                         </div>
-                                        <input type="file" class="hidden" name="image{{$i+1}}" id="image{{$i}}" value="{{ $ad->image }}">
+                                        <input type="file" class="hidden" name="image{{$i+1}}" id="image{{$i}}">
                                         <div class="url">
                                         <label for="url{{$i}}">URL</label>
                                         <input type="text" name="url{{$i+1}}" id="url{{$i}}" value="{{ $ad->url }}"/>
@@ -56,7 +56,7 @@
                                         </a>
                                         <div id="ad{{$i}}" class="thumbnail img-box" style="background:url({{ $ad->image }}) center no-repeat; background-size:cover;">
                                         </div>
-                                        <input type="file" class="hidden" name="image{{$i+1}}" id="image{{$i}}" value="{{ $ad->image }}">
+                                        <input type="file" class="hidden" name="image{{$i+1}}" id="image{{$i}}">
                                         <div class="url">
                                         <label for="url{{$i}}">URL</label>
                                         <input type="text" name="url{{$i+1}}" id="url{{$i}}" value="{{ $ad->url }}"/>
