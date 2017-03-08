@@ -199,6 +199,11 @@ div#app.admin{
     nav.tab-nav{
         li{
             margin:0;
+            @include respond-to('small'){
+                &.mainEdit{
+                    width:33.333333333333333333333333333333333333333%;
+                }
+            }
         }
     }
     div.admin-content{
