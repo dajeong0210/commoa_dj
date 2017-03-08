@@ -31,6 +31,11 @@
     $point-color:rgba(43,222,115,1.0);
     $point-color2:#FA5858;
 
+///공통스타일
+    body{
+        padding-bottom:100px;
+    }
+
 /// Loading
     div.alert.alert-success{
         color:#31B404;

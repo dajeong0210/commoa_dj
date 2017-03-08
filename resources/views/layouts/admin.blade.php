@@ -42,7 +42,7 @@
             </p>
             <ul class="nav-group menu admin">
                 <li><a href="#"><i class="fa fa-caret-down" aria-hidden="true"></i>메인페이지편집</a>
-                    <ul class="{{ Request::segment(1) == 'admin' && Request::segment(2) == 'banner' ? '' : 'not-show' }}">
+                    <ul class="{{ Request::segment(1) == 'admin' && Request::segment(2) == 'banner' || Request::segment(2) == 'advertisement' || Request::segment(2) == 'recommend' ? '' : 'not-show' }}">
                         <li class="triple-layout {{ Request::segment(1) == 'admin' && Request::segment(2) == 'banner' ? 'active' : '' }}">
                             <a href="{{ url('/admin/banner') }}">메인슬라이드</a>
                         </li>

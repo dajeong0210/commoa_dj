@@ -21,8 +21,8 @@
                         <li>관리자 ▼ </li>
                     </ul>
                 </nav>
-                <div class="advertisement-list">
-                    <ul>
+                <div class="advertisement-list mainPage">
+                    <ul class="list-group">
                         <li class="one-layouts">
                             <div class="advertisement">
                                 <ul class="list-group">
@@ -35,7 +35,10 @@
                                         <div id="ad{{$i}}" class="thumbnail img-box" style="background:url({{ $ad->image }}) center no-repeat; background-size:cover;">
                                         </div>
                                         <input type="file" class="hidden" name="image{{$i+1}}" id="image{{$i}}" value="{{ $ad->image }}">
+                                        <div class="url">
+                                        <label for="url{{$i}}">URL</label>
                                         <input type="text" name="url{{$i+1}}" id="url{{$i}}" value="{{ $ad->url }}"/>
+                                        </div>
                                         </li>
                                         @endif
                                     @endforeach
@@ -43,7 +46,7 @@
                             </div>
                         </li>   
                         <li class="one-layouts">
-                            <div>
+                            <div class="advertisement">
                                 <ul class="list-group">
                                     @foreach( $advertisements as $i=>$ad )
                                         @if( $i>=5 )
@@ -51,10 +54,13 @@
                                         <a href="#" onclick="return false;" class="ad">
                                         <span>+</span>
                                         </a>
-                                        <div id="ad{{$i}}" class="thumbnail" style="background:url({{ $ad->image }}) center no-repeat; background-size:cover;">
+                                        <div id="ad{{$i}}" class="thumbnail img-box" style="background:url({{ $ad->image }}) center no-repeat; background-size:cover;">
                                         </div>
                                         <input type="file" class="hidden" name="image{{$i+1}}" id="image{{$i}}" value="{{ $ad->image }}">
+                                        <div class="url">
+                                        <label for="url{{$i}}">URL</label>
                                         <input type="text" name="url{{$i+1}}" id="url{{$i}}" value="{{ $ad->url }}"/>
+                                        </div>
                                         </li>
                                         @endif
                                     @endforeach

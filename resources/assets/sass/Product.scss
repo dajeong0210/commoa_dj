@@ -578,6 +578,9 @@ div.page{
                 line-height:1.2;
                 margin:0;
                 padding:0 10px;
+                @include respond-to('too-small'){
+                    height:140px;
+                }
                 li{
                     float:left;
                     margin-right:2px;
