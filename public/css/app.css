@@ -1132,6 +1132,33 @@ div.mainPage ul.list-group > li.one-layouts div.advertisement ul.list-group li d
   height: 100%;
 }
 
+div.mainPage ul.list-group > li.one-layouts div.advertisement ul.list-group button {
+  position: absolute;
+  bottom: 20%;
+  right: 8%;
+  font-size: 12px;
+  font-weight: bold;
+  border: 1px solid #333;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 8px 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 15px #fff;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+@media (max-width: 480px) {
+  div.mainPage ul.list-group > li.one-layouts div.advertisement ul.list-group button {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+}
+
+div.mainPage ul.list-group > li.one-layouts div.advertisement ul.list-group button:hover {
+  background: #2bde73;
+  color: #fff;
+}
+
 div.mainPage ul.list-group > li.one-layouts div.slider-wrap {
   width: 100%;
   margin: 0 auto;
