@@ -1,6 +1,6 @@
 //RecentItems
     var winWidth = $(window).width();
-    if( $(location).attr('pathname')!='/' && winWidth>480 ){
+    if( $(location).attr('pathname')!='/' && winWidth>1049 ){
         $('nav.tabmenu-wrap').addClass('active');
         $('nav.tabmenu-wrap a.button i').addClass('fa-angle-right').removeClass('fa-angle-left');
     } 

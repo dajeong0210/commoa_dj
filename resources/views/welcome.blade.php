@@ -77,16 +77,16 @@
                     <h3>핫한 상품</h3>
                     <div class="slider-wrap">
                         <div class="slider hot">
-                        @foreach( $new_items as $key=>$new_item )
+                        @foreach( $hot_items as $key=>$item )
                             <div class="item hot item_0{{$key+1}}">
-                                <div class="thumbnail" style="background:url({{ $new_item->image }}) center no-repeat; background-size:cover;">
-                                    <a href="{{ url('product').'/'.$new_item->id }}">
-                                    </a>
+                                <a href="{{ url('product').'/'.$item->id }}">
+                                <div class="thumbnail" style="background:url({{ $item->image }}) center no-repeat; background-size:cover;">
                                 </div>
+                                </a>
                                 <div class="detail">
-                                    <p>{{ $new_item->name }}</p>
-                                    <p class="shop-name">{{ $new_item->shop->name }}</p>
-                                    <p>{{ number_format($new_item->price) }}원</p>
+                                    <p>{{ $item->name }}</p>
+                                    <p class="shop-name">{{ $item->shop->name }}</p>
+                                    <p>{{ number_format($item->price) }}원</p>
                                 </div>
                             </div>
                         @endforeach
@@ -94,7 +94,7 @@
                     </div>
                     <nav class="hot_product">
                         <ul>
-                            @foreach( $new_items as $key=>$new_item )
+                            @foreach( $hot_items as $key=>$new_item )
                                 @if( $key<4 )
                                 <li><a href="#" class="nav_newProduct {{ $key == 0 ? 'active' : '' }}"><i class="fa {{ $key == 0 ? 'fa-circle' : 'fa-circle-o' }}" aria-hidden="true"></i></a></li>
                                 @endif
@@ -108,12 +108,12 @@
                     <h3>신상 조립PC</h3>
                     <div class="slider-wrap">
                         <div class="slider new">
-                        @foreach( $hot_items as $key=>$item )
+                        @foreach( $new_items as $key=>$item )
                             <div class="item new item_0{{$key+1}}">
+                                <a href="{{ url('product').'/'.$item->id }}">
                                 <div class="thumbnail" style="background:url({{ $item->image }}) center no-repeat; background-size:cover;">
-                                    <a href="{{ url('product').'/'.$item->id }}">
-                                    </a>
                                 </div>
+                                </a>
                                 <div class="detail">
                                     <p>{{ $item->name }}</p>
                                     <p class="shop-name">{{ $item->shop->name }}</p>
@@ -125,7 +125,7 @@
                     </div>
                     <nav class="new_product">
                         <ul>
-                            @foreach( $hot_items as $key=>$item )
+                            @foreach( $new_items as $key=>$item )
                                 @if( $key<4 )
                                 <li><a href="#" class="nav_newProduct {{ $key == 0 ? 'active' : '' }}"><i class="fa {{ $key == 0 ? 'fa-circle' : 'fa-circle-o' }}" aria-hidden="true"></i></a></li>
                                 @endif
