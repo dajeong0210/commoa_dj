@@ -1291,6 +1291,10 @@ div.shop-item div.tab_show li div.detail-box p {
   margin: 0;
 }
 
+div.shop-item div.tab_show li div.detail-box p.shop-name {
+  padding: 5px 0;
+}
+
 div.shop-item div.tab_show li div.detail-box p.prod-shop {
   color: #666;
   font-size: 12px;

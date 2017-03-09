@@ -478,6 +478,9 @@ div.shop-item{
                     font-size:13px;
                     padding:3px 0;
                     margin:0;
+                    &.shop-name{
+                        padding:5px 0;
+                    }
                     &.prod-shop{
                         color:#666;
                         font-size:12px;
