@@ -45,7 +45,8 @@ class WelcomeController extends Controller
     }
     
     public function guide() {
+        $url = $_SERVER['REQUEST_URI'];
         $games = Category::where('sort', '<>', 0)->orWhere('sort', null)->get();
-		return view('guide')->with('games', $games);
+		return view('guide')->with('games', $games)->with('url', $url);
 	}
 }

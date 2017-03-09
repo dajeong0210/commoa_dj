@@ -4,12 +4,12 @@
     <div class="page list">
         <div class="sort-wrap">
             <ul class="sort-list guide">
-                <li name="pc-guide" class="pc-guide active">조립 PC 가이드</li>
-                <li name="game-guide" class="game-guide">게임별 사양 가이드</li>
+                <li name="pc-guide" class="pc-guide {{ strpos( $url, '?' ) == false ? 'active' : '' }}">조립 PC 가이드</li>
+                <li name="game-guide" class="game-guide {{ strpos( $url, '?' ) == false ? '' : 'active' }}">게임별 사양 가이드</li>
             </ul>
         </div>
         <div class="tab">
-            <div name="pc-guide" class="{{ Request::segment(1) == 'guide' ? '' : 'hidden' }}">
+            <div name="pc-guide" class="{{ strpos( $url, '?' ) == false ? '' : 'hidden' }}">
                 <h3>조립 PC 가이드</h3>
                 <ul class="btn-list">
                     <li><a href="#cpu">프로세서</a></li>
@@ -77,7 +77,7 @@
                     </li>
                 </ul>
             </div>
-            <div name="game-guide" class="{{ Request::segment(1) == 'guide' ? 'hidden' : '' }}">
+            <div name="game-guide" class="{{ strpos( $url, '?' ) == false ? 'hidden' : '' }}">
                 <h3>게임별 사양 가이드</h3>
                 <ul class="btn-list">
                     @foreach($games as $game)
@@ -131,13 +131,4 @@
             </div>
         </div>
     </div>
-    <script>
-        $url = window.location.href;
-        if( $url.indexOf('?') != -1 ){
-            $('li[name="pc-guide"]').removeClass('active');
-            $('div[name="pc-guide"]').addClass('hidden');
-            $('li[name="game-guide"]').addClass('active');
-            $('div[name="game-guide"]').removeClass('hidden');
-        }
-    </script>
 @endsection
