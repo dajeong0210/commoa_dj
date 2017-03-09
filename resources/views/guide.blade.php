@@ -131,4 +131,13 @@
             </div>
         </div>
     </div>
+    <script>
+        $url = window.location.href;
+        if( $url.indexOf('?') != -1 ){
+            $('li[name="pc-guide"]').removeClass('active');
+            $('div[name="pc-guide"]').addClass('hidden');
+            $('li[name="game-guide"]').addClass('active');
+            $('div[name="game-guide"]').removeClass('hidden');
+        }
+    </script>
 @endsection
