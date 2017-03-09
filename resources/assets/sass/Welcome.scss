@@ -346,7 +346,7 @@ div.mainPage{
                                 height:100%;
                             }
                         }
-                        button{
+                        a.btn{
                             position:absolute;
                             bottom:20%;
                             right:8%;
@@ -411,7 +411,7 @@ div.mainPage{
                     width:100%;
                     height:75%;
                 }
-                a{
+                a:not(.btn){
                     display:block;
                     width:100%;
                     height:100%;

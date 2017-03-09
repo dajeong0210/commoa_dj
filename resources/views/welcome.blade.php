@@ -144,7 +144,7 @@
                             <li class="{{ $key == 0 || $key == 1 ? 'half' : 'triple' }}">
                                 <div class="thumbnail img-box" style="background:url({{ $ad->image }}) center no-repeat; background-size:cover;">
                                 @if( $key == 0 || $key == 1 )
-                                    <button class="btn">Go!</button>
+                                    <a class="btn" href="{{ $ad->url }}">Go!</a>
                                 @else
                                     <a href="{{ $ad->url }}"></a>
                                 @endif

@@ -1132,7 +1132,7 @@ div.mainPage ul.list-group > li.one-layouts div.advertisement ul.list-group li d
   height: 100%;
 }
 
-div.mainPage ul.list-group > li.one-layouts div.advertisement ul.list-group button {
+div.mainPage ul.list-group > li.one-layouts div.advertisement ul.list-group a.btn {
   position: absolute;
   bottom: 20%;
   right: 8%;
@@ -1148,13 +1148,13 @@ div.mainPage ul.list-group > li.one-layouts div.advertisement ul.list-group butt
 }
 
 @media (max-width: 480px) {
-  div.mainPage ul.list-group > li.one-layouts div.advertisement ul.list-group button {
+  div.mainPage ul.list-group > li.one-layouts div.advertisement ul.list-group a.btn {
     padding: 5px 10px;
     font-size: 11px;
   }
 }
 
-div.mainPage ul.list-group > li.one-layouts div.advertisement ul.list-group button:hover {
+div.mainPage ul.list-group > li.one-layouts div.advertisement ul.list-group a.btn:hover {
   background: #2bde73;
   color: #fff;
 }
@@ -1212,7 +1212,7 @@ div.mainPage ul.list-group > li div.thumbnail:after {
   }
 }
 
-div.mainPage ul.list-group > li div.thumbnail a {
+div.mainPage ul.list-group > li div.thumbnail a:not(.btn) {
   display: block;
   width: 100%;
   height: 100%;
