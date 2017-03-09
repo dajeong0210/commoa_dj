@@ -1154,6 +1154,11 @@ div.mainPage ul.list-group > li.one-layouts div.slider-wrap div.slider div.item 
   background: #fff;
 }
 
+div.mainPage ul.list-group > li.one-layouts div.slider-wrap div.slider div.item div.detail {
+  width: 70%;
+  margin: 0 auto;
+}
+
 div.mainPage ul.list-group > li.one-layouts div.thumbnail {
   width: 90%;
   height: 90%;
