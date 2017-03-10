@@ -29,6 +29,12 @@ class MyPageController extends Controller
         return view('Mypage.edit')->with('user', $user);
     }
 
+    public function userDelpage()
+    {
+        $user = User::find( Auth::user()->id );
+        return view('Mypage.delete')->with('user', $user);
+    }
+
     public function userUpdate(UserUpdateRequest $request, $id)
     {
     

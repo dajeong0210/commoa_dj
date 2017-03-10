@@ -99,6 +99,15 @@ div.page.list{
             &:last-child{
                 margin-bottom:100px;
             }
+            li{
+                &.same{
+                    color:$point-color2;
+                    font-weight:bold;
+                }
+                span{
+                    color:#333;
+                }
+            }
         }
         h3{
             font-size:20px;

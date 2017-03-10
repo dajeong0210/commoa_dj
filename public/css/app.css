@@ -578,6 +578,10 @@ div.footer div.wrap-footer em a:hover {
   }
 }
 
+div.pagination {
+  padding-left: 1px;
+}
+
 div.notice {
   padding: 20px 5%;
   box-sizing: border-box;
@@ -2838,6 +2842,15 @@ div.page.list ul.myProduct.similar > li:last-child {
   margin-bottom: 100px;
 }
 
+div.page.list ul.myProduct.similar > li li.same {
+  color: #FA5858;
+  font-weight: bold;
+}
+
+div.page.list ul.myProduct.similar > li li span {
+  color: #333;
+}
+
 div.page.list ul.myProduct.similar h3 {
   font-size: 20px;
   letter-spacing: -1px;
@@ -3422,7 +3435,7 @@ div.mypage div.form div.link-group a:hover {
   text-decoration: underline;
 }
 
-div.mypage div.form a.user-delete {
+div.mypage div.form a.user-del {
   position: absolute;
   bottom: 60px;
   right: 20px;
@@ -3434,7 +3447,7 @@ div.mypage div.form a.user-delete {
   transition: all 0.5s;
 }
 
-div.mypage div.form a.user-delete:hover {
+div.mypage div.form a.user-del:hover {
   color: #2bde73;
 }
 
