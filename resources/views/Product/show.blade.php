@@ -90,6 +90,70 @@
             </div>
         </div>
     </div>
+    <div class="page list mypage">
+        <ul class="myProduct similar">
+            <h3>이런 상품은 어떠세요?</h3>
+            @foreach( $similar as $product )
+            <li>
+                <div class="image-box">
+                    <a href="{{ url('product') . '/' . $product->id }}">
+                        <img src="{{ $product->image }}" alt="">
+                    </a>
+                </div>
+                <div class="mydetail-box">
+                    <a class="myprod-title" href="{{ url('product') . '/' . $product->id }}"> {{ $product->name }} </a>
+                    <p class="myprod-price">\{{ number_format($product->price) }}원
+                    </p>
+                    <ul>
+                        <li><span>cpu</span> {{ $product->cpu->name }}<span></span></li>
+                        <li><span>vga</span> {{ $product->vga->name }}<span></span></li>
+                        <li><span>ram</span> {{ $product->ram }}<span>GB</span></li>
+                        <li>
+                            @if( $product->ssd == '' )
+                            <span>ssd</span> 별도구매<span></span>
+                            @else
+                            <span>ssd</span> {{ $product->ssd }}<span>GB</span>
+                            @endif
+                        </li>
+                        <li>
+                            @if( $product->hdd == '' )
+                            <span>hdd</span> 별도구매<span></span>
+                            @else
+                            <span>hdd</span> {{ $product->hdd }}<span>GB</span>
+                            @endif
+                        </li>
+                        <li><span>power</span> {{ $product->power }}<span>W</span></li>
+                        <li>
+                            <span>os</span>
+                            @if( $product->os == 1 )
+                                Windows설치
+                            @else
+                                없음
+                            @endif
+                        </li>
+                        <li>
+                            <span>overclock</span>
+                            @if( $product->overclock == 1 )
+                                가능
+                            @else
+                                불가능
+                            @endif
+                        </li>
+                        <li>
+                            <span>monitor</span>
+                            @if( $product->monitor == '' )
+                                별도구매
+                            @else
+                                {{ $product->monitor }}인치
+                            @endif
+                        </li>
+                        </tr>
+                    </ul>
+                </div>
+            </li>
+            @endforeach
+        </ul>
+    </div>
     <script type="text/javascript">
         var cookieList = $.fn.cookieList("recent");
         var obj = new Object();

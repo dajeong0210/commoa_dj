@@ -2713,10 +2713,6 @@ div.page.list div.mydetail-box ul.detail li, div.page.list div.mydetail-box ul.d
   line-height: 50px;
 }
 
-div.page.detail {
-  max-width: 800px;
-}
-
 div.page.detail p.myprod-title {
   font-size: 40px;
   color: #333;
@@ -2819,6 +2815,33 @@ div.page.detail div.link-group a {
 
 div.page.detail div.link-group a:hover {
   color: #2bde73;
+}
+
+div.page.list ul.myProduct.similar > li {
+  padding: 20px 2.5%;
+  height: 150px;
+}
+
+@media (max-width: 800px) {
+  div.page.list ul.myProduct.similar > li {
+    height: 430px;
+  }
+}
+
+@media (max-width: 480px) {
+  div.page.list ul.myProduct.similar > li {
+    height: 470px;
+  }
+}
+
+div.page.list ul.myProduct.similar > li:last-child {
+  margin-bottom: 100px;
+}
+
+div.page.list ul.myProduct.similar h3 {
+  font-size: 20px;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
 }
 
 div.mypage form {
