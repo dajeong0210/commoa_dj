@@ -1,5 +1,4 @@
 div.page.detail{
-    max-width:800px;
     p.myprod-title{
         font-size:40px;
         color:#333;
@@ -86,3 +85,25 @@ div.page.detail{
         }
     }
 }
+div.page.list{
+    ul.myProduct.similar{
+        > li{
+            padding:20px 2.5%;
+            height:150px;
+            @include respond-to('small'){
+                height:430px;
+            }
+            @include respond-to('too-small'){
+                height:470px;
+            }
+            &:last-child{
+                margin-bottom:100px;
+            }
+        }
+        h3{
+            font-size:20px;
+            letter-spacing:-1px;
+            margin-bottom:20px;
+        }
+    }
+}  
