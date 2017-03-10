@@ -187,17 +187,24 @@ class ProductController extends Controller
         $vga_level = $product->vga->level;
         $cpus = Cpu::where('level', $cpu_level)->pluck('id');
         $vgas = Vga::where('level', $vga_level)->pluck('id');
-        $similar = Product::where('cpu_id', $cpu_id)->where('vga_id', $vga_id)->where('id', '<>', $id);
+        // $similar = Product::where('cpu_id', $cpu_id)->where('vga_id', $vga_id)->where('id', '<>', $id);
+        $similar = DB::select( DB::raw( "select * from products where cpu_id = :cpu_id and vga_id = :vga_id and id <> :id order by price asc" ), 
+                    array('cpu_id' => $cpu_id, 'vga_id' => $vga_id, 'id' => $id, ));
         $count = $similar->count();
         if( $count < 4 ) {
-            $similar->orderBy('price', 'asc');
-            $similar_cpu = Product::where('cpu_id', $cpu_id)->where('id', '<>', $id)->orderBy('price', 'asc');
+            // $similar->orderBy('price', 'asc');
+            // $similar_cpu = Product::where('cpu_id', $cpu_id)->where('id', '<>', $id)->orderBy('price', 'asc');
+            $similar_cpu = DB::select( DB::raw( "select * from products where cpu_id = :cpu_id and id <> :id order by price asc" ), array('cpu_id' => $cpu_id, 'id' => $id, ));
             $similar = $similar->union($similar_cpu);
 
-            $similar_vga = Product::where('vga_id', $vga_id)->where('id', '<>', $id)->orderBy('price', 'asc');
+            // $similar_vga = Product::where('vga_id', $vga_id)->where('id', '<>', $id)->orderBy('price', 'asc');
+            $similar_vga = DB::select( DB::raw( "select * from products where vga_id = :vga_id and id <> :id order by price asc" ), array('vga_id' => $vga_id, 'id' => $id, ));
             $similar = $similar->union($similar_vga);
 
-            $similar2 = Product::whereIn('cpu_id', $cpus)->whereIn('vga_id', $vgas)->where('id', '<>', $id)->orderBy('price', 'asc');
+            // $similar2 = Product::whereIn('cpu_id', $cpus)->whereIn('vga_id', $vgas)->where('id', '<>', $id)->orderBy('price', 'asc');
+            $similar2 = DB::select( DB::raw( "select * from products where cpu_id in :cpus and vga_id in :vgas and id <> :id order by price asc" ), 
+                        array('cpus' => $cpus, 'vgas' => $vgas, 'id' => $id, ));
+                        
             $similar = $similar->union($similar2)->limit(4)->get();
         }
        
