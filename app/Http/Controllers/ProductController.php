@@ -181,8 +181,15 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::find($id);
-
-        return view('Product.show')->with('product', $product);
+        $cpu_id = $product->cpu_id;
+        $vga_id = $product->vga_id;
+        $cpu_level = $product->cpu->level;
+        $vga_level = $product->vga->level;
+        $similar = Product::where('cpu_id', $cpu_id)->where('vga_id', $vga_id)->get();
+        if( $similar->count() == 0 ) {
+            $similar = null;
+        }
+        return view('Product.show')->with('product', $product)->with('similar', $similar);
     }
 
 }
