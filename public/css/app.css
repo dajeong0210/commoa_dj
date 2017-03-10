@@ -2747,6 +2747,10 @@ div.page.detail p.prod-url {
   white-space: nowrap;
 }
 
+div.page.detail div.image-box.detail {
+  max-width: 350px;
+}
+
 div.page.detail div.fav-group {
   margin: 10px auto;
   width: 60px;
