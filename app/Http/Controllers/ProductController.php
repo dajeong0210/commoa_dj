@@ -187,11 +187,14 @@ class ProductController extends Controller
         $vga_level = $product->vga->level;
         $cpus = Cpu::where('level', $cpu_level)->pluck('id');
         $vgas = Vga::where('level', $vga_level)->pluck('id');
-        $similar = Product::where('cpu_id', $cpu_id)->where('vga_id', $vga_id)->where('id', '<>', $id)->orderBy('views', 'desc')->limit(4)->get();
-        
-        if( $similar->count() == 0 ) {
-            $similar = Product::whereIn('cpu_id', $cpus)->whereIn('vga_id', $vgas)->where('id', '<>', $id)->orderBy('views', 'desc')->limit(4)->get();
+        $similar = Product::where('cpu_id', $cpu_id)->where('vga_id', $vga_id)->where('id', '<>', $id);
+        $count = $similar->count();
+        if( $count < 4 ) {
+            $similar->orderBy('views', 'desc')->limit($count);
+            $similar2 = Product::whereIn('cpu_id', $cpus)->whereIn('vga_id', $vgas)->where('id', '<>', $id)->orderBy('views', 'desc')->limit(4-$count);
+            $similar = $similar->union($similar2)->get();
         }
+       
         return view('Product.show')->with('product', $product)->with('similar', $similar);
     }
 
