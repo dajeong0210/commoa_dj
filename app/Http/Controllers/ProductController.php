@@ -191,10 +191,10 @@ class ProductController extends Controller
         $count = $similar->count();
         if( $count < 4 ) {
             $similar->orderBy('price', 'asc');
-            $similar_cpu = Product::where('cpu_id', $cpu_id)->orderBy('price', 'asc');
+            $similar_cpu = Product::where('cpu_id', $cpu_id)->where('id', '<>', $id)->orderBy('price', 'asc');
             $similar = $similar->union($similar_cpu);
 
-            $similar_vga = Product::where('vga_id', $vga_id)->orderBy('price', 'asc');
+            $similar_vga = Product::where('vga_id', $vga_id)->where('id', '<>', $id)->orderBy('price', 'asc');
             $similar = $similar->union($similar_vga);
 
             $similar2 = Product::whereIn('cpu_id', $cpus)->whereIn('vga_id', $vgas)->where('id', '<>', $id)->orderBy('price', 'asc');
