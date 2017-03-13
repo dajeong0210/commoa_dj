@@ -189,6 +189,7 @@ class ProductController extends Controller
         $vgas = Vga::where('level', $vga_level)->pluck('id');
         $similar = Product::where('cpu_id', $cpu_id)->where('vga_id', $vga_id)->where('id', '<>', $id);
         $count = $similar->count();
+
         if( $count < 4 ) {
             $similar->orderBy('price', 'asc');
             $similar_cpu = Product::where('cpu_id', $cpu_id)->where('id', '<>', $id)->orderBy('price', 'asc');
