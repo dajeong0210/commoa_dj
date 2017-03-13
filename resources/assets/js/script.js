@@ -37,14 +37,23 @@
     });
 
 //confirm
-    $('a.rcm-delete, a.user-delete , input.del-submit').click(function(e){
+    $('a.rcm-delete, input.user-delete, input.del-submit').click(function(e){
         e.preventDefault();
         var confirmMent = '정말 삭제하시겠습니까?';
         if( $(this).hasClass('user-delete') ){
+            if( $('input[name="old_password"]').val()=='' ){
+                alert('비밀번호를 입력해주세요!');
+                $('input[name="old_password"]').focus();
+                return false;
+            }
             confirmMent = '정말 탈퇴하시겠습니까?\n회원님의 정보는 전부 사라집니다.';
         }
         if(confirm(confirmMent) == true){
-            $(this).next().submit();
+            if( $(this).hasClass('user-delete') ){
+                $(this).parent().parent().submit();
+            }else{
+                $(this).next().submit();
+            }
         }else{
             return;
         }

@@ -10,6 +10,7 @@ use App\Http\Requests\CpuCreateRequest;
 use App\Http\Requests\CategoryRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Hash;
 use App\Category;
 use App\Apply;
 use App\User;
@@ -451,54 +452,59 @@ class AdminController extends Controller
 		return redirect('/admin/user');
 	}
 	
-	public function userDelete($id) {
+	public function userDelete(Request $request, $id) {
 		
 		$user = User::find($id);
-		//자신이 bookmark, favorite 한 것! 
-		$bookmarks = $user->shops;
-		$favorites = $user->products;
-		foreach ($bookmarks as $bookmark) {
-			$user->shops()->detach($bookmark->id);
-		}
-		foreach ($favorites as $favorite) {
-			$user->products()->detach($favorite->id);
-		}
-		if( $user->apply != null ) {
-			$user->apply->delete();
-		}
-		if( $user->permission == 0 ) {
-			$user->delete();
-		} else if ( $user->permission == 1 ) {
-			//shop_user delete 
-			$shop = $user->shop;
-			if( $shop != null ) {
-				$bookmark_users = $shop->users()->get();
-				foreach ($bookmark_users as $buser) {
-					$shop->users()->detach( $buser->id );
-				}
-				
-				//category_product, category delete
-				//product_user, product delete
-				$products = $shop->products()->get();
-				foreach ($products as $product) {
-					$product = Product::find($product->id);
-					$categories = $product->categories()->get();
-					$favorite_users = $product->users()->get();
-					foreach ($categories as $category) {
-						$category->products()->detach( $product->id );
-					}
-					foreach ($favorite_users as $fuser) {
-						$product->users()->detach( $fuser->id );
-					}
-					$product->delete();
-				}
-				//shop delete
-				$shop->delete();
+		if( $request->input('old_password') && !Hash::check( $request->input('old_password'), $user->password ) ) {
+				session()->flash('msg', "비밀번호가 일치하지 않습니다.");
+            	return back();
+		}else{
+		
+			//자신이 bookmark, favorite 한 것! 
+			$bookmarks = $user->shops;
+			$favorites = $user->products;
+			foreach ($bookmarks as $bookmark) {
+				$user->shops()->detach($bookmark->id);
 			}
-			//user delete
-			$user->delete();
+			foreach ($favorites as $favorite) {
+				$user->products()->detach($favorite->id);
+			}
+			if( $user->apply != null ) {
+				$user->apply->delete();
+			}
+			if( $user->permission == 0 ) {
+				$user->delete();
+			} else if ( $user->permission == 1 ) {
+				//shop_user delete 
+				$shop = $user->shop;
+				if( $shop != null ) {
+					$bookmark_users = $shop->users()->get();
+					foreach ($bookmark_users as $buser) {
+						$shop->users()->detach( $buser->id );
+					}
+					
+					//category_product, category delete
+					//product_user, product delete
+					$products = $shop->products()->get();
+					foreach ($products as $product) {
+						$product = Product::find($product->id);
+						$categories = $product->categories()->get();
+						$favorite_users = $product->users()->get();
+						foreach ($categories as $category) {
+							$category->products()->detach( $product->id );
+						}
+						foreach ($favorite_users as $fuser) {
+							$product->users()->detach( $fuser->id );
+						}
+						$product->delete();
+					}
+					//shop delete
+					$shop->delete();
+				}
+				//user delete
+				$user->delete();
+			}
 		}
-
 		if( Auth::user()->permission == 2 ) {
 			return redirect('/admin/user');
 		} else {

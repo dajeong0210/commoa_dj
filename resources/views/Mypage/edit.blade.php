@@ -46,11 +46,7 @@
                 <input type="submit" value="수정하기" class="submit modify"/>
             </div>
             </form>
-            <a href="#" class="user-delete">회원탈퇴하기</a>
-            <form name="user-del" method="POST" action="{{ url('myinfo') . '/' . Auth::user()->id }}">
-            {{ method_field('delete') }}
-            {{ csrf_field() }}
-            </form>
+            <a href="{{ url('/myinfo-del') }}" class="user-del">회원탈퇴하기</a>
         </div>
     </div>
 @endsection

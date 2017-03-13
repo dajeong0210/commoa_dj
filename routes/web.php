@@ -34,6 +34,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/mypage', 'MyPageController@index');
     Route::get('/myinfo', 'MyPageController@userIndex');
+    Route::get('/myinfo-del', 'MyPageController@userDelpage');
     Route::put('/myinfo/{id}', 'MyPageController@userUpdate');
     Route::delete('/myinfo/{id}', 'AdminController@userDelete');
     Route::get('/bookmark', 'MyPageController@bookmarkIndex');
